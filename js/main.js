@@ -696,9 +696,21 @@ function getReviews() {
 
 function addReview(review) {
   const list = getReviews();
-  list.unshift(review);
+  list.unshift({ id: Date.now(), ...review });
   try { localStorage.setItem(REVIEWS_KEY, JSON.stringify(list.slice(0, 50))); } catch (e) {}
   return list;
+}
+
+// Reviews are stored per-browser only (see privacy policy), so every entry
+// returned by getReviews() was written by whoever is using this browser —
+// there's no cross-user data here, which is what makes editing them safe.
+function updateReview(id, updates) {
+  const list = getReviews();
+  const index = list.findIndex((r) => r.id === id);
+  if (index === -1) return null;
+  list[index] = { ...list[index], ...updates };
+  try { localStorage.setItem(REVIEWS_KEY, JSON.stringify(list)); } catch (e) {}
+  return list[index];
 }
 
 /* ---------- Trip-search autocomplete dropdown ----------
@@ -1077,12 +1089,15 @@ function initWanderList() {
     }[c]));
     const REVIEW_AVATAR_COLORS = ["var(--emerald)", "var(--mint-dark)", "var(--emerald-dark)"];
 
-    function reviewCardHtml(r) {
+    function reviewCardHtml(r, isOwn) {
       const rating = Math.round(r.rating || 5);
       const color = r.color || REVIEW_AVATAR_COLORS[(r.author || "").length % REVIEW_AVATAR_COLORS.length];
       const initial = r.initial || (r.author || "?").trim().charAt(0).toUpperCase();
+      const canEdit = isOwn && r.id;
+      const editBtn = canEdit ? `<button type="button" class="review-edit-btn" data-review-id="${r.id}" aria-label="Edit your review">Edit</button>` : "";
       return `
-        <div class="testimonial-card reveal in-view">
+        <div class="testimonial-card reveal in-view"${canEdit ? ` data-review-id="${r.id}"` : ""}>
+          ${editBtn}
           <div class="testimonial-stars">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
           <p>"${escapeHtml(r.text)}"</p>
           <div class="testimonial-author">
@@ -1092,22 +1107,96 @@ function initWanderList() {
         </div>`;
     }
 
+    function reviewEditFormHtml(r) {
+      const rating = Math.round(r.rating || 5);
+      const starBtns = [1, 2, 3, 4, 5].map((n) =>
+        `<button type="button" class="star-btn${n <= rating ? " is-filled" : ""}" data-star="${n}" aria-label="${n} star${n > 1 ? "s" : ""}">★</button>`
+      ).join("");
+      return `
+        <div class="testimonial-card testimonial-card-editing" data-review-id="${r.id}">
+          <div class="contact-field">
+            <label>Rating</label>
+            <div class="star-rating review-edit-stars" data-value="${rating}">${starBtns}</div>
+          </div>
+          <div class="contact-field" style="margin-bottom:12px;">
+            <textarea class="review-edit-text" rows="4">${escapeHtml(r.text)}</textarea>
+          </div>
+          <p class="review-edit-error" hidden>Your review can't be empty.</p>
+          <div class="review-edit-actions">
+            <button type="button" class="btn btn-primary btn-sm review-edit-save">Save</button>
+            <button type="button" class="btn btn-outline btn-sm review-edit-cancel">Cancel</button>
+          </div>
+        </div>`;
+    }
+
     // Show any locally written reviews immediately, without waiting on the fetch below.
-    testimonialGrid.insertAdjacentHTML("afterbegin", getReviews().map(reviewCardHtml).join(""));
+    testimonialGrid.insertAdjacentHTML("afterbegin", getReviews().map((r) => reviewCardHtml(r, true)).join(""));
 
     let lastPayload = "";
     let latestFetchedReviews = null;
+    function renderTestimonialGrid() {
+      const fetched = latestFetchedReviews || [];
+      testimonialGrid.innerHTML = getReviews().map((r) => reviewCardHtml(r, true)).join("") + fetched.map((r) => reviewCardHtml(r, false)).join("");
+    }
     function renderReviews(reviews) {
       latestFetchedReviews = reviews;
-      testimonialGrid.innerHTML = getReviews().map(reviewCardHtml).join("") + reviews.map(reviewCardHtml).join("");
+      renderTestimonialGrid();
     }
     window.wanderListRenderReviews = () => {
       if (latestFetchedReviews) {
-        renderReviews(latestFetchedReviews);
+        renderTestimonialGrid();
       } else {
-        testimonialGrid.insertAdjacentHTML("afterbegin", reviewCardHtml(getReviews()[0]));
+        testimonialGrid.insertAdjacentHTML("afterbegin", reviewCardHtml(getReviews()[0], true));
       }
     };
+
+    // Edit own reviews in place: swap the card for an inline form, save back to
+    // localStorage, then re-render. Reviews fetched from data/reviews.json never
+    // get an Edit button (reviewCardHtml only adds one when isOwn is true), so
+    // there's no path for a visitor to edit anyone else's review.
+    testimonialGrid.addEventListener("click", (e) => {
+      const editBtn = e.target.closest(".review-edit-btn");
+      if (editBtn) {
+        const id = Number(editBtn.dataset.reviewId);
+        const review = getReviews().find((r) => r.id === id);
+        if (!review) return;
+        editBtn.closest(".testimonial-card").outerHTML = reviewEditFormHtml(review);
+        return;
+      }
+
+      const cancelBtn = e.target.closest(".review-edit-cancel");
+      if (cancelBtn) {
+        renderTestimonialGrid();
+        return;
+      }
+
+      const starBtn = e.target.closest(".review-edit-stars .star-btn");
+      if (starBtn) {
+        const starsEl = starBtn.closest(".review-edit-stars");
+        const n = parseInt(starBtn.dataset.star, 10);
+        starsEl.dataset.value = String(n);
+        Array.from(starsEl.querySelectorAll(".star-btn")).forEach((b) => b.classList.toggle("is-filled", parseInt(b.dataset.star, 10) <= n));
+        return;
+      }
+
+      const saveBtn = e.target.closest(".review-edit-save");
+      if (saveBtn) {
+        const card = saveBtn.closest(".testimonial-card-editing");
+        const id = Number(card.dataset.reviewId);
+        const textEl = card.querySelector(".review-edit-text");
+        const starsEl = card.querySelector(".review-edit-stars");
+        const errorEl = card.querySelector(".review-edit-error");
+        const text = textEl.value.trim();
+        if (!text) {
+          errorEl.hidden = false;
+          return;
+        }
+        const rating = parseInt(starsEl.dataset.value, 10) || 5;
+        saveBtn.disabled = true;
+        updateReview(id, { text, rating });
+        renderTestimonialGrid();
+      }
+    });
 
     async function loadReviews() {
       try {

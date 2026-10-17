@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 104 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 105 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
@@ -46,6 +46,7 @@
 - [4 Days in Sofia, Bulgaria](https://www.triptocost.com/sofia): 4 Days in Sofia, Bulgaria, est. $450-600/person
 - [4 Days in Strasbourg: Petite France, Cathedral & the Alsace Wine Route](https://www.triptocost.com/strasbourg): 4 Days in Strasbourg, France, est. $650-850/person
 - [4 Days in Tallinn: Old Town, Toompea & Kalamaja](https://www.triptocost.com/tallinn): 4 Days in Tallinn, Estonia, est. $550-750/person
+- [4 Days in Vienna: Christmas Markets, Palaces & Coffeehouses](https://www.triptocost.com/vienna): 4 Days in Vienna, Austria, est. $850-1,150/person
 - [5 Days at Machu Picchu: The Sacred Valley & the Lost City of the Incas](https://www.triptocost.com/machu-picchu): 5 Days in Machu Picchu, Peru, est. $700-1,000/person
 - [5 Days in Budapest: Danube, Castle Hill & Thermal Baths](https://www.triptocost.com/budapest): 5 Days in Budapest, Hungary, est. $600-800/person
 - [5 Days in Marrakech: Medina Souks, Palaces & the High Atlas](https://www.triptocost.com/marrakech): 5 Days in Marrakech, Morocco, est. $600-850/person

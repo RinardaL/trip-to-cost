@@ -590,6 +590,13 @@ const DAY_INDEX = [
   { page: "chongqing", day: 4, title: "Shibati, Museum & Departure", text: "Shibati, Museum & Departure · The Great Hall of the People & Three Gorges Museum · Mountain City Trail & Shibati · Chaotianmen at night & transfer to the airport", place: "Chongqing, China" },
 ];
 
+/* ---------- Seasonal picks (home page tiles link to browse?season=...) ---------- */
+const SEASON_PICKS = {
+  autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","prague","budapest"] },
+  christmas: { title: "Christmas Magic", ids: ["colmar","lapland","megeve","tromso"] },
+  winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull"] },
+};
+
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
 const WEATHER_CODES = {
   0: ["☀️", "Clear sky"], 1: ["🌤️", "Mostly clear"], 2: ["⛅", "Partly cloudy"], 3: ["☁️", "Overcast"],
@@ -2038,6 +2045,17 @@ function initWanderList() {
     const browseCount = document.getElementById("browseCount");
     const browseEmpty = document.getElementById("browseEmpty");
     const cards = Array.from(browseGrid.querySelectorAll(".trip-card"));
+    const seasonKey = new URLSearchParams(window.location.search).get("season");
+    const seasonPick = SEASON_PICKS[seasonKey] || null;
+    const seasonIds = seasonPick ? new Set(seasonPick.ids) : null;
+    if (seasonPick) {
+      const note = document.createElement("p");
+      note.className = "season-note";
+      note.innerHTML = '<span></span> <a href="browse">Show all trips</a>';
+      note.firstElementChild.textContent = "Showing " + seasonPick.title + ": ";
+      document.getElementById("browseCount").insertAdjacentElement("beforebegin", note);
+      document.title = seasonPick.title + ": TripToCost";
+    }
 
     function applyFilters() {
       const activeStyle = styleFilterEl.dataset.value;
@@ -2055,7 +2073,8 @@ function initWanderList() {
         const matchesStyle = activeStyle === "all" || styles.includes(activeStyle);
         const matchesContinent = activeContinent === "all" || continent === activeContinent;
         const matchesSearch = !query || name.includes(query) || place.includes(query);
-        const isMatch = matchesStyle && matchesContinent && matchesSearch;
+        const matchesSeason = !seasonIds || seasonIds.has(href);
+        const isMatch = matchesStyle && matchesContinent && matchesSearch && matchesSeason;
 
         card.classList.toggle("is-hidden", !isMatch);
         if (isMatch) visibleCount++;
@@ -2095,6 +2114,12 @@ function initWanderList() {
     if (styleParam) styleDropdown.selectValue(styleParam);
     applyFilters();
   }
+
+  /* ---------- Seasonal tiles: keep the trip counts in step with SEASON_PICKS ---------- */
+  document.querySelectorAll("[data-season-count]").forEach((el) => {
+    const pick = SEASON_PICKS[el.dataset.seasonCount];
+    if (pick) el.textContent = pick.ids.length + (pick.ids.length === 1 ? " trip" : " trips");
+  });
 
   /* ---------- Remember which itinerary was opened (feeds Surprise Me) ---------- */
   const viewedId = currentPageId().replace(/\.html$/, "");

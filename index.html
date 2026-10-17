@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://upload.wikimedia.org">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261018j">
+<link rel="stylesheet" href="css/style.css?v=20261018k">
 <meta name="description" content="Skip 20 hours of trip research. TripToCost gives you ready-to-go itineraries: day-by-day plans, culture guides, packing lists, and insider tips for any trip.">
 <link rel="canonical" href="https://www.triptocost.com/">
 <meta property="og:type" content="website">
@@ -181,128 +181,31 @@
       <h2>Where to Travel This Season</h2>
       <p>Discover your next escape, from autumn colors to magical winter destinations.</p>
     </div>
-    <div class="season-group">
-      <div class="season-banner">
-        <img src="images/season-autumn.webp" alt="Hallstatt on its alpine lake in autumn, with golden forest on the hillside and the church spire reflected in the water" width="2000" height="1333" loading="lazy" decoding="async" style="object-position:center 26%">
-        <h3 class="season-title">Autumn Escapes</h3>
-      </div>
-      <div class="season-grid">
-        <article class="trip-card" data-style="modern-city">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://images.unsplash.com/photo-1758384077399-2757a1de8b75?w=500&q=80&fm=jpg&fit=crop" alt="Seoul's palace rooftops against the modern skyline, South Korea" loading="lazy" decoding="async">
-            <span class="photo-label">Seoul, South Korea</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Modern Cities</span><span class="tag">5 Days</span></div>
-            <h3>5 Days in Seoul: Palaces, Markets &amp; Neon Nights</h3>
-            <div class="trip-meta"><span class="cost">$800-1,100/person</span><a href="seoul" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="road-trip">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://images.unsplash.com/photo-1684836571999-f3dc511935e7?w=500&q=80&fm=jpg&fit=crop" alt="Cypress-lined road through the Tuscan countryside" loading="lazy" decoding="async">
-            <span class="photo-label">Tuscany, Italy</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Road Trips &amp; National Parks</span><span class="tag">6 Days</span></div>
-            <h3>6 Days in Tuscany: A Self-Drive Road Trip</h3>
-            <div class="trip-meta"><span class="cost">$1,100-1,500/person</span><a href="toscana" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="road-trip">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg" alt="Delicate Arch at sunset, Utah" loading="lazy" decoding="async">
-            <span class="photo-label">Utah, USA</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Road Trips &amp; National Parks</span><span class="tag">7 Days</span></div>
-            <h3>Ultimate Road Trip Through Utah's National Parks</h3>
-            <div class="trip-meta"><span class="cost">$950-1,250/person</span><a href="utah-national-parks" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-      </div>
-    </div>
-    <div class="season-group">
-      <div class="season-banner">
+    <div class="season-tiles">
+      <a class="season-tile" href="browse?season=autumn">
+        <img src="images/season-autumn.webp" alt="Hallstatt on its alpine lake in autumn, with golden forest on the hillside and the church spire reflected in the water" width="2000" height="1333" loading="lazy" decoding="async" style="object-position:center 30%">
+        <span class="season-tile-body">
+          <span class="season-tile-count" data-season-count="autumn">8 trips</span>
+          <h3 class="season-tile-title">Autumn Escapes</h3>
+          <span class="season-tile-cta">Explore trips <span aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
+      <a class="season-tile" href="browse?season=christmas">
         <img src="images/season-christmas.webp" alt="Wooden Christmas market stalls glowing with lights in front of a Gothic town hall at dusk" width="960" height="540" loading="lazy" decoding="async" style="object-position:center 40%">
-        <h3 class="season-title">Christmas Magic</h3>
-      </div>
-      <div class="season-grid">
-        <article class="trip-card" data-style="historic-city">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg/500px-March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg" alt="Colmar's Christmas market lit up at night, Alsace, France" loading="lazy" decoding="async">
-            <span class="photo-label">Colmar, France</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Historic Old Towns</span><span class="tag">4 Days</span></div>
-            <h3>4 Days in Colmar: Christmas Markets &amp; the Alsace Wine Route</h3>
-            <div class="trip-meta"><span class="cost">$750-1,000/person</span><a href="colmar" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="lakes-nature">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://images.unsplash.com/photo-1738189669835-61808a9d5981?w=500&q=80&fm=jpg&fit=crop" alt="Aurora borealis over a snow-covered forest, Finnish Lapland" loading="lazy" decoding="async">
-            <span class="photo-label">Finnish Lapland</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Lakes &amp; Nature</span><span class="tag">5 Days</span></div>
-            <h3>5 Days in Finnish Lapland: Rovaniemi &amp; the Arctic Circle</h3>
-            <div class="trip-meta"><span class="cost">$1,800-2,400/person</span><a href="lapland" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="mountain">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg/500px-Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg" alt="Panoramic winter view of Megève village and the Mont Blanc massif from the Dames ski slopes" loading="lazy" decoding="async">
-            <span class="photo-label">Megève, France</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Mountain Escapes</span><span class="tag">4 Days</span></div>
-            <h3>4 Days in Megève: Gentle Slopes, Gourmet Dining &amp; Sleigh Rides</h3>
-            <div class="trip-meta"><span class="cost">$1,900-2,600/person</span><a href="megeve" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-      </div>
-    </div>
-    <div class="season-group">
-      <div class="season-banner">
-        <img src="images/season-winter.webp" alt="A snow-covered timber alpine hut below jagged Dolomite peaks on a clear winter day" width="1600" height="1067" loading="lazy" decoding="async" style="object-position:center 62%">
-        <h3 class="season-title">Winter Retreats</h3>
-      </div>
-      <div class="season-grid">
-        <article class="trip-card" data-style="mountain">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://images.unsplash.com/photo-1547980562-3c008cd4b769?w=500&q=80&fm=jpg&fit=crop" alt="Snow-covered chalets in the Engadin valley near St. Moritz, Switzerland, under a clear winter sky" loading="lazy" decoding="async">
-            <span class="photo-label">St. Moritz, Switzerland</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Mountain Escapes</span><span class="tag">4 Days</span></div>
-            <h3>4 Days in St. Moritz: Ski Slopes, the Cresta Run &amp; Frozen-Lake Glamour</h3>
-            <div class="trip-meta"><span class="cost">$1,900-2,600/person</span><a href="st-moritz" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="lakes-nature">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Aurora_in_Abisko_National_Park.jpg/500px-Aurora_in_Abisko_National_Park.jpg" alt="The aurora borealis glowing green over Abisko National Park, Sweden" loading="lazy" decoding="async">
-            <span class="photo-label">Abisko, Sweden</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Lakes &amp; Nature</span><span class="tag">4 Days</span></div>
-            <h3>4 Days in Abisko, Sweden: Northern Lights &amp; Arctic Wilderness</h3>
-            <div class="trip-meta"><span class="cost">$1,400-1,900/person</span><a href="abisko" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-        <article class="trip-card" data-style="road-trip">
-          <div class="photo ph-2" style="height:190px;">
-            <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg/500px-Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg" alt="The aurora borealis over the Sun Voyager sculpture, Reykjavik, Iceland" loading="lazy" decoding="async">
-            <span class="photo-label">Iceland</span>
-          </div>
-          <div class="trip-card-body">
-            <div class="trip-tags"><span class="tag terracotta">Road Trips &amp; National Parks</span><span class="tag">5 Days</span></div>
-            <h3>5 Days in Iceland: Golden Circle, South Coast &amp; the Northern Lights</h3>
-            <div class="trip-meta"><span class="cost">$1,600-2,200/person</span><a href="iceland" class="btn btn-outline btn-sm">View Trip</a></div>
-          </div>
-        </article>
-      </div>
+        <span class="season-tile-body">
+          <span class="season-tile-count" data-season-count="christmas">4 trips</span>
+          <h3 class="season-tile-title">Christmas Magic</h3>
+          <span class="season-tile-cta">Explore trips <span aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
+      <a class="season-tile" href="browse?season=winter">
+        <img src="images/season-winter.webp" alt="A snow-covered timber alpine hut below jagged Dolomite peaks on a clear winter day" width="1600" height="1067" loading="lazy" decoding="async" style="object-position:center 55%">
+        <span class="season-tile-body">
+          <span class="season-tile-count" data-season-count="winter">6 trips</span>
+          <h3 class="season-tile-title">Winter Retreats</h3>
+          <span class="season-tile-cta">Explore trips <span aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -564,7 +467,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20261018d"></script>
+<script src="js/main.js?v=20261018k"></script>
 <script type="module" src="js/globe.js?v=20261018d"></script>
 </body>
 </html>

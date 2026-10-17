@@ -459,7 +459,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; color: var(
    Travel styles + random itineraries: a framed slideshow that moves
    sideways as the page scrolls down.
    Base (no JS / reduced motion): a swipeable, snapping horizontal row.
-   .is-enhanced (set by main.js): a tall runway with a sticky stage whose
+   .is-slider (set by main.js): previous/next arrows move the track; it used to be a sticky stage whose
    track is translated horizontally by vertical scroll progress.
    =========================================================== */
 .style-scroll {
@@ -597,40 +597,21 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 
 .style-hint, .style-dots, .style-progress { display: none; }
 
-.style-scroll.is-enhanced .style-runway { height: calc(var(--stage-h) + (var(--slides) - 1) * 60vh); }
-.style-scroll.is-enhanced .style-stage {
-  position: sticky;
-  top: var(--stage-top);
-  overflow: hidden;
-  scroll-snap-type: none;
-}
-.style-scroll.is-enhanced .style-track { will-change: transform; }
-.style-scroll.is-enhanced .style-slide { flex: 0 0 100%; }
-.style-scroll.is-enhanced .style-slide-body,
-.style-scroll.is-enhanced .style-random {
+/* Slider mode (set by JS): one slide at a time, moved with arrows, dots, swipe or arrow keys */
+.style-scroll.is-slider { --stage-h: min(78vh, 680px); }
+@supports (height: 100svh) { .style-scroll.is-slider { --stage-h: min(78svh, 680px); } }
+.style-scroll.is-slider .style-stage { position: relative; overflow: hidden; scroll-snap-type: none; touch-action: pan-y; }
+.style-scroll.is-slider .style-track { transition: transform 0.7s var(--ease-premium); will-change: transform; }
+.style-scroll.is-slider .style-slide { flex: 0 0 100%; }
+.style-scroll.is-slider .style-slide-body,
+.style-scroll.is-slider .style-random {
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 0.6s var(--ease-premium), transform 0.8s var(--ease-premium);
 }
-.style-scroll.is-enhanced .style-slide.is-active .style-slide-body,
-.style-scroll.is-enhanced .style-slide.is-active .style-random { opacity: 1; transform: none; }
-.style-scroll.is-enhanced .style-hint {
-  display: block;
-  position: absolute;
-  top: 18px; right: 20px;
-  z-index: 3;
-  padding: 8px 14px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-  transition: opacity 0.4s ease;
-}
-.style-scroll.is-enhanced .style-hint.is-hidden { opacity: 0; }
-.style-scroll.is-enhanced .style-dots {
+.style-scroll.is-slider .style-slide.is-active .style-slide-body,
+.style-scroll.is-slider .style-slide.is-active .style-random { opacity: 1; transform: none; }
+.style-scroll.is-slider .style-dots {
   display: flex;
   position: absolute;
   left: 0; right: 0; bottom: 14px;
@@ -638,6 +619,21 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   justify-content: center;
   gap: 2px;
 }
+.style-arrow {
+  position: absolute; top: 50%; z-index: 4;
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem; line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.style-arrow:hover, .style-arrow:focus-visible { background: #fff; color: var(--emerald-dark); }
+.style-prev { left: 20px; }
+.style-next { right: 20px; }
 .style-dot { width: 26px; height: 26px; display: grid; place-items: center; }
 .style-dot::after {
   content: "";
@@ -649,21 +645,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .style-dot:hover::after { background: #fff; }
 .style-dot.is-active::after { background: #fff; transform: scale(1.45); }
 .style-dot:focus-visible { outline: 2px solid var(--mint); border-radius: 50%; }
-.style-scroll.is-enhanced .style-progress {
-  display: block;
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  z-index: 3;
-  height: 4px;
-  background: rgba(255,255,255,0.25);
-}
-.style-progress-bar {
-  display: block;
-  height: 100%;
-  background: #fff;
-  transform-origin: left center;
-  transform: scaleX(var(--p, 0));
-}
+
 @media (max-width: 860px) {
   .style-random { grid-template-columns: 1fr; gap: 14px; align-content: center; }
   .style-random-intro p { margin-bottom: 14px; }
@@ -677,7 +659,6 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 @media (max-width: 640px) {
   .style-scroll { padding: 64px 0 40px; }
   .style-slide-body { padding: 22px 20px 72px; }
-  .style-scroll.is-enhanced .style-hint { top: 12px; right: 12px; }
   .style-random { padding: 20px 18px 60px; }
   .style-random-intro h3 { font-size: 1.7rem; margin-bottom: 8px; }
   .style-random-intro .style-slide-kicker { font-size: 0.68rem; }
@@ -2447,3 +2428,27 @@ strong, b { font-weight: 600; }
 }
 .duration-options .duration-btn + .duration-btn { border-left: 1px solid #D5CFBE !important; }
 .duration-options .duration-btn:first-child { border-left: 0 !important; }
+
+/* Seasonal section heading and subtitle in red */
+.season-section .section-head .season-heading { color: #B42318; font-weight: 700; }
+.season-section .section-head .season-sub { color: #B42318; }
+
+@media (max-width: 640px) {
+  .style-scroll.is-slider .style-dots { bottom: 22px; }
+  .style-arrow { top: auto; bottom: 14px; width: 44px; height: 44px; transform: none; }
+  .style-prev { left: 12px; }
+  .style-next { right: 12px; }
+}
+@media (min-width: 861px) {
+  .style-scroll.is-slider .style-slide-body { padding-left: 108px; }
+  .style-scroll.is-slider .style-random { padding-left: 108px; padding-right: 108px; }
+}
+.season-heading .orn-flake { width: 0.62em; height: 0.62em; margin: 0 0.3em; vertical-align: 0.02em; }
+.season-section .section-head .season-orn {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin: 2px 0 14px;
+  color: #B42318;
+}
+.season-orn::before, .season-orn::after { content: ""; width: 56px; height: 1px; background: currentColor; opacity: 0.45; }
+.season-orn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.season-orn .orn-tree { width: 20px; height: 20px; }

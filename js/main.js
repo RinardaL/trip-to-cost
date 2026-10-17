@@ -37,7 +37,7 @@ const TRIP_CATALOG = {
   "austrian-alps": { title: "5 Days in the Austrian Alps: Innsbruck, Tyrol & Mountain Villages", place: "Austrian Alps, Austria", tag: "Mountain Escapes", duration: "5 Days", cost: "$1,100-1,500/person", img: "https://images.unsplash.com/photo-1621532450828-732396728722?w=500&q=80&fm=jpg&fit=crop", alt: "Jagged limestone peaks of the Austrian Alps rising above a forested mountain slope", country: "Austria", continent: "Europe", lat: 47.26, lon: 11.39, season: "Jun – Sep" },
   "bansko": { title: "4 Days in Bansko: Pirin Peaks & Bulgarian Mountain Culture", place: "Bansko, Bulgaria", tag: "Mountain Escapes", duration: "4 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1720959622076-a2a09dc4afbc?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of Bansko's rooftops with the Pirin Mountains rising behind the town at golden hour", country: "Bulgaria", continent: "Europe", lat: 41.84, lon: 23.49, season: "Jun – Sep" },
   "bruges": { title: "3 Days in Bruges: Canals, Belfry & Medieval Streets", place: "Bruges, Belgium", tag: "Historic Old Towns", duration: "3 Days", cost: "$500-700/person", img: "https://images.unsplash.com/photo-1662034602250-0387abdacdf9?w=500&q=80&fm=jpg&fit=crop", alt: "A canal boat gliding past classic Bruges townhouses with the Church of Our Lady's spire in the background", country: "Belgium", continent: "Europe", lat: 51.21, lon: 3.22, season: "Apr – Jun, Sep – Oct" },
-  "copenhagen": { title: "4 Days in Copenhagen: Nyhavn, Design & Nordic Living", place: "Copenhagen, Denmark", tag: "Modern Cities", duration: "4 Days", cost: "$1,350-1,850/person", img: "https://images.unsplash.com/photo-1550682837-891ae070f347?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful townhouses and moored wooden boats along Copenhagen's Nyhavn canal", country: "Denmark", continent: "Europe", lat: 55.68, lon: 12.57, season: "May – Sep, Dec (Christmas)" },
+  "copenhagen": { title: "4 Days in Copenhagen: Nyhavn, Design & Nordic Living", place: "Copenhagen, Denmark", tag: "Modern Cities", duration: "4 Days", cost: "$1,350-1,850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Nyhavn_during_Christmas_%2854200042089%29.jpg/500px-Nyhavn_during_Christmas_%2854200042089%29.jpg", alt: "Nyhavn canal glowing with Christmas lights at dusk in Copenhagen", country: "Denmark", continent: "Europe", lat: 55.68, lon: 12.57, season: "May – Sep, Dec (Christmas)" },
   "lauterbrunnen": { title: "3 Days in Lauterbrunnen: Waterfalls, Cliffside Villages & the Schilthorn", place: "Lauterbrunnen, Switzerland", tag: "Mountain Escapes", duration: "3 Days", cost: "$1,450-1,950/person", img: "https://images.unsplash.com/photo-1630009574406-a9b21b77c015?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of the Lauterbrunnen valley, with the village on the valley floor and Staubbach Falls dropping from the cliffside", country: "Switzerland", continent: "Europe", lat: 46.59, lon: 7.91, season: "Jun – Sep" },
   "plitvice-lakes": { title: "3 Days at Plitvice Lakes: Waterfalls, Turquoise Pools & Boardwalk Trails", place: "Plitvice Lakes, Croatia", tag: "Lakes & Nature", duration: "3 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=500&q=80&fm=jpg&fit=crop", alt: "Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest", country: "Croatia", continent: "Europe", lat: 44.86, lon: 15.58, season: "May – Jun, Sep – Oct" },
   "hakone": { title: "3 Days in Hakone: Mount Fuji Views, Onsen & Lake Ashi", place: "Hakone, Japan", tag: "Lakes & Nature", duration: "3 Days", cost: "$750-1,050/person", img: "https://images.unsplash.com/photo-1568901002433-5a8ceafe4647?w=500&q=80&fm=jpg&fit=crop", alt: "Hakone Shrine's red torii gate standing in Lake Ashi, with snow-capped Mount Fuji rising in the distance", country: "Japan", continent: "Asia", lat: 35.23, lon: 139.03, season: "Oct – Feb" },
@@ -1569,7 +1569,7 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Travel styles + random itineraries: horizontal slideshow driven by vertical scroll ---------- */
+  /* ---------- Travel styles + random itineraries: slideshow with previous / next arrows ---------- */
   const styleSection = document.querySelector(".style-scroll");
   if (styleSection) {
     const runway = document.getElementById("styleRunway");
@@ -1656,115 +1656,66 @@ function initWanderList() {
       shuffleRandomTrips(true);
     }
 
-    let enhanced = false;
-    let target = 0, current = 0, raf = 0, last = 0, activeIndex = -1;
-    let scrollable = 0, maxShift = 0, headerH = 0, stickyTop = 0;
+    // Arrow-driven slider: previous / next buttons, dots, swipe and arrow keys.
+    let index = 0;
     let dots = [];
+    function makeBtn(cls, label, text) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = cls;
+      b.setAttribute("aria-label", label);
+      b.textContent = text;
+      return b;
+    }
+    const prevBtn = makeBtn("style-arrow style-prev", "Previous slide", "\u2190");
+    const nextBtn = makeBtn("style-arrow style-next", "Next slide", "\u2192");
 
-    function measure() {
-      headerH = siteHeaderEl ? siteHeaderEl.offsetHeight : 67;
-      styleSection.style.setProperty("--header-h", headerH + "px");
-      const top = parseFloat(getComputedStyle(stage).top);
-      stickyTop = Number.isFinite(top) ? top : headerH;
-      scrollable = Math.max(0, runway.offsetHeight - stage.offsetHeight);
-      maxShift = Math.max(0, track.scrollWidth - stage.clientWidth);
-    }
-    function progressNow() {
-      if (!scrollable) return 0;
-      const top = runway.getBoundingClientRect().top;
-      return Math.min(1, Math.max(0, (stickyTop - top) / scrollable));
-    }
-    function setActive(i) {
-      if (i === activeIndex) return;
-      activeIndex = i;
-      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+    function go(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = "translate3d(" + (-index * 100) + "%,0,0)";
+      slides.forEach((s, k) => {
+        const on = k === index;
+        s.classList.toggle("is-active", on);
+        s.setAttribute("aria-hidden", on ? "false" : "true");
+        s.inert = !on; // off-screen slides can't be tabbed to
+      });
       dots.forEach((d, k) => {
-        d.classList.toggle("is-active", k === i);
-        if (k === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
+        d.classList.toggle("is-active", k === index);
+        if (k === index) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
       });
     }
-    function paint(p) {
-      track.style.transform = "translate3d(" + (-p * maxShift).toFixed(2) + "px,0,0)";
-      bar.style.setProperty("--p", p.toFixed(4));
-    }
-    // Frame-rate independent easing: the track glides toward the scroll position
-    // instead of snapping to it, so wheel notches and trackpad flicks feel fluid.
-    function tick(now) {
-      raf = 0;
-      const dt = Math.min(0.05, last ? (now - last) / 1000 : 0.016);
-      last = now;
-      current += (target - current) * (1 - Math.exp(-dt / 0.11));
-      if (Math.abs(target - current) < 0.0003) current = target;
-      paint(current);
-      setActive(Math.round(current * (slides.length - 1)));
-      if (current !== target) raf = requestAnimationFrame(tick); else last = 0;
-    }
-    function onScroll() {
-      if (siteHeaderEl && siteHeaderEl.offsetHeight !== headerH) measure();
-      target = progressNow();
-      hint.classList.toggle("is-hidden", target > 0.02);
-      if (!raf) raf = requestAnimationFrame(tick);
-    }
-    function scrollToSlide(i) {
-      const runwayTop = runway.getBoundingClientRect().top + window.scrollY;
-      const y = runwayTop - stickyTop + (i / (slides.length - 1)) * scrollable;
-      window.scrollTo({ top: y, behavior: reducedMotion.matches ? "auto" : "smooth" });
-    }
-    // Tabbing to an off-screen slide link scrolls the page to that slide.
-    function onFocusIn(e) {
-      const slide = e.target.closest(".style-slide");
-      if (!slide) return;
-      const i = slides.indexOf(slide);
-      if (i !== activeIndex) scrollToSlide(i);
-    }
-    // The browser may try to scroll the clipped stage itself to reveal a focused link; undo that.
-    function resetStageScroll() { stage.scrollLeft = 0; }
-    function onResize() { measure(); target = progressNow(); current = target; paint(current); setActive(Math.round(current * (slides.length - 1))); }
 
-    function enable() {
-      if (enhanced) return;
-      enhanced = true;
-      styleSection.classList.add("is-enhanced");
-      dotsWrap.innerHTML = "";
-      dots = slides.map((slide, i) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "style-dot";
-        const heading = slide.querySelector("h3");
-        b.setAttribute("aria-label", "Go to " + (heading ? heading.textContent : "slide " + (i + 1)));
-        b.addEventListener("click", () => scrollToSlide(i));
-        dotsWrap.appendChild(b);
-        return b;
-      });
-      activeIndex = -1;
-      measure();
-      target = current = progressNow();
-      setActive(Math.round(target * (slides.length - 1)));
-      hint.classList.toggle("is-hidden", target > 0.02);
-      paint(current);
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onResize);
-      track.addEventListener("focusin", onFocusIn);
-      stage.addEventListener("scroll", resetStageScroll);
-    }
-    function disable() {
-      if (!enhanced) return;
-      enhanced = false;
-      styleSection.classList.remove("is-enhanced");
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      track.removeEventListener("focusin", onFocusIn);
-      stage.removeEventListener("scroll", resetStageScroll);
-      if (raf) { cancelAnimationFrame(raf); raf = 0; }
-      last = 0;
-      track.style.transform = "";
-      slides.forEach((s) => s.classList.remove("is-active"));
-      dotsWrap.innerHTML = "";
-      dots = [];
-    }
-    function syncMode() { if (reducedMotion.matches) disable(); else enable(); }
-    syncMode();
-    reducedMotion.addEventListener("change", syncMode);
+    styleSection.classList.add("is-slider");
+    stage.setAttribute("role", "region");
+    stage.setAttribute("aria-roledescription", "carousel");
+    stage.setAttribute("aria-label", "Travel styles");
+    stage.append(prevBtn, nextBtn);
+    dotsWrap.innerHTML = "";
+    dots = slides.map((slide, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "style-dot";
+      const heading = slide.querySelector("h3");
+      b.setAttribute("aria-label", "Go to " + (heading ? heading.textContent : "slide " + (i + 1)));
+      b.addEventListener("click", () => go(i));
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    prevBtn.addEventListener("click", () => go(index - 1));
+    nextBtn.addEventListener("click", () => go(index + 1));
+    stage.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
+    });
+    let touchX = null;
+    stage.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1));
+    });
+    go(0);
   }
 
   /* ---------- Testimonials: live-loaded from data/reviews.json + locally written reviews ---------- */

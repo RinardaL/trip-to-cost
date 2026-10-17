@@ -1186,46 +1186,6 @@ function initWanderList() {
     }
   }
 
-  /* ---------- Hero stat count-up ---------- */
-  const heroStats = document.getElementById("heroStats");
-  if (heroStats) {
-    const counters = heroStats.querySelectorAll("[data-count-to]");
-    const runCount = () => {
-      counters.forEach((el) => {
-        const target = parseFloat(el.dataset.countTo);
-        const suffix = el.dataset.suffix || "";
-        const isDecimal = String(el.dataset.countTo).includes(".");
-        if (prefersReducedMotion) {
-          el.textContent = (isDecimal ? target.toFixed(1) : target.toLocaleString()) + suffix;
-          return;
-        }
-        const duration = 1100;
-        const start = performance.now();
-        function step(now) {
-          const p = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          const val = target * eased;
-          el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val).toLocaleString()) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      });
-    };
-    if ("IntersectionObserver" in window) {
-      const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            runCount();
-            statsObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      statsObserver.observe(heroStats);
-    } else {
-      runCount();
-    }
-  }
-
   /* ---------- Sticky header scroll shadow ---------- */
   const siteHeader = document.querySelector(".site-header");
   if (siteHeader) {

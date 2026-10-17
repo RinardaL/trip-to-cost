@@ -192,8 +192,8 @@ async function initGlobe() {
     return;
   }
 
-  const emeraldDark = 0x073d2e;
-  const mint = 0x17b893;
+  const emeraldDark = 0x064e3b;
+  const mint = 0xc6a875;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);

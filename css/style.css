@@ -2289,3 +2289,30 @@ strong, b { font-weight: 600; }
   .season-banner { height: 170px; margin-inline: -24px; }
   .season-banner .season-title { left: 24px; bottom: 18px; }
 }
+
+/* Seasonal picks, compact editorial layout: photo banner beside three small cards */
+.season-section { padding: 64px 0 56px; }
+.season-section .section-head { margin-bottom: 32px; }
+.season-group { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.season-group + .season-group { margin-top: 24px; }
+.season-banner { height: auto; min-height: 230px; margin: 0; }
+.season-banner img { position: absolute; inset: 0; }
+.season-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.season-grid .trip-card { display: flex; flex-direction: column; }
+.season-grid .trip-card .photo { height: 118px !important; }
+.season-grid .trip-tags { display: none; }
+.season-grid .trip-card-body { display: flex; flex: 1; flex-direction: column; padding: 14px 16px; }
+.season-grid .trip-card h3 { font-size: 0.98rem; }
+.season-grid .trip-meta { margin-top: auto; padding-top: 10px; }
+.season-grid .trip-card:hover { transform: translateY(-4px); }
+@media (max-width: 1024px) {
+  .season-group { grid-template-columns: 1fr; gap: 14px; }
+  .season-banner { min-height: 0; height: 150px; }
+}
+@media (max-width: 640px) {
+  .season-section { padding: 52px 0 40px; }
+  .season-group + .season-group { margin-top: 28px; }
+  .season-banner { height: 140px; margin-inline: -24px; }
+  .season-grid .trip-card { flex: 0 0 74%; }
+}
+@media (min-width: 1025px) { .season-banner .season-title { font-size: 1.7rem; left: 24px; right: 16px; } }

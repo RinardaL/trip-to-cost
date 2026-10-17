@@ -1145,22 +1145,26 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .testimonial-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 28px;
+  padding: 18px 20px;
   box-shadow: var(--shadow-sm);
   transition: transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
 }
-.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.testimonial-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .review-edit-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
   padding: 4px 8px;
@@ -1176,11 +1180,12 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .testimonial-card-editing .contact-field { margin-bottom: 14px; }
 .review-edit-actions { display: flex; gap: 10px; }
 .review-edit-error { color: #b3261e; font-size: 0.8rem; margin: -6px 0 14px; }
-.testimonial-stars { color: var(--mint-dark); letter-spacing: 2px; margin-bottom: 14px; font-size: 0.95rem; }
-.testimonial-card p { font-size: 0.95rem; color: var(--charcoal); line-height: 1.6; margin-bottom: 20px; }
-.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-stars { color: var(--mint-dark); letter-spacing: 2px; margin-bottom: 8px; font-size: 0.85rem; }
+.testimonial-card p { font-size: 0.88rem; color: var(--charcoal); line-height: 1.5; margin-bottom: 14px; }
+.testimonial-author { display: flex; align-items: center; gap: 10px; margin-top: auto; }
 .testimonial-avatar {
-  width: 40px; height: 40px;
+  width: 32px; height: 32px;
+  font-size: 0.82rem;
   border-radius: 50%;
   color: #fff;
   font-family: var(--font-display);
@@ -1188,9 +1193,10 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.testimonial-author strong { display: block; font-size: 0.9rem; }
-.testimonial-author span { font-size: 0.8rem; color: var(--charcoal-soft); }
-.review-form-wrap { margin-top: 40px; text-align: center; }
+.testimonial-author strong { display: block; font-size: 0.84rem; line-height: 1.3; }
+.testimonial-author span { font-size: 0.76rem; color: var(--charcoal-soft); }
+.testimonial-author .testimonial-avatar { font-size: 0.82rem; color: #fff; }
+.review-form-wrap { margin-top: 28px; text-align: center; }
 .review-form {
   max-width: 480px;
   margin: 24px auto 0;
@@ -1712,7 +1718,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 @media (max-width: 960px) {
   .value-grid { grid-template-columns: repeat(2, 1fr); }
   .culture-grid, .packing-grid, .tricks-grid { grid-template-columns: 1fr; }
-  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; gap: 12px; max-width: 560px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .globe-layout { grid-template-columns: 1fr; text-align: center; }
   .globe-copy > p { max-width: 440px; margin-left: auto; margin-right: auto; }
@@ -1792,7 +1798,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 }
 
 /* ---------- Surprise Me: plain-text nav link ---------- */
-.nav-surprise {
+.nav-surprise, .text-action {
   position: relative;
   padding: 6px 0;
   font-weight: 600;
@@ -1802,14 +1808,17 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   cursor: pointer;
   transition: color 0.2s ease;
 }
-.nav-surprise::after {
+.nav-surprise::after, .text-action::after {
   content: "";
   position: absolute; left: 0; right: 100%; bottom: 0;
   height: 2px; background: var(--mint);
   transition: right 0.2s ease;
 }
-.nav-surprise:hover, .nav-surprise:focus-visible { color: var(--emerald); }
-.nav-surprise:hover::after, .nav-surprise:focus-visible::after { right: 0; }
+.nav-surprise:hover, .nav-surprise:focus-visible, .text-action:hover, .text-action:focus-visible { color: var(--emerald); }
+.nav-surprise:hover::after, .nav-surprise:focus-visible::after,
+.text-action:hover::after, .text-action:focus-visible::after, .text-action[aria-expanded="true"]::after { right: 0; }
+button.text-action { background: none; border: 0; font-family: inherit; line-height: inherit; }
+@media (pointer: coarse) { .nav-surprise, .text-action { padding: 10px 0; } }
 
 /* ---------- Surprise Me: itinerary dialog ---------- */
 body.surprise-open { overflow: hidden; }

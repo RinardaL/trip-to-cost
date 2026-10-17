@@ -224,6 +224,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
 .nav-actions { display: flex; align-items: center; gap: 18px; }
+.nav-actions > * { flex-shrink: 0; }
 .mobile-cta { display: none; }
 .nav-dropdown .filter-dropdown-btn { width: 84px; padding: 0 6px; gap: 4px; color: var(--emerald-dark); }
 .nav-dropdown .filter-dropdown-btn:hover,
@@ -695,6 +696,9 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .trip-card .photo { height: 160px; }
 .trip-card-body { padding: 16px; }
 .trip-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.trip-card .trip-tags { flex-wrap: nowrap; overflow: hidden; }
+.trip-card .trip-tags .tag { white-space: nowrap; flex-shrink: 0; }
+.trip-card .trip-tags .tag:first-child { flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .tag {
   font-size: 0.7rem;
   font-weight: 700;
@@ -706,7 +710,19 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   color: var(--emerald-dark);
 }
 .tag.terracotta { background: rgba(23,184,147,0.15); color: var(--mint-dark); }
-.trip-card h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 0; }
+.trip-card h3 {
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2 * 1.3em);
+}
 .trip-meta {
   display: flex;
   align-items: center;
@@ -897,6 +913,11 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .related-card img.is-loaded { opacity: 1; transform: scale(1); }
 .related-card:hover img { transform: scale(1.06); }
 .related-card span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
   position: absolute; left: 0; right: 0; bottom: 0;
   z-index: 2;
   padding: 16px;
@@ -1276,7 +1297,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
    Itinerary Detail Page
    =========================================================== */
 .breadcrumb {
-  padding: 20px 0 0;
+  padding: 20px 24px 0;
   font-size: 0.85rem;
   color: rgba(255,255,255,0.7);
 }
@@ -1719,7 +1740,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 76px; left: 0; right: 0;
+    top: 100%; left: 0; right: 0;
     background: var(--cream);
     border-bottom: 1px solid var(--line);
     padding: 20px 24px 28px;
@@ -1730,8 +1751,10 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   .search-bar { flex-direction: column; }
   .search-field { border-right: none; border-bottom: 1px solid var(--line); }
   .search-field:last-of-type { border-bottom: none; }
-  .search-bar .btn-primary { margin-top: 6px; }
+  .search-bar .btn-primary { margin-top: 6px; padding: 14px 24px; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .footer-grid ul a { display: inline-block; padding: 5px 0; }
+  .notfound-links { flex-wrap: wrap; padding: 0 16px; }
   .value-grid { grid-template-columns: 1fr; }
   .newsletter { margin: 0 16px; padding: 44px 24px; }
   .newsletter-form { flex-direction: column; }
@@ -1748,6 +1771,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   .filter-secondary { flex-direction: column; align-items: stretch; }
   .filter-secondary input { width: 100%; }
   .filter-dropdown { width: 100%; }
+  .nav-dropdown { width: auto; }
   .filter-dropdown-btn, #continentFilter .filter-dropdown-btn { width: 100%; padding-left: 4px; }
   .filter-secondary .search-input-wrap + .filter-dropdown { margin-left: 0; padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }
   .filter-dropdown + .filter-dropdown { padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }

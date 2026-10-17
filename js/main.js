@@ -1606,6 +1606,9 @@ function initWanderList() {
     applyFilters();
   }
 
+  /* ---------- Card titles are clamped to 2 lines; keep the full title on hover ---------- */
+  document.querySelectorAll(".trip-card h3").forEach((h) => { h.title = h.textContent.trim(); });
+
   /* ---------- Hero search: routes to the real browse/filter page ---------- */
   const searchForm = document.getElementById("searchForm");
   if (searchForm) {

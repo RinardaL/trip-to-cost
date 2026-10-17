@@ -1075,7 +1075,7 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Travel styles: horizontal slideshow driven by vertical scroll ---------- */
+  /* ---------- Travel styles + random itineraries: horizontal slideshow driven by vertical scroll ---------- */
   const styleSection = document.querySelector(".style-scroll");
   if (styleSection) {
     const runway = document.getElementById("styleRunway");
@@ -1110,21 +1110,75 @@ function initWanderList() {
       loadSlideImages();
     }
 
+    // Final slide: three random itineraries (one per travel style where possible).
+    const randomList = document.getElementById("styleRandomList");
+    const shuffleBtn = document.getElementById("styleShuffle");
+    let randomPicks = [];
+    function pickRandomTrips(count, avoidIds) {
+      const entries = Object.entries(TRIP_CATALOG).filter(([id]) => !avoidIds.includes(id));
+      for (let i = entries.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [entries[i], entries[j]] = [entries[j], entries[i]];
+      }
+      const picked = [];
+      const tags = new Set();
+      entries.forEach((entry) => {
+        if (picked.length < count && !tags.has(entry[1].tag)) { tags.add(entry[1].tag); picked.push(entry); }
+      });
+      entries.forEach((entry) => {
+        if (picked.length < count && !picked.includes(entry)) picked.push(entry);
+      });
+      return picked;
+    }
+    function renderRandomTrips(entries) {
+      randomList.innerHTML = "";
+      entries.forEach(([id, trip]) => {
+        const card = document.createElement("a");
+        card.className = "style-random-card";
+        card.href = id;
+        const img = document.createElement("img");
+        img.src = trip.img;
+        img.alt = trip.alt;
+        img.decoding = "async";
+        const body = document.createElement("span");
+        body.className = "style-random-body";
+        const title = document.createElement("strong");
+        title.textContent = trip.title;
+        const meta = document.createElement("small");
+        meta.textContent = trip.duration + " \u00b7 " + trip.cost;
+        body.append(title, meta);
+        card.append(img, body);
+        randomList.appendChild(card);
+      });
+    }
+    function shuffleRandomTrips(initial) {
+      randomPicks = pickRandomTrips(3, initial ? [] : randomPicks.map(([id]) => id));
+      if (initial) { renderRandomTrips(randomPicks); return; }
+      randomList.classList.add("is-swapping");
+      setTimeout(() => { renderRandomTrips(randomPicks); randomList.classList.remove("is-swapping"); }, 180);
+    }
+    if (randomList && shuffleBtn) {
+      shuffleBtn.addEventListener("click", () => shuffleRandomTrips(false));
+      shuffleRandomTrips(true);
+    }
+
     let enhanced = false;
-    let target = 0, current = 0, raf = 0, activeIndex = -1;
-    let scrollable = 0, maxShift = 0, headerH = 0;
+    let target = 0, current = 0, raf = 0, last = 0, activeIndex = -1;
+    let scrollable = 0, maxShift = 0, headerH = 0, stickyTop = 0;
     let dots = [];
 
     function measure() {
       headerH = siteHeaderEl ? siteHeaderEl.offsetHeight : 67;
       styleSection.style.setProperty("--header-h", headerH + "px");
+      const top = parseFloat(getComputedStyle(stage).top);
+      stickyTop = Number.isFinite(top) ? top : headerH;
       scrollable = Math.max(0, runway.offsetHeight - stage.offsetHeight);
       maxShift = Math.max(0, track.scrollWidth - stage.clientWidth);
     }
     function progressNow() {
       if (!scrollable) return 0;
       const top = runway.getBoundingClientRect().top;
-      return Math.min(1, Math.max(0, (headerH - top) / scrollable));
+      return Math.min(1, Math.max(0, (stickyTop - top) / scrollable));
     }
     function setActive(i) {
       if (i === activeIndex) return;
@@ -1139,23 +1193,27 @@ function initWanderList() {
       track.style.transform = "translate3d(" + (-p * maxShift).toFixed(2) + "px,0,0)";
       bar.style.setProperty("--p", p.toFixed(4));
     }
-    function tick() {
+    // Frame-rate independent easing: the track glides toward the scroll position
+    // instead of snapping to it, so wheel notches and trackpad flicks feel fluid.
+    function tick(now) {
       raf = 0;
-      current += (target - current) * 0.16;
-      if (Math.abs(target - current) < 0.0005) current = target;
+      const dt = Math.min(0.05, last ? (now - last) / 1000 : 0.016);
+      last = now;
+      current += (target - current) * (1 - Math.exp(-dt / 0.11));
+      if (Math.abs(target - current) < 0.0003) current = target;
       paint(current);
-      if (current !== target) raf = requestAnimationFrame(tick);
+      setActive(Math.round(current * (slides.length - 1)));
+      if (current !== target) raf = requestAnimationFrame(tick); else last = 0;
     }
     function onScroll() {
       if (siteHeaderEl && siteHeaderEl.offsetHeight !== headerH) measure();
       target = progressNow();
-      setActive(Math.round(target * (slides.length - 1)));
       hint.classList.toggle("is-hidden", target > 0.02);
       if (!raf) raf = requestAnimationFrame(tick);
     }
     function scrollToSlide(i) {
       const runwayTop = runway.getBoundingClientRect().top + window.scrollY;
-      const y = runwayTop - headerH + (i / (slides.length - 1)) * scrollable;
+      const y = runwayTop - stickyTop + (i / (slides.length - 1)) * scrollable;
       window.scrollTo({ top: y, behavior: reducedMotion.matches ? "auto" : "smooth" });
     }
     // Tabbing to an off-screen slide link scrolls the page to that slide.
@@ -1167,7 +1225,7 @@ function initWanderList() {
     }
     // The browser may try to scroll the clipped stage itself to reveal a focused link; undo that.
     function resetStageScroll() { stage.scrollLeft = 0; }
-    function onResize() { measure(); onScroll(); current = target; paint(current); }
+    function onResize() { measure(); target = progressNow(); current = target; paint(current); setActive(Math.round(current * (slides.length - 1))); }
 
     function enable() {
       if (enhanced) return;
@@ -1204,6 +1262,7 @@ function initWanderList() {
       track.removeEventListener("focusin", onFocusIn);
       stage.removeEventListener("scroll", resetStageScroll);
       if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      last = 0;
       track.style.transform = "";
       slides.forEach((s) => s.classList.remove("is-active"));
       dotsWrap.innerHTML = "";
@@ -1537,7 +1596,7 @@ function initWanderList() {
     attachTripAutocomplete(searchInput, () => applyFilters());
 
     // Deep-link support: browse.html?style=budget pre-selects that option,
-    // browse.html?q=paris pre-fills the search box — both combine naturally.
+    // browse?q=paris pre-fills the search box — both combine naturally.
     const params = new URLSearchParams(window.location.search);
     const styleParam = params.get("style");
     const queryParam = params.get("q");
@@ -1547,32 +1606,13 @@ function initWanderList() {
     applyFilters();
   }
 
-  /* ---------- Featured carousel ---------- */
-  const track = document.getElementById("carouselTrack");
-  const prevBtn = document.getElementById("carouselPrev");
-  const nextBtn = document.getElementById("carouselNext");
-  if (track && prevBtn && nextBtn) {
-    const scrollAmount = () => track.querySelector(".trip-card").offsetWidth + 24;
-    prevBtn.addEventListener("click", () => track.scrollBy({ left: -scrollAmount(), behavior: "smooth" }));
-    nextBtn.addEventListener("click", () => track.scrollBy({ left: scrollAmount(), behavior: "smooth" }));
-
-    const updateCarouselEdges = () => {
-      const max = track.scrollWidth - track.clientWidth;
-      prevBtn.disabled = track.scrollLeft <= 4;
-      nextBtn.disabled = track.scrollLeft >= max - 4;
-    };
-    updateCarouselEdges();
-    track.addEventListener("scroll", updateCarouselEdges, { passive: true });
-    window.addEventListener("resize", updateCarouselEdges);
-  }
-
   /* ---------- Hero search: routes to the real browse/filter page ---------- */
   const searchForm = document.getElementById("searchForm");
   if (searchForm) {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("destInput").value.trim();
-      window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse";
+      window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
     });
     attachTripAutocomplete(document.getElementById("destInput"));
   }
@@ -1583,7 +1623,7 @@ function initWanderList() {
     notfoundSearchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("notfoundDestInput").value.trim();
-      window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse";
+      window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
     });
     attachTripAutocomplete(document.getElementById("notfoundDestInput"));
   }

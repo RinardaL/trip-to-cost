@@ -454,19 +454,34 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .search-bar .btn-primary { border-radius: 0; padding: 0 32px; }
 
 /* ===========================================================
-   Travel styles: slideshow that moves sideways as the page scrolls down.
+   Travel styles + random itineraries: a framed slideshow that moves
+   sideways as the page scrolls down.
    Base (no JS / reduced motion): a swipeable, snapping horizontal row.
    .is-enhanced (set by main.js): a tall runway with a sticky stage whose
    track is translated horizontally by vertical scroll progress.
    =========================================================== */
-.style-scroll { --header-h: 67px; --stage-h: calc(100vh - var(--header-h)); padding: 88px 0 0; }
-@supports (height: 100svh) { .style-scroll { --stage-h: calc(100svh - var(--header-h)); } }
+.style-scroll {
+  --header-h: 67px;
+  --stage-h: min(62vh, 600px);
+  --stage-top: calc(var(--header-h) + max(16px, (100vh - var(--header-h) - var(--stage-h)) / 2));
+  padding: 88px 0 56px;
+}
+@supports (height: 100svh) {
+  .style-scroll {
+    --stage-h: min(62svh, 600px);
+    --stage-top: calc(var(--header-h) + max(16px, (100svh - var(--header-h) - var(--stage-h)) / 2));
+  }
+}
 .style-stage {
   position: relative;
-  height: min(72vh, 620px);
+  width: min(var(--max-width), calc(100% - 48px));
+  margin-inline: auto;
+  height: var(--stage-h);
   min-height: 420px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  background: var(--emerald-dark);
+  box-shadow: var(--shadow-md);
 }
 .style-track { display: flex; height: 100%; }
 .style-slide {
@@ -479,7 +494,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: #fff;
   scroll-snap-align: center;
 }
-.style-slide img {
+.style-slide > img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
@@ -488,7 +503,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   transform: scale(1.06);
   transition: opacity 0.8s var(--ease-premium), transform 1.4s var(--ease-premium);
 }
-.style-slide img.is-loaded { opacity: 1; transform: scale(1); }
+.style-slide > img.is-loaded { opacity: 1; transform: scale(1); }
 .style-slide::after {
   content: "";
   position: absolute; inset: 0;
@@ -497,15 +512,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
     linear-gradient(180deg, rgba(7,61,46,0) 35%, rgba(7,61,46,0.82) 100%),
     linear-gradient(90deg, rgba(7,61,46,0.55), rgba(7,61,46,0) 65%);
 }
-.style-slide:focus-visible { outline: 3px solid var(--mint); outline-offset: -6px; }
+a.style-slide:focus-visible { outline: 3px solid var(--mint); outline-offset: -6px; }
 .style-slide-body {
-  max-width: 680px;
-  padding: clamp(28px, 6vw, 72px);
-  padding-bottom: clamp(72px, 11vh, 112px);
+  max-width: 600px;
+  padding: clamp(24px, 4vw, 56px);
+  padding-bottom: clamp(64px, 10vh, 92px);
 }
 .style-slide-kicker {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -513,51 +528,96 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .style-slide h3 {
   color: #fff;
-  font-size: clamp(2.1rem, 5.2vw, 3.8rem);
-  line-height: 1.04;
-  margin: 12px 0 14px;
+  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
+  line-height: 1.05;
+  margin: 10px 0 12px;
 }
-.style-slide p { color: rgba(255,255,255,0.92); font-size: 1.05rem; max-width: 46ch; margin-bottom: 26px; }
+.style-slide p { color: rgba(255,255,255,0.92); font-size: 1rem; max-width: 44ch; margin-bottom: 22px; }
 .style-slide-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 26px;
+  padding: 12px 24px;
   background: #fff;
   color: var(--emerald-dark);
   font-weight: 600;
   font-size: 0.95rem;
   transition: background 0.15s ease, gap 0.2s var(--ease-premium);
 }
-.style-slide:hover .style-slide-cta,
-.style-slide:focus-visible .style-slide-cta { background: var(--mint); gap: 14px; }
+a.style-slide:hover .style-slide-cta,
+a.style-slide:focus-visible .style-slide-cta,
+a.style-slide-cta:hover,
+a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
+
+/* Random itineraries: the final slide */
+.style-slide-random { align-items: stretch; background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%); }
+.style-slide-random::after { display: none; }
+.style-random {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+  gap: clamp(20px, 4vw, 52px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 56px);
+  padding-bottom: clamp(56px, 8vh, 80px);
+}
+.style-random-intro p { margin-bottom: 20px; }
+.style-random-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.style-random-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  transition: opacity 0.18s ease;
+}
+.style-random-list.is-swapping { opacity: 0; }
+.style-random-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: var(--charcoal);
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-premium), box-shadow 0.25s ease;
+}
+.style-random-card:hover, .style-random-card:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.style-random-card img { width: 100%; height: 140px; object-fit: cover; flex-shrink: 0; }
+.style-random-body { display: block; padding: 14px 16px 16px; }
+.style-random-body strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--emerald-dark);
+}
+.style-random-body small { display: block; margin-top: 8px; font-size: 0.8rem; color: var(--charcoal-soft); }
 
 .style-hint, .style-dots, .style-progress { display: none; }
 
-.style-scroll.is-enhanced .style-runway { height: calc(var(--stage-h) + (var(--slides) - 1) * 75vh); }
+.style-scroll.is-enhanced .style-runway { height: calc(var(--stage-h) + (var(--slides) - 1) * 60vh); }
 .style-scroll.is-enhanced .style-stage {
   position: sticky;
-  top: var(--header-h);
-  height: var(--stage-h);
-  min-height: 460px;
+  top: var(--stage-top);
   overflow: hidden;
   scroll-snap-type: none;
 }
 .style-scroll.is-enhanced .style-track { will-change: transform; }
 .style-scroll.is-enhanced .style-slide { flex: 0 0 100%; }
-.style-scroll.is-enhanced .style-slide-body {
+.style-scroll.is-enhanced .style-slide-body,
+.style-scroll.is-enhanced .style-random {
   opacity: 0;
-  transform: translateX(48px);
+  transform: translateX(40px);
   transition: opacity 0.6s var(--ease-premium), transform 0.8s var(--ease-premium);
 }
-.style-scroll.is-enhanced .style-slide.is-active .style-slide-body { opacity: 1; transform: none; }
+.style-scroll.is-enhanced .style-slide.is-active .style-slide-body,
+.style-scroll.is-enhanced .style-slide.is-active .style-random { opacity: 1; transform: none; }
 .style-scroll.is-enhanced .style-hint {
   display: block;
   position: absolute;
-  top: 24px; right: 28px;
+  top: 18px; right: 20px;
   z-index: 3;
-  padding: 9px 16px;
-  font-size: 0.74rem;
+  padding: 8px 14px;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -570,7 +630,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .style-scroll.is-enhanced .style-dots {
   display: flex;
   position: absolute;
-  left: 0; right: 0; bottom: 20px;
+  left: 0; right: 0; bottom: 14px;
   z-index: 3;
   justify-content: center;
   gap: 2px;
@@ -601,44 +661,26 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   transform-origin: left center;
   transform: scaleX(var(--p, 0));
 }
+@media (max-width: 860px) {
+  .style-random { grid-template-columns: 1fr; gap: 14px; align-content: center; }
+  .style-random-intro p { margin-bottom: 14px; }
+  .style-random-list { grid-template-columns: 1fr; gap: 8px; }
+  .style-random-card { flex-direction: row; }
+  .style-random-card img { width: 84px; height: auto; min-height: 64px; }
+  .style-random-body { padding: 10px 12px; }
+  .style-random-body strong { -webkit-line-clamp: 2; font-size: 0.88rem; }
+  .style-random-body small { margin-top: 4px; }
+}
 @media (max-width: 640px) {
-  .style-slide-body { padding: 26px 22px 76px; }
-  .style-scroll.is-enhanced .style-hint { top: 14px; right: 14px; }
+  .style-scroll { --stage-h: min(78vh, 660px); padding: 64px 0 40px; }
+  @supports (height: 100svh) { .style-scroll { --stage-h: min(78svh, 660px); } }
+  .style-stage { width: calc(100% - 24px); }
+  .style-slide-body { padding: 22px 20px 72px; }
+  .style-scroll.is-enhanced .style-hint { top: 12px; right: 12px; }
+  .style-random { padding: 20px 18px 60px; }
+  .style-random-intro h3 { font-size: 1.7rem; margin-bottom: 8px; }
+  .style-random-intro .style-slide-kicker { font-size: 0.68rem; }
 }
-
-/* ===========================================================
-   Featured itineraries carousel
-   =========================================================== */
-.carousel-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 32px;
-}
-.carousel-head .section-head { text-align: left; margin: 0; max-width: none; }
-.carousel-controls { display: flex; gap: 8px; }
-.carousel-controls button {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: var(--mint-tint);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
-  color: var(--emerald-dark);
-  transition: background var(--dur-fast) ease, color var(--dur-fast) ease, opacity var(--dur-fast) ease;
-}
-.carousel-controls button:hover { background: var(--emerald-dark); color: #fff; }
-.carousel-controls button:disabled { opacity: 0.4; pointer-events: none; }
-
-.carousel-track {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 12px;
-  scrollbar-width: none;
-}
-.carousel-track::-webkit-scrollbar { display: none; }
 
 .trip-card {
   flex: 0 0 320px;
@@ -1690,7 +1732,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .search-field:last-of-type { border-bottom: none; }
   .search-bar .btn-primary { margin-top: 6px; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }
-  .carousel-head { flex-direction: column; align-items: flex-start; gap: 16px; }
   .value-grid { grid-template-columns: 1fr; }
   .newsletter { margin: 0 16px; padding: 44px 24px; }
   .newsletter-form { flex-direction: column; }

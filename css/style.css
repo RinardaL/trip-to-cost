@@ -2292,3 +2292,51 @@ strong, b { font-weight: 600; }
 .season-note span { font-weight: 600; }
 .season-note a { margin-left: 6px; color: var(--emerald); text-decoration: underline; }
 .season-note a:hover { color: var(--emerald-dark); }
+
+/* ---------- Trip cards: calmer, easier to scan ---------- */
+.browse-grid { gap: 32px; }
+.trip-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(6, 78, 59, 0.05), 0 10px 26px rgba(6, 78, 59, 0.07);
+}
+.trip-card:hover { transform: translateY(-4px); box-shadow: 0 4px 10px rgba(6, 78, 59, 0.07), 0 16px 34px rgba(6, 78, 59, 0.12); }
+.trip-card .photo { height: 190px !important; flex-shrink: 0; }
+.trip-card .photo::after { background: linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.62) 100%); }
+.trip-card .photo-label { padding: 14px 18px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em; }
+.trip-card-body { display: flex; flex: 1; flex-direction: column; padding: 18px 20px 20px; }
+.trip-card .trip-tags { gap: 6px; margin-bottom: 12px; }
+.trip-card .tag,
+.trip-card .tag.terracotta {
+  padding: 3px 9px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--charcoal-soft);
+  background: transparent;
+  border: 1px solid var(--line);
+}
+.trip-card h3 {
+  margin-bottom: 18px;
+  font-size: 1.08rem;
+  line-height: 1.35;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  min-height: calc(3 * 1.35em);
+}
+.trip-card .trip-meta {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.trip-card .trip-meta .cost { font-size: 0.98rem; }
+.trip-card .trip-meta .btn { width: 100%; justify-content: center; padding: 11px 18px; }
+@media (max-width: 720px) {
+  .browse-grid { gap: 22px; }
+  .trip-card .photo { height: 180px !important; }
+  .trip-card-body { padding: 16px 18px 18px; }
+}

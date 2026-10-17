@@ -1229,7 +1229,12 @@ function initWanderList() {
   /* ---------- Sticky header scroll shadow ---------- */
   const siteHeader = document.querySelector(".site-header");
   if (siteHeader) {
-    const updateHeaderState = () => siteHeader.classList.toggle("scrolled", window.scrollY > 8);
+    const homeHero = document.body.classList.contains("home-page") ? document.querySelector(".hero") : null;
+    const updateHeaderState = () => {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 8);
+      if (homeHero) siteHeader.classList.toggle("is-solid", window.scrollY > homeHero.offsetHeight - siteHeader.offsetHeight);
+    };
+    window.addEventListener("resize", updateHeaderState);
     updateHeaderState();
     window.addEventListener("scroll", updateHeaderState, { passive: true });
   }
@@ -1280,6 +1285,119 @@ function initWanderList() {
       renderCosts(currencySelect.dataset.value);
     });
     currencyDropdown.selectValue(getCurrency());
+  }
+
+  /* ---------- Itinerary photos: click to enlarge ---------- */
+  const zoomPhotos = Array.from(document.querySelectorAll(".day-photo, .block-photo")).filter((p) => p.querySelector("img"));
+  if (zoomPhotos.length) {
+    let box = null, boxImg, boxCaption, boxCount, boxPrev, boxNext, boxClose, boxFocus = null, boxIndex = 0, touchX = null;
+
+    function bigSrc(url) {
+      return url.replace(/\/(?:500|960)px-/, "/1280px-").replace(/([?&])w=\d+/, "$1w=1600");
+    }
+    function photoInfo(photo) {
+      const img = photo.querySelector("img");
+      return { src: img.currentSrc || img.src || img.dataset.src || "", alt: img.alt || "" };
+    }
+    function buildLightbox() {
+      box = document.createElement("div");
+      box.className = "lightbox";
+      box.hidden = true;
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-modal", "true");
+      box.setAttribute("aria-label", "Photo viewer");
+      const fig = document.createElement("figure");
+      fig.className = "lightbox-figure";
+      boxImg = document.createElement("img");
+      boxImg.className = "lightbox-img";
+      boxCaption = document.createElement("figcaption");
+      boxCaption.className = "lightbox-caption";
+      boxCount = document.createElement("span");
+      boxCount.className = "lightbox-count";
+      fig.append(boxImg, boxCaption);
+      const mk = (cls, label, text) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "lightbox-btn " + cls;
+        b.setAttribute("aria-label", label);
+        b.textContent = text;
+        return b;
+      };
+      boxClose = mk("lightbox-close", "Close photo", "×");
+      boxPrev = mk("lightbox-prev", "Previous photo", "‹");
+      boxNext = mk("lightbox-next", "Next photo", "›");
+      box.append(fig, boxClose, boxPrev, boxNext);
+      document.body.appendChild(box);
+
+      boxClose.addEventListener("click", closeLightbox);
+      boxPrev.addEventListener("click", () => showPhoto(boxIndex - 1));
+      boxNext.addEventListener("click", () => showPhoto(boxIndex + 1));
+      box.addEventListener("mousedown", (e) => { if (e.target === box || e.target === fig) closeLightbox(); });
+      box.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener("touchend", (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) > 50) showPhoto(boxIndex + (dx < 0 ? 1 : -1));
+      });
+      box.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { e.preventDefault(); closeLightbox(); }
+        else if (e.key === "ArrowLeft") { e.preventDefault(); showPhoto(boxIndex - 1); }
+        else if (e.key === "ArrowRight") { e.preventDefault(); showPhoto(boxIndex + 1); }
+        else if (e.key === "Tab") {
+          const f = [boxClose, boxPrev, boxNext];
+          const i = f.indexOf(document.activeElement);
+          e.preventDefault();
+          f[(i + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus();
+        }
+      });
+    }
+    function showPhoto(i) {
+      boxIndex = (i + zoomPhotos.length) % zoomPhotos.length;
+      const { src, alt } = photoInfo(zoomPhotos[boxIndex]);
+      boxImg.src = src; // already cached by the page, so it appears instantly
+      boxImg.alt = alt;
+      const big = bigSrc(src);
+      if (big !== src) {
+        const loader = new Image();
+        loader.onload = () => { if (boxImg.alt === alt && !box.hidden) boxImg.src = big; };
+        loader.src = big; // swap in the sharper version once it arrives; silently keep the first if it fails
+      }
+      boxCaption.textContent = alt;
+      boxCount.textContent = (boxIndex + 1) + " / " + zoomPhotos.length;
+      boxCaption.appendChild(boxCount);
+      const multi = zoomPhotos.length > 1;
+      boxPrev.hidden = boxNext.hidden = !multi;
+    }
+    function openLightbox(i) {
+      if (!box) buildLightbox();
+      boxFocus = document.activeElement;
+      showPhoto(i);
+      box.hidden = false;
+      document.body.classList.add("lightbox-open");
+      void box.offsetWidth;
+      box.classList.add("is-open");
+      boxClose.focus({ preventScroll: true });
+    }
+    function closeLightbox() {
+      if (!box || box.hidden) return;
+      box.classList.remove("is-open");
+      document.body.classList.remove("lightbox-open");
+      setTimeout(() => { if (!box.classList.contains("is-open")) box.hidden = true; }, 220);
+      if (boxFocus && boxFocus.focus) boxFocus.focus({ preventScroll: true });
+    }
+
+    zoomPhotos.forEach((photo, i) => {
+      const alt = photo.querySelector("img").alt;
+      photo.dataset.zoom = "";
+      photo.tabIndex = 0;
+      photo.setAttribute("role", "button");
+      photo.setAttribute("aria-label", "Enlarge photo" + (alt ? ": " + alt : ""));
+      photo.addEventListener("click", () => openLightbox(i));
+      photo.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(i); }
+      });
+    });
   }
 
   /* ---------- Surprise Me: a personalised, unexpected itinerary shown right away ---------- */

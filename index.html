@@ -88,50 +88,84 @@
   </div>
 </section>
 
-<!-- ============ CATEGORIES ============ -->
-<section id="browse">
+<!-- ============ TRAVEL STYLES (horizontal slideshow driven by vertical scroll) ============ -->
+<section id="browse" class="style-scroll">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Explore by travel style</p>
       <h2>Find the trip that fits your vibe</h2>
-      <p>Every itinerary is grouped by travel style, so you only browse what actually matches how you like to travel.</p>
+      <p>Every itinerary is grouped by travel style. Keep scrolling and each style slides into view.</p>
     </div>
-    <div class="category-grid stagger" id="categoryGrid">
-      <a class="category-card photo ph-1 active reveal" href="browse" data-cat="all">
-        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/500px-Skyscrapers_of_Shinjuku_2009_January.jpg" alt="Tokyo skyline at dusk" loading="lazy" decoding="async">
-        <h3>All Itineraries</h3>
-        <span class="count">103 trips</span>
-      </a>
-      <a class="category-card photo ph-2 reveal" href="browse?style=mountain" data-cat="mountain">
-        <img data-src="https://images.unsplash.com/photo-1571274834067-3a24675547b4?w=500&q=80&fm=jpg&fit=crop" alt="Zermatt village chalets with the Matterhorn behind them" loading="lazy" decoding="async">
-        <h3>Mountain Escapes</h3>
-        <span class="count">14 trips</span>
-      </a>
-      <a class="category-card photo ph-3 reveal" href="browse?style=beach" data-cat="beach">
-        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Cliffside villages along the Amalfi Coast, Italy" loading="lazy" decoding="async">
-        <h3>Beach &amp; Coastal</h3>
-        <span class="count">14 trips</span>
-      </a>
-      <a class="category-card photo ph-4 reveal" href="browse?style=modern-city" data-cat="modern-city">
-        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg" alt="Brooklyn Bridge, New York City" loading="lazy" decoding="async">
-        <h3>Modern Cities</h3>
-        <span class="count">11 trips</span>
-      </a>
-      <a class="category-card photo ph-5 reveal" href="browse?style=historic-city" data-cat="historic-city">
-        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Snow_in_Old_Town_Square_%282143481044%29.jpg/500px-Snow_in_Old_Town_Square_%282143481044%29.jpg" alt="Snow over Old Town Square, Prague" loading="lazy" decoding="async">
-        <h3>Historic Old Towns</h3>
-        <span class="count">31 trips</span>
-      </a>
-      <a class="category-card photo ph-6 reveal" href="browse?style=road-trip" data-cat="roadtrip">
-        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg" alt="Delicate Arch at sunset, Utah" loading="lazy" decoding="async">
-        <h3>Road Trips &amp; National Parks</h3>
-        <span class="count">11 trips</span>
-      </a>
-      <a class="category-card photo ph-2 reveal" href="browse?style=lakes-nature" data-cat="lakes-nature">
-        <img data-src="https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=500&q=80&fm=jpg&fit=crop" alt="Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest" loading="lazy" decoding="async">
-        <h3>Lakes &amp; Nature</h3>
-        <span class="count">22 trips</span>
-      </a>
+  </div>
+  <div class="style-runway" id="styleRunway" style="--slides:7">
+    <div class="style-stage" id="styleStage">
+      <div class="style-track" id="styleTrack">
+        <a class="style-slide ph-2" href="browse?style=mountain" data-cat="mountain">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1920px-Moraine_Lake_17092005.jpg" alt="Moraine Lake's turquoise water reflecting the snow-capped Valley of the Ten Peaks in Banff National Park" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">01 / 06 &middot; Travel style</span>
+            <h3>Mountain Escapes</h3>
+            <p>Alpine villages, cable cars and glacier days, from Zermatt and Chamonix to the Canadian Rockies.</p>
+            <span class="style-slide-cta">Explore 14 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide ph-3" href="browse?style=beach" data-cat="beach">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/1920px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Terraced hillsides and villages along the Amalfi Coast above the blue Tyrrhenian Sea" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">02 / 06 &middot; Travel style</span>
+            <h3>Beach &amp; Coastal</h3>
+            <p>Cliffside villages, turquoise coves and slow sunset dinners, from the Amalfi Coast to Bali.</p>
+            <span class="style-slide-cta">Explore 14 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide ph-4" href="browse?style=modern-city" data-cat="modern-city">
+          <img data-src="https://images.unsplash.com/photo-1527909249915-9ff58d10d4c8?w=1600&q=75&fm=jpg&fit=crop" alt="Shanghai's Pudong skyline and the Oriental Pearl Tower reflected in the water beside a steel bridge at dusk" style="object-position:center 35%" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">03 / 06 &middot; Travel style</span>
+            <h3>Modern Cities</h3>
+            <p>Skylines, design districts and food scenes, from New York and Copenhagen to Seoul and Berlin.</p>
+            <span class="style-slide-cta">Explore 11 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide ph-5" href="browse?style=historic-city" data-cat="historic-city">
+          <img data-src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=1600&q=75&fm=jpg&fit=crop" alt="Edinburgh Castle perched on its volcanic rock outcrop against a blue sky" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">04 / 06 &middot; Travel style</span>
+            <h3>Historic Old Towns</h3>
+            <p>Cobbled lanes, cathedrals and castles, from Prague and Bruges to Edinburgh and Istanbul.</p>
+            <span class="style-slide-cta">Explore 31 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide ph-6" href="browse?style=road-trip" data-cat="roadtrip">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/1920px-Delicate_arch_sunset.jpg" alt="Delicate Arch glowing red in late sunlight in Arches National Park, Utah" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">05 / 06 &middot; Travel style</span>
+            <h3>Road Trips &amp; National Parks</h3>
+            <p>Self-drive routes with real driving times, from Utah's red-rock arches to Bavaria and Puglia.</p>
+            <span class="style-slide-cta">Explore 11 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide ph-2" href="browse?style=lakes-nature" data-cat="lakes-nature">
+          <img data-src="https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=1600&q=75&fm=jpg&fit=crop" alt="Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest" decoding="async">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">06 / 06 &middot; Travel style</span>
+            <h3>Lakes &amp; Nature</h3>
+            <p>Waterfalls, glaciers and wild landscapes, from Plitvice and Hallstatt to Iguazu Falls.</p>
+            <span class="style-slide-cta">Explore 22 trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="style-slide style-slide-all ph-1" href="browse">
+          <div class="style-slide-body">
+            <span class="style-slide-kicker">Every travel style</span>
+            <h3>See all 103 itineraries</h3>
+            <p>Filter by style, budget and region to find your next trip.</p>
+            <span class="style-slide-cta">Browse all trips <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+      <p class="style-hint" id="styleHint" aria-hidden="true">Keep scrolling &darr;</p>
+      <div class="style-dots" id="styleDots"></div>
+      <div class="style-progress" aria-hidden="true"><span class="style-progress-bar" id="styleBar"></span></div>
     </div>
   </div>
 </section>

@@ -138,7 +138,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .photo img.is-loaded { opacity: 1; transform: scale(1); }
 .trip-card:hover .photo img,
-.category-card:hover img,
 .day-photo:hover img { transform: scale(1.07); }
 .photo-label {
   position: absolute; inset: auto 0 0 0;
@@ -455,29 +454,157 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .search-bar .btn-primary { border-radius: 0; padding: 0 32px; }
 
 /* ===========================================================
-   Categories
+   Travel styles: slideshow that moves sideways as the page scrolls down.
+   Base (no JS / reduced motion): a swipeable, snapping horizontal row.
+   .is-enhanced (set by main.js): a tall runway with a sticky stage whose
+   track is translated horizontally by vertical scroll progress.
    =========================================================== */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-.category-card {
+.style-scroll { --header-h: 67px; --stage-h: calc(100vh - var(--header-h)); padding: 88px 0 0; }
+@supports (height: 100svh) { .style-scroll { --stage-h: calc(100svh - var(--header-h)); } }
+.style-stage {
   position: relative;
-  border-radius: var(--radius-md);
-  height: 200px;
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: #fff;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: min(72vh, 620px);
+  min-height: 420px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
-.category-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.category-card:active { transform: translateY(-2px) scale(0.98); }
-.category-card.active { outline: 3px solid var(--mint); outline-offset: 3px; }
-.category-card h3 { color: #fff; font-size: 1.15rem; z-index: 2; position: relative; }
-.category-card span.count { font-size: 0.8rem; opacity: 0.85; z-index: 2; position: relative; }
+.style-track { display: flex; height: 100%; }
+.style-slide {
+  position: relative;
+  flex: 0 0 86%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  scroll-snap-align: center;
+}
+.style-slide img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.8s var(--ease-premium), transform 1.4s var(--ease-premium);
+}
+.style-slide img.is-loaded { opacity: 1; transform: scale(1); }
+.style-slide::after {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7,61,46,0) 35%, rgba(7,61,46,0.82) 100%),
+    linear-gradient(90deg, rgba(7,61,46,0.55), rgba(7,61,46,0) 65%);
+}
+.style-slide:focus-visible { outline: 3px solid var(--mint); outline-offset: -6px; }
+.style-slide-body {
+  max-width: 680px;
+  padding: clamp(28px, 6vw, 72px);
+  padding-bottom: clamp(72px, 11vh, 112px);
+}
+.style-slide-kicker {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.style-slide h3 {
+  color: #fff;
+  font-size: clamp(2.1rem, 5.2vw, 3.8rem);
+  line-height: 1.04;
+  margin: 12px 0 14px;
+}
+.style-slide p { color: rgba(255,255,255,0.92); font-size: 1.05rem; max-width: 46ch; margin-bottom: 26px; }
+.style-slide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: #fff;
+  color: var(--emerald-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, gap 0.2s var(--ease-premium);
+}
+.style-slide:hover .style-slide-cta,
+.style-slide:focus-visible .style-slide-cta { background: var(--mint); gap: 14px; }
+
+.style-hint, .style-dots, .style-progress { display: none; }
+
+.style-scroll.is-enhanced .style-runway { height: calc(var(--stage-h) + (var(--slides) - 1) * 75vh); }
+.style-scroll.is-enhanced .style-stage {
+  position: sticky;
+  top: var(--header-h);
+  height: var(--stage-h);
+  min-height: 460px;
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+.style-scroll.is-enhanced .style-track { will-change: transform; }
+.style-scroll.is-enhanced .style-slide { flex: 0 0 100%; }
+.style-scroll.is-enhanced .style-slide-body {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.6s var(--ease-premium), transform 0.8s var(--ease-premium);
+}
+.style-scroll.is-enhanced .style-slide.is-active .style-slide-body { opacity: 1; transform: none; }
+.style-scroll.is-enhanced .style-hint {
+  display: block;
+  position: absolute;
+  top: 24px; right: 28px;
+  z-index: 3;
+  padding: 9px 16px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(7,61,46,0.6);
+  backdrop-filter: blur(4px);
+  transition: opacity 0.4s ease;
+}
+.style-scroll.is-enhanced .style-hint.is-hidden { opacity: 0; }
+.style-scroll.is-enhanced .style-dots {
+  display: flex;
+  position: absolute;
+  left: 0; right: 0; bottom: 20px;
+  z-index: 3;
+  justify-content: center;
+  gap: 2px;
+}
+.style-dot { width: 26px; height: 26px; display: grid; place-items: center; }
+.style-dot::after {
+  content: "";
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: background 0.2s ease, transform 0.2s var(--ease-premium);
+}
+.style-dot:hover::after { background: #fff; }
+.style-dot.is-active::after { background: #fff; transform: scale(1.45); }
+.style-dot:focus-visible { outline: 2px solid var(--mint); border-radius: 50%; }
+.style-scroll.is-enhanced .style-progress {
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+}
+.style-progress-bar {
+  display: block;
+  height: 100%;
+  background: var(--mint);
+  transform-origin: left center;
+  transform: scaleX(var(--p, 0));
+}
+@media (max-width: 640px) {
+  .style-slide-body { padding: 26px 22px 76px; }
+  .style-scroll.is-enhanced .style-hint { top: 14px; right: 14px; }
+}
 
 /* ===========================================================
    Featured itineraries carousel
@@ -1520,7 +1647,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
    Responsive
    =========================================================== */
 @media (max-width: 960px) {
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
   .value-grid { grid-template-columns: repeat(2, 1fr); }
   .culture-grid, .packing-grid, .tricks-grid { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
@@ -1564,7 +1690,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .search-field:last-of-type { border-bottom: none; }
   .search-bar .btn-primary { margin-top: 6px; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }
-  .category-grid { grid-template-columns: 1fr; }
   .carousel-head { flex-direction: column; align-items: flex-start; gap: 16px; }
   .value-grid { grid-template-columns: 1fr; }
   .newsletter { margin: 0 16px; padding: 44px 24px; }

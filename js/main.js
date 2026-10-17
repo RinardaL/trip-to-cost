@@ -1075,15 +1075,143 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Category filter (visual active state) ---------- */
-  const categoryGrid = document.getElementById("categoryGrid");
-  if (categoryGrid) {
-    categoryGrid.addEventListener("click", (e) => {
-      const card = e.target.closest(".category-card");
-      if (!card) return;
-      categoryGrid.querySelectorAll(".category-card").forEach(c => c.classList.remove("active"));
-      card.classList.add("active");
-    });
+  /* ---------- Travel styles: horizontal slideshow driven by vertical scroll ---------- */
+  const styleSection = document.querySelector(".style-scroll");
+  if (styleSection) {
+    const runway = document.getElementById("styleRunway");
+    const stage = document.getElementById("styleStage");
+    const track = document.getElementById("styleTrack");
+    const bar = document.getElementById("styleBar");
+    const hint = document.getElementById("styleHint");
+    const dotsWrap = document.getElementById("styleDots");
+    const siteHeaderEl = document.querySelector(".site-header");
+    const slides = Array.from(track.querySelectorAll(".style-slide"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    // Photos load as soon as the section is anywhere near the screen. The generic
+    // lazy-loader above would wait until each slide itself was almost visible, which
+    // is mid-slide, so the next photo would still be blank as it arrives.
+    const slideImgs = Array.from(track.querySelectorAll("img[data-src]"));
+    function loadSlideImages() {
+      slideImgs.forEach((img) => {
+        if (!img.dataset.src) return;
+        img.addEventListener("load", () => img.classList.add("is-loaded"));
+        img.addEventListener("error", () => { img.style.display = "none"; });
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+      });
+    }
+    if ("IntersectionObserver" in window) {
+      const imgObserver = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { loadSlideImages(); imgObserver.disconnect(); }
+      }, { rootMargin: "120% 0px" });
+      imgObserver.observe(runway);
+    } else {
+      loadSlideImages();
+    }
+
+    let enhanced = false;
+    let target = 0, current = 0, raf = 0, activeIndex = -1;
+    let scrollable = 0, maxShift = 0, headerH = 0;
+    let dots = [];
+
+    function measure() {
+      headerH = siteHeaderEl ? siteHeaderEl.offsetHeight : 67;
+      styleSection.style.setProperty("--header-h", headerH + "px");
+      scrollable = Math.max(0, runway.offsetHeight - stage.offsetHeight);
+      maxShift = Math.max(0, track.scrollWidth - stage.clientWidth);
+    }
+    function progressNow() {
+      if (!scrollable) return 0;
+      const top = runway.getBoundingClientRect().top;
+      return Math.min(1, Math.max(0, (headerH - top) / scrollable));
+    }
+    function setActive(i) {
+      if (i === activeIndex) return;
+      activeIndex = i;
+      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+      dots.forEach((d, k) => {
+        d.classList.toggle("is-active", k === i);
+        if (k === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
+      });
+    }
+    function paint(p) {
+      track.style.transform = "translate3d(" + (-p * maxShift).toFixed(2) + "px,0,0)";
+      bar.style.setProperty("--p", p.toFixed(4));
+    }
+    function tick() {
+      raf = 0;
+      current += (target - current) * 0.16;
+      if (Math.abs(target - current) < 0.0005) current = target;
+      paint(current);
+      if (current !== target) raf = requestAnimationFrame(tick);
+    }
+    function onScroll() {
+      if (siteHeaderEl && siteHeaderEl.offsetHeight !== headerH) measure();
+      target = progressNow();
+      setActive(Math.round(target * (slides.length - 1)));
+      hint.classList.toggle("is-hidden", target > 0.02);
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+    function scrollToSlide(i) {
+      const runwayTop = runway.getBoundingClientRect().top + window.scrollY;
+      const y = runwayTop - headerH + (i / (slides.length - 1)) * scrollable;
+      window.scrollTo({ top: y, behavior: reducedMotion.matches ? "auto" : "smooth" });
+    }
+    // Tabbing to an off-screen slide link scrolls the page to that slide.
+    function onFocusIn(e) {
+      const slide = e.target.closest(".style-slide");
+      if (!slide) return;
+      const i = slides.indexOf(slide);
+      if (i !== activeIndex) scrollToSlide(i);
+    }
+    // The browser may try to scroll the clipped stage itself to reveal a focused link; undo that.
+    function resetStageScroll() { stage.scrollLeft = 0; }
+    function onResize() { measure(); onScroll(); current = target; paint(current); }
+
+    function enable() {
+      if (enhanced) return;
+      enhanced = true;
+      styleSection.classList.add("is-enhanced");
+      dotsWrap.innerHTML = "";
+      dots = slides.map((slide, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "style-dot";
+        const heading = slide.querySelector("h3");
+        b.setAttribute("aria-label", "Go to " + (heading ? heading.textContent : "slide " + (i + 1)));
+        b.addEventListener("click", () => scrollToSlide(i));
+        dotsWrap.appendChild(b);
+        return b;
+      });
+      activeIndex = -1;
+      measure();
+      target = current = progressNow();
+      setActive(Math.round(target * (slides.length - 1)));
+      hint.classList.toggle("is-hidden", target > 0.02);
+      paint(current);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onResize);
+      track.addEventListener("focusin", onFocusIn);
+      stage.addEventListener("scroll", resetStageScroll);
+    }
+    function disable() {
+      if (!enhanced) return;
+      enhanced = false;
+      styleSection.classList.remove("is-enhanced");
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      track.removeEventListener("focusin", onFocusIn);
+      stage.removeEventListener("scroll", resetStageScroll);
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      track.style.transform = "";
+      slides.forEach((s) => s.classList.remove("is-active"));
+      dotsWrap.innerHTML = "";
+      dots = [];
+    }
+    function syncMode() { if (reducedMotion.matches) disable(); else enable(); }
+    syncMode();
+    reducedMotion.addEventListener("change", syncMode);
   }
 
   /* ---------- Testimonials: live-loaded from data/reviews.json + locally written reviews ---------- */

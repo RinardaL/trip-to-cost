@@ -2340,3 +2340,20 @@ strong, b { font-weight: 600; }
   .trip-card .photo { height: 180px !important; }
   .trip-card-body { padding: 16px 18px 18px; }
 }
+
+/* Trip cards: quiet text link instead of a boxed button */
+.trip-card .trip-meta { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; }
+.trip-card .trip-meta .btn,
+.trip-card .trip-meta .btn.btn-outline {
+  width: auto;
+  padding: 4px 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--emerald);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.trip-card .trip-meta .btn::after { content: "\2192"; margin-left: 6px; display: inline-block; transition: transform 0.2s var(--ease-premium); }
+.trip-card .trip-meta .btn:hover, .trip-card .trip-meta .btn:focus-visible { background: none; color: var(--emerald-dark); text-decoration: underline; text-underline-offset: 4px; }
+.trip-card .trip-meta .btn:hover::after, .trip-card .trip-meta .btn:focus-visible::after { transform: translateX(4px); }

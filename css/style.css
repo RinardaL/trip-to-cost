@@ -2047,3 +2047,98 @@ body.lightbox-open { overflow: hidden; }
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 4px 14px rgba(7, 61, 46, 0.35);
 }
 .hero .search-bar .btn-primary:hover, .hero .search-bar .btn-primary:focus-visible { background: #0f8a63; }
+
+/* Hero search: one-line pill sized 440 x 48, fully rounded */
+.hero .search-bar {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  height: 48px;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 9999px;
+}
+.hero .search-bar .search-field {
+  position: static;
+  justify-content: center;
+  height: 100%;
+  padding: 0 8px 0 20px;
+  border: 0;
+}
+.hero .search-bar .search-field label {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.hero .search-bar .search-field input { font-size: 0.94rem; line-height: 1.2; }
+.hero .search-bar .btn-primary {
+  flex-shrink: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0 20px;
+  font-size: 0.88rem;
+  border-radius: 9999px;
+}
+.hero .search-bar .search-autocomplete { left: 0; right: 0; top: calc(100% + 8px); }
+
+@media (max-width: 400px) {
+  .hero .search-bar .btn-primary { padding: 0 16px; }
+  .hero .search-bar .search-field { padding-left: 18px; }
+}
+
+/* ---------- Browse page: filter bar in the same fully-rounded pill format ---------- */
+.filter-bar {
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 780px;
+  min-height: 48px;
+  margin: 0 auto;
+  padding: 4px 4px 4px 20px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 6px 24px rgba(11, 107, 79, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.filter-bar:focus-within { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(23, 184, 147, 0.18); }
+.filter-bar .filter-secondary { flex: 1; flex-wrap: nowrap; gap: 0; min-width: 0; }
+.filter-bar .filter-secondary input {
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.94rem;
+}
+.filter-bar .filter-secondary .search-input-wrap { flex: 1; min-width: 120px; }
+.filter-bar .filter-dropdown-btn { height: 40px; font-size: 0.88rem; border-radius: 9999px; }
+.filter-bar .filter-dropdown-btn:hover, .filter-bar .filter-dropdown.is-open .filter-dropdown-btn { background: var(--mint-tint); }
+.filter-bar .filter-dropdown-list { border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-md); padding: 6px; }
+.filter-bar .filter-dropdown-list li { border-radius: 10px; }
+.filter-bar .search-autocomplete { border-radius: 18px; top: calc(100% + 10px); }
+@media (max-width: 720px) {
+  .filter-bar { flex-direction: column; align-items: stretch; max-width: none; padding: 6px 18px; border-radius: 28px; }
+  .filter-bar .filter-secondary { flex-direction: column; align-items: stretch; }
+  .filter-bar .filter-secondary input { height: 44px; font-size: 0.94rem; }
+  .filter-bar .filter-dropdown-btn { height: 44px; border-radius: 12px; padding-left: 0; font-size: 0.94rem; }
+  .filter-bar .filter-dropdown-list { left: 0; right: 0; min-width: 0; }
+}
+
+/* ---------- Header heart: just the heart, no circle; colour shade still shifts on hover ---------- */
+.site-header .icon-btn {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 1.3rem;
+  color: var(--emerald-dark);
+  transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-premium);
+}
+.site-header .icon-btn:hover, .site-header .icon-btn:focus-visible { background: none; border: 0; box-shadow: none; color: var(--mint-dark); transform: scale(1.15); }
+.site-header .icon-btn:active { transform: scale(0.92); }
+.home-page .site-header:not(.is-solid) .icon-btn { color: #fff; }
+.home-page .site-header:not(.is-solid) .icon-btn:hover,
+.home-page .site-header:not(.is-solid) .icon-btn:focus-visible { color: var(--mint-tint); }
+@media (max-width: 720px) { .filter-bar #continentFilter .filter-dropdown-btn { padding-left: 0; } }

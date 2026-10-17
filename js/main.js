@@ -1146,6 +1146,11 @@ function initWanderList() {
     const dayItems = Array.from(document.querySelectorAll("#dayList .day-item"));
     const totalDays = dayItems.length;
     const note = document.getElementById("durationNote");
+    const durationLabel = document.querySelector(".duration-picker-label");
+    if (durationLabel) { durationLabel.id = durationLabel.id || "durationLabel"; durationOptions.setAttribute("role", "group"); durationOptions.setAttribute("aria-labelledby", durationLabel.id); }
+    note.setAttribute("aria-live", "polite");
+    const syncPressed = () => durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.setAttribute("aria-pressed", String(b.classList.contains("active"))));
+    syncPressed();
 
     function rankedDays() {
       return dayItems.slice().sort((a, b) => {
@@ -1172,6 +1177,7 @@ function initWanderList() {
       btn.addEventListener("click", () => {
         durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
+        syncPressed();
         applyDuration(parseInt(btn.dataset.days, 10));
       });
     });
@@ -1181,6 +1187,7 @@ function initWanderList() {
       durationOptions.querySelectorAll(".duration-btn").forEach((b) => {
         b.classList.toggle("active", parseInt(b.dataset.days, 10) === totalDays);
       });
+      syncPressed();
       applyDuration(totalDays);
     });
   }

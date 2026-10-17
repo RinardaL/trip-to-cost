@@ -2357,3 +2357,52 @@ strong, b { font-weight: 600; }
 .trip-card .trip-meta .btn::after { content: "\2192"; margin-left: 6px; display: inline-block; transition: transform 0.2s var(--ease-premium); }
 .trip-card .trip-meta .btn:hover, .trip-card .trip-meta .btn:focus-visible { background: none; color: var(--emerald-dark); text-decoration: underline; text-underline-offset: 4px; }
 .trip-card .trip-meta .btn:hover::after, .trip-card .trip-meta .btn:focus-visible::after { transform: translateX(4px); }
+
+/* ---------- Trip-length picker: calm ivory and sage ---------- */
+.duration-picker {
+  display: block;
+  margin-bottom: 24px;
+  padding: 24px 28px 26px;
+  background: #F6F2E8;
+  border: 1px solid #E3DDCD;
+  border-radius: 18px;
+}
+.duration-picker-label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: #3A4038;
+}
+.duration-options { gap: 12px; }
+.duration-options .duration-btn {
+  min-height: 46px;
+  padding: 10px 24px;
+  border: 1px solid #DDD7C7;
+  border-radius: 999px;
+  background: #FBF9F4;
+  color: #5E6459;
+  font-size: 0.94rem;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.duration-options .duration-btn:hover { background: #F1EDE0; border-color: #C9C3B1; color: #3A4038; }
+.duration-options .duration-btn:active { transform: none; }
+.duration-options .duration-btn.active,
+.duration-options .duration-btn[aria-pressed="true"] {
+  background: #B7C8AE;
+  border-color: #98AE8F;
+  color: #26332A;
+  font-weight: 600;
+}
+.duration-options .duration-btn:focus-visible { outline: 2px solid #6F8A66; outline-offset: 3px; }
+.duration-note { margin: -8px 0 24px; padding: 12px 18px; background: #F6F2E8; border: 1px solid #E3DDCD; border-radius: 12px; color: #3A4038; }
+.duration-note a { color: #4F6B47; }
+@media (max-width: 560px) {
+  .duration-picker { padding: 20px 18px 22px; border-radius: 16px; }
+  .duration-options { gap: 10px; }
+  .duration-options .duration-btn { flex: 1 1 calc(50% - 5px); padding: 10px 14px; }
+}
+.duration-options .duration-btn:not(.active) { background: #FBF9F4; }
+.duration-options .duration-btn:not(.active):hover { background: #F1EDE0; }

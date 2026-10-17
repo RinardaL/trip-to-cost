@@ -2381,8 +2381,7 @@ function initWanderList() {
   }
 
   function syncSaveBtn(saved) {
-    saveBtn.classList.toggle("btn-secondary", saved);
-    saveBtn.classList.toggle("btn-outline", !saved);
+    saveBtn.classList.toggle("is-saved", saved);
     saveBtn.textContent = saved ? "♥ Saved" : "♥ Save Trip";
   }
 

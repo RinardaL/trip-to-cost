@@ -4,109 +4,109 @@
 
 /* ---------- Trip catalog (used to render Saved Trips from localStorage) ---------- */
 const TRIP_CATALOG = {
-  "itinerary": { title: "A Week of Hidden Gems in Tokyo & Kyoto", place: "Tokyo & Kyoto, Japan", tag: "Historic Old Towns", duration: "7 Days", cost: "$1,400-1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg", alt: "Kyoto cityscape, Japan", country: "Japan", continent: "Asia", lat: 35.68, lon: 139.65 },
-  "amalfi-coast": { title: "7 Days in Amalfi Coast on a Budget", place: "Amalfi Coast, Italy", tag: "Beach & Coastal", duration: "7 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg", alt: "Amalfi Coast, Italy", country: "Italy", continent: "Europe", lat: 40.63, lon: 14.6 },
-  "utah-national-parks": { title: "Ultimate Road Trip Through Utah's National Parks", place: "Utah, USA", tag: "Road Trips & National Parks", duration: "7 Days", cost: "$950-1,250/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg", alt: "Delicate Arch at sunset, Utah", country: "USA", continent: "North America", lat: 38.57, lon: -109.55 },
-  "lisbon": { title: "7 Days of Lisbon Local Highlights", place: "Lisbon, Portugal", tag: "Historic Old Towns", duration: "7 Days", cost: "$600-800/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg", alt: "Belém Tower, Lisbon", country: "Portugal", continent: "Europe", lat: 38.72, lon: -9.14 },
-  "banff": { title: "A Luxury Week in Banff & Lake Louise", place: "Banff, Canada", tag: "Mountain Escapes", duration: "7 Days", cost: "$2,050-2,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg", alt: "Moraine Lake, Banff National Park", country: "Canada", continent: "North America", lat: 51.18, lon: -115.57 },
-  "bali": { title: "A Week of Wellness & Solo Discovery in Bali", place: "Bali, Indonesia", tag: "Beach & Coastal", duration: "7 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Pura_Luhur_Ukuwatu_Temple_on_a_steep_cliff_70m._above_the_Indian_ocean_%2816268088084%29.jpg/500px-Pura_Luhur_Ukuwatu_Temple_on_a_steep_cliff_70m._above_the_Indian_ocean_%2816268088084%29.jpg", alt: "Pura Luhur Uluwatu temple on a clifftop, Bali", country: "Indonesia", continent: "Asia", lat: -8.34, lon: 115.09 },
-  "paris": { title: "A Perfect Long Weekend in Paris", place: "Paris, France", tag: "Historic Old Towns", duration: "3 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg", alt: "Eiffel Tower, Paris", country: "France", continent: "Europe", lat: 48.86, lon: 2.35 },
-  "new-york-city": { title: "48 Hours in New York City", place: "New York City, USA", tag: "Modern Cities", duration: "2 Days", cost: "$650-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg", alt: "Brooklyn Bridge, New York City", country: "USA", continent: "North America", lat: 40.71, lon: -74.01 },
-  "barcelona": { title: "3 Days in Barcelona", place: "Barcelona, Spain", tag: "Historic Old Towns", duration: "3 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg", alt: "Sagrada Família, Barcelona", country: "Spain", continent: "Europe", lat: 41.39, lon: 2.17 },
-  "athens": { title: "7 Days in Athens: Ancient Ruins & Island Escapes", place: "Athens, Greece", tag: "Historic Old Towns", duration: "7 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg", alt: "The Parthenon, Athens, Greece", country: "Greece", continent: "Europe", lat: 37.98, lon: 23.73 },
-  "nice": { title: "7 Days in Nice & the French Riviera", place: "Nice, France", tag: "Beach & Coastal", duration: "7 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Promenade_des_Anglais_in_Nice.jpg/500px-Promenade_des_Anglais_in_Nice.jpg", alt: "Promenade des Anglais, Nice, France", country: "France", continent: "Europe", lat: 43.70, lon: 7.27 },
-  "milano": { title: "4 Days in Milan: Duomo, Navigli & Brera", place: "Milan, Italy", tag: "Modern Cities", duration: "4 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1567760855784-589f09ed5dc6?w=500&q=80&fm=jpg&fit=crop", alt: "Milan Cathedral (Duomo di Milano) at golden hour", country: "Italy", continent: "Europe", lat: 45.46, lon: 9.19 },
-  "toscana": { title: "6 Days in Tuscany: A Self-Drive Road Trip", place: "Tuscany, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,100-1,500/person", img: "https://images.unsplash.com/photo-1684836571999-f3dc511935e7?w=500&q=80&fm=jpg&fit=crop", alt: "Cypress-lined road through the Tuscan countryside", country: "Italy", continent: "Europe", lat: 43.32, lon: 11.33 },
-  "madeira": { title: "5 Days in Madeira, Portugal", place: "Madeira, Portugal", tag: "Beach & Coastal", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=500&q=80&fm=jpg&fit=crop", alt: "Coastal cliffs and waterfall, Madeira, Portugal", country: "Portugal", continent: "Europe", lat: 32.65, lon: -16.91 },
-  "thailand": { title: "7 Days in Thailand: Bangkok to the Andaman Coast", place: "Bangkok & Andaman Coast, Thailand", tag: "Beach & Coastal", duration: "7 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1704390529135-742324e6b8f1?w=500&q=80&fm=jpg&fit=crop", alt: "Wat Arun's spire at golden hour, Bangkok, Thailand", country: "Thailand", continent: "Asia", lat: 13.75, lon: 100.50 },
-  "sofia": { title: "4 Days in Sofia, Bulgaria", place: "Sofia, Bulgaria", tag: "Historic Old Towns", duration: "4 Days", cost: "$450-600/person", img: "https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=500&q=80&fm=jpg&fit=crop", alt: "Alexander Nevsky Cathedral's golden dome, Sofia, Bulgaria", country: "Bulgaria", continent: "Europe", lat: 42.70, lon: 23.32 },
-  "budapest": { title: "5 Days in Budapest: Danube, Castle Hill & Thermal Baths", place: "Budapest, Hungary", tag: "Historic Old Towns", duration: "5 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1555958493-1380d49ac1ef?w=500&q=80&fm=jpg&fit=crop", alt: "Hungarian Parliament Building lit up at night on the Danube", country: "Hungary", continent: "Europe", lat: 47.50, lon: 19.04 },
-  "prague": { title: "4 Days in Prague: Old Town, Castle & the Vltava", place: "Prague, Czech Republic", tag: "Historic Old Towns", duration: "4 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Snow_in_Old_Town_Square_%282143481044%29.jpg/500px-Snow_in_Old_Town_Square_%282143481044%29.jpg", alt: "Snow over Old Town Square, Prague", country: "Czech Republic", continent: "Europe", lat: 50.09, lon: 14.42 },
-  "lapland": { title: "5 Days in Finnish Lapland: Rovaniemi & the Arctic Circle", place: "Finnish Lapland", tag: "Lakes & Nature", duration: "5 Days", cost: "$1,800-2,400/person", img: "https://images.unsplash.com/photo-1738189669835-61808a9d5981?w=500&q=80&fm=jpg&fit=crop", alt: "Aurora borealis over a snow-covered forest, Finnish Lapland", country: "Finland", continent: "Europe", lat: 66.50, lon: 25.73 },
-  "zermatt": { title: "4 Days in Zermatt: Matterhorn Views & Alpine Trails", place: "Zermatt, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,600-2,200/person", img: "https://images.unsplash.com/photo-1571274834067-3a24675547b4?w=500&q=80&fm=jpg&fit=crop", alt: "Zermatt village chalets with the Matterhorn behind them", country: "Switzerland", continent: "Europe", lat: 46.02, lon: 7.75 },
-  "shanghai": { title: "5 Days in Shanghai: The Bund, Yu Garden & Zhujiajiao", place: "Shanghai, China", tag: "Modern Cities", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1527909249915-9ff58d10d4c8?w=500&q=80&fm=jpg&fit=crop", alt: "Pudong skyline with the Oriental Pearl Tower at dusk, viewed from the Bund", country: "China", continent: "Asia", lat: 31.23, lon: 121.47 },
-  "strasbourg": { title: "4 Days in Strasbourg: Petite France, Cathedral & the Alsace Wine Route", place: "Strasbourg, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1596036986070-e84592a19917?w=500&q=80&fm=jpg&fit=crop", alt: "Half-timbered houses along the canals of Petite France, Strasbourg", country: "France", continent: "Europe", lat: 48.58, lon: 7.75 },
-  "kotor": { title: "4 Days in Kotor, Montenegro: Old Town, Fortress & Bay", place: "Kotor, Montenegro", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1641234354133-df0ae680f2db?w=500&q=80&fm=jpg&fit=crop", alt: "Panoramic view of the Bay of Kotor from the fortress walls above the Old Town", country: "Montenegro", continent: "Europe", lat: 42.42, lon: 18.77 },
-  "seville": { title: "4 Days in Seville: Alcázar, Cathedral & Triana", place: "Seville, Spain", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1559386081-325882507af7?w=500&q=80&fm=jpg&fit=crop", alt: "Plaza de España's grand semicircular building viewed through an arch", country: "Spain", continent: "Europe", lat: 37.39, lon: -5.99 },
-  "zakopane": { title: "4 Days in Zakopane: Tatra Peaks & Highland Culture", place: "Zakopane, Poland", tag: "Mountain Escapes", duration: "4 Days", cost: "$500-700/person", img: "https://images.unsplash.com/photo-1618595487779-9e884295dd09?w=500&q=80&fm=jpg&fit=crop", alt: "Traditional wooden hut in a mountain valley beneath the jagged Tatra peaks, Zakopane, Poland", country: "Poland", continent: "Europe", lat: 49.30, lon: 19.95 },
-  "chamonix": { title: "5 Days in Chamonix: Mont Blanc, Aiguille du Midi & Alpine Villages", place: "Chamonix, France", tag: "Mountain Escapes", duration: "5 Days", cost: "$1,850-2,550/person", img: "https://images.unsplash.com/photo-1520853225856-e87762ef8c55?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view from the Aiguille du Midi over the Chamonix valley and the snow-covered French Alps", country: "France", continent: "Europe", lat: 45.92, lon: 6.87 },
-  "valletta": { title: "3 Days in Valletta, Malta: Fortifications, Harbours & Baroque Streets", place: "Valletta, Malta", tag: "Historic Old Towns", duration: "3 Days", cost: "$550-750/person", img: "https://images.unsplash.com/photo-1669294841689-0ceb34ad40c1?w=500&q=80&fm=jpg&fit=crop", alt: "A narrow Valletta street lined with traditional wooden balconies, opening onto the Grand Harbour, Malta", country: "Malta", continent: "Europe", lat: 35.90, lon: 14.51 },
-  "grindelwald": { title: "4 Days in Grindelwald: Eiger, Jungfraujoch & Alpine Trails", place: "Grindelwald, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,700-2,300/person", img: "https://images.unsplash.com/photo-1567109629107-5345afdcbf9d?w=500&q=80&fm=jpg&fit=crop", alt: "Grindelwald village in a green alpine valley beneath the snow-dusted north face of the Eiger, Switzerland", country: "Switzerland", continent: "Europe", lat: 46.62, lon: 8.03 },
-  "canary-islands": { title: "7 Days in the Canary Islands: Tenerife's Volcanoes to Lanzarote's Lava Fields", place: "Canary Islands, Spain", tag: "Beach & Coastal", duration: "7 Days", cost: "$1,200-1,600/person", img: "https://images.unsplash.com/photo-1594401708939-49f49fdf596a?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of a volcanic Canary island, dark cones rising from an arid coastline surrounded by turquoise Atlantic water", country: "Spain", continent: "Europe", lat: 28.29, lon: -16.63 },
-  "edinburgh": { title: "4 Days in Edinburgh: Castle, Old Town & the Scottish Highlands Edge", place: "Edinburgh, Scotland", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-900/person", img: "https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=500&q=80&fm=jpg&fit=crop", alt: "Edinburgh Castle perched dramatically on its volcanic rock outcrop against a blue sky", country: "Scotland", continent: "Europe", lat: 55.95, lon: -3.19 },
-  "austrian-alps": { title: "5 Days in the Austrian Alps: Innsbruck, Tyrol & Mountain Villages", place: "Austrian Alps, Austria", tag: "Mountain Escapes", duration: "5 Days", cost: "$1,100-1,500/person", img: "https://images.unsplash.com/photo-1621532450828-732396728722?w=500&q=80&fm=jpg&fit=crop", alt: "Jagged limestone peaks of the Austrian Alps rising above a forested mountain slope", country: "Austria", continent: "Europe", lat: 47.26, lon: 11.39 },
-  "bansko": { title: "4 Days in Bansko: Pirin Peaks & Bulgarian Mountain Culture", place: "Bansko, Bulgaria", tag: "Mountain Escapes", duration: "4 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1720959622076-a2a09dc4afbc?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of Bansko's rooftops with the Pirin Mountains rising behind the town at golden hour", country: "Bulgaria", continent: "Europe", lat: 41.84, lon: 23.49 },
-  "bruges": { title: "3 Days in Bruges: Canals, Belfry & Medieval Streets", place: "Bruges, Belgium", tag: "Historic Old Towns", duration: "3 Days", cost: "$500-700/person", img: "https://images.unsplash.com/photo-1662034602250-0387abdacdf9?w=500&q=80&fm=jpg&fit=crop", alt: "A canal boat gliding past classic Bruges townhouses with the Church of Our Lady's spire in the background", country: "Belgium", continent: "Europe", lat: 51.21, lon: 3.22 },
-  "copenhagen": { title: "4 Days in Copenhagen: Nyhavn, Design & Nordic Living", place: "Copenhagen, Denmark", tag: "Modern Cities", duration: "4 Days", cost: "$1,350-1,850/person", img: "https://images.unsplash.com/photo-1550682837-891ae070f347?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful townhouses and moored wooden boats along Copenhagen's Nyhavn canal", country: "Denmark", continent: "Europe", lat: 55.68, lon: 12.57 },
-  "lauterbrunnen": { title: "3 Days in Lauterbrunnen: Waterfalls, Cliffside Villages & the Schilthorn", place: "Lauterbrunnen, Switzerland", tag: "Mountain Escapes", duration: "3 Days", cost: "$1,450-1,950/person", img: "https://images.unsplash.com/photo-1630009574406-a9b21b77c015?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of the Lauterbrunnen valley, with the village on the valley floor and Staubbach Falls dropping from the cliffside", country: "Switzerland", continent: "Europe", lat: 46.59, lon: 7.91 },
-  "plitvice-lakes": { title: "3 Days at Plitvice Lakes: Waterfalls, Turquoise Pools & Boardwalk Trails", place: "Plitvice Lakes, Croatia", tag: "Lakes & Nature", duration: "3 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=500&q=80&fm=jpg&fit=crop", alt: "Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest", country: "Croatia", continent: "Europe", lat: 44.86, lon: 15.58 },
-  "hakone": { title: "3 Days in Hakone: Mount Fuji Views, Onsen & Lake Ashi", place: "Hakone, Japan", tag: "Lakes & Nature", duration: "3 Days", cost: "$750-1,050/person", img: "https://images.unsplash.com/photo-1568901002433-5a8ceafe4647?w=500&q=80&fm=jpg&fit=crop", alt: "Hakone Shrine's red torii gate standing in Lake Ashi, with snow-capped Mount Fuji rising in the distance", country: "Japan", continent: "Asia", lat: 35.23, lon: 139.03 },
-  "hallstatt": { title: "3 Days in Hallstatt: Lakeside Village, Salt Mines & Alpine Views", place: "Hallstatt, Austria", tag: "Lakes & Nature", duration: "3 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1597086831879-756db15e81d3?w=500&q=80&fm=jpg&fit=crop", alt: "Hallstatt's lakeside village with its church spire reflected in Lake Hallstatt, mountains rising behind", country: "Austria", continent: "Europe", lat: 47.56, lon: 13.65 },
-  "cortina-dampezzo": { title: "4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury", place: "Cortina d'Ampezzo, Italy", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,550-2,050/person", img: "https://images.unsplash.com/photo-1508409941519-8b2340520012?w=500&q=80&fm=jpg&fit=crop", alt: "The Dolomites' enrosadira alpenglow, a mountain peak glowing pink-orange at sunset above a forested ridge", country: "Italy", continent: "Europe", lat: 46.54, lon: 12.14 },
-  "bordeaux": { title: "4 Days in Bordeaux: Old Town, La Cité du Vin & Saint-Émilion", place: "Bordeaux, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Bordeaux_place_de_la_bourse_with_tram.JPG/500px-Bordeaux_place_de_la_bourse_with_tram.JPG", alt: "Place de la Bourse and a tram, Bordeaux", country: "France", continent: "Europe", lat: 44.84, lon: -0.58 },
-  "st-moritz": { title: "4 Days in St. Moritz: Ski Slopes, the Cresta Run & Frozen-Lake Glamour", place: "St. Moritz, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,900-2,600/person", img: "https://images.unsplash.com/photo-1547980562-3c008cd4b769?w=500&q=80&fm=jpg&fit=crop", alt: "Snow-covered chalets in the Engadin valley near St. Moritz, Switzerland, under a clear winter sky", country: "Switzerland", continent: "Europe", lat: 46.50, lon: 9.84 },
-  "dolomites": { title: "6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes", place: "Val Gardena, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg/1280px-Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg", alt: "The jagged Geisler-Odle peaks seen from the green Seceda ridge in summer, Val Gardena, Dolomites", country: "Italy", continent: "Europe", lat: 46.57, lon: 11.68 },
-  "marrakech": { title: "5 Days in Marrakech: Medina Souks, Palaces & the High Atlas", place: "Marrakech, Morocco", tag: "Historic Old Towns", duration: "5 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Jemaa_el-Fnaa_%287346166250%29.jpg/500px-Jemaa_el-Fnaa_%287346166250%29.jpg", alt: "Jemaa el-Fnaa square and the Marrakech souks seen from above, Morocco", country: "Morocco", continent: "Africa", lat: 31.63, lon: -7.99 },
-  "tromso": { title: "4 Days in Tromsø: Fjellheisen, the Arctic Cathedral & Winter Whale Watching", place: "Tromsø, Norway", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,800-2,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Aurora_Borealis_Troms%C3%B8_Norway.jpg/500px-Aurora_Borealis_Troms%C3%B8_Norway.jpg", alt: "The aurora borealis glowing green over Tromsø, Norway, on a clear Arctic winter night", country: "Norway", continent: "Europe", lat: 69.65, lon: 18.96 },
-  "stockholm": { title: "5 Days in Stockholm: Gamla Stan, the Vasa Museum & the Archipelago", place: "Stockholm, Sweden", tag: "Modern Cities", duration: "5 Days", cost: "$1,000-1,400/person", img: "https://images.unsplash.com/photo-1754408402234-eebbb9f77351?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful waterfront buildings and church spires across the Stockholm skyline in summer", country: "Sweden", continent: "Europe", lat: 59.33, lon: 18.07 },
-  "bavaria": { title: "6 Days in Bavaria: Castles, Alps & Beer Halls", place: "Bavaria, Germany", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,000-1,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Neuschwanstein_Castle_2024-02.jpg/500px-Neuschwanstein_Castle_2024-02.jpg", alt: "Neuschwanstein Castle rising above the forest near Füssen, Bavaria", country: "Germany", continent: "Europe", lat: 48.14, lon: 11.58 },
-  "zhangye": { title: "4 Days in Zhangye: Rainbow Mountains, Silk Road Oasis & Giant Buddha", place: "Zhangye, China", tag: "Lakes & Nature", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Colourful_mountains_of_the_Zhangye_National_Geopark.jpg/500px-Colourful_mountains_of_the_Zhangye_National_Geopark.jpg", alt: "Rippling bands of red, orange, yellow and green sandstone across the Zhangye Danxia National Geopark", country: "China", continent: "Asia", lat: 38.93, lon: 100.45 },
-  "lencois-maranhenses": { title: "4 Days at Lençóis Maranhenses: White Dunes, Blue Lagoons & the Preguiças River", place: "Lençóis Maranhenses, Brazil", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Lençóis_Maranhenses_-_Lagoa_Azul.JPG/500px-Lençóis_Maranhenses_-_Lagoa_Azul.JPG", alt: "A turquoise freshwater lagoon between rolling white sand dunes at Lençóis Maranhenses National Park, Brazil", country: "Brazil", continent: "South America", lat: -2.75, lon: -42.83 },
-  "waitomo": { title: "3 Days in Waitomo: Glowworm Caves, Ruakuri Cave & Hobbiton", place: "Waitomo, New Zealand", tag: "Lakes & Nature", duration: "3 Days", cost: "$650-900/person", img: "https://images.unsplash.com/photo-1666072958408-7b63853b46db?w=500&q=80&fm=jpg&fit=crop", alt: "Thousands of tiny blue bioluminescent glow-worms lighting up a dark New Zealand forest", country: "New Zealand", continent: "Oceania", lat: -38.26, lon: 175.10 },
-  "cappadocia": { title: "4 Days in Cappadocia: Fairy Chimneys, Cave Towns & Sunrise Balloons", place: "Cappadocia, Turkey", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hot_air_balloon_at_sunrise_over_Cappadocia%2C_Turkey.JPG/500px-Hot_air_balloon_at_sunrise_over_Cappadocia%2C_Turkey.JPG", alt: "Hot air balloons rising at sunrise over the fairy chimneys of Cappadocia, Turkey", country: "Turkey", continent: "Asia", lat: 38.64, lon: 34.83 },
-  "milos": { title: "4 Days in Milos: Sarakiniko's White Rocks, Klima & the Kleftiko Caves", place: "Milos, Greece", tag: "Beach & Coastal", duration: "4 Days", cost: "$900-1,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sarakiniko_Beach_on_Milos_Island%2C_Greece_with_a_view_of_the_Aegean_Sea.jpg/500px-Sarakiniko_Beach_on_Milos_Island%2C_Greece_with_a_view_of_the_Aegean_Sea.jpg", alt: "The white volcanic rock coastline of Sarakiniko Beach, Milos, Greece", country: "Greece", continent: "Europe", lat: 36.69, lon: 24.44 },
-  "mykonos": { title: "5 Days in Mykonos: Windmills, Beach Clubs & Delos", place: "Mykonos, Greece", tag: "Beach & Coastal", duration: "5 Days", cost: "$1,100-1,500/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Windmills_of_Kato_Mili%2C_Mykonos_%2839171204142%29.jpg/500px-Windmills_of_Kato_Mili%2C_Mykonos_%2839171204142%29.jpg", alt: "Windmills of Kato Mili overlooking the sea, Mykonos, Greece", country: "Greece", continent: "Europe", lat: 37.45, lon: 25.33 },
-  "crete": { title: "6 Days in Crete, Greece: Knossos, the Samaria Gorge & Balos Lagoon", place: "Crete, Greece", tag: "Beach & Coastal", duration: "6 Days", cost: "$850-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Aerial_view_of_Balos_Lagoon_on_the_island_of_Crete%2C_Greece.jpg/500px-Aerial_view_of_Balos_Lagoon_on_the_island_of_Crete%2C_Greece.jpg", alt: "Aerial view of Balos Lagoon's turquoise water and sandbar, Crete, Greece", country: "Greece", continent: "Europe", lat: 35.34, lon: 25.13 },
-  "abisko": { title: "4 Days in Abisko, Sweden: Northern Lights & Arctic Wilderness", place: "Abisko, Sweden", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,400-1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Aurora_in_Abisko_National_Park.jpg/500px-Aurora_in_Abisko_National_Park.jpg", alt: "The aurora borealis glowing green over Abisko National Park, Sweden", country: "Sweden", continent: "Europe", lat: 68.35, lon: 18.83 },
-  "annecy": { title: "4 Days in Annecy: Canals, Lake Swims & Alpine Paragliding", place: "Annecy, France", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Annecy_Palais_de_l%27%C3%8Ele_04.jpg/500px-Annecy_Palais_de_l%27%C3%8Ele_04.jpg", alt: "Annecy's Palais de l'Île surrounded by the canal, France", country: "France", continent: "Europe", lat: 45.90, lon: 6.13 },
-  "bangkok-phuket": { title: "6 Days in Thailand: Bangkok & Phuket Island", place: "Bangkok & Phuket, Thailand", tag: "Beach & Coastal", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Big_Buddha%2C_Phuket.jpg/500px-The_Big_Buddha%2C_Phuket.jpg", alt: "The Big Buddha statue overlooking Phuket, Thailand", country: "Thailand", continent: "Asia", lat: 7.88, lon: 98.39 },
-  "colmar": { title: "4 Days in Colmar: Christmas Markets & the Alsace Wine Route", place: "Colmar, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg/500px-March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg", alt: "Colmar's Christmas market lit up at night, Alsace, France", country: "France", continent: "Europe", lat: 48.08, lon: 7.36 },
-  "dublin": { title: "4 Days in Dublin: Trinity College, Guinness & the Wicklow Mountains", place: "Dublin, Ireland", tag: "Historic Old Towns", duration: "4 Days", cost: "$850-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ha%27penny_Bridge_in_Dublin.jpg/500px-Ha%27penny_Bridge_in_Dublin.jpg", alt: "The Ha'penny Bridge crossing the River Liffey, Dublin, Ireland", country: "Ireland", continent: "Europe", lat: 53.35, lon: -6.26 },
-  "iceland": { title: "5 Days in Iceland: Golden Circle, South Coast & the Northern Lights", place: "Iceland", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg/500px-Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg", alt: "The aurora borealis over the Sun Voyager sculpture, Reykjavik, Iceland", country: "Iceland", continent: "Europe", lat: 64.13, lon: -21.90 },
-  "interlaken": { title: "4 Days in Interlaken: Paragliding, Harder Kulm & Two Alpine Lakes", place: "Interlaken, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,500-2,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Paragliding_Interlaken_-_Switzerland_%28Unsplash%29.jpg/500px-Paragliding_Interlaken_-_Switzerland_%28Unsplash%29.jpg", alt: "A paraglider soaring above Interlaken, Switzerland", country: "Switzerland", continent: "Europe", lat: 46.69, lon: 7.87 },
-  "krakow": { title: "4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau", place: "Krakow, Poland", tag: "Historic Old Towns", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Krakow_Rynek_Glowny_panorama_2.jpg/500px-Krakow_Rynek_Glowny_panorama_2.jpg", alt: "Kraków's Rynek Główny market square panorama, Poland", country: "Poland", continent: "Europe", lat: 50.06, lon: 19.94 },
-  "lofoten": { title: "5 Days in the Lofoten Islands: Reinebringen, Reine & the Midnight Sun", place: "Lofoten Islands, Norway", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Moskenes_Reinebringen_lub_2025-07-21_img04_Aussicht.jpg/500px-Moskenes_Reinebringen_lub_2025-07-21_img04_Aussicht.jpg", alt: "The view from Reinebringen over the Lofoten Islands, Norway", country: "Norway", continent: "Europe", lat: 68.15, lon: 13.61 },
-  "london": { title: "5 Days in London: Royals, the River & the West End", place: "London, England", tag: "Modern Cities", duration: "5 Days", cost: "$1,000-1,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Tower_Bridge-London%2C_England%2C_United_Kingdom.jpg/500px-Tower_Bridge-London%2C_England%2C_United_Kingdom.jpg", alt: "Tower Bridge over the River Thames, London, England", country: "England", continent: "Europe", lat: 51.51, lon: -0.13 },
-  "puglia": { title: "6 Days in Puglia: A Self-Drive Road Trip Through Italy's Heel", place: "Puglia, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,000-1,350/person", img: "https://commons.wikimedia.org/wiki/Special:FilePath/Ostuni%20-%20View%20from%20Northwest%20-%201.jpg?width=500", alt: "Ostuni's whitewashed hilltop old town, Puglia, Italy", country: "Italy", continent: "Europe", lat: 40.73, lon: 17.58 },
-  "salzburg": { title: "4 Days in Salzburg: Old Town, Hohensalzburg Fortress & Wolfgangsee", place: "Salzburg, Austria", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Old_Town_Salzburg_across_the_Salzach_river.jpg/500px-Old_Town_Salzburg_across_the_Salzach_river.jpg", alt: "Salzburg's Old Town across the Salzach river, Austria", country: "Austria", continent: "Europe", lat: 47.80, lon: 13.04 },
-  "seoul": { title: "5 Days in Seoul: Palaces, Markets & Neon Nights", place: "Seoul, South Korea", tag: "Modern Cities", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1758384077399-2757a1de8b75?w=500&q=80&fm=jpg&fit=crop", alt: "Seoul's palace rooftops against the modern skyline, South Korea", country: "South Korea", continent: "Asia", lat: 37.57, lon: 126.98 },
-  "tenerife": { title: "5 Days in Tenerife: Resort Beaches, Water Parks & Mount Teide by Starlight", place: "Tenerife, Spain", tag: "Beach & Coastal", duration: "5 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg/500px-Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg", alt: "Aerial view of Playa de Torviscas beach, Costa Adeje, Tenerife, Spain", country: "Spain", continent: "Europe", lat: 28.09, lon: -16.74 },
-  "mount-fuji": { title: "4 Days in Mount Fuji: Fuji Five Lakes, Chureito Pagoda & Kawaguchiko", place: "Fuji Five Lakes, Japan", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Chureito_Pagoda_and_Mount_Fuji_2023-03-07.jpg/500px-Chureito_Pagoda_and_Mount_Fuji_2023-03-07.jpg", alt: "The red Chureito Pagoda framed against snow-capped Mount Fuji", country: "Japan", continent: "Asia", lat: 35.50, lon: 138.76 },
-  "valensole": { title: "4 Days in Valensole: A Provence Lavender Fields Road Trip", place: "Valensole, France", tag: "Road Trips & National Parks", duration: "4 Days", cost: "$900-1,200/person", img: "https://images.unsplash.com/photo-1733691217961-14e808e67a65?w=500&q=80&fm=jpg&fit=crop", alt: "Lavender rows leading toward two trees at sunset on the Plateau de Valensole, Provence", country: "France", continent: "Europe", lat: 43.84, lon: 5.99 },
-  "salar-de-uyuni": { title: "4 Days at Salar de Uyuni: Mirror Reflections, Incahuasi Island & the Colored Lagoons", place: "Salar de Uyuni, Bolivia", tag: "Lakes & Nature", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Before_Sunrise_at_the_Salar_of_Uyuni%2C_Bolivia.jpg/500px-Before_Sunrise_at_the_Salar_of_Uyuni%2C_Bolivia.jpg", alt: "A perfectly mirrored pre-dawn sky reflected on the flooded surface of the Salar de Uyuni salt flat, Bolivia", country: "Bolivia", continent: "South America", lat: -20.46, lon: -66.83 },
-  "vatnajokull": { title: "4 Days in the Vatnajökull Glacier Region: Blue Ice Caves & Jökulsárlón", place: "Vatnajökull, Iceland", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,700-2,300/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ice_Cave_Explorer_-_Iceland.jpg/500px-Ice_Cave_Explorer_-_Iceland.jpg", alt: "A guide exploring the glowing blue interior of a natural ice cave inside Vatnajokull glacier, Iceland", country: "Iceland", continent: "Europe", lat: 64.25, lon: -15.21 },
-  "tallinn": { title: "4 Days in Tallinn: Old Town, Toompea & Kalamaja", place: "Tallinn, Estonia", tag: "Historic Old Towns", duration: "4 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tallinn_Old_Town_Skyline_%2852432521369%29.jpg/500px-Tallinn_Old_Town_Skyline_%2852432521369%29.jpg", alt: "Panoramic skyline of Tallinn's medieval Old Town, with Toompea Hill's spires rising above red-tiled roofs", country: "Estonia", continent: "Europe", lat: 59.44, lon: 24.75 },
-  "megeve": { title: "4 Days in Megève: Gentle Slopes, Gourmet Dining & Sleigh Rides", place: "Megève, France", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,900-2,600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg/500px-Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg", alt: "Panoramic winter view of Megève village and the Mont Blanc massif from the Dames ski slopes", country: "France", continent: "Europe", lat: 45.86, lon: 6.62 },
-  "quebec-city": { title: "4 Days in Quebec City: Old Town, Château Frontenac & Montmorency Falls", place: "Quebec City, Canada", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Quebec_City_skyline_from_L%C3%A9vis.jpg/500px-Quebec_City_skyline_from_L%C3%A9vis.jpg", alt: "The skyline of Quebec City's Upper Town, with Château Frontenac rising above the St. Lawrence River, seen from Lévis", country: "Canada", continent: "North America", lat: 46.81, lon: -71.21 },
-  "bergen": { title: "4 Days in Bergen: Bryggen, Fjords & the Fløibanen Funicular", place: "Bergen, Norway", tag: "Historic Old Towns", duration: "4 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bergen-bryggen-tunliweb.jpg/500px-Bergen-bryggen-tunliweb.jpg", alt: "Rows of colorful wooden Hanseatic buildings lining Bryggen wharf in Bergen, Norway", country: "Norway", continent: "Europe", lat: 60.39, lon: 5.32 },
-  "ljubljana": { title: "4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled", place: "Ljubljana, Slovenia", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blick_auf_Blejsko_jezero_Bleder_See_mit_Blejski_otok_und_Cerkev_Marijinega_Vnebovzetja_%2852973876207%29.jpg/500px-Blick_auf_Blejsko_jezero_Bleder_See_mit_Blejski_otok_und_Cerkev_Marijinega_Vnebovzetja_%2852973876207%29.jpg", alt: "Lake Bled's island church with the Julian Alps behind, Slovenia", country: "Slovenia", continent: "Europe", lat: 46.06, lon: 14.51 },
-  "riga": { title: "4 Days in Riga: Art Nouveau, Old Town & the Central Market", place: "Riga, Latvia", tag: "Historic Old Towns", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Alberta-iela-13.jpg/500px-Alberta-iela-13.jpg", alt: "The ornate sculptural facade of Alberta iela 13, one of Mikhail Eisenstein's landmark Art Nouveau buildings in Riga, Latvia", country: "Latvia", continent: "Europe", lat: 56.95, lon: 24.11 },
-  "madagascar": { title: "6 Days in Madagascar: Avenue of the Baobabs & Andasibe-Mantadia National Park", place: "Madagascar", tag: "Lakes & Nature", duration: "6 Days", cost: "$1,550-2,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Avenue_of_the_Baobabs_at_Sunset.jpg/500px-Avenue_of_the_Baobabs_at_Sunset.jpg", alt: "The Avenue of the Baobabs glowing orange at sunset near Morondava, Madagascar", country: "Madagascar", continent: "Africa", lat: -18.88, lon: 47.51 },
-  "marble-caves": { title: "4 Days at the Marble Caves: Cuevas de Mármol, General Carrera Lake & the Carretera Austral", place: "Marble Caves, Chile", tag: "Lakes & Nature", duration: "4 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Cuevas_de_M%C3%A1rmol_-_Marble_Caves%2C_Blue_Water%2C_Patagonia%2C_Chile.jpg/500px-Cuevas_de_M%C3%A1rmol_-_Marble_Caves%2C_Blue_Water%2C_Patagonia%2C_Chile.jpg", alt: "The swirling blue-and-white marble cave interiors reflected in the turquoise water of General Carrera Lake, Chile", country: "Chile", continent: "South America", lat: -46.60, lon: -72.68 },
-  "rio-de-janeiro": { title: "5 Days in Rio de Janeiro: Christ the Redeemer, Sugarloaf & Copacabana", place: "Rio de Janeiro, Brazil", tag: "Beach & Coastal", duration: "5 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Vista_panor%C3%A1mica_R%C3%ADo_de_Janeiro_y_Pan_de_Az%C3%BAcar_A74248720241123.jpg/500px-Vista_panor%C3%A1mica_R%C3%ADo_de_Janeiro_y_Pan_de_Az%C3%BAcar_A74248720241123.jpg", alt: "Panoramic view of Rio de Janeiro and Sugarloaf Mountain, Brazil", country: "Brazil", continent: "South America", lat: -22.91, lon: -43.17 },
-  "rainbow-mountain": { title: "4 Days in Cusco: Sacsayhuamán, the Sacred Valley & the Rainbow Mountain Trek", place: "Cusco, Peru", tag: "Lakes & Nature", duration: "4 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Vinicunca_%28Rainbow_Mountain%29.jpg/500px-Vinicunca_%28Rainbow_Mountain%29.jpg", alt: "The mineral-striped red, gold, and turquoise slopes of Vinicunca, the Rainbow Mountain, near Cusco, Peru", country: "Peru", continent: "South America", lat: -13.53, lon: -71.97 },
-  "antelope-canyon": { title: "3 Days in Page, Arizona: Antelope Canyon, Horseshoe Bend & Lake Powell", place: "Page, Arizona, USA", tag: "Lakes & Nature", duration: "3 Days", cost: "$550-750/person", img: "https://images.unsplash.com/photo-1505521377774-103a8cc2f735?w=500&q=80&fm=jpg&fit=crop", alt: "Golden light beams shafting down through the narrow sandstone walls of Upper Antelope Canyon, Page, Arizona", country: "USA", continent: "North America", lat: 36.91, lon: -111.46 },
-  "yoshino": { title: "3 Days in Yoshinoyama: Mount Yoshino's 30,000 Cherry Trees", place: "Yoshino, Japan", tag: "Lakes & Nature", duration: "3 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/From_Mount_Yoshino_%286988360150%29.jpg/500px-From_Mount_Yoshino_%286988360150%29.jpg", alt: "Thousands of cherry trees in bloom across the slopes of Mount Yoshino, with Kinpusen-ji's Zao-do hall visible in the distance", country: "Japan", continent: "Asia", lat: 34.36, lon: 135.87 },
-  "chiang-mai": { title: "4 Days in Chiang Mai: The Yi Peng Lantern Festival, Doi Suthep & the Old City", place: "Chiang Mai, Thailand", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Yi_peng_sky_lantern_festival_San_Sai_Thailand.jpg/500px-Yi_peng_sky_lantern_festival_San_Sai_Thailand.jpg", alt: "Hundreds of glowing sky lanterns released into the night sky during the Yi Peng festival near Chiang Mai", country: "Thailand", continent: "Asia", lat: 18.79, lon: 98.99 },
-  "luang-prabang": { title: "4 Days in Luang Prabang: Kuang Si Falls, Old Town & the Mekong", place: "Luang Prabang, Laos", tag: "Lakes & Nature", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg/500px-Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg", alt: "Turquoise, multi-tiered pools of Kuang Si Falls near Luang Prabang, Laos", country: "Laos", continent: "Asia", lat: 19.89, lon: 102.13 },
-  "socotra": { title: "5 Days on Socotra Island: Dragon's Blood Forests, Detwah Lagoon & the Dunes of Arher", place: "Socotra Island, Yemen", tag: "Lakes & Nature", duration: "5 Days", cost: "$2,200-2,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Dragon_Blood_Tree%2C_Socotra_Island_%2810098980413%29.jpg/500px-Dragon_Blood_Tree%2C_Socotra_Island_%2810098980413%29.jpg", alt: "A single mushroom-shaped dragon's blood tree (Dracaena cinnabari) on the Dixam Plateau, Socotra Island, Yemen", country: "Yemen", continent: "Asia", lat: 12.47, lon: 53.82 },
-  "sedona": { title: "4 Days in Sedona: Red Rocks, Vortexes & Art Galleries", place: "Sedona, USA", tag: "Mountain Escapes", duration: "4 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Cathedral_Rock_Sunset-27527-1.jpg/500px-Cathedral_Rock_Sunset-27527-1.jpg", alt: "Cathedral Rock at sunset, Sedona, Arizona", country: "USA", continent: "North America", lat: 34.87, lon: -111.76 },
-  "algarve": { title: "4 Days in the Algarve, Portugal", place: "Algarve, Portugal", tag: "Beach & Coastal", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Benagil_Cave_%283%29.jpg/500px-Benagil_Cave_%283%29.jpg", alt: "Benagil Cave's circular skylight opening above turquoise water, Algarve, Portugal", country: "Portugal", continent: "Europe", lat: 37.10, lon: -8.40 },
-  "mauritius": { title: "5 Days in Mauritius: Le Morne, Chamarel & the Seven Colored Earths", place: "Mauritius", tag: "Beach & Coastal", duration: "5 Days", cost: "$1,200-1,600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mauritius_Seven_Colored_Earths_1.JPG/500px-Mauritius_Seven_Colored_Earths_1.JPG", alt: "The Seven Colored Earths of Chamarel, Mauritius", country: "Mauritius", continent: "Africa", lat: -20.35, lon: 57.55 },
-  "serengeti": { title: "5 Days in Tanzania: Serengeti National Park & Ngorongoro Crater Safari", place: "Tanzania", tag: "Lakes & Nature", duration: "5 Days", cost: "$2,700-3,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Sunset_Beams_on_the_Serengeti.jpg/500px-Sunset_Beams_on_the_Serengeti.jpg", alt: "Golden sunset light breaking through storm clouds over the endless open plains of the Serengeti National Park, Tanzania", country: "Tanzania", continent: "Africa", lat: -2.33, lon: 34.83 },
-  "egypt": { title: "7 Days in Egypt: Cairo & a Nile Cruise from Luxor to Aswan", place: "Cairo, Egypt", tag: "Historic Old Towns", duration: "7 Days", cost: "$1,200-1,700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sunset_at_the_Pyramids.jpg/500px-Sunset_at_the_Pyramids.jpg", alt: "The Pyramids of Giza silhouetted against a golden sunset, Egypt", country: "Egypt", continent: "Africa", lat: 30.04, lon: 31.24 },
-  "iguazu-falls": { title: "4 Days at Iguazu Falls: Devil's Throat, Boat Rides & Both Sides of the Border", place: "Iguazu Falls, Argentina & Brazil", tag: "Lakes & Nature", duration: "4 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Iguazu_Falls_Cataratas_Argentina_Luca_Galuzzi_2005.jpg/500px-Iguazu_Falls_Cataratas_Argentina_Luca_Galuzzi_2005.jpg", alt: "Panoramic view of Iguazu Falls, the horseshoe-shaped cascades straddling the Argentina-Brazil border", country: "Argentina", continent: "South America", lat: -25.68, lon: -54.44 },
-  "zhangjiajie": { title: "5 Days in Zhangjiajie: Avatar Mountains, Glass Bridge & Fenghuang Ancient Town", place: "Zhangjiajie, China", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zhangjiajie_at_dawn_1.jpg/500px-Zhangjiajie_at_dawn_1.jpg", alt: "Dawn mist breaking on thousands of towering quartz-sandstone pillars at Zhangjiajie National Forest Park, Hunan, China", country: "China", continent: "Asia", lat: 29.12, lon: 110.48 },
-  "brussels": { title: "3 Days in Brussels: Grand Place, Comics & the Atomium", place: "Brussels, Belgium", tag: "Modern Cities", duration: "3 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Brussels_Grand_Place_%2852189340312%29.jpg/500px-Brussels_Grand_Place_%2852189340312%29.jpg", alt: "The ornate gilded guildhalls of Brussels' Grand Place illuminated at twilight", country: "Belgium", continent: "Europe", lat: 50.85, lon: 4.35 },
-  "oslo": { title: "4 Days in Oslo: Opera House, Vigeland & Viking Heritage", place: "Oslo, Norway", tag: "Modern Cities", duration: "4 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/People_walking_up_the_Oslo_Opera_House_slopped_roof_%2829879239065%29.jpg/500px-People_walking_up_the_Oslo_Opera_House_slopped_roof_%2829879239065%29.jpg", alt: "Visitors walking up the sloped white marble roof of the Oslo Opera House", country: "Norway", continent: "Europe", lat: 59.91, lon: 10.75 },
-  "mont-saint-michel": { title: "3 Days in Mont Saint-Michel: Abbey, Tides & the Normandy Coast", place: "Mont Saint-Michel, France", tag: "Historic Old Towns", duration: "3 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Mont-Saint-Michel_at_sunset.jpg/500px-Mont-Saint-Michel_at_sunset.jpg", alt: "Mont Saint-Michel's tidal abbey silhouetted against a golden sunset sky, rising above the bay", country: "France", continent: "Europe", lat: 48.64, lon: -1.51 },
-  "singapore": { title: "4 Days in Singapore: Gardens by the Bay, Marina Bay & Hawker Culture", place: "Singapore", tag: "Modern Cities", duration: "4 Days", cost: "$1,100-1,500/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Merli%C3%B3n%2C_Marina_Bay%2C_Singapur%2C_2023-08-18%2C_DD_45-47_HDR.jpg/500px-Merli%C3%B3n%2C_Marina_Bay%2C_Singapur%2C_2023-08-18%2C_DD_45-47_HDR.jpg", alt: "The Merlion statue spouting water into Marina Bay at dusk, with the Marina Bay Sands skyline lit up behind it", country: "Singapore", continent: "Asia", lat: 1.35, lon: 103.82 },
-  "istanbul": { title: "4 Days in Istanbul: Byzantine Domes, Grand Bazaars & the Bosphorus", place: "Istanbul, Turkey", tag: "Historic Old Towns", duration: "4 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/500px-Hagia_Sophia_Mars_2013.jpg", alt: "The Hagia Sophia, Istanbul, Turkey", country: "Turkey", continent: "Asia", lat: 41.01, lon: 28.98 },
-  "morocco": { title: "6 Days in Morocco: Fes, Chefchaouen & the Sahara Desert", place: "Fes, Chefchaouen & the Sahara, Morocco", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/2018_01_%28Blue%29_-_Chaouen.jpg/500px-2018_01_%28Blue%29_-_Chaouen.jpg", alt: "A narrow blue-washed alley in Chefchaouen, Morocco's Blue City", country: "Morocco", continent: "Africa", lat: 34.03, lon: -5.00 },
-  "machu-picchu": { title: "5 Days at Machu Picchu: The Sacred Valley & the Lost City of the Incas", place: "Machu Picchu, Peru", tag: "Historic Old Towns", duration: "5 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Machu_Picchu%2C_2023_%28012%29.jpg/500px-Machu_Picchu%2C_2023_%28012%29.jpg", alt: "The classic overlook of Machu Picchu with Huayna Picchu peak rising behind the Inca citadel, Peru", country: "Peru", continent: "South America", lat: -13.16, lon: -72.55 },
-  "nepal": { title: "6 Days in Nepal: Kathmandu, Pokhara & the Poon Hill Trek", place: "Nepal", tag: "Mountain Escapes", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Sunrise_from_Poon_Hill%2C_Ghorepani.jpg/500px-Sunrise_from_Poon_Hill%2C_Ghorepani.jpg", alt: "Golden sunrise light over the snow-capped Annapurna range seen from the Poon Hill viewpoint near Ghorepani, Nepal", country: "Nepal", continent: "Asia", lat: 27.72, lon: 85.32 },
-  "albania": { title: "6 Days of Hidden Gems in Albania: Krujë, Valbona-Theth & the Blue Eye", place: "Krujë, the Blue Eye & the Albanian Alps", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Syri_i_kalter_%28The_Blue_Eye%29%2C_Albania%2C_September_2022_04.jpg/500px-Syri_i_kalter_%28The_Blue_Eye%29%2C_Albania%2C_September_2022_04.jpg", alt: "The impossibly vivid blue water of Syri i Kaltër, the Blue Eye spring, in southern Albania", country: "Albania", continent: "Europe", lat: 41.33, lon: 19.82 },
-  "berlin": { title: "4 Days in Berlin: Wall History, Museum Island & Potsdam", place: "Berlin, Germany", tag: "Modern Cities", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Brandenburg_Gate%28Berlin%29-2025-09-msu-3833-.jpg/500px-Brandenburg_Gate%28Berlin%29-2025-09-msu-3833-.jpg", alt: "The Brandenburg Gate at golden hour, with an orange sky glowing between its columns beneath the Quadriga", country: "Germany", continent: "Europe", lat: 52.52, lon: 13.4 },
+  "itinerary": { title: "A Week of Hidden Gems in Tokyo & Kyoto", place: "Tokyo & Kyoto, Japan", tag: "Historic Old Towns", duration: "7 Days", cost: "$1,400-1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg", alt: "Kyoto cityscape, Japan", country: "Japan", continent: "Asia", lat: 35.68, lon: 139.65, season: "Mar – May" },
+  "amalfi-coast": { title: "7 Days in Amalfi Coast on a Budget", place: "Amalfi Coast, Italy", tag: "Beach & Coastal", duration: "7 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg", alt: "Amalfi Coast, Italy", country: "Italy", continent: "Europe", lat: 40.63, lon: 14.6, season: "May – Jun, Sep" },
+  "utah-national-parks": { title: "Ultimate Road Trip Through Utah's National Parks", place: "Utah, USA", tag: "Road Trips & National Parks", duration: "7 Days", cost: "$950-1,250/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg", alt: "Delicate Arch at sunset, Utah", country: "USA", continent: "North America", lat: 38.57, lon: -109.55, season: "Apr – May, Sep – Oct" },
+  "lisbon": { title: "7 Days of Lisbon Local Highlights", place: "Lisbon, Portugal", tag: "Historic Old Towns", duration: "7 Days", cost: "$600-800/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg", alt: "Belém Tower, Lisbon", country: "Portugal", continent: "Europe", lat: 38.72, lon: -9.14, season: "Mar – May, Sep" },
+  "banff": { title: "A Luxury Week in Banff & Lake Louise", place: "Banff, Canada", tag: "Mountain Escapes", duration: "7 Days", cost: "$2,050-2,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg", alt: "Moraine Lake, Banff National Park", country: "Canada", continent: "North America", lat: 51.18, lon: -115.57, season: "Jun – Sep" },
+  "bali": { title: "A Week of Wellness & Solo Discovery in Bali", place: "Bali, Indonesia", tag: "Beach & Coastal", duration: "7 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Pura_Luhur_Ukuwatu_Temple_on_a_steep_cliff_70m._above_the_Indian_ocean_%2816268088084%29.jpg/500px-Pura_Luhur_Ukuwatu_Temple_on_a_steep_cliff_70m._above_the_Indian_ocean_%2816268088084%29.jpg", alt: "Pura Luhur Uluwatu temple on a clifftop, Bali", country: "Indonesia", continent: "Asia", lat: -8.34, lon: 115.09, season: "Apr – Oct" },
+  "paris": { title: "A Perfect Long Weekend in Paris", place: "Paris, France", tag: "Historic Old Towns", duration: "3 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg", alt: "Eiffel Tower, Paris", country: "France", continent: "Europe", lat: 48.86, lon: 2.35, season: "Apr – Jun, Sep" },
+  "new-york-city": { title: "48 Hours in New York City", place: "New York City, USA", tag: "Modern Cities", duration: "2 Days", cost: "$650-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg", alt: "Brooklyn Bridge, New York City", country: "USA", continent: "North America", lat: 40.71, lon: -74.01, season: "Apr – Jun, Sep – Nov" },
+  "barcelona": { title: "3 Days in Barcelona", place: "Barcelona, Spain", tag: "Historic Old Towns", duration: "3 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg", alt: "Sagrada Família, Barcelona", country: "Spain", continent: "Europe", lat: 41.39, lon: 2.17, season: "May – Jun, Sep" },
+  "athens": { title: "7 Days in Athens: Ancient Ruins & Island Escapes", place: "Athens, Greece", tag: "Historic Old Towns", duration: "7 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg", alt: "The Parthenon, Athens, Greece", country: "Greece", continent: "Europe", lat: 37.98, lon: 23.73, season: "Apr – Jun, Sep – Oct" },
+  "nice": { title: "7 Days in Nice & the French Riviera", place: "Nice, France", tag: "Beach & Coastal", duration: "7 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Promenade_des_Anglais_in_Nice.jpg/500px-Promenade_des_Anglais_in_Nice.jpg", alt: "Promenade des Anglais, Nice, France", country: "France", continent: "Europe", lat: 43.70, lon: 7.27, season: "May – Jun, Sep" },
+  "milano": { title: "4 Days in Milan: Duomo, Navigli & Brera", place: "Milan, Italy", tag: "Modern Cities", duration: "4 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1567760855784-589f09ed5dc6?w=500&q=80&fm=jpg&fit=crop", alt: "Milan Cathedral (Duomo di Milano) at golden hour", country: "Italy", continent: "Europe", lat: 45.46, lon: 9.19, season: "Apr – Jun, Sep – Oct" },
+  "toscana": { title: "6 Days in Tuscany: A Self-Drive Road Trip", place: "Tuscany, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,100-1,500/person", img: "https://images.unsplash.com/photo-1684836571999-f3dc511935e7?w=500&q=80&fm=jpg&fit=crop", alt: "Cypress-lined road through the Tuscan countryside", country: "Italy", continent: "Europe", lat: 43.32, lon: 11.33, season: "Apr – Jun, Sep – Oct" },
+  "madeira": { title: "5 Days in Madeira, Portugal", place: "Madeira, Portugal", tag: "Beach & Coastal", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=500&q=80&fm=jpg&fit=crop", alt: "Coastal cliffs and waterfall, Madeira, Portugal", country: "Portugal", continent: "Europe", lat: 32.65, lon: -16.91, season: "Apr – Oct" },
+  "thailand": { title: "7 Days in Thailand: Bangkok to the Andaman Coast", place: "Bangkok & Andaman Coast, Thailand", tag: "Beach & Coastal", duration: "7 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1704390529135-742324e6b8f1?w=500&q=80&fm=jpg&fit=crop", alt: "Wat Arun's spire at golden hour, Bangkok, Thailand", country: "Thailand", continent: "Asia", lat: 13.75, lon: 100.50, season: "Nov – Mar" },
+  "sofia": { title: "4 Days in Sofia, Bulgaria", place: "Sofia, Bulgaria", tag: "Historic Old Towns", duration: "4 Days", cost: "$450-600/person", img: "https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=500&q=80&fm=jpg&fit=crop", alt: "Alexander Nevsky Cathedral's golden dome, Sofia, Bulgaria", country: "Bulgaria", continent: "Europe", lat: 42.70, lon: 23.32, season: "May – Jun, Sep" },
+  "budapest": { title: "5 Days in Budapest: Danube, Castle Hill & Thermal Baths", place: "Budapest, Hungary", tag: "Historic Old Towns", duration: "5 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1555958493-1380d49ac1ef?w=500&q=80&fm=jpg&fit=crop", alt: "Hungarian Parliament Building lit up at night on the Danube", country: "Hungary", continent: "Europe", lat: 47.50, lon: 19.04, season: "Apr – Jun, Sep – Oct" },
+  "prague": { title: "4 Days in Prague: Old Town, Castle & the Vltava", place: "Prague, Czech Republic", tag: "Historic Old Towns", duration: "4 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Snow_in_Old_Town_Square_%282143481044%29.jpg/500px-Snow_in_Old_Town_Square_%282143481044%29.jpg", alt: "Snow over Old Town Square, Prague", country: "Czech Republic", continent: "Europe", lat: 50.09, lon: 14.42, season: "Apr – Jun, Sep – Oct" },
+  "lapland": { title: "5 Days in Finnish Lapland: Rovaniemi & the Arctic Circle", place: "Finnish Lapland", tag: "Lakes & Nature", duration: "5 Days", cost: "$1,800-2,400/person", img: "https://images.unsplash.com/photo-1738189669835-61808a9d5981?w=500&q=80&fm=jpg&fit=crop", alt: "Aurora borealis over a snow-covered forest, Finnish Lapland", country: "Finland", continent: "Europe", lat: 66.50, lon: 25.73, season: "Dec – Mar" },
+  "zermatt": { title: "4 Days in Zermatt: Matterhorn Views & Alpine Trails", place: "Zermatt, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,600-2,200/person", img: "https://images.unsplash.com/photo-1571274834067-3a24675547b4?w=500&q=80&fm=jpg&fit=crop", alt: "Zermatt village chalets with the Matterhorn behind them", country: "Switzerland", continent: "Europe", lat: 46.02, lon: 7.75, season: "Jun – Sep" },
+  "shanghai": { title: "5 Days in Shanghai: The Bund, Yu Garden & Zhujiajiao", place: "Shanghai, China", tag: "Modern Cities", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1527909249915-9ff58d10d4c8?w=500&q=80&fm=jpg&fit=crop", alt: "Pudong skyline with the Oriental Pearl Tower at dusk, viewed from the Bund", country: "China", continent: "Asia", lat: 31.23, lon: 121.47, season: "Mar – May, Sep – Nov" },
+  "strasbourg": { title: "4 Days in Strasbourg: Petite France, Cathedral & the Alsace Wine Route", place: "Strasbourg, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1596036986070-e84592a19917?w=500&q=80&fm=jpg&fit=crop", alt: "Half-timbered houses along the canals of Petite France, Strasbourg", country: "France", continent: "Europe", lat: 48.58, lon: 7.75, season: "May – Jun, Sep" },
+  "kotor": { title: "4 Days in Kotor, Montenegro: Old Town, Fortress & Bay", place: "Kotor, Montenegro", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1641234354133-df0ae680f2db?w=500&q=80&fm=jpg&fit=crop", alt: "Panoramic view of the Bay of Kotor from the fortress walls above the Old Town", country: "Montenegro", continent: "Europe", lat: 42.42, lon: 18.77, season: "May – Jun, Sep" },
+  "seville": { title: "4 Days in Seville: Alcázar, Cathedral & Triana", place: "Seville, Spain", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-800/person", img: "https://images.unsplash.com/photo-1559386081-325882507af7?w=500&q=80&fm=jpg&fit=crop", alt: "Plaza de España's grand semicircular building viewed through an arch", country: "Spain", continent: "Europe", lat: 37.39, lon: -5.99, season: "Mar – May, Oct – Nov" },
+  "zakopane": { title: "4 Days in Zakopane: Tatra Peaks & Highland Culture", place: "Zakopane, Poland", tag: "Mountain Escapes", duration: "4 Days", cost: "$500-700/person", img: "https://images.unsplash.com/photo-1618595487779-9e884295dd09?w=500&q=80&fm=jpg&fit=crop", alt: "Traditional wooden hut in a mountain valley beneath the jagged Tatra peaks, Zakopane, Poland", country: "Poland", continent: "Europe", lat: 49.30, lon: 19.95, season: "Jun – Sep" },
+  "chamonix": { title: "5 Days in Chamonix: Mont Blanc, Aiguille du Midi & Alpine Villages", place: "Chamonix, France", tag: "Mountain Escapes", duration: "5 Days", cost: "$1,850-2,550/person", img: "https://images.unsplash.com/photo-1520853225856-e87762ef8c55?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view from the Aiguille du Midi over the Chamonix valley and the snow-covered French Alps", country: "France", continent: "Europe", lat: 45.92, lon: 6.87, season: "Jun – Sep" },
+  "valletta": { title: "3 Days in Valletta, Malta: Fortifications, Harbours & Baroque Streets", place: "Valletta, Malta", tag: "Historic Old Towns", duration: "3 Days", cost: "$550-750/person", img: "https://images.unsplash.com/photo-1669294841689-0ceb34ad40c1?w=500&q=80&fm=jpg&fit=crop", alt: "A narrow Valletta street lined with traditional wooden balconies, opening onto the Grand Harbour, Malta", country: "Malta", continent: "Europe", lat: 35.90, lon: 14.51, season: "Apr – Jun, Sep – Oct" },
+  "grindelwald": { title: "4 Days in Grindelwald: Eiger, Jungfraujoch & Alpine Trails", place: "Grindelwald, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,700-2,300/person", img: "https://images.unsplash.com/photo-1567109629107-5345afdcbf9d?w=500&q=80&fm=jpg&fit=crop", alt: "Grindelwald village in a green alpine valley beneath the snow-dusted north face of the Eiger, Switzerland", country: "Switzerland", continent: "Europe", lat: 46.62, lon: 8.03, season: "Jun – Sep" },
+  "canary-islands": { title: "7 Days in the Canary Islands: Tenerife's Volcanoes to Lanzarote's Lava Fields", place: "Canary Islands, Spain", tag: "Beach & Coastal", duration: "7 Days", cost: "$1,200-1,600/person", img: "https://images.unsplash.com/photo-1594401708939-49f49fdf596a?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of a volcanic Canary island, dark cones rising from an arid coastline surrounded by turquoise Atlantic water", country: "Spain", continent: "Europe", lat: 28.29, lon: -16.63, season: "Year-round (Oct – Apr best)" },
+  "edinburgh": { title: "4 Days in Edinburgh: Castle, Old Town & the Scottish Highlands Edge", place: "Edinburgh, Scotland", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-900/person", img: "https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=500&q=80&fm=jpg&fit=crop", alt: "Edinburgh Castle perched dramatically on its volcanic rock outcrop against a blue sky", country: "Scotland", continent: "Europe", lat: 55.95, lon: -3.19, season: "May – Sep" },
+  "austrian-alps": { title: "5 Days in the Austrian Alps: Innsbruck, Tyrol & Mountain Villages", place: "Austrian Alps, Austria", tag: "Mountain Escapes", duration: "5 Days", cost: "$1,100-1,500/person", img: "https://images.unsplash.com/photo-1621532450828-732396728722?w=500&q=80&fm=jpg&fit=crop", alt: "Jagged limestone peaks of the Austrian Alps rising above a forested mountain slope", country: "Austria", continent: "Europe", lat: 47.26, lon: 11.39, season: "Jun – Sep" },
+  "bansko": { title: "4 Days in Bansko: Pirin Peaks & Bulgarian Mountain Culture", place: "Bansko, Bulgaria", tag: "Mountain Escapes", duration: "4 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1720959622076-a2a09dc4afbc?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of Bansko's rooftops with the Pirin Mountains rising behind the town at golden hour", country: "Bulgaria", continent: "Europe", lat: 41.84, lon: 23.49, season: "Jun – Sep" },
+  "bruges": { title: "3 Days in Bruges: Canals, Belfry & Medieval Streets", place: "Bruges, Belgium", tag: "Historic Old Towns", duration: "3 Days", cost: "$500-700/person", img: "https://images.unsplash.com/photo-1662034602250-0387abdacdf9?w=500&q=80&fm=jpg&fit=crop", alt: "A canal boat gliding past classic Bruges townhouses with the Church of Our Lady's spire in the background", country: "Belgium", continent: "Europe", lat: 51.21, lon: 3.22, season: "Apr – Jun, Sep – Oct" },
+  "copenhagen": { title: "4 Days in Copenhagen: Nyhavn, Design & Nordic Living", place: "Copenhagen, Denmark", tag: "Modern Cities", duration: "4 Days", cost: "$1,350-1,850/person", img: "https://images.unsplash.com/photo-1550682837-891ae070f347?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful townhouses and moored wooden boats along Copenhagen's Nyhavn canal", country: "Denmark", continent: "Europe", lat: 55.68, lon: 12.57, season: "May – Sep" },
+  "lauterbrunnen": { title: "3 Days in Lauterbrunnen: Waterfalls, Cliffside Villages & the Schilthorn", place: "Lauterbrunnen, Switzerland", tag: "Mountain Escapes", duration: "3 Days", cost: "$1,450-1,950/person", img: "https://images.unsplash.com/photo-1630009574406-a9b21b77c015?w=500&q=80&fm=jpg&fit=crop", alt: "Aerial view of the Lauterbrunnen valley, with the village on the valley floor and Staubbach Falls dropping from the cliffside", country: "Switzerland", continent: "Europe", lat: 46.59, lon: 7.91, season: "Jun – Sep" },
+  "plitvice-lakes": { title: "3 Days at Plitvice Lakes: Waterfalls, Turquoise Pools & Boardwalk Trails", place: "Plitvice Lakes, Croatia", tag: "Lakes & Nature", duration: "3 Days", cost: "$450-650/person", img: "https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=500&q=80&fm=jpg&fit=crop", alt: "Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest", country: "Croatia", continent: "Europe", lat: 44.86, lon: 15.58, season: "May – Jun, Sep – Oct" },
+  "hakone": { title: "3 Days in Hakone: Mount Fuji Views, Onsen & Lake Ashi", place: "Hakone, Japan", tag: "Lakes & Nature", duration: "3 Days", cost: "$750-1,050/person", img: "https://images.unsplash.com/photo-1568901002433-5a8ceafe4647?w=500&q=80&fm=jpg&fit=crop", alt: "Hakone Shrine's red torii gate standing in Lake Ashi, with snow-capped Mount Fuji rising in the distance", country: "Japan", continent: "Asia", lat: 35.23, lon: 139.03, season: "Oct – Feb" },
+  "hallstatt": { title: "3 Days in Hallstatt: Lakeside Village, Salt Mines & Alpine Views", place: "Hallstatt, Austria", tag: "Lakes & Nature", duration: "3 Days", cost: "$650-850/person", img: "https://images.unsplash.com/photo-1597086831879-756db15e81d3?w=500&q=80&fm=jpg&fit=crop", alt: "Hallstatt's lakeside village with its church spire reflected in Lake Hallstatt, mountains rising behind", country: "Austria", continent: "Europe", lat: 47.56, lon: 13.65, season: "May – Sep" },
+  "cortina-dampezzo": { title: "4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury", place: "Cortina d'Ampezzo, Italy", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,550-2,050/person", img: "https://images.unsplash.com/photo-1508409941519-8b2340520012?w=500&q=80&fm=jpg&fit=crop", alt: "The Dolomites' enrosadira alpenglow, a mountain peak glowing pink-orange at sunset above a forested ridge", country: "Italy", continent: "Europe", lat: 46.54, lon: 12.14, season: "Jun – Sep" },
+  "bordeaux": { title: "4 Days in Bordeaux: Old Town, La Cité du Vin & Saint-Émilion", place: "Bordeaux, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Bordeaux_place_de_la_bourse_with_tram.JPG/500px-Bordeaux_place_de_la_bourse_with_tram.JPG", alt: "Place de la Bourse and a tram, Bordeaux", country: "France", continent: "Europe", lat: 44.84, lon: -0.58, season: "May – Jun, Sep" },
+  "st-moritz": { title: "4 Days in St. Moritz: Ski Slopes, the Cresta Run & Frozen-Lake Glamour", place: "St. Moritz, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,900-2,600/person", img: "https://images.unsplash.com/photo-1547980562-3c008cd4b769?w=500&q=80&fm=jpg&fit=crop", alt: "Snow-covered chalets in the Engadin valley near St. Moritz, Switzerland, under a clear winter sky", country: "Switzerland", continent: "Europe", lat: 46.50, lon: 9.84, season: "Dec – Mar" },
+  "dolomites": { title: "6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes", place: "Val Gardena, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg/1280px-Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg", alt: "The jagged Geisler-Odle peaks seen from the green Seceda ridge in summer, Val Gardena, Dolomites", country: "Italy", continent: "Europe", lat: 46.57, lon: 11.68, season: "Jun – Sep" },
+  "marrakech": { title: "5 Days in Marrakech: Medina Souks, Palaces & the High Atlas", place: "Marrakech, Morocco", tag: "Historic Old Towns", duration: "5 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Jemaa_el-Fnaa_%287346166250%29.jpg/500px-Jemaa_el-Fnaa_%287346166250%29.jpg", alt: "Jemaa el-Fnaa square and the Marrakech souks seen from above, Morocco", country: "Morocco", continent: "Africa", lat: 31.63, lon: -7.99, season: "Mar – May, Oct – Nov" },
+  "tromso": { title: "4 Days in Tromsø: Fjellheisen, the Arctic Cathedral & Winter Whale Watching", place: "Tromsø, Norway", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,800-2,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Aurora_Borealis_Troms%C3%B8_Norway.jpg/500px-Aurora_Borealis_Troms%C3%B8_Norway.jpg", alt: "The aurora borealis glowing green over Tromsø, Norway, on a clear Arctic winter night", country: "Norway", continent: "Europe", lat: 69.65, lon: 18.96, season: "Nov – Mar" },
+  "stockholm": { title: "5 Days in Stockholm: Gamla Stan, the Vasa Museum & the Archipelago", place: "Stockholm, Sweden", tag: "Modern Cities", duration: "5 Days", cost: "$1,000-1,400/person", img: "https://images.unsplash.com/photo-1754408402234-eebbb9f77351?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful waterfront buildings and church spires across the Stockholm skyline in summer", country: "Sweden", continent: "Europe", lat: 59.33, lon: 18.07, season: "May – Sep" },
+  "bavaria": { title: "6 Days in Bavaria: Castles, Alps & Beer Halls", place: "Bavaria, Germany", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,000-1,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Neuschwanstein_Castle_2024-02.jpg/500px-Neuschwanstein_Castle_2024-02.jpg", alt: "Neuschwanstein Castle rising above the forest near Füssen, Bavaria", country: "Germany", continent: "Europe", lat: 48.14, lon: 11.58, season: "May – Jun, Sep" },
+  "zhangye": { title: "4 Days in Zhangye: Rainbow Mountains, Silk Road Oasis & Giant Buddha", place: "Zhangye, China", tag: "Lakes & Nature", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Colourful_mountains_of_the_Zhangye_National_Geopark.jpg/500px-Colourful_mountains_of_the_Zhangye_National_Geopark.jpg", alt: "Rippling bands of red, orange, yellow and green sandstone across the Zhangye Danxia National Geopark", country: "China", continent: "Asia", lat: 38.93, lon: 100.45, season: "Jun – Sep" },
+  "lencois-maranhenses": { title: "4 Days at Lençóis Maranhenses: White Dunes, Blue Lagoons & the Preguiças River", place: "Lençóis Maranhenses, Brazil", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Lençóis_Maranhenses_-_Lagoa_Azul.JPG/500px-Lençóis_Maranhenses_-_Lagoa_Azul.JPG", alt: "A turquoise freshwater lagoon between rolling white sand dunes at Lençóis Maranhenses National Park, Brazil", country: "Brazil", continent: "South America", lat: -2.75, lon: -42.83, season: "Jun – Sep" },
+  "waitomo": { title: "3 Days in Waitomo: Glowworm Caves, Ruakuri Cave & Hobbiton", place: "Waitomo, New Zealand", tag: "Lakes & Nature", duration: "3 Days", cost: "$650-900/person", img: "https://images.unsplash.com/photo-1666072958408-7b63853b46db?w=500&q=80&fm=jpg&fit=crop", alt: "Thousands of tiny blue bioluminescent glow-worms lighting up a dark New Zealand forest", country: "New Zealand", continent: "Oceania", lat: -38.26, lon: 175.10, season: "Nov – Mar" },
+  "cappadocia": { title: "4 Days in Cappadocia: Fairy Chimneys, Cave Towns & Sunrise Balloons", place: "Cappadocia, Turkey", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hot_air_balloon_at_sunrise_over_Cappadocia%2C_Turkey.JPG/500px-Hot_air_balloon_at_sunrise_over_Cappadocia%2C_Turkey.JPG", alt: "Hot air balloons rising at sunrise over the fairy chimneys of Cappadocia, Turkey", country: "Turkey", continent: "Asia", lat: 38.64, lon: 34.83, season: "Apr – Jun, Sep – Oct" },
+  "milos": { title: "4 Days in Milos: Sarakiniko's White Rocks, Klima & the Kleftiko Caves", place: "Milos, Greece", tag: "Beach & Coastal", duration: "4 Days", cost: "$900-1,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sarakiniko_Beach_on_Milos_Island%2C_Greece_with_a_view_of_the_Aegean_Sea.jpg/500px-Sarakiniko_Beach_on_Milos_Island%2C_Greece_with_a_view_of_the_Aegean_Sea.jpg", alt: "The white volcanic rock coastline of Sarakiniko Beach, Milos, Greece", country: "Greece", continent: "Europe", lat: 36.69, lon: 24.44, season: "Jun – Sep" },
+  "mykonos": { title: "5 Days in Mykonos: Windmills, Beach Clubs & Delos", place: "Mykonos, Greece", tag: "Beach & Coastal", duration: "5 Days", cost: "$1,100-1,500/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Windmills_of_Kato_Mili%2C_Mykonos_%2839171204142%29.jpg/500px-Windmills_of_Kato_Mili%2C_Mykonos_%2839171204142%29.jpg", alt: "Windmills of Kato Mili overlooking the sea, Mykonos, Greece", country: "Greece", continent: "Europe", lat: 37.45, lon: 25.33, season: "Jun – Sep" },
+  "crete": { title: "6 Days in Crete, Greece: Knossos, the Samaria Gorge & Balos Lagoon", place: "Crete, Greece", tag: "Beach & Coastal", duration: "6 Days", cost: "$850-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Aerial_view_of_Balos_Lagoon_on_the_island_of_Crete%2C_Greece.jpg/500px-Aerial_view_of_Balos_Lagoon_on_the_island_of_Crete%2C_Greece.jpg", alt: "Aerial view of Balos Lagoon's turquoise water and sandbar, Crete, Greece", country: "Greece", continent: "Europe", lat: 35.34, lon: 25.13, season: "May – Jun, Sep" },
+  "abisko": { title: "4 Days in Abisko, Sweden: Northern Lights & Arctic Wilderness", place: "Abisko, Sweden", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,400-1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Aurora_in_Abisko_National_Park.jpg/500px-Aurora_in_Abisko_National_Park.jpg", alt: "The aurora borealis glowing green over Abisko National Park, Sweden", country: "Sweden", continent: "Europe", lat: 68.35, lon: 18.83, season: "Sep – Mar" },
+  "annecy": { title: "4 Days in Annecy: Canals, Lake Swims & Alpine Paragliding", place: "Annecy, France", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Annecy_Palais_de_l%27%C3%8Ele_04.jpg/500px-Annecy_Palais_de_l%27%C3%8Ele_04.jpg", alt: "Annecy's Palais de l'Île surrounded by the canal, France", country: "France", continent: "Europe", lat: 45.90, lon: 6.13, season: "May – Sep" },
+  "bangkok-phuket": { title: "6 Days in Thailand: Bangkok & Phuket Island", place: "Bangkok & Phuket, Thailand", tag: "Beach & Coastal", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Big_Buddha%2C_Phuket.jpg/500px-The_Big_Buddha%2C_Phuket.jpg", alt: "The Big Buddha statue overlooking Phuket, Thailand", country: "Thailand", continent: "Asia", lat: 7.88, lon: 98.39, season: "Nov – Feb" },
+  "colmar": { title: "4 Days in Colmar: Christmas Markets & the Alsace Wine Route", place: "Colmar, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg/500px-March%C3%A9_de_No%C3%ABl_de_Colmar_013.jpg", alt: "Colmar's Christmas market lit up at night, Alsace, France", country: "France", continent: "Europe", lat: 48.08, lon: 7.36, season: "Nov – Dec (Christmas Markets)" },
+  "dublin": { title: "4 Days in Dublin: Trinity College, Guinness & the Wicklow Mountains", place: "Dublin, Ireland", tag: "Historic Old Towns", duration: "4 Days", cost: "$850-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ha%27penny_Bridge_in_Dublin.jpg/500px-Ha%27penny_Bridge_in_Dublin.jpg", alt: "The Ha'penny Bridge crossing the River Liffey, Dublin, Ireland", country: "Ireland", continent: "Europe", lat: 53.35, lon: -6.26, season: "May – Sep" },
+  "iceland": { title: "5 Days in Iceland: Golden Circle, South Coast & the Northern Lights", place: "Iceland", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg/500px-Aurora_over_the_Sun_Voyager%2C_Central_Reykjavik_%2837291306216%29.jpg", alt: "The aurora borealis over the Sun Voyager sculpture, Reykjavik, Iceland", country: "Iceland", continent: "Europe", lat: 64.13, lon: -21.90, season: "Sep – Mar" },
+  "interlaken": { title: "4 Days in Interlaken: Paragliding, Harder Kulm & Two Alpine Lakes", place: "Interlaken, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,500-2,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Paragliding_Interlaken_-_Switzerland_%28Unsplash%29.jpg/500px-Paragliding_Interlaken_-_Switzerland_%28Unsplash%29.jpg", alt: "A paraglider soaring above Interlaken, Switzerland", country: "Switzerland", continent: "Europe", lat: 46.69, lon: 7.87, season: "May – Sep" },
+  "krakow": { title: "4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau", place: "Krakow, Poland", tag: "Historic Old Towns", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Krakow_Rynek_Glowny_panorama_2.jpg/500px-Krakow_Rynek_Glowny_panorama_2.jpg", alt: "Kraków's Rynek Główny market square panorama, Poland", country: "Poland", continent: "Europe", lat: 50.06, lon: 19.94, season: "Apr – Jun, Sep" },
+  "lofoten": { title: "5 Days in the Lofoten Islands: Reinebringen, Reine & the Midnight Sun", place: "Lofoten Islands, Norway", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$1,600-2,200/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Moskenes_Reinebringen_lub_2025-07-21_img04_Aussicht.jpg/500px-Moskenes_Reinebringen_lub_2025-07-21_img04_Aussicht.jpg", alt: "The view from Reinebringen over the Lofoten Islands, Norway", country: "Norway", continent: "Europe", lat: 68.15, lon: 13.61, season: "Jun – Aug" },
+  "london": { title: "5 Days in London: Royals, the River & the West End", place: "London, England", tag: "Modern Cities", duration: "5 Days", cost: "$1,000-1,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Tower_Bridge-London%2C_England%2C_United_Kingdom.jpg/500px-Tower_Bridge-London%2C_England%2C_United_Kingdom.jpg", alt: "Tower Bridge over the River Thames, London, England", country: "England", continent: "Europe", lat: 51.51, lon: -0.13, season: "Apr – Jun, Sep" },
+  "puglia": { title: "6 Days in Puglia: A Self-Drive Road Trip Through Italy's Heel", place: "Puglia, Italy", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$1,000-1,350/person", img: "https://commons.wikimedia.org/wiki/Special:FilePath/Ostuni%20-%20View%20from%20Northwest%20-%201.jpg?width=500", alt: "Ostuni's whitewashed hilltop old town, Puglia, Italy", country: "Italy", continent: "Europe", lat: 40.73, lon: 17.58, season: "May – Jun, Sep" },
+  "salzburg": { title: "4 Days in Salzburg: Old Town, Hohensalzburg Fortress & Wolfgangsee", place: "Salzburg, Austria", tag: "Historic Old Towns", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Old_Town_Salzburg_across_the_Salzach_river.jpg/500px-Old_Town_Salzburg_across_the_Salzach_river.jpg", alt: "Salzburg's Old Town across the Salzach river, Austria", country: "Austria", continent: "Europe", lat: 47.80, lon: 13.04, season: "Apr – Jun, Sep" },
+  "seoul": { title: "5 Days in Seoul: Palaces, Markets & Neon Nights", place: "Seoul, South Korea", tag: "Modern Cities", duration: "5 Days", cost: "$800-1,100/person", img: "https://images.unsplash.com/photo-1758384077399-2757a1de8b75?w=500&q=80&fm=jpg&fit=crop", alt: "Seoul's palace rooftops against the modern skyline, South Korea", country: "South Korea", continent: "Asia", lat: 37.57, lon: 126.98, season: "Apr – Jun, Sep – Oct" },
+  "tenerife": { title: "5 Days in Tenerife: Resort Beaches, Water Parks & Mount Teide by Starlight", place: "Tenerife, Spain", tag: "Beach & Coastal", duration: "5 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg/500px-Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg", alt: "Aerial view of Playa de Torviscas beach, Costa Adeje, Tenerife, Spain", country: "Spain", continent: "Europe", lat: 28.09, lon: -16.74, season: "Mar – May, Oct – Nov" },
+  "mount-fuji": { title: "4 Days in Mount Fuji: Fuji Five Lakes, Chureito Pagoda & Kawaguchiko", place: "Fuji Five Lakes, Japan", tag: "Lakes & Nature", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Chureito_Pagoda_and_Mount_Fuji_2023-03-07.jpg/500px-Chureito_Pagoda_and_Mount_Fuji_2023-03-07.jpg", alt: "The red Chureito Pagoda framed against snow-capped Mount Fuji", country: "Japan", continent: "Asia", lat: 35.50, lon: 138.76, season: "Nov – Feb" },
+  "valensole": { title: "4 Days in Valensole: A Provence Lavender Fields Road Trip", place: "Valensole, France", tag: "Road Trips & National Parks", duration: "4 Days", cost: "$900-1,200/person", img: "https://images.unsplash.com/photo-1733691217961-14e808e67a65?w=500&q=80&fm=jpg&fit=crop", alt: "Lavender rows leading toward two trees at sunset on the Plateau de Valensole, Provence", country: "France", continent: "Europe", lat: 43.84, lon: 5.99, season: "Late Jun – Late Jul (peak early-mid Jul)" },
+  "salar-de-uyuni": { title: "4 Days at Salar de Uyuni: Mirror Reflections, Incahuasi Island & the Colored Lagoons", place: "Salar de Uyuni, Bolivia", tag: "Lakes & Nature", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Before_Sunrise_at_the_Salar_of_Uyuni%2C_Bolivia.jpg/500px-Before_Sunrise_at_the_Salar_of_Uyuni%2C_Bolivia.jpg", alt: "A perfectly mirrored pre-dawn sky reflected on the flooded surface of the Salar de Uyuni salt flat, Bolivia", country: "Bolivia", continent: "South America", lat: -20.46, lon: -66.83, season: "Dec – Apr" },
+  "vatnajokull": { title: "4 Days in the Vatnajökull Glacier Region: Blue Ice Caves & Jökulsárlón", place: "Vatnajökull, Iceland", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,700-2,300/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ice_Cave_Explorer_-_Iceland.jpg/500px-Ice_Cave_Explorer_-_Iceland.jpg", alt: "A guide exploring the glowing blue interior of a natural ice cave inside Vatnajokull glacier, Iceland", country: "Iceland", continent: "Europe", lat: 64.25, lon: -15.21, season: "Nov – Mar" },
+  "tallinn": { title: "4 Days in Tallinn: Old Town, Toompea & Kalamaja", place: "Tallinn, Estonia", tag: "Historic Old Towns", duration: "4 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tallinn_Old_Town_Skyline_%2852432521369%29.jpg/500px-Tallinn_Old_Town_Skyline_%2852432521369%29.jpg", alt: "Panoramic skyline of Tallinn's medieval Old Town, with Toompea Hill's spires rising above red-tiled roofs", country: "Estonia", continent: "Europe", lat: 59.44, lon: 24.75, season: "May – Sep" },
+  "megeve": { title: "4 Days in Megève: Gentle Slopes, Gourmet Dining & Sleigh Rides", place: "Megève, France", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,900-2,600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg/500px-Wide_view_of_Meg%C3%A8ve%2C_Mont_Joly_and_the_Mont_Blanc_massif_from_the_Dames_slopes%2C_Meg%C3%A8ve%2C_2025.jpg", alt: "Panoramic winter view of Megève village and the Mont Blanc massif from the Dames ski slopes", country: "France", continent: "Europe", lat: 45.86, lon: 6.62, season: "Dec – Mar" },
+  "quebec-city": { title: "4 Days in Quebec City: Old Town, Château Frontenac & Montmorency Falls", place: "Quebec City, Canada", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Quebec_City_skyline_from_L%C3%A9vis.jpg/500px-Quebec_City_skyline_from_L%C3%A9vis.jpg", alt: "The skyline of Quebec City's Upper Town, with Château Frontenac rising above the St. Lawrence River, seen from Lévis", country: "Canada", continent: "North America", lat: 46.81, lon: -71.21, season: "Jun – Sep" },
+  "bergen": { title: "4 Days in Bergen: Bryggen, Fjords & the Fløibanen Funicular", place: "Bergen, Norway", tag: "Historic Old Towns", duration: "4 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bergen-bryggen-tunliweb.jpg/500px-Bergen-bryggen-tunliweb.jpg", alt: "Rows of colorful wooden Hanseatic buildings lining Bryggen wharf in Bergen, Norway", country: "Norway", continent: "Europe", lat: 60.39, lon: 5.32, season: "May – Sep" },
+  "ljubljana": { title: "4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled", place: "Ljubljana, Slovenia", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blick_auf_Blejsko_jezero_Bleder_See_mit_Blejski_otok_und_Cerkev_Marijinega_Vnebovzetja_%2852973876207%29.jpg/500px-Blick_auf_Blejsko_jezero_Bleder_See_mit_Blejski_otok_und_Cerkev_Marijinega_Vnebovzetja_%2852973876207%29.jpg", alt: "Lake Bled's island church with the Julian Alps behind, Slovenia", country: "Slovenia", continent: "Europe", lat: 46.06, lon: 14.51, season: "May – Sep" },
+  "riga": { title: "4 Days in Riga: Art Nouveau, Old Town & the Central Market", place: "Riga, Latvia", tag: "Historic Old Towns", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Alberta-iela-13.jpg/500px-Alberta-iela-13.jpg", alt: "The ornate sculptural facade of Alberta iela 13, one of Mikhail Eisenstein's landmark Art Nouveau buildings in Riga, Latvia", country: "Latvia", continent: "Europe", lat: 56.95, lon: 24.11, season: "May – Sep" },
+  "madagascar": { title: "6 Days in Madagascar: Avenue of the Baobabs & Andasibe-Mantadia National Park", place: "Madagascar", tag: "Lakes & Nature", duration: "6 Days", cost: "$1,550-2,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Avenue_of_the_Baobabs_at_Sunset.jpg/500px-Avenue_of_the_Baobabs_at_Sunset.jpg", alt: "The Avenue of the Baobabs glowing orange at sunset near Morondava, Madagascar", country: "Madagascar", continent: "Africa", lat: -18.88, lon: 47.51, season: "Apr – Nov" },
+  "marble-caves": { title: "4 Days at the Marble Caves: Cuevas de Mármol, General Carrera Lake & the Carretera Austral", place: "Marble Caves, Chile", tag: "Lakes & Nature", duration: "4 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Cuevas_de_M%C3%A1rmol_-_Marble_Caves%2C_Blue_Water%2C_Patagonia%2C_Chile.jpg/500px-Cuevas_de_M%C3%A1rmol_-_Marble_Caves%2C_Blue_Water%2C_Patagonia%2C_Chile.jpg", alt: "The swirling blue-and-white marble cave interiors reflected in the turquoise water of General Carrera Lake, Chile", country: "Chile", continent: "South America", lat: -46.60, lon: -72.68, season: "Nov – Mar (Dec – Feb peak)" },
+  "rio-de-janeiro": { title: "5 Days in Rio de Janeiro: Christ the Redeemer, Sugarloaf & Copacabana", place: "Rio de Janeiro, Brazil", tag: "Beach & Coastal", duration: "5 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Vista_panor%C3%A1mica_R%C3%ADo_de_Janeiro_y_Pan_de_Az%C3%BAcar_A74248720241123.jpg/500px-Vista_panor%C3%A1mica_R%C3%ADo_de_Janeiro_y_Pan_de_Az%C3%BAcar_A74248720241123.jpg", alt: "Panoramic view of Rio de Janeiro and Sugarloaf Mountain, Brazil", country: "Brazil", continent: "South America", lat: -22.91, lon: -43.17, season: "Apr – Jun, Sep – Nov" },
+  "rainbow-mountain": { title: "4 Days in Cusco: Sacsayhuamán, the Sacred Valley & the Rainbow Mountain Trek", place: "Cusco, Peru", tag: "Lakes & Nature", duration: "4 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Vinicunca_%28Rainbow_Mountain%29.jpg/500px-Vinicunca_%28Rainbow_Mountain%29.jpg", alt: "The mineral-striped red, gold, and turquoise slopes of Vinicunca, the Rainbow Mountain, near Cusco, Peru", country: "Peru", continent: "South America", lat: -13.53, lon: -71.97, season: "May – Sep" },
+  "antelope-canyon": { title: "3 Days in Page, Arizona: Antelope Canyon, Horseshoe Bend & Lake Powell", place: "Page, Arizona, USA", tag: "Lakes & Nature", duration: "3 Days", cost: "$550-750/person", img: "https://images.unsplash.com/photo-1505521377774-103a8cc2f735?w=500&q=80&fm=jpg&fit=crop", alt: "Golden light beams shafting down through the narrow sandstone walls of Upper Antelope Canyon, Page, Arizona", country: "USA", continent: "North America", lat: 36.91, lon: -111.46, season: "Jun – Aug (Light Beams)" },
+  "yoshino": { title: "3 Days in Yoshinoyama: Mount Yoshino's 30,000 Cherry Trees", place: "Yoshino, Japan", tag: "Lakes & Nature", duration: "3 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/From_Mount_Yoshino_%286988360150%29.jpg/500px-From_Mount_Yoshino_%286988360150%29.jpg", alt: "Thousands of cherry trees in bloom across the slopes of Mount Yoshino, with Kinpusen-ji's Zao-do hall visible in the distance", country: "Japan", continent: "Asia", lat: 34.36, lon: 135.87, season: "Mid – Late Apr" },
+  "chiang-mai": { title: "4 Days in Chiang Mai: The Yi Peng Lantern Festival, Doi Suthep & the Old City", place: "Chiang Mai, Thailand", tag: "Historic Old Towns", duration: "4 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Yi_peng_sky_lantern_festival_San_Sai_Thailand.jpg/500px-Yi_peng_sky_lantern_festival_San_Sai_Thailand.jpg", alt: "Hundreds of glowing sky lanterns released into the night sky during the Yi Peng festival near Chiang Mai", country: "Thailand", continent: "Asia", lat: 18.79, lon: 98.99, season: "Nov (dates shift yearly)" },
+  "luang-prabang": { title: "4 Days in Luang Prabang: Kuang Si Falls, Old Town & the Mekong", place: "Luang Prabang, Laos", tag: "Lakes & Nature", duration: "4 Days", cost: "$500-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg/500px-Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg", alt: "Turquoise, multi-tiered pools of Kuang Si Falls near Luang Prabang, Laos", country: "Laos", continent: "Asia", lat: 19.89, lon: 102.13, season: "Nov – Feb" },
+  "socotra": { title: "5 Days on Socotra Island: Dragon's Blood Forests, Detwah Lagoon & the Dunes of Arher", place: "Socotra Island, Yemen", tag: "Lakes & Nature", duration: "5 Days", cost: "$2,200-2,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Dragon_Blood_Tree%2C_Socotra_Island_%2810098980413%29.jpg/500px-Dragon_Blood_Tree%2C_Socotra_Island_%2810098980413%29.jpg", alt: "A single mushroom-shaped dragon's blood tree (Dracaena cinnabari) on the Dixam Plateau, Socotra Island, Yemen", country: "Yemen", continent: "Asia", lat: 12.47, lon: 53.82, season: "Oct – Apr" },
+  "sedona": { title: "4 Days in Sedona: Red Rocks, Vortexes & Art Galleries", place: "Sedona, USA", tag: "Mountain Escapes", duration: "4 Days", cost: "$800-1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Cathedral_Rock_Sunset-27527-1.jpg/500px-Cathedral_Rock_Sunset-27527-1.jpg", alt: "Cathedral Rock at sunset, Sedona, Arizona", country: "USA", continent: "North America", lat: 34.87, lon: -111.76, season: "Mar – May, Sep – Nov" },
+  "algarve": { title: "4 Days in the Algarve, Portugal", place: "Algarve, Portugal", tag: "Beach & Coastal", duration: "4 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Benagil_Cave_%283%29.jpg/500px-Benagil_Cave_%283%29.jpg", alt: "Benagil Cave's circular skylight opening above turquoise water, Algarve, Portugal", country: "Portugal", continent: "Europe", lat: 37.10, lon: -8.40, season: "May – Sep" },
+  "mauritius": { title: "5 Days in Mauritius: Le Morne, Chamarel & the Seven Colored Earths", place: "Mauritius", tag: "Beach & Coastal", duration: "5 Days", cost: "$1,200-1,600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mauritius_Seven_Colored_Earths_1.JPG/500px-Mauritius_Seven_Colored_Earths_1.JPG", alt: "The Seven Colored Earths of Chamarel, Mauritius", country: "Mauritius", continent: "Africa", lat: -20.35, lon: 57.55, season: "May – Dec" },
+  "serengeti": { title: "5 Days in Tanzania: Serengeti National Park & Ngorongoro Crater Safari", place: "Tanzania", tag: "Lakes & Nature", duration: "5 Days", cost: "$2,700-3,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Sunset_Beams_on_the_Serengeti.jpg/500px-Sunset_Beams_on_the_Serengeti.jpg", alt: "Golden sunset light breaking through storm clouds over the endless open plains of the Serengeti National Park, Tanzania", country: "Tanzania", continent: "Africa", lat: -2.33, lon: 34.83, season: "Jun – Oct" },
+  "egypt": { title: "7 Days in Egypt: Cairo & a Nile Cruise from Luxor to Aswan", place: "Cairo, Egypt", tag: "Historic Old Towns", duration: "7 Days", cost: "$1,200-1,700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sunset_at_the_Pyramids.jpg/500px-Sunset_at_the_Pyramids.jpg", alt: "The Pyramids of Giza silhouetted against a golden sunset, Egypt", country: "Egypt", continent: "Africa", lat: 30.04, lon: 31.24, season: "Oct – Apr" },
+  "iguazu-falls": { title: "4 Days at Iguazu Falls: Devil's Throat, Boat Rides & Both Sides of the Border", place: "Iguazu Falls, Argentina & Brazil", tag: "Lakes & Nature", duration: "4 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Iguazu_Falls_Cataratas_Argentina_Luca_Galuzzi_2005.jpg/500px-Iguazu_Falls_Cataratas_Argentina_Luca_Galuzzi_2005.jpg", alt: "Panoramic view of Iguazu Falls, the horseshoe-shaped cascades straddling the Argentina-Brazil border", country: "Argentina", continent: "South America", lat: -25.68, lon: -54.44, season: "Apr, Sep" },
+  "zhangjiajie": { title: "5 Days in Zhangjiajie: Avatar Mountains, Glass Bridge & Fenghuang Ancient Town", place: "Zhangjiajie, China", tag: "Road Trips & National Parks", duration: "5 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Zhangjiajie_at_dawn_1.jpg/500px-Zhangjiajie_at_dawn_1.jpg", alt: "Dawn mist breaking on thousands of towering quartz-sandstone pillars at Zhangjiajie National Forest Park, Hunan, China", country: "China", continent: "Asia", lat: 29.12, lon: 110.48, season: "Apr – May, Sep – Oct" },
+  "brussels": { title: "3 Days in Brussels: Grand Place, Comics & the Atomium", place: "Brussels, Belgium", tag: "Modern Cities", duration: "3 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Brussels_Grand_Place_%2852189340312%29.jpg/500px-Brussels_Grand_Place_%2852189340312%29.jpg", alt: "The ornate gilded guildhalls of Brussels' Grand Place illuminated at twilight", country: "Belgium", continent: "Europe", lat: 50.85, lon: 4.35, season: "Apr – Sep" },
+  "oslo": { title: "4 Days in Oslo: Opera House, Vigeland & Viking Heritage", place: "Oslo, Norway", tag: "Modern Cities", duration: "4 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/People_walking_up_the_Oslo_Opera_House_slopped_roof_%2829879239065%29.jpg/500px-People_walking_up_the_Oslo_Opera_House_slopped_roof_%2829879239065%29.jpg", alt: "Visitors walking up the sloped white marble roof of the Oslo Opera House", country: "Norway", continent: "Europe", lat: 59.91, lon: 10.75, season: "May – Sep" },
+  "mont-saint-michel": { title: "3 Days in Mont Saint-Michel: Abbey, Tides & the Normandy Coast", place: "Mont Saint-Michel, France", tag: "Historic Old Towns", duration: "3 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Mont-Saint-Michel_at_sunset.jpg/500px-Mont-Saint-Michel_at_sunset.jpg", alt: "Mont Saint-Michel's tidal abbey silhouetted against a golden sunset sky, rising above the bay", country: "France", continent: "Europe", lat: 48.64, lon: -1.51, season: "Apr – Oct" },
+  "singapore": { title: "4 Days in Singapore: Gardens by the Bay, Marina Bay & Hawker Culture", place: "Singapore", tag: "Modern Cities", duration: "4 Days", cost: "$1,100-1,500/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Merli%C3%B3n%2C_Marina_Bay%2C_Singapur%2C_2023-08-18%2C_DD_45-47_HDR.jpg/500px-Merli%C3%B3n%2C_Marina_Bay%2C_Singapur%2C_2023-08-18%2C_DD_45-47_HDR.jpg", alt: "The Merlion statue spouting water into Marina Bay at dusk, with the Marina Bay Sands skyline lit up behind it", country: "Singapore", continent: "Asia", lat: 1.35, lon: 103.82, season: "Year-round (driest Feb – Apr)" },
+  "istanbul": { title: "4 Days in Istanbul: Byzantine Domes, Grand Bazaars & the Bosphorus", place: "Istanbul, Turkey", tag: "Historic Old Towns", duration: "4 Days", cost: "$650-900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/500px-Hagia_Sophia_Mars_2013.jpg", alt: "The Hagia Sophia, Istanbul, Turkey", country: "Turkey", continent: "Asia", lat: 41.01, lon: 28.98, season: "Apr – Jun, Sep – Oct" },
+  "morocco": { title: "6 Days in Morocco: Fes, Chefchaouen & the Sahara Desert", place: "Fes, Chefchaouen & the Sahara, Morocco", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/2018_01_%28Blue%29_-_Chaouen.jpg/500px-2018_01_%28Blue%29_-_Chaouen.jpg", alt: "A narrow blue-washed alley in Chefchaouen, Morocco's Blue City", country: "Morocco", continent: "Africa", lat: 34.03, lon: -5.00, season: "Mar – May, Sep – Nov" },
+  "machu-picchu": { title: "5 Days at Machu Picchu: The Sacred Valley & the Lost City of the Incas", place: "Machu Picchu, Peru", tag: "Historic Old Towns", duration: "5 Days", cost: "$700-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Machu_Picchu%2C_2023_%28012%29.jpg/500px-Machu_Picchu%2C_2023_%28012%29.jpg", alt: "The classic overlook of Machu Picchu with Huayna Picchu peak rising behind the Inca citadel, Peru", country: "Peru", continent: "South America", lat: -13.16, lon: -72.55, season: "May – Sep" },
+  "nepal": { title: "6 Days in Nepal: Kathmandu, Pokhara & the Poon Hill Trek", place: "Nepal", tag: "Mountain Escapes", duration: "6 Days", cost: "$750-1,050/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Sunrise_from_Poon_Hill%2C_Ghorepani.jpg/500px-Sunrise_from_Poon_Hill%2C_Ghorepani.jpg", alt: "Golden sunrise light over the snow-capped Annapurna range seen from the Poon Hill viewpoint near Ghorepani, Nepal", country: "Nepal", continent: "Asia", lat: 27.72, lon: 85.32, season: "Oct – Nov" },
+  "albania": { title: "6 Days of Hidden Gems in Albania: Krujë, Valbona-Theth & the Blue Eye", place: "Krujë, the Blue Eye & the Albanian Alps", tag: "Road Trips & National Parks", duration: "6 Days", cost: "$550-750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Syri_i_kalter_%28The_Blue_Eye%29%2C_Albania%2C_September_2022_04.jpg/500px-Syri_i_kalter_%28The_Blue_Eye%29%2C_Albania%2C_September_2022_04.jpg", alt: "The impossibly vivid blue water of Syri i Kaltër, the Blue Eye spring, in southern Albania", country: "Albania", continent: "Europe", lat: 41.33, lon: 19.82, season: "Jun – Sep" },
+  "berlin": { title: "4 Days in Berlin: Wall History, Museum Island & Potsdam", place: "Berlin, Germany", tag: "Modern Cities", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Brandenburg_Gate%28Berlin%29-2025-09-msu-3833-.jpg/500px-Brandenburg_Gate%28Berlin%29-2025-09-msu-3833-.jpg", alt: "The Brandenburg Gate at golden hour, with an orange sky glowing between its columns beneath the Quadriga", country: "Germany", continent: "Europe", lat: 52.52, lon: 13.4, season: "May – Sep" },
 };
 
 /* ---------- Day-level search index: lets search surface a specific landmark buried
@@ -637,6 +637,227 @@ function currentPageId() {
   return window.location.pathname.split("/").pop() || "index";
 }
 
+/* ---------- Taste profile: what the visitor searched / filtered / opened (powers Surprise Me) ---------- */
+// Stored only in this browser (localStorage); never sent anywhere.
+const TASTE_KEY = "wanderlist_taste";
+const TASTE_MAX_EVENTS = 60;
+const TASTE_MAX_SURPRISED = 12;
+const STYLE_TAGS = {
+  "mountain": "Mountain Escapes",
+  "beach": "Beach & Coastal",
+  "modern-city": "Modern Cities",
+  "historic-city": "Historic Old Towns",
+  "road-trip": "Road Trips & National Parks",
+  "lakes-nature": "Lakes & Nature",
+};
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function getTaste() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(TASTE_KEY));
+    if (raw && Array.isArray(raw.events)) return { events: raw.events, surprised: Array.isArray(raw.surprised) ? raw.surprised : [] };
+  } catch (e) {}
+  return { events: [], surprised: [] };
+}
+
+function setTaste(taste) {
+  try { localStorage.setItem(TASTE_KEY, JSON.stringify(taste)); } catch (e) {}
+}
+
+function recordTaste(kind, value) {
+  if (!value) return;
+  const taste = getTaste();
+  const last = taste.events[taste.events.length - 1];
+  if (last && last.k === kind && last.v === value) return; // reloads / repeated callbacks aren't new interest
+  taste.events.push({ k: kind, v: value, t: Date.now() });
+  taste.events = taste.events.slice(-TASTE_MAX_EVENTS);
+  setTaste(taste);
+}
+
+function rememberSurprised(id) {
+  const taste = getTaste();
+  taste.surprised = [...taste.surprised.filter((x) => x !== id), id].slice(-TASTE_MAX_SURPRISED);
+  setTaste(taste);
+}
+
+function clearTaste() {
+  try { localStorage.removeItem(TASTE_KEY); } catch (e) {}
+}
+
+function tripCostMid(cost) {
+  const m = /\$([\d,]+)-([\d,]+)/.exec(cost || "");
+  return m ? (parseInt(m[1].replace(/,/g, ""), 10) + parseInt(m[2].replace(/,/g, ""), 10)) / 2 : null;
+}
+
+function tripDays(duration) {
+  const m = /(\d+)/.exec(duration || "");
+  return m ? parseInt(m[1], 10) : null;
+}
+
+// "Apr – Jun, Sep – Oct", "Year-round (Oct – Apr best)", "Late Jun – Late Jul (peak early-mid Jul)" -> Set of month indexes
+function seasonMonths(str) {
+  const out = new Set();
+  const clean = String(str || "").replace(/\([^)]*\)/g, "");
+  if (/year-round/i.test(clean) || !clean.trim()) { for (let i = 0; i < 12; i++) out.add(i); return out; }
+  clean.split(",").forEach((part) => {
+    const months = (part.replace(/\b(mid|late|early)\b/gi, "").match(/[A-Za-z]{3}/g) || [])
+      .map((t) => MONTH_NAMES.findIndex((n) => n.slice(0, 3).toLowerCase() === t.toLowerCase()))
+      .filter((i) => i >= 0);
+    if (!months.length) return;
+    const from = months[0], to = months[months.length - 1];
+    for (let i = from; ; i = (i + 1) % 12) { out.add(i); if (i === to) break; }
+  });
+  return out;
+}
+
+function buildTasteProfile() {
+  const p = { style: {}, continent: {}, country: {}, seen: new Set(), costs: [], days: [], queries: [], signals: 0 };
+  const add = (map, key, amount) => { if (key) map[key] = (map[key] || 0) + amount; };
+  const ingest = (trip, amount) => {
+    add(p.style, trip.tag, amount);
+    add(p.continent, trip.continent, amount);
+    add(p.country, trip.country, amount);
+    const cost = tripCostMid(trip.cost);
+    if (cost) p.costs.push([cost, amount]);
+    const days = tripDays(trip.duration);
+    if (days) p.days.push([days, amount]);
+  };
+
+  getTaste().events.slice().reverse().forEach((ev, i) => { // newest first, older interest fades
+    const decay = Math.pow(0.93, i);
+    if (ev.k === "view") {
+      const trip = TRIP_CATALOG[ev.v];
+      if (!trip) return;
+      p.seen.add(ev.v);
+      ingest(trip, decay);
+      p.signals++;
+    } else if (ev.k === "style") {
+      if (!STYLE_TAGS[ev.v]) return;
+      add(p.style, STYLE_TAGS[ev.v], 1.5 * decay);
+      p.signals++;
+    } else if (ev.k === "continent") {
+      add(p.continent, ev.v, 1.5 * decay);
+      p.signals++;
+    } else if (ev.k === "query") {
+      const q = String(ev.v).trim().toLowerCase();
+      if (q.length < 3) return;
+      const hits = Object.entries(TRIP_CATALOG).filter(([, t]) => [t.place, t.title, t.country].some((s) => s.toLowerCase().includes(q)));
+      if (!hits.length || hits.length > 25) return;
+      p.queries.push(String(ev.v).trim());
+      hits.forEach(([, t]) => ingest(t, (2 * decay) / hits.length));
+      if (hits.length === 1) p.seen.add(hits[0][0]);
+      p.signals++;
+    }
+  });
+
+  getSavedTrips().forEach((id) => {
+    const trip = TRIP_CATALOG[id];
+    if (!trip) return;
+    p.seen.add(id);
+    ingest(trip, 2);
+    p.signals++;
+  });
+  return p;
+}
+
+function weightedLogCenter(pairs) {
+  const total = pairs.reduce((s, [, w]) => s + w, 0);
+  return total > 0 ? Math.exp(pairs.reduce((s, [v, w]) => s + Math.log(v) * w, 0) / total) : null;
+}
+
+function topKey(map) {
+  return Object.entries(map).sort((a, b) => b[1] - a[1])[0] || null;
+}
+
+function formatTripCost(cost, code) {
+  const m = /\$([\d,]+)-([\d,]+)(.*)/.exec(cost || "");
+  if (!m) return cost || "";
+  const { symbol } = CURRENCIES[code];
+  const low = convertUsd(parseInt(m[1].replace(/,/g, ""), 10), code).toLocaleString();
+  const high = convertUsd(parseInt(m[2].replace(/,/g, ""), 10), code).toLocaleString();
+  return `${symbol}${low}-${high}${m[3]}`;
+}
+
+// Relevant but unexpected: close to what the visitor has been looking at (style, region, budget,
+// length, season), but a trip and country they haven't opened yet. With too little history it
+// falls back to a random pick that leans towards what is in season.
+function pickSurpriseTrip(excludeIds) {
+  const profile = buildTasteProfile();
+  const personal = profile.signals >= 2;
+  const here = currentPageId().replace(/\.html$/, "");
+  const month = new Date().getMonth();
+  const target = (month + 1) % 12; // people usually travel in the next month or two
+  const norm = (map) => Math.max(0.0001, ...Object.values(map));
+  const maxStyle = norm(profile.style), maxContinent = norm(profile.continent), maxCountry = norm(profile.country);
+  const costCenter = weightedLogCenter(profile.costs);
+  const daysCenter = weightedLogCenter(profile.days);
+  const entries = Object.entries(TRIP_CATALOG);
+  const recent = new Set([...(excludeIds || []), ...getTaste().surprised.slice(-8)]);
+
+  let pool = entries.filter(([id]) => id !== here && !recent.has(id) && !(personal && profile.seen.has(id)));
+  if (!pool.length) pool = entries.filter(([id]) => id !== here && !(excludeIds || []).includes(id));
+  if (!pool.length) pool = entries;
+
+  const scored = [];
+  pool.forEach(([id, trip]) => {
+    const months = seasonMonths(trip.season);
+    const seasonA = months.has(target) ? 1 : (months.has(month) || months.has((target + 1) % 12)) ? 0.5 : 0;
+    const styleA = (profile.style[trip.tag] || 0) / maxStyle;
+    const continentA = (profile.continent[trip.continent] || 0) / maxContinent;
+    const countryA = (profile.country[trip.country] || 0) / maxCountry;
+    const cost = tripCostMid(trip.cost), days = tripDays(trip.duration);
+    const budgetA = costCenter && cost ? Math.exp(-Math.abs(Math.log(cost / costCenter)) * 1.5) : 0.5;
+    const lengthA = daysCenter && days ? Math.exp(-Math.abs(days - daysCenter) / 4) : 0.5;
+    let score;
+    if (personal) {
+      const relevance = 0.38 * styleA + 0.17 * continentA + 0.2 * budgetA + 0.2 * seasonA + 0.05 * lengthA;
+      const novelty = countryA < 0.15 ? 1 : 1 - countryA;
+      score = 0.65 * relevance + 0.35 * novelty + Math.random() * 0.25;
+    } else {
+      score = 0.35 * seasonA + Math.random();
+    }
+    scored.push({ id, trip, score, styleA, continentA, countryA, budgetA, seasonA });
+  });
+  // Pick among the best few (weighted by score) so repeated clicks do not keep returning the same trip.
+  scored.sort((a, b) => b.score - a.score);
+  const top = scored.slice(0, 6);
+  const weights = top.map((c) => Math.exp(c.score * 5));
+  let roll = Math.random() * weights.reduce((a, b) => a + b, 0);
+  let best = top[0];
+  for (let i = 0; i < top.length; i++) { roll -= weights[i]; if (roll <= 0) { best = top[i]; break; } }
+
+  // Plain-language explanation of why this trip came up.
+  const fits = [];
+  if (personal && best.styleA >= 0.4) fits.push(`your interest in ${best.trip.tag.toLowerCase()}`);
+  if (personal && best.continentA >= 0.5 && best.styleA < 0.4) fits.push(`your interest in ${best.trip.continent}`);
+  if (personal && costCenter && best.budgetA >= 0.7) fits.push("your usual budget");
+  if (best.seasonA === 1) fits.push(`${MONTH_NAMES[target]} being a good time to go`);
+  let why;
+  if (!personal) {
+    why = best.seasonA === 1
+      ? `Not much search history yet, so this is a random pick, leaning towards trips that are in season right now.`
+      : "Not much search history yet, so this is a random pick from all our itineraries.";
+  } else {
+    const novel = best.countryA < 0.15 ? `, in ${best.trip.country}, somewhere you haven't looked yet` : "";
+    why = fits.length
+      ? `Picked to match ${fits.join(", ").replace(/, ([^,]*)$/, " and $1")}${novel}.`
+      : `A fresh pick based on what you've been browsing${novel}.`;
+  }
+
+  // "Based on" chips: the signals that actually fed the pick.
+  const chips = [];
+  if (personal) {
+    [...new Set(profile.queries)].slice(0, 2).forEach((q) => chips.push(`Searched “${q}”`));
+    const style = topKey(profile.style), continent = topKey(profile.continent);
+    if (style) chips.push(style[0]);
+    if (continent) chips.push(continent[0]);
+    if (costCenter) chips.push(`Budget ~${CURRENCIES[getCurrency()].symbol}${convertUsd(Math.round(costCenter), getCurrency()).toLocaleString()}`);
+  }
+  chips.push(`Timed for ${MONTH_NAMES[target]}`);
+
+  return { id: best.id, trip: best.trip, why, chips, personal };
+}
+
 /* ---------- One-time migration: page ids used to end in ".html" before clean URLs ---------- */
 function migrateLegacyPageIds() {
   try {
@@ -1061,16 +1282,187 @@ function initWanderList() {
     currencyDropdown.selectValue(getCurrency());
   }
 
-  /* ---------- Surprise Me (random trip) ---------- */
+  /* ---------- Surprise Me: a personalised, unexpected itinerary shown right away ---------- */
   const surpriseButtons = document.querySelectorAll(".surprise-me-btn");
   if (surpriseButtons.length) {
-    const allTripPages = Object.keys(TRIP_CATALOG);
+    let overlay = null, lastFocus = null, shownIds = [], current = null;
+    const refs = {};
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text != null) node.textContent = text;
+      return node;
+    }
+
+    function buildSurpriseDialog() {
+      overlay = el("div", "surprise-overlay");
+      overlay.hidden = true;
+      const dialog = el("div", "surprise-dialog");
+      dialog.setAttribute("role", "dialog");
+      dialog.setAttribute("aria-modal", "true");
+      dialog.setAttribute("aria-labelledby", "surpriseTitle");
+      dialog.tabIndex = -1;
+
+      refs.close = el("button", "surprise-close", "×");
+      refs.close.type = "button";
+      refs.close.setAttribute("aria-label", "Close");
+
+      const photo = el("div", "surprise-photo");
+      refs.img = el("img");
+      refs.img.decoding = "async";
+      photo.appendChild(refs.img);
+
+      const body = el("div", "surprise-body");
+      refs.eyebrow = el("p", "surprise-eyebrow");
+      refs.title = el("h2");
+      refs.title.id = "surpriseTitle";
+      refs.place = el("p", "surprise-place");
+      refs.facts = el("dl", "surprise-facts");
+      refs.why = el("p", "surprise-why");
+      refs.chips = el("div", "surprise-chips");
+      const daysHead = el("h3", "surprise-days-head", "Suggested activities");
+      refs.days = el("ol", "surprise-days");
+
+      const actions = el("div", "surprise-actions");
+      refs.view = el("a", "btn btn-primary", "View full itinerary");
+      refs.again = el("button", "btn btn-outline", "Another surprise");
+      refs.again.type = "button";
+      refs.save = el("button", "surprise-save");
+      refs.save.type = "button";
+      actions.append(refs.view, refs.again, refs.save);
+
+      refs.reset = el("button", "surprise-reset", "Forget my searches");
+      refs.reset.type = "button";
+      refs.reset.title = "Clear the searches and trips Surprise Me has remembered in this browser";
+
+      body.append(refs.eyebrow, refs.title, refs.place, refs.facts, refs.why, refs.chips, daysHead, refs.days, actions, refs.reset);
+      dialog.append(refs.close, photo, body);
+      overlay.appendChild(dialog);
+      document.body.appendChild(overlay);
+      refs.dialog = dialog;
+      refs.body = body;
+
+      refs.close.addEventListener("click", closeSurprise);
+      overlay.addEventListener("mousedown", (e) => { if (e.target === overlay) closeSurprise(); });
+      refs.again.addEventListener("click", () => showSurprise(true));
+      refs.save.addEventListener("click", () => {
+        if (!current) return;
+        toggleTripSaved(current.id);
+        renderSaveState();
+      });
+      refs.reset.addEventListener("click", () => {
+        clearTaste();
+        shownIds = [];
+        showSurprise(true);
+      });
+      overlay.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { e.preventDefault(); closeSurprise(); return; }
+        if (e.key !== "Tab") return;
+        const focusable = Array.from(refs.dialog.querySelectorAll("a[href], button")).filter((n) => n.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === refs.dialog)) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+    }
+
+    function renderSaveState() {
+      const saved = current && isTripSaved(current.id);
+      refs.save.textContent = saved ? "♥ Saved" : "♡ Save";
+      refs.save.classList.toggle("is-saved", !!saved);
+      refs.save.setAttribute("aria-pressed", String(!!saved));
+    }
+
+    function addFact(label, value) {
+      const wrap = el("div");
+      wrap.append(el("dt", null, label), el("dd", null, value));
+      refs.facts.appendChild(wrap);
+    }
+
+    function renderSurprise(pick) {
+      const { id, trip } = pick;
+      current = pick;
+      refs.eyebrow.textContent = pick.personal ? "Picked for you" : "Your surprise itinerary";
+      refs.title.textContent = trip.title;
+      refs.place.textContent = trip.place + " · " + trip.tag;
+      refs.img.src = trip.img.replace("/500px-", "/960px-").replace("w=500", "w=900");
+      refs.img.alt = trip.alt || trip.place;
+
+      refs.facts.textContent = "";
+      addFact("Duration", trip.duration);
+      addFact("Budget", formatTripCost(trip.cost, getCurrency()));
+      addFact("Ideal season", trip.season);
+
+      refs.why.textContent = pick.why;
+      refs.chips.textContent = "";
+      pick.chips.forEach((c) => refs.chips.appendChild(el("span", "surprise-chip", c)));
+
+      refs.days.textContent = "";
+      const days = DAY_INDEX.filter((d) => d.page === id).sort((a, b) => a.day - b.day).slice(0, 4);
+      days.forEach((d) => {
+        const li = el("li", "surprise-day");
+        li.appendChild(el("strong", null, "Day " + d.day + " · " + d.title));
+        const stops = d.text.split(" · ").slice(1, 4);
+        if (stops.length) {
+          const ul = el("ul");
+          stops.forEach((s) => ul.appendChild(el("li", null, s)));
+          li.appendChild(ul);
+        }
+        refs.days.appendChild(li);
+      });
+      if (!days.length) refs.days.appendChild(el("li", "surprise-day surprise-day-empty", "Open the full itinerary for the day-by-day plan."));
+
+      refs.view.href = id;
+      renderSaveState();
+    }
+
+    function showSurprise(reroll) {
+      const pick = pickSurpriseTrip(shownIds);
+      shownIds.push(pick.id);
+      rememberSurprised(pick.id);
+      if (reroll) {
+        refs.dialog.classList.add("is-swapping");
+        setTimeout(() => {
+          renderSurprise(pick);
+          refs.body.scrollTop = 0;
+          refs.dialog.classList.remove("is-swapping");
+        }, 160);
+      } else {
+        renderSurprise(pick);
+      }
+    }
+
+    function openSurprise() {
+      if (!overlay) buildSurpriseDialog();
+      lastFocus = document.activeElement;
+      shownIds = [];
+      showSurprise(false);
+      overlay.hidden = false;
+      document.body.classList.add("surprise-open");
+      void overlay.offsetWidth; // commit the hidden->visible change so the fade-in transition runs
+      overlay.classList.add("is-open");
+      refs.close.focus({ preventScroll: true });
+    }
+
+    function closeSurprise() {
+      if (!overlay || overlay.hidden) return;
+      overlay.classList.remove("is-open");
+      document.body.classList.remove("surprise-open");
+      setTimeout(() => { if (!overlay.classList.contains("is-open")) overlay.hidden = true; }, 220);
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    }
+
     surpriseButtons.forEach((btn) => {
+      btn.setAttribute("role", "button");
+      btn.setAttribute("aria-haspopup", "dialog");
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const others = allTripPages.filter((page) => page !== currentPageId());
-        const pool = others.length ? others : allTripPages;
-        window.location.href = pool[Math.floor(Math.random() * pool.length)];
+        const menu = document.getElementById("navLinks");
+        const toggle = document.getElementById("navToggle");
+        if (menu) menu.classList.remove("mobile-open");
+        if (toggle) toggle.classList.remove("open");
+        openSurprise();
       });
     });
   }
@@ -1590,10 +1982,25 @@ function initWanderList() {
       browseEmpty.hidden = visibleCount > 0;
     }
 
-    const styleDropdown = initCustomDropdown(styleFilterEl, applyFilters);
-    initCustomDropdown(continentFilterEl, applyFilters);
-    searchInput.addEventListener("input", applyFilters);
-    attachTripAutocomplete(searchInput, () => applyFilters());
+    const styleDropdown = initCustomDropdown(styleFilterEl, () => {
+      applyFilters();
+      if (styleFilterEl.dataset.value !== "all") recordTaste("style", styleFilterEl.dataset.value);
+    });
+    initCustomDropdown(continentFilterEl, () => {
+      applyFilters();
+      if (continentFilterEl.dataset.value !== "all") recordTaste("continent", continentFilterEl.dataset.value);
+    });
+    // Typed searches are remembered once the visitor pauses, not on every keystroke.
+    let searchMemoTimer;
+    searchInput.addEventListener("input", () => {
+      applyFilters();
+      clearTimeout(searchMemoTimer);
+      searchMemoTimer = setTimeout(() => { if (searchInput.value.trim().length >= 3) recordTaste("query", searchInput.value.trim()); }, 900);
+    });
+    attachTripAutocomplete(searchInput, () => {
+      applyFilters();
+      recordTaste("query", searchInput.value.trim());
+    });
 
     // Deep-link support: browse.html?style=budget pre-selects that option,
     // browse?q=paris pre-fills the search box — both combine naturally.
@@ -1606,6 +2013,10 @@ function initWanderList() {
     applyFilters();
   }
 
+  /* ---------- Remember which itinerary was opened (feeds Surprise Me) ---------- */
+  const viewedId = currentPageId().replace(/\.html$/, "");
+  if (TRIP_CATALOG[viewedId]) recordTaste("view", viewedId);
+
   /* ---------- Card titles are clamped to 2 lines; keep the full title on hover ---------- */
   document.querySelectorAll(".trip-card h3").forEach((h) => { h.title = h.textContent.trim(); });
 
@@ -1615,6 +2026,7 @@ function initWanderList() {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("destInput").value.trim();
+      recordTaste("query", dest);
       window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
     });
     attachTripAutocomplete(document.getElementById("destInput"));
@@ -1626,6 +2038,7 @@ function initWanderList() {
     notfoundSearchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("notfoundDestInput").value.trim();
+      recordTaste("query", dest);
       window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
     });
     attachTripAutocomplete(document.getElementById("notfoundDestInput"));

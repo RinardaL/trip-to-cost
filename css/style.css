@@ -511,8 +511,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   position: absolute; inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(7,61,46,0.08) 0%, rgba(7,61,46,0.55) 38%, rgba(7,61,46,0.92) 100%),
-    linear-gradient(90deg, rgba(7,61,46,0.6), rgba(7,61,46,0) 70%);
+    linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.86) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0) 70%);
 }
 a.style-slide:focus-visible { outline: 3px solid var(--mint); outline-offset: -6px; }
 .style-slide-body {
@@ -626,7 +626,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #fff;
-  background: rgba(7,61,46,0.6);
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(4px);
   transition: opacity 0.4s ease;
 }
@@ -661,7 +661,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .style-progress-bar {
   display: block;
   height: 100%;
-  background: var(--mint);
+  background: #fff;
   transform-origin: left center;
   transform: scaleX(var(--p, 0));
 }
@@ -2142,3 +2142,8 @@ body.lightbox-open { overflow: hidden; }
 .home-page .site-header:not(.is-solid) .icon-btn:hover,
 .home-page .site-header:not(.is-solid) .icon-btn:focus-visible { color: var(--mint-tint); }
 @media (max-width: 720px) { .filter-bar #continentFilter .filter-dropdown-btn { padding-left: 0; } }
+
+/* Slideshow: neutral tones only (no green placeholder flash or green panel) */
+.style-slide[class*="ph-"] { background-image: none; background-color: #1d1f1b; }
+.style-slide-random { background: linear-gradient(135deg, #1d1f1b 0%, #34372f 100%); }
+.style-scroll .style-stage { background: #1d1f1b; }

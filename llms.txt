@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 105 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 107 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
@@ -32,12 +32,14 @@
 - [4 Days in Cappadocia: Fairy Chimneys, Cave Towns & Sunrise Balloons](https://www.triptocost.com/cappadocia): 4 Days in Cappadocia, Turkey, est. $600-850/person
 - [4 Days in Chiang Mai: The Yi Peng Lantern Festival, Doi Suthep & the Old City](https://www.triptocost.com/chiang-mai): 4 Days in Chiang Mai, Thailand, est. $700-1,000/person
 - [4 Days in Colmar: Christmas Markets & the Alsace Wine Route](https://www.triptocost.com/colmar): 4 Days in Colmar, France, est. $750-1,000/person
+- [4 Days in Dresden: Christmas Markets, Baroque Palaces & the Elbe](https://www.triptocost.com/dresden): 4 Days in Dresden, Germany, est. $700-950/person
 - [4 Days in Dublin: Trinity College, Guinness & the Wicklow Mountains](https://www.triptocost.com/dublin): 4 Days in Dublin, Ireland, est. $850-1,150/person
 - [4 Days in Edinburgh: Castle, Old Town & the Scottish Highlands Edge](https://www.triptocost.com/edinburgh): 4 Days in Edinburgh, Scotland, est. $700-900/person
 - [4 Days in Istanbul: Byzantine Domes, Grand Bazaars & the Bosphorus](https://www.triptocost.com/istanbul): 4 Days in Istanbul, Turkey, est. $650-900/person
 - [4 Days in Kotor, Montenegro: Old Town, Fortress & Bay](https://www.triptocost.com/kotor): 4 Days in Kotor, Montenegro, est. $600-800/person
 - [4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau](https://www.triptocost.com/krakow): 4 Days in Krakow, Poland, est. $500-700/person
 - [4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled](https://www.triptocost.com/ljubljana): 4 Days in Ljubljana, Slovenia, est. $600-850/person
+- [4 Days in Nuremberg: Christmas Market, Castle & Franconia](https://www.triptocost.com/nuremberg): 4 Days in Nuremberg, Germany, est. $750-1,000/person
 - [4 Days in Prague: Old Town, Castle & the Vltava](https://www.triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person
 - [4 Days in Quebec City: Old Town, Château Frontenac & Montmorency Falls](https://www.triptocost.com/quebec-city): 4 Days in Quebec City, Canada, est. $700-1,000/person
 - [4 Days in Riga: Art Nouveau, Old Town & the Central Market](https://www.triptocost.com/riga): 4 Days in Riga, Latvia, est. $500-700/person

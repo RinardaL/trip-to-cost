@@ -128,7 +128,7 @@
 ## Site
 
 - [Browse all destinations](https://www.triptocost.com/browse): filterable list of every itinerary by travel style, budget, and region
-- [About TripToCost](https://www.triptocost.com/about): why the site exists and what it believes about trip planning
+- [About TripToCost](https://www.triptocost.com/about): why the site exists and how its guides are kept simple and practical for each traveler
 - [How It Works](https://www.triptocost.com/how-it-works): what's included in every itinerary guide
 - [Saved Trips](https://www.triptocost.com/saved-trips): a visitor's bookmarked itineraries (stored locally in their browser only)
 

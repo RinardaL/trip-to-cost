@@ -2210,3 +2210,21 @@ strong, b { font-weight: 600; }
   .itinerary-cover h1 { font-size: 1.7rem; }
   .itinerary-cover p { font-size: 0.9rem; line-height: 1.45; -webkit-line-clamp: 4; line-clamp: 4; }
 }
+
+/* Globe section: compact copy so it stays in proportion with the globe */
+.globe-layout { gap: 48px; }
+.globe-copy h2 { font-size: 1.5rem; margin-bottom: 6px; }
+.globe-copy > p { font-size: 0.88rem; margin-bottom: 14px; }
+.globe-dest-list { columns: 4; column-gap: 14px; }
+.globe-dest-list a { padding: 2px 2px; font-size: 0.72rem; line-height: 1.3; }
+@media (max-width: 1024px) {
+  .globe-dest-list { columns: 3; max-width: 560px; }
+}
+@media (max-width: 560px) {
+  .globe-dest-list { columns: 2; }
+  .globe-copy h2 { font-size: 1.35rem; }
+}
+.globe-dest-list { columns: 5; column-gap: 12px; }
+.globe-dest-list a { padding: 1px 2px; font-size: 0.7rem; line-height: 1.25; }
+@media (max-width: 1024px) { .globe-dest-list { columns: 3; } }
+@media (max-width: 560px) { .globe-dest-list { columns: 2; } }

@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 102 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 103 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
@@ -83,6 +83,7 @@
 ### Modern Cities
 
 - [3 Days in Brussels: Grand Place, Comics & the Atomium](https://www.triptocost.com/brussels): 3 Days in Brussels, Belgium, est. $650-900/person
+- [4 Days in Berlin: Wall History, Museum Island & Potsdam](https://www.triptocost.com/berlin): 4 Days in Berlin, Germany, est. $750-1,000/person
 - [4 Days in Copenhagen: Nyhavn, Design & Nordic Living](https://www.triptocost.com/copenhagen): 4 Days in Copenhagen, Denmark, est. $1,350-1,850/person
 - [4 Days in Milan: Duomo, Navigli & Brera](https://www.triptocost.com/milano): 4 Days in Milan, Italy, est. $650-850/person
 - [4 Days in Oslo: Opera House, Vigeland & Viking Heritage](https://www.triptocost.com/oslo): 4 Days in Oslo, Norway, est. $1,300-1,750/person

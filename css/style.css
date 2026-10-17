@@ -1482,7 +1482,7 @@ a.style-slide-cta:focus-visible { background: var(--mint); gap: 14px; }
 .day-chevron { transition: transform 0.25s ease; color: var(--charcoal-soft); font-size: 1.1rem; }
 .day-item.open .day-chevron { transform: rotate(180deg); }
 .day-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-.day-item.open .day-body { max-height: 1200px; }
+.day-item.open .day-body { max-height: 3200px; }
 .day-item.highlight { animation: dayHighlight 2.2s ease; }
 @keyframes dayHighlight {
   0% { box-shadow: 0 0 0 3px var(--mint); }

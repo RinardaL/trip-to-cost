@@ -1241,6 +1241,7 @@ function initWanderList() {
       costHead = costBox.querySelector(".duration-cost-label");
       costSub = costBox.querySelector(".duration-cost-sub");
       costLadder = costBox.querySelector(".duration-ladder");
+      costLadder.style.setProperty("--cols", String(totalDays <= 5 ? totalDays : Math.ceil(totalDays / 2)));
       for (let n = 1; n <= totalDays; n++) {
         const cell = document.createElement("button");
         cell.type = "button";
@@ -1255,22 +1256,23 @@ function initWanderList() {
       const code = getCurrency();
       const sym = CURRENCIES[code].symbol;
       const fmt = (usd) => sym + convertUsd(usd, code).toLocaleString();
+      const range = (l, h) => fmt(l) + "-" + convertUsd(h, code).toLocaleString();
       const [lo, hi] = estimateFor(currentDays);
       /* keep the Est. Budget and Duration facts at the top of the page in step with the chosen length */
       if (budgetEl) {
         budgetEl.dataset.usdLow = String(lo); budgetEl.dataset.usdHigh = String(hi); budgetEl.dataset.tier = ""; budgetEl.dataset.suffix = "";
-        budgetEl.textContent = `${fmt(lo)}-${fmt(hi)}`;
+        budgetEl.textContent = range(lo, hi);
       }
       if (durationEl) durationEl.textContent = currentDays === totalDays ? durationFull : `${currentDays} ${currentDays === 1 ? "Day" : "Days"}`;
       costHead.textContent = `Estimated cost for ${currentDays} ${currentDays === 1 ? "day" : "days"}`;
-      costBox.querySelector(".duration-cost-amount").textContent = `${fmt(lo)}-${fmt(hi)}`;
+      costBox.querySelector(".duration-cost-amount").textContent = range(lo, hi);
       costSub.textContent = currentDays === 1
         ? `If you only have one day, expect to spend from about ${fmt(lo)} at the cheaper end.`
-        : `About ${fmt(Math.round(lo / currentDays))}-${fmt(Math.round(hi / currentDays))} a day on average, from ${fmt(lo)} at the cheaper end.`;
+        : `About ${range(Math.round(lo / currentDays), Math.round(hi / currentDays))} a day on average, from ${fmt(lo)} at the cheaper end.`;
       costLadder.querySelectorAll(".duration-ladder-cell").forEach((cell) => {
         const n = parseInt(cell.dataset.days, 10);
         const [l, h] = estimateFor(n);
-        cell.querySelector(".dl-price").textContent = `${fmt(l)}-${fmt(h)}`;
+        cell.querySelector(".dl-price").textContent = range(l, h);
         const on = n === currentDays;
         cell.classList.toggle("active", on);
         cell.setAttribute("aria-pressed", String(on));

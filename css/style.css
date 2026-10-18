@@ -2463,24 +2463,27 @@ strong, b { font-weight: 600; }
 .testimonial-card p { white-space: pre-line; overflow-wrap: anywhere; }
 .review-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
-/* ---------- Trip-length cost estimate ---------- */
-.duration-cost { margin: 0 0 24px; padding: 22px 28px 20px; background: #FBF9F4; border: 1px solid #E3DDCD; }
-.duration-cost-main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
-.duration-cost-label { font-size: 0.92rem; color: #5E6459; }
-.duration-cost-amount { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.01em; color: #26332A; }
-.duration-cost-per { font-size: 0.9rem; color: #5E6459; }
-.duration-cost-sub { margin: 6px 0 16px; color: #3A4038; font-size: 0.97rem; }
-.duration-ladder { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px; }
-.duration-ladder-cell { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; padding: 10px 14px; text-align: left; background: #F6F2E8; border: 1px solid #E3DDCD; border-radius: 10px; color: #3A4038; cursor: pointer; font: inherit; transition: background 0.2s ease, border-color 0.2s ease; }
-.duration-ladder-cell:hover { background: #F1EDE0; border-color: #C9C3B1; }
-.duration-ladder-cell.active { background: #E4EDDF; border-color: #98AE8F; }
-.duration-ladder-cell:focus-visible { outline: 2px solid #6F8A66; outline-offset: 2px; }
-.dl-days { font-size: 0.8rem; color: #5E6459; text-transform: uppercase; letter-spacing: 0.04em; }
-.dl-price { font-size: 0.98rem; font-weight: 600; color: #26332A; }
-.duration-cost-foot { margin: 14px 0 0; font-size: 0.82rem; color: #6B7166; line-height: 1.5; }
+/* ---------- Trip-length cost estimate: same language as the facts bar (white, square, hairlines, emerald and gold) ---------- */
+.duration-cost { margin: 0 0 24px; padding: 0; overflow: hidden; background: var(--off-white); border: 1px solid var(--line); border-radius: 0; }
+.duration-cost-main { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 6px 14px; padding: 28px 32px 6px; }
+.duration-cost-label { grid-column: 1 / -1; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal-soft); }
+.duration-cost-amount { font-family: var(--font-display); font-size: 2.3rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; color: var(--emerald-dark); }
+.duration-cost-per { font-size: 0.9rem; color: var(--charcoal-soft); }
+.duration-cost-sub { margin: 0; padding: 4px 32px 24px; font-size: 0.97rem; line-height: 1.55; color: var(--charcoal-soft); }
+.duration-ladder { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); margin-right: -1px; overflow: hidden; border-top: 1px solid var(--line); }
+.duration-ladder-cell { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 8px 14px; margin: 0; text-align: center; background: var(--off-white); border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; color: var(--emerald-dark); cursor: pointer; font: inherit; box-shadow: inset 0 3px 0 transparent; transition: background 0.2s ease, box-shadow 0.2s ease; }
+.duration-ladder-cell:hover { background: var(--cream); }
+.duration-ladder-cell.active { background: var(--mint-tint); box-shadow: inset 0 3px 0 var(--mint); }
+.duration-ladder-cell:focus-visible { outline: 2px solid var(--emerald); outline-offset: -2px; }
+.dl-days { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal-soft); }
+.dl-price { font-family: var(--font-display); font-size: 0.98rem; font-weight: 500; color: var(--emerald-dark); white-space: nowrap; }
+.duration-cost-foot { margin: 0; padding: 14px 32px 18px; font-size: 0.8rem; line-height: 1.55; color: var(--charcoal-soft); }
 @media (max-width: 560px) {
-  .duration-cost { padding: 18px 18px 16px; }
-  .duration-cost-amount { font-size: 1.45rem; }
+  .duration-cost-main { padding: 22px 20px 4px; }
+  .duration-cost-amount { font-size: 1.85rem; }
+  .duration-cost-sub { padding: 4px 20px 20px; }
   .duration-ladder { grid-template-columns: repeat(2, 1fr); }
+  .duration-cost-foot { padding: 12px 20px 16px; }
 }
 @media print { .duration-cost-foot { display: none; } }
+@media (min-width: 561px) { .duration-options .duration-btn { padding-left: 18px; padding-right: 18px; } .duration-options .duration-btn:first-child { padding-left: 0; } }

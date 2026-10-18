@@ -1200,22 +1200,97 @@ function initWanderList() {
       note.innerHTML = `Showing our recommended ${n}-day plan for this trip. <a data-show-all>Show the full ${totalDays}-day itinerary</a>`;
     }
 
-    durationOptions.querySelectorAll(".duration-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        syncPressed();
-        applyDuration(parseInt(btn.dataset.days, 10));
+    /* One button for every trip length, 1 day up to the full itinerary */
+    if (totalDays > 1) {
+      durationOptions.textContent = "";
+      for (let n = 1; n <= totalDays; n++) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "filter-chip duration-btn" + (n === totalDays ? " active" : "");
+        b.dataset.days = String(n);
+        b.textContent = n === totalDays ? `${n} Days (Full)` : `${n} ${n === 1 ? "Day" : "Days"}`;
+        durationOptions.appendChild(b);
+      }
+      syncPressed();
+    }
+
+    /* Cost for the chosen length: the trip's budget range scaled to N days, with a small fixed share
+       (getting there, first night, airport transfers) that does not shrink with fewer days. */
+    const budgetEl = Array.from(document.querySelectorAll(".meta-item")).filter((i) => i.querySelector(".label")?.textContent.trim() === "Est. Budget").map((i) => i.querySelector(".value"))[0];
+    const budgetMatch = budgetEl && budgetEl.textContent.trim().match(/^\$([\d,]+)-([\d,]+)/);
+    const usdLow = budgetMatch ? parseInt(budgetMatch[1].replace(/,/g, ""), 10) : 0;
+    const usdHigh = budgetMatch ? parseInt(budgetMatch[2].replace(/,/g, ""), 10) : 0;
+    const FIXED_SHARE = 0.15;
+    const round5 = (v) => Math.max(5, Math.round(v / 5) * 5);
+    const estimateFor = (n) => {
+      const f = FIXED_SHARE + (1 - FIXED_SHARE) * n / totalDays;
+      return [round5(usdLow * f), round5(usdHigh * f)];
+    };
+    let costBox = null, costHead = null, costSub = null, costLadder = null, currentDays = totalDays;
+    if (usdLow && usdHigh && totalDays > 1) {
+      costBox = document.createElement("div");
+      costBox.className = "duration-cost";
+      costBox.id = "durationCost";
+      costBox.innerHTML = '<div class="duration-cost-main" aria-live="polite"><span class="duration-cost-label"></span><span class="duration-cost-amount"></span><span class="duration-cost-per">per person</span></div>' +
+        '<p class="duration-cost-sub"></p>' +
+        '<div class="duration-ladder" role="group" aria-label="Estimated cost by trip length"></div>' +
+        '<p class="duration-cost-foot">Estimates per person, based on this trip’s budget range: activities, local transport and meals, excluding international flights. The lower figure is the cheapest way to do it, the higher one a more comfortable version. Real costs vary with season and spending habits.</p>';
+      note.insertAdjacentElement("afterend", costBox);
+      costHead = costBox.querySelector(".duration-cost-label");
+      costSub = costBox.querySelector(".duration-cost-sub");
+      costLadder = costBox.querySelector(".duration-ladder");
+      for (let n = 1; n <= totalDays; n++) {
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "duration-ladder-cell";
+        cell.dataset.days = String(n);
+        cell.innerHTML = `<span class="dl-days">${n} ${n === 1 ? "day" : "days"}</span><span class="dl-price"></span>`;
+        costLadder.appendChild(cell);
+      }
+    }
+    function renderDurationCost() {
+      if (!costBox) return;
+      const code = getCurrency();
+      const sym = CURRENCIES[code].symbol;
+      const fmt = (usd) => sym + convertUsd(usd, code).toLocaleString();
+      const [lo, hi] = estimateFor(currentDays);
+      costHead.textContent = `Estimated cost for ${currentDays} ${currentDays === 1 ? "day" : "days"}`;
+      costBox.querySelector(".duration-cost-amount").textContent = `${fmt(lo)}-${fmt(hi)}`;
+      costSub.textContent = currentDays === 1
+        ? `If you only have one day, expect to spend from about ${fmt(lo)} at the cheaper end.`
+        : `About ${fmt(Math.round(lo / currentDays))}-${fmt(Math.round(hi / currentDays))} a day on average, from ${fmt(lo)} at the cheaper end.`;
+      costLadder.querySelectorAll(".duration-ladder-cell").forEach((cell) => {
+        const n = parseInt(cell.dataset.days, 10);
+        const [l, h] = estimateFor(n);
+        cell.querySelector(".dl-price").textContent = `${fmt(l)}-${fmt(h)}`;
+        const on = n === currentDays;
+        cell.classList.toggle("active", on);
+        cell.setAttribute("aria-pressed", String(on));
       });
+    }
+
+    function selectDays(n) {
+      currentDays = n;
+      durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.toggle("active", parseInt(b.dataset.days, 10) === n));
+      syncPressed();
+      applyDuration(n);
+      renderDurationCost();
+    }
+
+    durationOptions.addEventListener("click", (e) => {
+      const btn = e.target.closest(".duration-btn");
+      if (btn) selectDays(parseInt(btn.dataset.days, 10));
     });
+    if (costLadder) costLadder.addEventListener("click", (e) => {
+      const cell = e.target.closest(".duration-ladder-cell");
+      if (cell) selectDays(parseInt(cell.dataset.days, 10));
+    });
+    window.addEventListener("currencychange", renderDurationCost);
+    renderDurationCost();
 
     note.addEventListener("click", (e) => {
       if (!e.target.hasAttribute("data-show-all")) return;
-      durationOptions.querySelectorAll(".duration-btn").forEach((b) => {
-        b.classList.toggle("active", parseInt(b.dataset.days, 10) === totalDays);
-      });
-      syncPressed();
-      applyDuration(totalDays);
+      selectDays(totalDays);
     });
   }
 
@@ -1294,6 +1369,7 @@ function initWanderList() {
     const currencyDropdown = initCustomDropdown(currencySelect, () => {
       localStorage.setItem(CURRENCY_KEY, currencySelect.dataset.value);
       renderCosts(currencySelect.dataset.value);
+      window.dispatchEvent(new Event("currencychange"));
     });
     currencyDropdown.selectValue(getCurrency());
   }

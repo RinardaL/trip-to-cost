@@ -2462,3 +2462,25 @@ strong, b { font-weight: 600; }
 /* Reviews: keep line breaks people type; hide the spam-trap field */
 .testimonial-card p { white-space: pre-line; overflow-wrap: anywhere; }
 .review-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---------- Trip-length cost estimate ---------- */
+.duration-cost { margin: 0 0 24px; padding: 22px 28px 20px; background: #FBF9F4; border: 1px solid #E3DDCD; }
+.duration-cost-main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.duration-cost-label { font-size: 0.92rem; color: #5E6459; }
+.duration-cost-amount { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.01em; color: #26332A; }
+.duration-cost-per { font-size: 0.9rem; color: #5E6459; }
+.duration-cost-sub { margin: 6px 0 16px; color: #3A4038; font-size: 0.97rem; }
+.duration-ladder { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px; }
+.duration-ladder-cell { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; padding: 10px 14px; text-align: left; background: #F6F2E8; border: 1px solid #E3DDCD; border-radius: 10px; color: #3A4038; cursor: pointer; font: inherit; transition: background 0.2s ease, border-color 0.2s ease; }
+.duration-ladder-cell:hover { background: #F1EDE0; border-color: #C9C3B1; }
+.duration-ladder-cell.active { background: #E4EDDF; border-color: #98AE8F; }
+.duration-ladder-cell:focus-visible { outline: 2px solid #6F8A66; outline-offset: 2px; }
+.dl-days { font-size: 0.8rem; color: #5E6459; text-transform: uppercase; letter-spacing: 0.04em; }
+.dl-price { font-size: 0.98rem; font-weight: 600; color: #26332A; }
+.duration-cost-foot { margin: 14px 0 0; font-size: 0.82rem; color: #6B7166; line-height: 1.5; }
+@media (max-width: 560px) {
+  .duration-cost { padding: 18px 18px 16px; }
+  .duration-cost-amount { font-size: 1.45rem; }
+  .duration-ladder { grid-template-columns: repeat(2, 1fr); }
+}
+@media print { .duration-cost-foot { display: none; } }

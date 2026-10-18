@@ -1228,17 +1228,16 @@ function initWanderList() {
     };
     const durationEl = Array.from(document.querySelectorAll(".meta-item")).filter((i) => i.querySelector(".label")?.textContent.trim() === "Duration").map((i) => i.querySelector(".value"))[0];
     const durationFull = durationEl ? durationEl.textContent : "";
-    let costBox = null, costHead = null, costSub = null, costLadder = null, currentDays = totalDays;
+    let costBox = null, costSub = null, costLadder = null, currentDays = totalDays;
     if (usdLow && usdHigh && totalDays > 1) {
       costBox = document.createElement("div");
       costBox.className = "duration-cost";
       costBox.id = "durationCost";
-      costBox.innerHTML = '<div class="duration-cost-main" aria-live="polite"><span class="duration-cost-label"></span><span class="duration-cost-amount"></span><span class="duration-cost-per">per person</span></div>' +
-        '<p class="duration-cost-sub"></p>' +
+      costBox.innerHTML =
+        '<p class="duration-cost-sub" aria-live="polite"></p>' +
         '<div class="duration-ladder" role="group" aria-label="Estimated cost by trip length"></div>' +
         '<p class="duration-cost-foot">Estimates per person, based on this trip’s budget range: activities, local transport and meals, excluding international flights. The lower figure is the cheapest way to do it, the higher one a more comfortable version. Real costs vary with season and spending habits.</p>';
       note.insertAdjacentElement("afterend", costBox);
-      costHead = costBox.querySelector(".duration-cost-label");
       costSub = costBox.querySelector(".duration-cost-sub");
       costLadder = costBox.querySelector(".duration-ladder");
       costLadder.style.setProperty("--cols", String(totalDays <= 5 ? totalDays : Math.ceil(totalDays / 2)));
@@ -1264,8 +1263,6 @@ function initWanderList() {
         budgetEl.textContent = range(lo, hi);
       }
       if (durationEl) durationEl.textContent = currentDays === totalDays ? durationFull : `${currentDays} ${currentDays === 1 ? "Day" : "Days"}`;
-      costHead.textContent = `Estimated cost for ${currentDays} ${currentDays === 1 ? "day" : "days"}`;
-      costBox.querySelector(".duration-cost-amount").textContent = range(lo, hi);
       costSub.textContent = currentDays === 1
         ? `If you only have one day, expect to spend from about ${fmt(lo)} at the cheaper end.`
         : `About ${range(Math.round(lo / currentDays), Math.round(hi / currentDays))} a day on average, from ${fmt(lo)} at the cheaper end.`;

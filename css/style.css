@@ -2469,7 +2469,7 @@ strong, b { font-weight: 600; }
 .duration-cost-label { grid-column: 1 / -1; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal-soft); }
 .duration-cost-amount { font-family: var(--font-display); font-size: 2.3rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; color: var(--emerald-dark); }
 .duration-cost-per { font-size: 0.9rem; color: var(--charcoal-soft); }
-.duration-cost-sub { margin: 0; padding: 4px 32px 24px; font-size: 0.97rem; line-height: 1.55; color: var(--charcoal-soft); }
+.duration-cost-sub { margin: 0; padding: 24px 32px 22px; font-size: 0.97rem; line-height: 1.55; color: var(--charcoal-soft); }
 .duration-ladder { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); margin-right: -1px; overflow: hidden; border-top: 1px solid var(--line); }
 .duration-ladder-cell { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 8px 14px; margin: 0; text-align: center; background: var(--off-white); border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; color: var(--emerald-dark); cursor: pointer; font: inherit; box-shadow: inset 0 3px 0 transparent; transition: background 0.2s ease, box-shadow 0.2s ease; }
 .duration-ladder-cell:hover { background: var(--cream); }
@@ -2481,7 +2481,7 @@ strong, b { font-weight: 600; }
 @media (max-width: 560px) {
   .duration-cost-main { padding: 22px 20px 4px; }
   .duration-cost-amount { font-size: 1.85rem; }
-  .duration-cost-sub { padding: 4px 20px 20px; }
+  .duration-cost-sub { padding: 20px 20px 18px; }
   .duration-ladder { grid-template-columns: repeat(2, 1fr); }
   .duration-cost-foot { padding: 12px 20px 16px; }
 }

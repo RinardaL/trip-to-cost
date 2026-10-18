@@ -954,7 +954,24 @@ function addReview(review) {
   return list;
 }
 
-// Reviews are stored per-browser only (see privacy policy), so every entry
+/* Shared reviews (/api/reviews): the server gives back a secret edit key when a review is created.
+   It is kept here so only this browser can edit that review. */
+const MY_REVIEWS_KEY = "wanderlist_my_reviews";
+function getMyReviewKeys() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(MY_REVIEWS_KEY));
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+function rememberMyReview(id, editKey) {
+  const keys = getMyReviewKeys();
+  keys[id] = editKey;
+  try { localStorage.setItem(MY_REVIEWS_KEY, JSON.stringify(keys)); } catch (e) {}
+}
+
+// Fallback mode only (no shared service): reviews are stored per-browser, so every entry
 // returned by getReviews() was written by whoever is using this browser —
 // there's no cross-user data here, which is what makes editing them safe.
 function updateReview(id, updates) {
@@ -1746,7 +1763,7 @@ function initWanderList() {
         <div class="testimonial-card reveal in-view"${canEdit ? ` data-review-id="${r.id}"` : ""}>
           ${editBtn}
           <div class="testimonial-stars">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
-          <p>"${escapeHtml(r.text)}"</p>
+          <p>${escapeHtml(r.text)}</p>
           <div class="testimonial-author">
             <span class="testimonial-avatar" style="background:${escapeHtml(color)}">${escapeHtml(initial)}</span>
             <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip || "TripToCost traveler")}</span></div>
@@ -1776,38 +1793,67 @@ function initWanderList() {
         </div>`;
     }
 
-    // Show any locally written reviews immediately, without waiting on the fetch below.
-    testimonialGrid.insertAdjacentHTML("afterbegin", getReviews().map((r) => reviewCardHtml(r, true)).join(""));
-
+    // Shared mode: reviews live on the server (/api/reviews), so every visitor sees them.
+    // Fallback mode (service not set up, or offline): reviews stay in this browser, as before.
+    let sharedMode = false;
+    let sharedReviews = [];
+    let seedReviews = null; // the hand-picked reviews in data/reviews.json
     let lastPayload = "";
-    let latestFetchedReviews = null;
+    const reviewNote = document.getElementById("reviewNote");
+
+    function setReviewNote() {
+      if (!reviewNote) return;
+      reviewNote.textContent = sharedMode
+        ? "Reviews are public: your name, trip and review appear on this page for every visitor."
+        : "Reviews are saved on this device and shown below, not sent anywhere.";
+    }
+    function allReviews() {
+      const mine = getMyReviewKeys();
+      const seeds = (seedReviews || []).map((r) => ({ r, own: false }));
+      if (sharedMode) return [...sharedReviews.map((r) => ({ r, own: Boolean(mine[r.id]) })), ...seeds];
+      return [...getReviews().map((r) => ({ r, own: true })), ...seeds];
+    }
     function renderTestimonialGrid() {
-      const fetched = latestFetchedReviews || [];
-      testimonialGrid.innerHTML = getReviews().map((r) => reviewCardHtml(r, true)).join("") + fetched.map((r) => reviewCardHtml(r, false)).join("");
+      const list = allReviews();
+      if (!list.length) return; // keep the static markup that is already in the page
+      testimonialGrid.innerHTML = list.map(({ r, own }) => reviewCardHtml(r, own)).join("");
     }
-    function renderReviews(reviews) {
-      latestFetchedReviews = reviews;
-      renderTestimonialGrid();
-    }
-    window.wanderListRenderReviews = () => {
-      if (latestFetchedReviews) {
+
+    window.wanderListSubmitReview = async ({ author, trip, text, rating, website }) => {
+      if (!sharedMode) {
+        addReview({ author, trip, text, rating });
         renderTestimonialGrid();
-      } else {
-        testimonialGrid.insertAdjacentHTML("afterbegin", reviewCardHtml(getReviews()[0], true));
+        return { ok: true, shared: false };
+      }
+      try {
+        const res = await fetch("/api/reviews", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ author, trip, text, rating, website }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.status === 429) return { ok: false, message: "You've posted a few reviews recently. Please try again a little later." };
+        if (res.status === 400) return { ok: false, message: data.error === "rejected" ? "That review couldn't be posted. Please remove any links and try again." : "Please add your name, a rating and a short review." };
+        if (!res.ok) return { ok: false, message: "Sorry, we couldn't post your review right now. Please try again in a moment." };
+        rememberMyReview(data.id, data.editKey);
+        sharedReviews.unshift({ id: data.id, author, trip, text, rating, createdAt: data.createdAt });
+        renderTestimonialGrid();
+        return { ok: true, shared: true };
+      } catch (e) {
+        return { ok: false, message: "Sorry, we couldn't reach the server. Check your connection and try again." };
       }
     };
 
-    // Edit own reviews in place: swap the card for an inline form, save back to
-    // localStorage, then re-render. Reviews fetched from data/reviews.json never
-    // get an Edit button (reviewCardHtml only adds one when isOwn is true), so
-    // there's no path for a visitor to edit anyone else's review.
-    testimonialGrid.addEventListener("click", (e) => {
+    // Edit your own reviews in place: swap the card for an inline form, save, then re-render.
+    // Only reviews this browser wrote get an Edit button (reviewCardHtml adds one when isOwn
+    // is true), and the server only accepts an edit that carries the secret key issued when
+    // the review was created, so nobody can edit anyone else's review.
+    testimonialGrid.addEventListener("click", async (e) => {
       const editBtn = e.target.closest(".review-edit-btn");
       if (editBtn) {
-        const id = Number(editBtn.dataset.reviewId);
-        const review = getReviews().find((r) => r.id === id);
-        if (!review) return;
-        editBtn.closest(".testimonial-card").outerHTML = reviewEditFormHtml(review);
+        const entry = allReviews().find((x) => x.own && String(x.r.id) === editBtn.dataset.reviewId);
+        if (!entry) return;
+        editBtn.closest(".testimonial-card").outerHTML = reviewEditFormHtml(entry.r);
         return;
       }
 
@@ -1829,35 +1875,64 @@ function initWanderList() {
       const saveBtn = e.target.closest(".review-edit-save");
       if (saveBtn) {
         const card = saveBtn.closest(".testimonial-card-editing");
-        const id = Number(card.dataset.reviewId);
+        const id = card.dataset.reviewId;
         const textEl = card.querySelector(".review-edit-text");
         const starsEl = card.querySelector(".review-edit-stars");
         const errorEl = card.querySelector(".review-edit-error");
         const text = textEl.value.trim();
         if (!text) {
+          errorEl.textContent = "Your review can't be empty.";
           errorEl.hidden = false;
           return;
         }
         const rating = parseInt(starsEl.dataset.value, 10) || 5;
         saveBtn.disabled = true;
-        updateReview(id, { text, rating });
+        if (sharedMode) {
+          const editKey = getMyReviewKeys()[id];
+          try {
+            const res = await fetch("/api/reviews?id=" + encodeURIComponent(id), {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ editKey, text, rating }),
+            });
+            if (!res.ok) throw new Error(String(res.status));
+            const mineReview = sharedReviews.find((r) => String(r.id) === id);
+            if (mineReview) { mineReview.text = text; mineReview.rating = rating; }
+          } catch (err) {
+            saveBtn.disabled = false;
+            errorEl.textContent = "Sorry, your changes couldn't be saved. Please try again.";
+            errorEl.hidden = false;
+            return;
+          }
+        } else {
+          updateReview(Number(id), { text, rating });
+        }
         renderTestimonialGrid();
       }
     });
 
+    async function fetchJson(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error(String(res.status));
+      return res.json();
+    }
     async function loadReviews() {
+      let seed = null, shared = null;
+      try { seed = await fetchJson("data/reviews.json?t=" + Date.now()); } catch (e) { /* keep the static markup */ }
       try {
-        const res = await fetch(`data/reviews.json?t=${Date.now()}`, { cache: "no-store" });
-        if (!res.ok) return;
-        const reviews = await res.json();
-        if (!Array.isArray(reviews) || !reviews.length) return;
-        const payload = JSON.stringify(reviews);
-        if (payload === lastPayload) return;
-        lastPayload = payload;
-        renderReviews(reviews);
-      } catch (e) {
-        /* Keep the static fallback markup already in the page. */
-      }
+        const data = await fetchJson("/api/reviews");
+        if (data && data.configured && Array.isArray(data.reviews)) shared = data.reviews;
+      } catch (e) { /* service not available: fall back to this-device reviews */ }
+      if (Array.isArray(seed) && seed.length) seedReviews = seed;
+      sharedMode = Array.isArray(shared);
+      if (sharedMode) sharedReviews = shared;
+      setReviewNote();
+      const payload = JSON.stringify([sharedMode, sharedReviews, seedReviews, sharedMode ? 0 : getReviews().length]);
+      if (payload === lastPayload) return;
+      // Don't yank a card away while someone is editing it; try again on the next poll.
+      if (testimonialGrid.querySelector(".testimonial-card-editing")) return;
+      lastPayload = payload;
+      renderTestimonialGrid();
     }
 
     loadReviews();
@@ -2150,21 +2225,35 @@ function initWanderList() {
     setReviewStars(5);
   }
 
-  if (reviewForm && window.wanderListRenderReviews) {
-    reviewForm.addEventListener("submit", (e) => {
+  if (reviewForm && window.wanderListSubmitReview) {
+    const reviewError = document.getElementById("reviewError");
+    const reviewSubmit = reviewForm.querySelector('button[type="submit"]');
+    reviewForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const name = document.getElementById("reviewName").value.trim();
       const trip = document.getElementById("reviewTrip").value.trim();
       const text = document.getElementById("reviewText").value.trim();
+      const website = (document.getElementById("reviewWebsite") || {}).value || "";
       const rating = parseInt(reviewStars.dataset.value, 10) || 5;
       if (!name || !text) return;
 
-      addReview({ author: name, trip, text, rating });
-      window.wanderListRenderReviews();
+      if (reviewError) reviewError.hidden = true;
+      if (reviewSubmit) reviewSubmit.disabled = true;
+      const result = await window.wanderListSubmitReview({ author: name, trip, text, rating, website });
+      if (reviewSubmit) reviewSubmit.disabled = false;
+      if (!result.ok) {
+        if (reviewError) { reviewError.textContent = result.message; reviewError.hidden = false; }
+        return;
+      }
 
       reviewForm.reset();
       setReviewStars(5);
-      if (reviewSuccess) reviewSuccess.classList.add("show");
+      if (reviewSuccess) {
+        reviewSuccess.textContent = result.shared
+          ? "\u2713 Thanks for sharing! Your review is now visible to everyone."
+          : "\u2713 Thanks for sharing! Your review is posted below.";
+        reviewSuccess.classList.add("show");
+      }
       reviewForm.hidden = true;
       reviewToggle.setAttribute("aria-expanded", "false");
     });

@@ -2458,3 +2458,7 @@ strong, b { font-weight: 600; }
   .nav-links { gap: 18px; }
   .nav-links a:not(:first-child):not(.nav-surprise) { display: none; }
 }
+
+/* Reviews: keep line breaks people type; hide the spam-trap field */
+.testimonial-card p { white-space: pre-line; overflow-wrap: anywhere; }
+.review-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

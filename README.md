@@ -87,3 +87,15 @@ This is intentionally device/browser-local, not account-based — clearing site 
 
 - Destination photos are hotlinked from Wikimedia Commons and Unsplash — an internet connection is required to see them load. Every Commons file's author and license is listed on [credits.html](credits.html); Unsplash images are used under the [Unsplash License](https://unsplash.com/license), which doesn't require attribution.
 - [SPEC.md](SPEC.md) has the original product/technical spec.
+
+## Shared reviews (optional backend)
+
+Reviews on the home page are shared between visitors through `api/reviews.js`, a dependency-free Vercel serverless function that stores them in an Upstash Redis database over its REST API.
+
+Setup (one time, in the Vercel dashboard):
+
+1. Project > Storage > Create Database > **Upstash for Redis**, and connect it to this project. Vercel adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`) automatically.
+2. Optional: add an environment variable `REVIEWS_ADMIN_TOKEN` (any long random string) to be able to remove a review: `curl -X DELETE "https://www.triptocost.com/api/reviews?id=REVIEW_ID" -H "x-admin-token: YOUR_TOKEN"` (the id is in the JSON returned by `GET /api/reviews`).
+3. Redeploy.
+
+Until a database is connected the function answers `{ "configured": false }` and the site falls back to the old behaviour (reviews stay in the visitor's own browser).

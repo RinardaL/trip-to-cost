@@ -37,7 +37,7 @@ All three (and most other static hosts) automatically serve [404.html](404.html)
 
 ### 2. Domain
 
-Canonical URLs, Open Graph/Twitter tags, `robots.txt`, and `sitemap.xml` are already set to `www.triptocost.com`. If that ever needs to change again, `scripts/set-domain.js` does it in one command:
+Canonical URLs, Open Graph/Twitter tags, `robots.txt`, and `sitemap.xml` are set to `triptocost.com` (no `www`; Vercel redirects `www` to it). If that ever needs to change again, `scripts/set-domain.js` does it in one command:
 
 ```bash
 node scripts/set-domain.js www.your-real-domain.com
@@ -95,7 +95,7 @@ Reviews on the home page are shared between visitors through `api/reviews.js`, a
 Setup (one time, in the Vercel dashboard):
 
 1. Project > Storage > Create Database > **Upstash for Redis**, and connect it to this project. Vercel adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`) automatically.
-2. Optional: add an environment variable `REVIEWS_ADMIN_TOKEN` (any long random string) to be able to remove a review: `curl -X DELETE "https://www.triptocost.com/api/reviews?id=REVIEW_ID" -H "x-admin-token: YOUR_TOKEN"` (the id is in the JSON returned by `GET /api/reviews`).
+2. Optional: add an environment variable `REVIEWS_ADMIN_TOKEN` (any long random string) to be able to remove a review: `curl -X DELETE "https://triptocost.com/api/reviews?id=REVIEW_ID" -H "x-admin-token: YOUR_TOKEN"` (the id is in the JSON returned by `GET /api/reviews`).
 3. Redeploy.
 
 Until a database is connected the function answers `{ "configured": false }` and the site falls back to the old behaviour (reviews stay in the visitor's own browser).

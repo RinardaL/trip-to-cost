@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.triptocost.com/sitemap.xml
+Sitemap: https://triptocost.com/sitemap.xml

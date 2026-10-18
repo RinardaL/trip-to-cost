@@ -612,11 +612,6 @@ const SEASON_PICKS = {
   winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull"] },
 };
 
-/* What is new in each seasonal category: shown as a message bubble on the home tile (list the trip ids, newest last) */
-const SEASON_NEW = {
-  christmas: ["vienna", "nuremberg", "dresden"],
-};
-
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
 const WEATHER_CODES = {
   0: ["☀️", "Clear sky"], 1: ["🌤️", "Mostly clear"], 2: ["⛅", "Partly cloudy"], 3: ["☁️", "Overcast"],
@@ -2246,25 +2241,42 @@ function initWanderList() {
     applyFilters();
   }
 
+  /* ---------- "What’s new!" notification: jumps to the seasonal category ---------- */
+  const whatsNew = document.getElementById("whatsNew");
+  const seasonSection = document.getElementById("season");
+  if (whatsNew && seasonSection) {
+    const WN_KEY = "wanderlist_whatsnew_dismissed";
+    let dismissed = false;
+    try { dismissed = sessionStorage.getItem(WN_KEY) === "1"; } catch (e) {}
+    const hideWhatsNew = (remember) => {
+      whatsNew.classList.add("is-hidden");
+      if (remember) { try { sessionStorage.setItem(WN_KEY, "1"); } catch (e) {} }
+    };
+    if (dismissed) whatsNew.classList.add("is-hidden");
+
+    whatsNew.querySelector(".whats-new-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      seasonSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      seasonSection.focus({ preventScroll: true });
+      try { history.replaceState(null, "", "#season"); } catch (err) {}
+      hideWhatsNew(true);
+    });
+    whatsNew.querySelector(".whats-new-close").addEventListener("click", () => hideWhatsNew(true));
+    whatsNew.addEventListener("keydown", (e) => { if (e.key === "Escape") hideWhatsNew(true); });
+
+    /* once the visitor is looking at (or has passed) the seasonal section the notice has done its job */
+    if (!dismissed && "IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting || en.boundingClientRect.bottom < 0) hideWhatsNew(false); else if (!sessionStorageDismissed()) whatsNew.classList.remove("is-hidden"); });
+      }, { threshold: 0.15 }).observe(seasonSection);
+    }
+    function sessionStorageDismissed() { try { return sessionStorage.getItem(WN_KEY) === "1"; } catch (e) { return false; } }
+  }
+
   /* ---------- Seasonal tiles: keep the trip counts in step with SEASON_PICKS ---------- */
   document.querySelectorAll("[data-season-count]").forEach((el) => {
     const pick = SEASON_PICKS[el.dataset.seasonCount];
     if (pick) el.textContent = pick.ids.length + (pick.ids.length === 1 ? " trip" : " trips");
-  });
-
-  /* ---------- Seasonal tiles: "what is new" message bubble ---------- */
-  document.querySelectorAll("[data-season-count]").forEach((el) => {
-    const ids = (SEASON_NEW[el.dataset.seasonCount] || []).filter((id) => TRIP_CATALOG[id]);
-    const tile = el.closest(".season-tile");
-    if (!ids.length || !tile || tile.querySelector(".season-new")) return;
-    const names = ids.map((id) => TRIP_CATALOG[id].place.split(",")[0]);
-    const list = names.length > 1 ? names.slice(0, -1).join(", ") + " & " + names[names.length - 1] : names[0];
-    const bubble = document.createElement("span");
-    bubble.className = "season-new";
-    bubble.innerHTML = '<span class="season-new-dot" aria-hidden="true"></span><span class="season-new-text"><span class="season-new-label"></span><span class="season-new-list"></span></span>';
-    bubble.querySelector(".season-new-label").textContent = ids.length + " new this season";
-    bubble.querySelector(".season-new-list").textContent = list;
-    tile.appendChild(bubble);
   });
 
   /* ---------- Remember which itinerary was opened (feeds Surprise Me) ---------- */

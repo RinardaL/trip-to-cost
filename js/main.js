@@ -2250,7 +2250,7 @@ function initWanderList() {
     try { dismissed = sessionStorage.getItem(WN_KEY) === "1"; } catch (e) {}
     const hideWhatsNew = (remember) => {
       whatsNew.classList.add("is-hidden");
-      if (remember) { try { sessionStorage.setItem(WN_KEY, "1"); } catch (e) {} }
+      if (remember) { dismissed = true; try { sessionStorage.setItem(WN_KEY, "1"); } catch (e) {} }
     };
     if (dismissed) whatsNew.classList.add("is-hidden");
 
@@ -2264,13 +2264,17 @@ function initWanderList() {
     whatsNew.querySelector(".whats-new-close").addEventListener("click", () => hideWhatsNew(true));
     whatsNew.addEventListener("keydown", (e) => { if (e.key === "Escape") hideWhatsNew(true); });
 
-    /* once the visitor is looking at (or has passed) the seasonal section the notice has done its job */
-    if (!dismissed && "IntersectionObserver" in window) {
-      new IntersectionObserver((entries) => {
-        entries.forEach((en) => { if (en.isIntersecting || en.boundingClientRect.bottom < 0) hideWhatsNew(false); else if (!sessionStorageDismissed()) whatsNew.classList.remove("is-hidden"); });
-      }, { threshold: 0.15 }).observe(seasonSection);
-    }
-    function sessionStorageDismissed() { try { return sessionStorage.getItem(WN_KEY) === "1"; } catch (e) { return false; } }
+    /* once the visitor has reached (or scrolled past) the seasonal section the notice has done its job,
+       so it never sits over the lower part of the page or the footer; it returns if they scroll back up */
+    const syncWhatsNew = () => {
+      if (dismissed) return;
+      const reached = seasonSection.getBoundingClientRect().top < window.innerHeight * 0.85;
+      whatsNew.classList.toggle("is-hidden", reached);
+    };
+    window.addEventListener("scroll", syncWhatsNew, { passive: true });
+    window.addEventListener("resize", syncWhatsNew);
+    window.addEventListener("pageshow", syncWhatsNew);
+    syncWhatsNew();
   }
 
   /* ---------- Seasonal tiles: keep the trip counts in step with SEASON_PICKS ---------- */

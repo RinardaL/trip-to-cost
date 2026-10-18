@@ -2452,3 +2452,9 @@ strong, b { font-weight: 600; }
 .season-orn::before, .season-orn::after { content: ""; width: 56px; height: 1px; background: currentColor; opacity: 0.45; }
 .season-orn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .season-orn .orn-tree { width: 20px; height: 20px; }
+
+/* Tablet widths: the extra shortcut links would crowd the logo and the currency selector */
+@media (min-width: 721px) and (max-width: 880px) {
+  .nav-links { gap: 18px; }
+  .nav-links a:not(:first-child):not(.nav-surprise) { display: none; }
+}

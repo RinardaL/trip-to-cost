@@ -1226,6 +1226,8 @@ function initWanderList() {
       const f = FIXED_SHARE + (1 - FIXED_SHARE) * n / totalDays;
       return [round5(usdLow * f), round5(usdHigh * f)];
     };
+    const durationEl = Array.from(document.querySelectorAll(".meta-item")).filter((i) => i.querySelector(".label")?.textContent.trim() === "Duration").map((i) => i.querySelector(".value"))[0];
+    const durationFull = durationEl ? durationEl.textContent : "";
     let costBox = null, costHead = null, costSub = null, costLadder = null, currentDays = totalDays;
     if (usdLow && usdHigh && totalDays > 1) {
       costBox = document.createElement("div");
@@ -1254,6 +1256,12 @@ function initWanderList() {
       const sym = CURRENCIES[code].symbol;
       const fmt = (usd) => sym + convertUsd(usd, code).toLocaleString();
       const [lo, hi] = estimateFor(currentDays);
+      /* keep the Est. Budget and Duration facts at the top of the page in step with the chosen length */
+      if (budgetEl) {
+        budgetEl.dataset.usdLow = String(lo); budgetEl.dataset.usdHigh = String(hi); budgetEl.dataset.tier = ""; budgetEl.dataset.suffix = "";
+        budgetEl.textContent = `${fmt(lo)}-${fmt(hi)}`;
+      }
+      if (durationEl) durationEl.textContent = currentDays === totalDays ? durationFull : `${currentDays} ${currentDays === 1 ? "Day" : "Days"}`;
       costHead.textContent = `Estimated cost for ${currentDays} ${currentDays === 1 ? "day" : "days"}`;
       costBox.querySelector(".duration-cost-amount").textContent = `${fmt(lo)}-${fmt(hi)}`;
       costSub.textContent = currentDays === 1

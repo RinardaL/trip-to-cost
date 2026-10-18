@@ -612,6 +612,11 @@ const SEASON_PICKS = {
   winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull"] },
 };
 
+/* What is new in each seasonal category: shown as a message bubble on the home tile (list the trip ids, newest last) */
+const SEASON_NEW = {
+  christmas: ["vienna", "nuremberg", "dresden"],
+};
+
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
 const WEATHER_CODES = {
   0: ["☀️", "Clear sky"], 1: ["🌤️", "Mostly clear"], 2: ["⛅", "Partly cloudy"], 3: ["☁️", "Overcast"],
@@ -2245,6 +2250,21 @@ function initWanderList() {
   document.querySelectorAll("[data-season-count]").forEach((el) => {
     const pick = SEASON_PICKS[el.dataset.seasonCount];
     if (pick) el.textContent = pick.ids.length + (pick.ids.length === 1 ? " trip" : " trips");
+  });
+
+  /* ---------- Seasonal tiles: "what is new" message bubble ---------- */
+  document.querySelectorAll("[data-season-count]").forEach((el) => {
+    const ids = (SEASON_NEW[el.dataset.seasonCount] || []).filter((id) => TRIP_CATALOG[id]);
+    const tile = el.closest(".season-tile");
+    if (!ids.length || !tile || tile.querySelector(".season-new")) return;
+    const names = ids.map((id) => TRIP_CATALOG[id].place.split(",")[0]);
+    const list = names.length > 1 ? names.slice(0, -1).join(", ") + " & " + names[names.length - 1] : names[0];
+    const bubble = document.createElement("span");
+    bubble.className = "season-new";
+    bubble.innerHTML = '<span class="season-new-dot" aria-hidden="true"></span><span class="season-new-text"><span class="season-new-label"></span><span class="season-new-list"></span></span>';
+    bubble.querySelector(".season-new-label").textContent = ids.length + " new this season";
+    bubble.querySelector(".season-new-list").textContent = list;
+    tile.appendChild(bubble);
   });
 
   /* ---------- Remember which itinerary was opened (feeds Surprise Me) ---------- */

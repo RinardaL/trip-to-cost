@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 107 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 108 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
@@ -43,6 +43,7 @@
 - [4 Days in Prague: Christmas Markets, Castle & Charles Bridge](https://triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person
 - [4 Days in Quebec City: German Christmas Market, Château Frontenac & Montmorency Falls](https://triptocost.com/quebec-city): 4 Days in Quebec City, Canada, est. $700-1,000/person
 - [4 Days in Riga: Art Nouveau, Old Town & the Central Market](https://triptocost.com/riga): 4 Days in Riga, Latvia, est. $500-700/person
+- [4 Days in Rome: The Colosseum, the Vatican & Trastevere](https://triptocost.com/rome): 4 Days in Rome, Italy, est. $650-900/person
 - [4 Days in Salzburg: Old Town, Hohensalzburg Fortress & Wolfgangsee](https://triptocost.com/salzburg): 4 Days in Salzburg, Austria, est. $750-1,000/person
 - [4 Days in Seville: Alcázar, Cathedral & Triana](https://triptocost.com/seville): 4 Days in Seville, Spain, est. $600-800/person
 - [4 Days in Sofia, Bulgaria](https://triptocost.com/sofia): 4 Days in Sofia, Bulgaria, est. $450-600/person

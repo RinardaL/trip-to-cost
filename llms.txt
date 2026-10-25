@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 108 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 110 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
@@ -39,6 +39,7 @@
 - [4 Days in Kotor, Montenegro: Old Town, Fortress & Bay](https://triptocost.com/kotor): 4 Days in Kotor, Montenegro, est. $600-800/person
 - [4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau](https://triptocost.com/krakow): 4 Days in Krakow, Poland, est. $500-700/person
 - [4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled](https://triptocost.com/ljubljana): 4 Days in Ljubljana, Slovenia, est. $600-850/person
+- [4 Days in Mardin: Stone Old Town, Monasteries & the Plain](https://triptocost.com/mardin): 4 Days in Mardin, Turkey, est. $300-500/person
 - [4 Days in Nuremberg: Christmas Market, Castle & Franconia](https://triptocost.com/nuremberg): 4 Days in Nuremberg, Germany, est. $750-1,000/person
 - [4 Days in Prague: Christmas Markets, Castle & Charles Bridge](https://triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person
 - [4 Days in Quebec City: German Christmas Market, Château Frontenac & Montmorency Falls](https://triptocost.com/quebec-city): 4 Days in Quebec City, Canada, est. $700-1,000/person
@@ -87,7 +88,7 @@
 ### Modern Cities
 
 - [3 Days in Brussels: Grand Place, Comics & the Atomium](https://triptocost.com/brussels): 3 Days in Brussels, Belgium, est. $650-900/person
-- [4 Days in Berlin: Wall History, Museum Island & Potsdam](https://triptocost.com/berlin): 4 Days in Berlin, Germany, est. $750-1,000/person
+- [4 Days in Berlin: Christmas Markets, Wall History & Museum Island](https://triptocost.com/berlin): 4 Days in Berlin, Germany, est. $750-1,000/person
 - [4 Days in Chongqing: Hotpot, Hongyadong & Dazu Carvings](https://triptocost.com/chongqing): 4 Days in Chongqing, China, est. $600-800/person
 - [4 Days in Copenhagen: Tivoli Christmas, Nyhavn Lights & Danish Design](https://triptocost.com/copenhagen): 4 Days in Copenhagen, Denmark, est. $1,350-1,850/person
 - [4 Days in Milan: Duomo, Navigli & Brera](https://triptocost.com/milano): 4 Days in Milan, Italy, est. $650-850/person
@@ -103,6 +104,7 @@
 
 - [3 Days in Lauterbrunnen: Waterfalls, Cliffside Villages & the Schilthorn](https://triptocost.com/lauterbrunnen): 3 Days in Lauterbrunnen, Switzerland, est. $1,450-1,950/person
 - [4 Days in Bansko: Pirin Peaks & Bulgarian Mountain Culture](https://triptocost.com/bansko): 4 Days in Bansko, Bulgaria, est. $450-650/person
+- [4 Days in Borovets: Skiing, Rila Monastery & Sofia](https://triptocost.com/borovets): 4 Days in Borovets, Bulgaria, est. $400-620/person
 - [4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury](https://triptocost.com/cortina-dampezzo): 4 Days in Cortina d'Ampezzo, Italy, est. $1,550-2,050/person
 - [4 Days in Grindelwald: Eiger, Jungfraujoch & Alpine Trails](https://triptocost.com/grindelwald): 4 Days in Grindelwald, Switzerland, est. $1,700-2,300/person
 - [4 Days in Interlaken: Paragliding, Harder Kulm & Two Alpine Lakes](https://triptocost.com/interlaken): 4 Days in Interlaken, Switzerland, est. $1,500-2,000/person

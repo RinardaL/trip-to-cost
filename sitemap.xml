@@ -661,6 +661,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://triptocost.com/mardin</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://triptocost.com/borovets</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://triptocost.com/about</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>yearly</changefreq>

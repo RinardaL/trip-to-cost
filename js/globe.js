@@ -113,6 +113,8 @@ const DESTINATIONS = [
   { name: "Nuremberg, Germany", lat: 49.45, lon: 11.08, href: "nuremberg" },
   { name: "Dresden, Germany", lat: 51.05, lon: 13.74, href: "dresden" },
   { name: "Rome, Italy", lat: 41.9, lon: 12.5, href: "rome" },
+  { name: "Mardin, Turkey", lat: 37.31, lon: 40.74, href: "mardin" },
+  { name: "Borovets, Bulgaria", lat: 42.27, lon: 23.6, href: "borovets" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

@@ -2505,3 +2505,22 @@ strong, b { font-weight: 600; }
 @keyframes whats-new-in-up { from { opacity: 0; transform: translateY(10px) scale(0.94); } to { opacity: 1; transform: none; } }
 @media print { .whats-new { display: none; } }
 #season { scroll-margin-top: 72px; outline: none; }
+
+/* Itinerary text on phones: one readable scale, a wider text column, badges that wrap cleanly */
+@media (max-width: 560px) {
+  .day-header { padding: 16px; gap: 12px; }
+  .day-number { width: 40px; height: 40px; }
+  .day-header-text h3 { font-size: 1.02rem; line-height: 1.3; }
+  .day-header-text span { display: block; margin-top: 2px; font-size: 0.82rem; line-height: 1.45; }
+  .day-body-inner { padding: 0 16px 22px; }
+  .block-time { font-size: 0.72rem; }
+  .block-content h4 { font-size: 1rem; line-height: 1.35; margin-bottom: 6px; }
+  .block-content p { font-size: 0.94rem; line-height: 1.62; margin-bottom: 10px; }
+  .travel-badge, .cost-badge, .time-badge { display: flex; width: fit-content; max-width: 100%; margin: 4px 0 0; padding: 5px 11px; border-radius: 12px; font-size: 0.8rem; line-height: 1.4; }
+  .culture-card { padding: 20px 18px; }
+  .culture-card ul li { font-size: 0.94rem; line-height: 1.55; }
+  .trick-item { gap: 12px; }
+  .trick-item h4 { font-size: 1rem; }
+  .trick-item p { font-size: 0.92rem; line-height: 1.55; }
+  .packing-item span { font-size: 0.95rem; line-height: 1.45; }
+}

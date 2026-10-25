@@ -2538,3 +2538,24 @@ strong, b { font-weight: 600; }
 }
 @media (min-width: 561px) { .block-photo { width: 240px; height: 170px; } }
 @media print { .block-content p.is-clamped { display: block; overflow: visible; } .read-more { display: none; } }
+
+/* Itinerary hero: a tidier stack (tags, title, intro) that clears the facts bar */
+.itinerary-cover { height: 460px; padding: 40px 40px 72px; }
+.itinerary-cover::before { background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 34%, rgba(0,0,0,0.14) 72%, rgba(0,0,0,0) 100%); }
+.itinerary-cover-content { max-width: 680px; }
+.itinerary-cover .trip-tags { gap: 6px; margin-bottom: 14px; }
+.itinerary-cover .tag { padding: 4px 11px; font-size: 0.68rem; letter-spacing: 0.05em; }
+.itinerary-cover h1 { font-size: clamp(1.8rem, 3.3vw, 2.6rem); line-height: 1.14; letter-spacing: -0.015em; margin-bottom: 10px; text-wrap: balance; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45); }
+.itinerary-cover p { font-size: 1rem; line-height: 1.5; max-width: 560px; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); }
+@media (min-width: 721px) { .meta-item { min-width: 110px; } .meta-item:first-child { flex: 1.8; min-width: 190px; } }
+@media (max-width: 720px) {
+  .itinerary-cover { height: auto; min-height: 400px; padding: 20px 20px 56px; }
+  .itinerary-cover h1 { font-size: 1.55rem; line-height: 1.2; }
+  .itinerary-cover p { font-size: 0.9rem; line-height: 1.5; -webkit-line-clamp: 3; line-clamp: 3; }
+  .itinerary-meta-bar { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; margin: -36px 16px 0; }
+  .meta-item { width: auto; min-width: 0; padding: 12px 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .meta-item:first-child { grid-column: 1 / -1; border-right: 0; }
+  .meta-item:nth-child(4) { border-right: 0; }
+  .meta-item .value { font-size: 1rem; }
+  .meta-actions { grid-column: 1 / -1; padding: 12px; }
+}

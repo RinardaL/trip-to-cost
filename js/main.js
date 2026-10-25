@@ -1311,6 +1311,23 @@ function initWanderList() {
     });
   }
 
+  /* ---------- Itinerary: long block paragraphs fold behind "Read more" on phones ---------- */
+  document.querySelectorAll(".block-content p").forEach((p) => {
+    if (p.textContent.trim().split(/\s+/).length <= 45) return;
+    p.classList.add("is-clamped");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "read-more";
+    btn.textContent = "Read more";
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", () => {
+      const open = !p.classList.toggle("is-clamped");
+      btn.textContent = open ? "Show less" : "Read more";
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    p.insertAdjacentElement("afterend", btn);
+  });
+
   /* ---------- Scroll-reveal ---------- */
   const revealEls = document.querySelectorAll(".reveal");
   if (revealEls.length) {

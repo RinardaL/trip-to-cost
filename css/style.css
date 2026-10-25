@@ -2530,11 +2530,11 @@ strong, b { font-weight: 600; }
 @media (max-width: 560px) {
   .block { position: relative; gap: 0; padding: 0; border: 1px solid var(--line); background: #fff; overflow: hidden; }
   .block-time { position: absolute; top: 10px; left: 10px; z-index: 2; width: auto; margin: 0; padding: 4px 11px; border-left: 0; border-radius: 999px; background: rgba(255, 255, 255, 0.94); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
-  .block-photo { width: 100%; height: 170px; border-radius: 0; }
+  .block-photo { width: 100%; height: 220px; border-radius: 0; }
   .block-content { padding: 14px 16px 12px; }
   .block-content p.is-clamped { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 4px; }
   .read-more { display: inline-block; margin: 0 0 8px; padding: 4px 0; background: none; border: 0; color: var(--emerald-dark); font: inherit; font-size: 0.88rem; font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; cursor: pointer; }
   .read-more:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
 }
-@media (min-width: 561px) { .block-photo { width: 150px; height: 112px; } }
+@media (min-width: 561px) { .block-photo { width: 240px; height: 170px; } }
 @media print { .block-content p.is-clamped { display: block; overflow: visible; } .read-more { display: none; } }

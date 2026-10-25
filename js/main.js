@@ -1313,7 +1313,7 @@ function initWanderList() {
 
   /* ---------- Itinerary: long block paragraphs fold behind "Read more" on phones ---------- */
   document.querySelectorAll(".block-content p").forEach((p) => {
-    if (p.textContent.trim().split(/\s+/).length <= 45) return;
+    if (p.textContent.trim().split(/\s+/).length <= 60) return;
     p.classList.add("is-clamped");
     const btn = document.createElement("button");
     btn.type = "button";

@@ -2213,7 +2213,7 @@ strong, b { font-weight: 600; }
 /* ---------- Seasonal picks: three category tiles side by side ---------- */
 .season-section { background: var(--cream); padding: 72px 0 64px; }
 .season-section .section-head { margin-bottom: 36px; }
-.season-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.season-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .season-tile {
   position: relative;
   display: flex;

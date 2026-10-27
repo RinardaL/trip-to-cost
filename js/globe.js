@@ -115,6 +115,17 @@ const DESTINATIONS = [
   { name: "Rome, Italy", lat: 41.9, lon: 12.5, href: "rome" },
   { name: "Mardin, Turkey", lat: 37.31, lon: 40.74, href: "mardin" },
   { name: "Borovets, Bulgaria", lat: 42.27, lon: 23.6, href: "borovets" },
+  { name: "Beijing, China", lat: 39.9, lon: 116.4, href: "beijing" },
+  { name: "Curaçao, Caribbean", lat: 12.17, lon: -68.99, href: "curacao" },
+  { name: "Sharm el-Sheikh, Egypt", lat: 27.91, lon: 34.33, href: "sharm-el-sheikh" },
+  { name: "San Juan, Puerto Rico", lat: 18.47, lon: -66.12, href: "san-juan" },
+  { name: "Alicante, Spain", lat: 38.35, lon: -0.48, href: "alicante" },
+  { name: "Sarandë, Albania", lat: 39.87, lon: 20, href: "saranda" },
+  { name: "Gran Canaria, Spain", lat: 27.96, lon: -15.6, href: "gran-canaria" },
+  { name: "Dubai, United Arab Emirates", lat: 25.2, lon: 55.27, href: "dubai" },
+  { name: "Málaga, Spain", lat: 36.72, lon: -4.42, href: "malaga" },
+  { name: "Budva, Montenegro", lat: 42.29, lon: 18.84, href: "budva" },
+  { name: "Luxembourg City, Luxembourg", lat: 49.61, lon: 6.13, href: "luxembourg" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

@@ -1,12 +1,19 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 110 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 121 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Destinations
 
 ### Beach & Coastal
 
+- [4 Days in Alicante: The Castle, Tabarca Island & the Elche Palm Grove](https://triptocost.com/alicante): 4 Days in Alicante, Spain, est. $270-480/person
+- [4 Days in Budva: Old Town, Beaches & Sveti Stefan](https://triptocost.com/budva): 4 Days in Budva, Montenegro, est. $300-520/person
+- [4 Days in Curaçao: Willemstad, West Coast Beaches & Snorkelling](https://triptocost.com/curacao): 4 Days in Curaçao, Caribbean, est. $450-700/person
+- [4 Days in Gran Canaria: Las Palmas, Roque Nublo & the Maspalomas Dunes](https://triptocost.com/gran-canaria): 4 Days in Gran Canaria, Spain, est. $300-500/person
+- [4 Days in Málaga: The Alcazaba, Picasso & Winter Sun](https://triptocost.com/malaga): 4 Days in Málaga, Spain, est. $300-520/person
 - [4 Days in Milos: Sarakiniko's White Rocks, Klima & the Kleftiko Caves](https://triptocost.com/milos): 4 Days in Milos, Greece, est. $900-1,200/person
+- [4 Days in Sarandë: Butrint, Ksamil & the Blue Eye](https://triptocost.com/saranda): 4 Days in Sarandë, Albania, est. $300-500/person
+- [4 Days in Sharm el-Sheikh: Reefs, Ras Mohammed & the Old Market](https://triptocost.com/sharm-el-sheikh): 4 Days in Sharm el-Sheikh, Egypt, est. $300-500/person
 - [4 Days in the Algarve, Portugal](https://triptocost.com/algarve): 4 Days in Algarve, Portugal, est. $700-950/person
 - [5 Days in Madeira, Portugal](https://triptocost.com/madeira): 5 Days in Madeira, Portugal, est. $800-1,100/person
 - [5 Days in Mauritius: Le Morne, Chamarel & the Seven Colored Earths](https://triptocost.com/mauritius): 5 Days in Mauritius, est. $1,200-1,600/person
@@ -27,6 +34,7 @@
 - [3 Days in Bruges: Canals, Belfry & Medieval Streets](https://triptocost.com/bruges): 3 Days in Bruges, Belgium, est. $500-700/person
 - [3 Days in Mont Saint-Michel: Abbey, Tides & the Normandy Coast](https://triptocost.com/mont-saint-michel): 3 Days in Mont Saint-Michel, France, est. $650-900/person
 - [3 Days in Valletta, Malta: Fortifications, Harbours & Baroque Streets](https://triptocost.com/valletta): 3 Days in Valletta, Malta, est. $550-750/person
+- [4 Days in Beijing: The Forbidden City, the Great Wall & the Hutongs](https://triptocost.com/beijing): 4 Days in Beijing, China, est. $300-520/person
 - [4 Days in Bergen: Bryggen, Fjords & the Fløibanen Funicular](https://triptocost.com/bergen): 4 Days in Bergen, Norway, est. $1,300-1,750/person
 - [4 Days in Bordeaux: Old Town, La Cité du Vin & Saint-Émilion](https://triptocost.com/bordeaux): 4 Days in Bordeaux, France, est. $750-1,000/person
 - [4 Days in Cappadocia: Fairy Chimneys, Cave Towns & Sunrise Balloons](https://triptocost.com/cappadocia): 4 Days in Cappadocia, Turkey, est. $600-850/person
@@ -39,6 +47,7 @@
 - [4 Days in Kotor, Montenegro: Old Town, Fortress & Bay](https://triptocost.com/kotor): 4 Days in Kotor, Montenegro, est. $600-800/person
 - [4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau](https://triptocost.com/krakow): 4 Days in Krakow, Poland, est. $500-700/person
 - [4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled](https://triptocost.com/ljubljana): 4 Days in Ljubljana, Slovenia, est. $600-850/person
+- [4 Days in Luxembourg City: Christmas Markets & the Old Quarter](https://triptocost.com/luxembourg): 4 Days in Luxembourg City, Luxembourg, est. $400-640/person
 - [4 Days in Mardin: Stone Old Town, Monasteries & the Plain](https://triptocost.com/mardin): 4 Days in Mardin, Turkey, est. $350-500/person
 - [4 Days in Nuremberg: Christmas Market, Castle & Franconia](https://triptocost.com/nuremberg): 4 Days in Nuremberg, Germany, est. $750-1,000/person
 - [4 Days in Prague: Christmas Markets, Castle & Charles Bridge](https://triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person
@@ -46,6 +55,7 @@
 - [4 Days in Riga: Art Nouveau, Old Town & the Central Market](https://triptocost.com/riga): 4 Days in Riga, Latvia, est. $500-700/person
 - [4 Days in Rome: The Colosseum, the Vatican & Trastevere](https://triptocost.com/rome): 4 Days in Rome, Italy, est. $650-900/person
 - [4 Days in Salzburg: Old Town, Hohensalzburg Fortress & Wolfgangsee](https://triptocost.com/salzburg): 4 Days in Salzburg, Austria, est. $750-1,000/person
+- [4 Days in San Juan: Old San Juan, the Forts & El Yunque](https://triptocost.com/san-juan): 4 Days in San Juan, Puerto Rico, est. $400-650/person
 - [4 Days in Seville: Alcázar, Cathedral & Triana](https://triptocost.com/seville): 4 Days in Seville, Spain, est. $600-800/person
 - [4 Days in Sofia, Bulgaria](https://triptocost.com/sofia): 4 Days in Sofia, Bulgaria, est. $450-600/person
 - [4 Days in Strasbourg: Christmas Markets, Cathedral & Colmar](https://triptocost.com/strasbourg): 4 Days in Strasbourg, France, est. $650-850/person
@@ -91,6 +101,7 @@
 - [4 Days in Berlin: Christmas Markets, Wall History & Museum Island](https://triptocost.com/berlin): 4 Days in Berlin, Germany, est. $750-1,000/person
 - [4 Days in Chongqing: Hotpot, Hongyadong & Dazu Carvings](https://triptocost.com/chongqing): 4 Days in Chongqing, China, est. $600-800/person
 - [4 Days in Copenhagen: Tivoli Christmas, Nyhavn Lights & Danish Design](https://triptocost.com/copenhagen): 4 Days in Copenhagen, Denmark, est. $1,350-1,850/person
+- [4 Days in Dubai: Burj Khalifa, Old Dubai & the Desert](https://triptocost.com/dubai): 4 Days in Dubai, United Arab Emirates, est. $400-650/person
 - [4 Days in Milan: Duomo, Navigli & Brera](https://triptocost.com/milano): 4 Days in Milan, Italy, est. $650-850/person
 - [4 Days in Oslo: Opera House, Vigeland & Viking Heritage](https://triptocost.com/oslo): 4 Days in Oslo, Norway, est. $1,300-1,750/person
 - [4 Days in Singapore: Gardens by the Bay, Marina Bay & Hawker Culture](https://triptocost.com/singapore): 4 Days in Singapore, est. $1,100-1,500/person

@@ -2596,3 +2596,9 @@ strong, b { font-weight: 600; }
 .culture-card.warning h3 .ic { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; background: #fff; border: 2px solid #C4781E; border-radius: 50%; font-size: 1.1rem; box-shadow: 0 0 0 5px rgba(196, 120, 30, 0.16); }
 .culture-card.warning ul li { color: #4A3516; }
 .culture-card.warning ul li::before { top: 9px; width: 8px; height: 8px; border-radius: 2px; background: #C4781E; transform: rotate(45deg); }
+
+/* Block paragraphs: never more than 3 lines until the reader opens them */
+.block-content p.is-clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; margin-bottom: 4px; }
+.read-more { display: inline-block; margin: 0 0 8px; padding: 4px 0; background: none; border: 0; color: var(--emerald-dark); font: inherit; font-size: 0.88rem; font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; cursor: pointer; }
+.read-more[hidden] { display: none; }
+@media print { .block-content p.is-clamped { display: block; overflow: visible; } .read-more { display: none; } }

@@ -1367,14 +1367,14 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Itinerary: long block paragraphs fold behind "Read more" on phones ---------- */
+  /* ---------- Itinerary: block paragraphs show at most 3 lines, the rest folds behind "Read more" ---------- */
   document.querySelectorAll(".block-content p").forEach((p) => {
-    if (p.textContent.trim().split(/\s+/).length <= 60) return;
     p.classList.add("is-clamped");
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "read-more";
     btn.textContent = "Read more";
+    btn.hidden = true;
     btn.setAttribute("aria-expanded", "false");
     btn.addEventListener("click", () => {
       const open = !p.classList.toggle("is-clamped");
@@ -1382,6 +1382,9 @@ function initWanderList() {
       btn.setAttribute("aria-expanded", String(open));
     });
     p.insertAdjacentElement("afterend", btn);
+    /* only offer the button when the text really is longer than 3 lines (re-checked when a day opens or the width changes) */
+    const check = () => { if (p.classList.contains("is-clamped") && p.clientHeight > 0) btn.hidden = !(p.scrollHeight > p.clientHeight + 1); };
+    if ("ResizeObserver" in window) new ResizeObserver(check).observe(p); else btn.hidden = false;
   });
 
   /* ---------- Scroll-reveal ---------- */

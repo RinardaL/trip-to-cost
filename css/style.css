@@ -2602,3 +2602,6 @@ strong, b { font-weight: 600; }
 .read-more { display: block; margin: 0 0 8px; padding: 4px 0; background: none; border: 0; color: var(--emerald-dark); font: inherit; font-size: 0.88rem; font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; cursor: pointer; }
 .read-more[hidden] { display: none; }
 @media print { .block-content p.is-clamped { display: block; overflow: visible; } .read-more { display: none; } }
+
+/* Home globe text: the itinerary count in navy blue */
+.globe-total { color: #0A2A66; font-weight: 700; }

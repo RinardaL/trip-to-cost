@@ -2,6 +2,12 @@
 
 > TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 121 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
+## Seasonal guides
+- [Christmas Markets](https://triptocost.com/christmas-markets): 14 itineraries, prices per person
+- [Winter Sun](https://triptocost.com/winter-sun-destinations): 15 itineraries, prices per person
+- [Winter Trips](https://triptocost.com/winter-trips): 10 itineraries, prices per person
+- [Autumn Trips](https://triptocost.com/autumn-trips): 8 itineraries, prices per person
+
 ## Destinations
 
 ### Beach & Coastal
@@ -47,7 +53,7 @@
 - [4 Days in Kotor, Montenegro: Old Town, Fortress & Bay](https://triptocost.com/kotor): 4 Days in Kotor, Montenegro, est. $600-800/person
 - [4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau](https://triptocost.com/krakow): 4 Days in Krakow, Poland, est. $500-700/person
 - [4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled](https://triptocost.com/ljubljana): 4 Days in Ljubljana, Slovenia, est. $600-850/person
-- [4 Days in Luxembourg City: Christmas Markets & the Old Quarter](https://triptocost.com/luxembourg): 4 Days in Luxembourg City, Luxembourg, est. $400-640/person
+- [4 Days in Luxembourg City: Christmas Markets & the Old Quarter](https://triptocost.com/luxembourg): 4 Days in Luxembourg City, Luxembourg, est. $750-1,050/person
 - [4 Days in Mardin: Stone Old Town, Monasteries & the Plain](https://triptocost.com/mardin): 4 Days in Mardin, Turkey, est. $350-500/person
 - [4 Days in Nuremberg: Christmas Market, Castle & Franconia](https://triptocost.com/nuremberg): 4 Days in Nuremberg, Germany, est. $750-1,000/person
 - [4 Days in Prague: Christmas Markets, Castle & Charles Bridge](https://triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person

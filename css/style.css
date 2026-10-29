@@ -2559,3 +2559,24 @@ strong, b { font-weight: 600; }
   .meta-item .value { font-size: 1rem; }
   .meta-actions { grid-column: 1 / -1; padding: 12px; }
 }
+
+/* Seasonal hub pages */
+.hub-intro { padding: 8px 0 28px; }
+.hub-intro .info-narrow p { color: var(--charcoal-soft); font-size: 1.02rem; line-height: 1.65; margin-bottom: 14px; }
+.hub-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; padding: 14px 18px; background: #fff; border: 1px solid var(--line); color: var(--charcoal-soft); font-size: 0.95rem; }
+.hub-facts strong { color: var(--emerald-dark); font-family: var(--font-display); font-weight: 600; }
+.hub-more { margin: 22px 0 0; color: var(--charcoal-soft); font-size: 0.95rem; }
+.hub-more a { color: var(--emerald-dark); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.hub-guide { padding: 40px 0 56px; }
+.hub-guide h2 { margin: 32px 0 14px; font-size: 1.5rem; }
+.hub-guide h2:first-child { margin-top: 0; }
+.hub-choose { margin: 0; padding: 0; list-style: none; }
+.hub-choose li { padding: 12px 0; border-top: 1px solid var(--line); color: var(--charcoal-soft); line-height: 1.6; }
+.hub-choose li:last-child { border-bottom: 1px solid var(--line); }
+.hub-choose strong { color: var(--emerald-dark); }
+.hub-choose a { color: var(--emerald-dark); font-weight: 500; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.hub-faq details { padding: 14px 0; border-top: 1px solid var(--line); }
+.hub-faq details:last-child { border-bottom: 1px solid var(--line); }
+.hub-faq summary { cursor: pointer; font-weight: 600; color: var(--emerald-dark); list-style-position: inside; }
+.hub-faq summary:focus-visible { outline: 2px solid var(--emerald); outline-offset: 3px; }
+.hub-faq details p { margin: 10px 0 0; color: var(--charcoal-soft); line-height: 1.65; }

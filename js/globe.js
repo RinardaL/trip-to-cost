@@ -126,6 +126,8 @@ const DESTINATIONS = [
   { name: "Málaga, Spain", lat: 36.72, lon: -4.42, href: "malaga" },
   { name: "Budva, Montenegro", lat: 42.29, lon: 18.84, href: "budva" },
   { name: "Luxembourg City, Luxembourg", lat: 49.61, lon: 6.13, href: "luxembourg" },
+  { name: "Dhërmi & Palasë, Albania", lat: 40.15, lon: 19.63, href: "dhermi" },
+  { name: "Mostar, Bosnia and Herzegovina", lat: 43.34, lon: 17.81, href: "mostar" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

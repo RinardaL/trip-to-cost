@@ -2589,3 +2589,10 @@ strong, b { font-weight: 600; }
 .cost-faq-ladder li { flex: 1 1 110px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 8px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
 .cost-faq-ladder span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal-soft); }
 .cost-faq-ladder strong { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--emerald-dark); white-space: nowrap; }
+
+/* Safety & Scam Warnings card: clearly visible, amber alert look */
+.culture-card.warning { background: linear-gradient(180deg, #FFF0D9 0%, #FFF8EC 100%); border: 1px solid #E5A95A; border-left: 7px solid #C4781E; box-shadow: 0 8px 22px rgba(196, 120, 30, 0.18); }
+.culture-card.warning h3 { color: #8A4B0F; font-weight: 700; font-size: 1.12rem; }
+.culture-card.warning h3 .ic { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; background: #fff; border: 2px solid #C4781E; border-radius: 50%; font-size: 1.1rem; box-shadow: 0 0 0 5px rgba(196, 120, 30, 0.16); }
+.culture-card.warning ul li { color: #4A3516; }
+.culture-card.warning ul li::before { top: 9px; width: 8px; height: 8px; border-radius: 2px; background: #C4781E; transform: rotate(45deg); }

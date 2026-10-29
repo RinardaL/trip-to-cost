@@ -2365,6 +2365,9 @@ function initWanderList() {
     syncWhatsNew();
   }
 
+  /* ---------- Total number of itineraries (home page globe text) ---------- */
+  document.querySelectorAll("[data-trip-total]").forEach((el) => { el.textContent = Object.keys(TRIP_CATALOG).length; });
+
   /* ---------- Seasonal tiles: keep the trip counts in step with SEASON_PICKS ---------- */
   document.querySelectorAll("[data-season-count]").forEach((el) => {
     const pick = SEASON_PICKS[el.dataset.seasonCount];

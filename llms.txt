@@ -158,6 +158,5 @@
 
 ## Optional
 
-- [Photo Credits](https://triptocost.com/credits): attribution for every photograph used on the site
 - [Privacy Policy](https://triptocost.com/privacy-policy): what TripToCost stores and where (all client-side, no accounts, no server-side tracking)
 - [Terms of Service](https://triptocost.com/terms)

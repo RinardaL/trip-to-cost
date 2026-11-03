@@ -2605,3 +2605,11 @@ strong, b { font-weight: 600; }
 
 /* Home globe text: the itinerary count in navy blue */
 .globe-total { color: #0A2A66; font-weight: 700; }
+
+/* SEO audit: heading structure, last-updated line, contextual links */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.cost-faq .faq-title { font-size: 1.15rem; margin: 26px 0 10px; }
+.hub-faq summary h3 { display: inline; font: inherit; margin: 0; }
+.last-updated { margin: 12px 4px 0; font-size: 0.82rem; color: rgba(255, 255, 255, 0.72); }
+.cost-faq .cost-more { margin-top: 20px; font-size: 0.95rem; }
+.cost-faq .cost-more a, .cost-faq p a { text-decoration: underline; text-underline-offset: 2px; }

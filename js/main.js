@@ -1108,7 +1108,7 @@ function attachTripAutocomplete(input, onSelect) {
 
   function selectDay(dayEntry) {
     close();
-    window.location.href = `${dayEntry.page}#day-${dayEntry.day}`;
+    window.location.href = `/${dayEntry.page}#day-${dayEntry.day}`;
   }
 
   function open(query) {
@@ -2145,7 +2145,7 @@ function initWanderList() {
             <h3>${trip.title}</h3>
             <div class="trip-meta">
               <span class="cost">${trip.cost}</span>
-              <a href="${id}" class="btn btn-outline btn-sm">View Trip</a>
+              <a href="/${id}" class="btn btn-outline btn-sm">View Trip</a>
             </div>
             <button class="btn btn-ghost btn-sm saved-remove-btn" data-id="${id}" style="margin-top:12px;width:100%;color:var(--charcoal-soft);border-color:var(--line);">Remove from Saved</button>
           </div>`;
@@ -2278,7 +2278,7 @@ function initWanderList() {
     if (seasonPick) {
       const note = document.createElement("p");
       note.className = "season-note";
-      note.innerHTML = '<span></span> <a href="browse">Show all trips</a>';
+      note.innerHTML = '<span></span> <a href="/browse">Show all trips</a>';
       note.firstElementChild.textContent = "Showing " + seasonPick.title + ": ";
       document.getElementById("browseCount").insertAdjacentElement("beforebegin", note);
       document.title = seasonPick.title + ": TripToCost";
@@ -2401,7 +2401,7 @@ function initWanderList() {
       e.preventDefault();
       const dest = document.getElementById("destInput").value.trim();
       recordTaste("query", dest);
-      window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
+      window.location.href = dest ? `/browse?q=${encodeURIComponent(dest)}` : "/browse";
     });
     attachTripAutocomplete(document.getElementById("destInput"));
   }
@@ -2413,7 +2413,7 @@ function initWanderList() {
       e.preventDefault();
       const dest = document.getElementById("notfoundDestInput").value.trim();
       recordTaste("query", dest);
-      window.location.href = dest ? `browse?q=${encodeURIComponent(dest)}` : "browse";
+      window.location.href = dest ? `/browse?q=${encodeURIComponent(dest)}` : "/browse";
     });
     attachTripAutocomplete(document.getElementById("notfoundDestInput"));
   }

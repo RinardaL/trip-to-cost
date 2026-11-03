@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://upload.wikimedia.org">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261103a">
+<link rel="stylesheet" href="/css/style.css?v=20261103d">
 <meta name="description" content="Skip 20 hours of trip research. TripToCost gives you ready-to-go itineraries: day-by-day plans, culture guides, packing lists, and insider tips for any trip.">
 <link rel="canonical" href="https://triptocost.com/">
 <meta property="og:type" content="website">
@@ -72,108 +72,69 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container hero-content">
-    <p class="eyebrow">Curated end-to-end trip planning</p>
-    <h1>Your Perfect Short Trip, <span>Fully Unlocked.</span></h1>
-    <p class="lead">Skip the 20 hours of tab-hopping. Get a complete day-by-day itinerary: where to go, what to pack, and how to navigate local customs, all in one guide.</p>
+    <p class="eyebrow">Real costs, day by day</p>
+    <h1>Short-trip itineraries with <span>the real price up front.</span></h1>
+    <p class="lead">Complete day-by-day plans for <span data-trip-total>123</span> trips: what to see, what to pack and what it all costs per person, so you skip the 20 hours of tab-hopping.</p>
 
     <form class="search-bar" id="searchForm">
       <div class="search-field">
         <label for="destInput">Destination</label>
-        <input type="text" id="destInput" placeholder="Tokyo, Amalfi Coast, Utah…">
+        <input type="text" id="destInput" placeholder="Rome, Bali, Utah…">
       </div>
       <button type="submit" class="btn btn-primary">Find My Trip</button>
     </form>
+    <p class="hero-proof">Budgets from $220 to $2,750 per person · lodging, meals and local transport included</p>
   </div>
 </section>
 
-<!-- ============ TRAVEL STYLES + RANDOM ITINERARIES (horizontal slideshow driven by vertical scroll) ============ -->
-<section id="browse" class="style-scroll">
+<!-- ============ TRAVEL STYLES + RANDOM ITINERARIES (grid) ============ -->
+<section id="browse" class="style-grid-section">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Explore by travel style</p>
       <h2>Find the trip that fits your vibe</h2>
-      <p>Every itinerary is grouped by travel style. Keep scrolling and each style slides into view.</p>
+      <p>Six travel styles across <span data-trip-total>123</span> itineraries. Pick a style to see the trips and what each one costs.</p>
     </div>
-  </div>
-  <div class="style-runway" id="styleRunway" style="--slides:7">
-    <div class="style-stage" id="styleStage">
-      <div class="style-track" id="styleTrack">
-        <a class="style-slide ph-2" href="/browse?style=mountain" data-cat="mountain">
-          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1280px-Moraine_Lake_17092005.jpg" alt="Moraine Lake's turquoise water reflecting the snow-capped Valley of the Ten Peaks in Banff National Park" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">01 / 06 &middot; Travel style</span>
-            <h3>Mountain Escapes</h3>
-            <p>Alpine villages, cable cars and glacier days, from Zermatt and Chamonix to the Canadian Rockies.</p>
-            <span class="style-slide-cta">Explore 15 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <a class="style-slide ph-3" href="/browse?style=beach" data-cat="beach">
-          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/1280px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Terraced hillsides and villages along the Amalfi Coast above the blue Tyrrhenian Sea" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">02 / 06 &middot; Travel style</span>
-            <h3>Beach &amp; Coastal</h3>
-            <p>Cliffside villages, turquoise coves and slow sunset dinners, from the Amalfi Coast to Bali.</p>
-            <span class="style-slide-cta">Explore 22 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <a class="style-slide ph-4" href="/browse?style=modern-city" data-cat="modern-city">
-          <img data-src="https://images.unsplash.com/photo-1527909249915-9ff58d10d4c8?w=1400&q=75&fm=jpg&fit=crop" alt="Shanghai's Pudong skyline and the Oriental Pearl Tower reflected in the water beside a steel bridge at dusk" style="object-position:center 35%" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">03 / 06 &middot; Travel style</span>
-            <h3>Modern Cities</h3>
-            <p>Skylines, design districts and food scenes, from New York and Copenhagen to Seoul and Berlin.</p>
-            <span class="style-slide-cta">Explore 13 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <a class="style-slide ph-5" href="/browse?style=historic-city" data-cat="historic-city">
-          <img data-src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=1400&q=75&fm=jpg&fit=crop" alt="Edinburgh Castle perched on its volcanic rock outcrop against a blue sky" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">04 / 06 &middot; Travel style</span>
-            <h3>Historic Old Towns</h3>
-            <p>Cobbled lanes, cathedrals and castles, from Prague and Bruges to Edinburgh and Istanbul.</p>
-            <span class="style-slide-cta">Explore 40 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <a class="style-slide ph-6" href="/browse?style=road-trip" data-cat="roadtrip">
-          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/1280px-Delicate_arch_sunset.jpg" alt="Delicate Arch glowing red in late sunlight in Arches National Park, Utah" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">05 / 06 &middot; Travel style</span>
-            <h3>Road Trips &amp; National Parks</h3>
-            <p>Self-drive routes with real driving times, from Utah's red-rock arches to Bavaria and Puglia.</p>
-            <span class="style-slide-cta">Explore 11 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <a class="style-slide ph-2" href="/browse?style=lakes-nature" data-cat="lakes-nature">
-          <img data-src="https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=1400&q=75&fm=jpg&fit=crop" alt="Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest" decoding="async">
-          <div class="style-slide-body">
-            <span class="style-slide-kicker">06 / 06 &middot; Travel style</span>
-            <h3>Lakes &amp; Nature</h3>
-            <p>Waterfalls, glaciers and wild landscapes, from Plitvice and Hallstatt to Iguazu Falls.</p>
-            <span class="style-slide-cta">Explore 22 trips <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <div class="style-slide style-slide-random">
-          <div class="style-random">
-            <div class="style-random-intro">
-              <span class="style-slide-kicker">Not sure yet?</span>
-              <h3>Random itineraries</h3>
-              <p>Three trips picked at random from every style. Shuffle until one feels right.</p>
-              <div class="style-random-actions">
-                <button type="button" class="btn btn-ghost" id="styleShuffle" aria-label="Shuffle random itineraries">Shuffle <span aria-hidden="true">&#8635;</span></button>
-                <a class="style-slide-cta" href="/browse">Browse all 123 trips <span aria-hidden="true">&rarr;</span></a>
-              </div>
-            </div>
-            <div class="style-random-list" id="styleRandomList">
-              <a class="style-random-card" href="/berlin"><span class="style-random-body"><strong>4 Days in Berlin: Christmas Markets, Wall History &amp; Museum Island</strong><small>4 Days &middot; $750-1,000/person</small></span></a>
-              <a class="style-random-card" href="/amalfi-coast"><span class="style-random-body"><strong>7 Days in Amalfi Coast on a Budget</strong><small>7 Days &middot; $750-1,050/person</small></span></a>
-              <a class="style-random-card" href="/banff"><span class="style-random-body"><strong>A Luxury Week in Banff &amp; Lake Louise</strong><small>7 Days &middot; $2,050-2,750/person</small></span></a>
-            </div>
-          </div>
+    <div class="style-grid stagger">
+      <a class="style-card reveal" href="/browse?style=mountain">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/960px-Moraine_Lake_17092005.jpg" alt="Moraine Lake's turquoise water reflecting the snow-capped Valley of the Ten Peaks in Banff National Park" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Mountain Escapes</h3><p>Alpine villages, cable cars and glacier days, from Zermatt and Chamonix to the Canadian Rockies.</p><span class="style-card-cta">Explore 15 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+      <a class="style-card reveal" href="/browse?style=beach">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/960px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Terraced hillsides and villages along the Amalfi Coast above the blue Tyrrhenian Sea" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Beach &amp; Coastal</h3><p>Cliffside villages, turquoise coves and slow sunset dinners, from the Amalfi Coast to Bali.</p><span class="style-card-cta">Explore 22 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+      <a class="style-card reveal" href="/browse?style=modern-city">
+        <img data-src="https://images.unsplash.com/photo-1527909249915-9ff58d10d4c8?w=900&q=75&fm=jpg&fit=crop" alt="Shanghai's Pudong skyline and the Oriental Pearl Tower reflected in the water beside a steel bridge at dusk" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Modern Cities</h3><p>Skylines, design districts and food scenes, from New York and Copenhagen to Seoul and Berlin.</p><span class="style-card-cta">Explore 13 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+      <a class="style-card reveal" href="/browse?style=historic-city">
+        <img data-src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?w=900&q=75&fm=jpg&fit=crop" alt="Edinburgh Castle perched on its volcanic rock outcrop against a blue sky" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Historic Old Towns</h3><p>Cobbled lanes, cathedrals and castles, from Prague and Bruges to Edinburgh and Istanbul.</p><span class="style-card-cta">Explore 40 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+      <a class="style-card reveal" href="/browse?style=road-trip">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/960px-Delicate_arch_sunset.jpg" alt="Delicate Arch glowing red in late sunlight in Arches National Park, Utah" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Road Trips &amp; National Parks</h3><p>Self-drive routes with real driving times, from Utah's red-rock arches to Bavaria and Puglia.</p><span class="style-card-cta">Explore 11 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+      <a class="style-card reveal" href="/browse?style=lakes-nature">
+        <img data-src="https://images.unsplash.com/photo-1589312133722-eab40c686ebb?w=900&q=75&fm=jpg&fit=crop" alt="Veliki Slap, Plitvice's largest waterfall, cascading into a turquoise pool surrounded by forest" loading="lazy" decoding="async">
+        <span class="style-card-body"><h3>Lakes &amp; Nature</h3><p>Waterfalls, glaciers and wild landscapes, from Plitvice and Hallstatt to Iguazu Falls.</p><span class="style-card-cta">Explore 22 trips <span aria-hidden="true">&rarr;</span></span></span>
+      </a>
+    </div>
+    <div class="style-picks reveal">
+      <div class="style-picks-intro">
+        <h3>Not sure yet?</h3>
+        <p>Three trips picked at random from different styles. Shuffle until one feels right.</p>
+        <div class="style-picks-actions">
+          <button type="button" class="btn btn-outline" id="styleShuffle" aria-label="Shuffle random itineraries">Shuffle <span aria-hidden="true">&#8635;</span></button>
+          <a class="style-picks-link" href="/browse">Browse all <span data-trip-total>123</span> trips <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
-      <p class="style-hint" id="styleHint" aria-hidden="true">Keep scrolling &darr;</p>
-      <div class="style-dots" id="styleDots"></div>
-      <div class="style-progress" aria-hidden="true"><span class="style-progress-bar" id="styleBar"></span></div>
+      <div class="style-picks-list" id="styleRandomList">
+        <a class="pick-card" href="/berlin"><span class="pick-body"><strong>4 Days in Berlin: Christmas Markets, Wall History &amp; Museum Island</strong><small>4 Days &middot; $750-1,000/person</small></span></a>
+        <a class="pick-card" href="/amalfi-coast"><span class="pick-body"><strong>7 Days in Amalfi Coast on a Budget</strong><small>7 Days &middot; $750-1,050/person</small></span></a>
+        <a class="pick-card" href="/banff"><span class="pick-body"><strong>A Luxury Week in Banff &amp; Lake Louise</strong><small>7 Days &middot; $2,050-2,750/person</small></span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -516,7 +477,7 @@
   <button type="button" class="whats-new-close" aria-label="Dismiss notification"><span aria-hidden="true">&times;</span></button>
 </aside>
 
-<script src="/js/main.js?v=20261103a"></script>
+<script src="/js/main.js?v=20261103b"></script>
 <script type="module" src="/js/globe.js?v=20261101a"></script>
 </body>
 </html>

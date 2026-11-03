@@ -1775,44 +1775,10 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Travel styles + random itineraries: slideshow with previous / next arrows ---------- */
-  const styleSection = document.querySelector(".style-scroll");
-  if (styleSection) {
-    const runway = document.getElementById("styleRunway");
-    const stage = document.getElementById("styleStage");
-    const track = document.getElementById("styleTrack");
-    const bar = document.getElementById("styleBar");
-    const hint = document.getElementById("styleHint");
-    const dotsWrap = document.getElementById("styleDots");
-    const siteHeaderEl = document.querySelector(".site-header");
-    const slides = Array.from(track.querySelectorAll(".style-slide"));
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    // Photos load as soon as the section is anywhere near the screen. The generic
-    // lazy-loader above would wait until each slide itself was almost visible, which
-    // is mid-slide, so the next photo would still be blank as it arrives.
-    const slideImgs = Array.from(track.querySelectorAll("img[data-src]"));
-    function loadSlideImages() {
-      slideImgs.forEach((img) => {
-        if (!img.dataset.src) return;
-        img.addEventListener("load", () => img.classList.add("is-loaded"));
-        img.addEventListener("error", () => { img.style.display = "none"; });
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-      });
-    }
-    if ("IntersectionObserver" in window) {
-      const imgObserver = new IntersectionObserver((entries) => {
-        if (entries.some((e) => e.isIntersecting)) { loadSlideImages(); imgObserver.disconnect(); }
-      }, { rootMargin: "120% 0px" });
-      imgObserver.observe(runway);
-    } else {
-      loadSlideImages();
-    }
-
-    // Final slide: three random itineraries (one per travel style where possible).
-    const randomList = document.getElementById("styleRandomList");
-    const shuffleBtn = document.getElementById("styleShuffle");
+  /* ---------- Travel styles grid: random itineraries (three picks, one per style where possible) ---------- */
+  const randomList = document.getElementById("styleRandomList");
+  const shuffleBtn = document.getElementById("styleShuffle");
+  if (randomList && shuffleBtn) {
     let randomPicks = [];
     function pickRandomTrips(count, avoidIds) {
       const entries = Object.entries(TRIP_CATALOG).filter(([id]) => !avoidIds.includes(id));
@@ -1834,14 +1800,15 @@ function initWanderList() {
       randomList.innerHTML = "";
       entries.forEach(([id, trip]) => {
         const card = document.createElement("a");
-        card.className = "style-random-card";
-        card.href = id;
+        card.className = "pick-card";
+        card.href = "/" + id;
         const img = document.createElement("img");
         img.src = trip.img;
         img.alt = trip.alt;
+        img.loading = "lazy";
         img.decoding = "async";
         const body = document.createElement("span");
-        body.className = "style-random-body";
+        body.className = "pick-body";
         const title = document.createElement("strong");
         title.textContent = trip.title;
         const meta = document.createElement("small");
@@ -1857,71 +1824,8 @@ function initWanderList() {
       randomList.classList.add("is-swapping");
       setTimeout(() => { renderRandomTrips(randomPicks); randomList.classList.remove("is-swapping"); }, 180);
     }
-    if (randomList && shuffleBtn) {
-      shuffleBtn.addEventListener("click", () => shuffleRandomTrips(false));
-      shuffleRandomTrips(true);
-    }
-
-    // Arrow-driven slider: previous / next buttons, dots, swipe and arrow keys.
-    let index = 0;
-    let dots = [];
-    function makeBtn(cls, label, text) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = cls;
-      b.setAttribute("aria-label", label);
-      b.textContent = text;
-      return b;
-    }
-    const prevBtn = makeBtn("style-arrow style-prev", "Previous slide", "\u2190");
-    const nextBtn = makeBtn("style-arrow style-next", "Next slide", "\u2192");
-
-    function go(i) {
-      index = (i + slides.length) % slides.length;
-      track.style.transform = "translate3d(" + (-index * 100) + "%,0,0)";
-      slides.forEach((s, k) => {
-        const on = k === index;
-        s.classList.toggle("is-active", on);
-        s.setAttribute("aria-hidden", on ? "false" : "true");
-        s.inert = !on; // off-screen slides can't be tabbed to
-      });
-      dots.forEach((d, k) => {
-        d.classList.toggle("is-active", k === index);
-        if (k === index) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
-      });
-    }
-
-    styleSection.classList.add("is-slider");
-    stage.setAttribute("role", "region");
-    stage.setAttribute("aria-roledescription", "carousel");
-    stage.setAttribute("aria-label", "Travel styles");
-    stage.append(prevBtn, nextBtn);
-    dotsWrap.innerHTML = "";
-    dots = slides.map((slide, i) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "style-dot";
-      const heading = slide.querySelector("h3");
-      b.setAttribute("aria-label", "Go to " + (heading ? heading.textContent : "slide " + (i + 1)));
-      b.addEventListener("click", () => go(i));
-      dotsWrap.appendChild(b);
-      return b;
-    });
-    prevBtn.addEventListener("click", () => go(index - 1));
-    nextBtn.addEventListener("click", () => go(index + 1));
-    stage.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); }
-    });
-    let touchX = null;
-    stage.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
-    stage.addEventListener("touchend", (e) => {
-      if (touchX === null) return;
-      const dx = e.changedTouches[0].clientX - touchX;
-      touchX = null;
-      if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1));
-    });
-    go(0);
+    shuffleBtn.addEventListener("click", () => shuffleRandomTrips(false));
+    shuffleRandomTrips(true);
   }
 
   /* ---------- Testimonials: live-loaded from data/reviews.json + locally written reviews ---------- */

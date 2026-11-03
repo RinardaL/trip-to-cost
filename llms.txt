@@ -8,6 +8,24 @@
 - [Winter Trips](https://triptocost.com/winter-trips): 10 itineraries, prices per person
 - [Autumn Trips](https://triptocost.com/autumn-trips): 8 itineraries, prices per person
 
+## Country guides
+- [France itineraries](https://triptocost.com/france-itineraries): 10 trips, $480-$1,950 per person
+- [Italy itineraries](https://triptocost.com/italy-itineraries): 7 trips, $650-$1,750 per person
+- [Spain itineraries](https://triptocost.com/spain-itineraries): 7 trips, $270-$1,600 per person
+- [Switzerland itineraries](https://triptocost.com/switzerland-itineraries): 5 trips, $850-$2,600 per person
+- [China itineraries](https://triptocost.com/china-itineraries): 5 trips, $260-$720 per person
+- [Japan itineraries](https://triptocost.com/japan-itineraries): 4 trips, $350-$1,900 per person
+- [USA itineraries](https://triptocost.com/usa-itineraries): 4 trips, $650-$1,500 per person
+- [Greece itineraries](https://triptocost.com/greece-itineraries): 4 trips, $850-$1,500 per person
+- [Austria itineraries](https://triptocost.com/austria-itineraries): 4 trips, $480-$1,300 per person
+- [Norway itineraries](https://triptocost.com/norway-itineraries): 4 trips, $720-$2,200 per person
+- [Germany itineraries](https://triptocost.com/germany-itineraries): 4 trips, $460-$1,400 per person
+- [Portugal itineraries](https://triptocost.com/portugal-itineraries): 3 trips, $700-$1,150 per person
+- [Thailand itineraries](https://triptocost.com/thailand-itineraries): 3 trips, $480-$1,100 per person
+- [Bulgaria itineraries](https://triptocost.com/bulgaria-itineraries): 3 trips, $360-$700 per person
+- [Turkey itineraries](https://triptocost.com/turkey-itineraries): 3 trips, $350-$850 per person
+- [Albania itineraries](https://triptocost.com/albania-itineraries): 3 trips, $280-$750 per person
+
 ## Destinations
 
 ### Beach & Coastal

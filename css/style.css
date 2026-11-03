@@ -2613,3 +2613,23 @@ strong, b { font-weight: 600; }
 .last-updated { margin: 12px 4px 0; font-size: 0.82rem; color: rgba(255, 255, 255, 0.72); }
 .cost-faq .cost-more { margin-top: 20px; font-size: 0.95rem; }
 .cost-faq .cost-more a, .cost-faq p a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Christmas dates + country hubs */
+.hub-dates { padding: 8px 0 28px; }
+.hub-dates h2 { margin: 0 0 12px; font-size: 1.5rem; }
+.hub-dates .info-narrow p { color: var(--charcoal-soft); line-height: 1.65; margin-bottom: 14px; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.hub-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); font-size: 0.95rem; }
+.hub-table th, .hub-table td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); line-height: 1.45; }
+.hub-table thead th { background: var(--mint-tint); color: var(--emerald-dark); font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+.hub-table tbody th a { color: var(--emerald-dark); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.hub-table tbody th span { display: block; margin-top: 2px; font-weight: 400; font-size: 0.85rem; color: var(--charcoal-soft); }
+.hub-table td { color: var(--charcoal-soft); }
+.hub-table td:nth-child(2) { white-space: nowrap; color: var(--charcoal); font-weight: 600; }
+.hub-table td.num { white-space: nowrap; }
+@media (max-width: 640px) { .hub-table { font-size: 0.88rem; } .hub-table th, .hub-table td { padding: 9px 10px; } }
+.xmas-dates { padding-top: 0; }
+.country-list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 22px; }
+.country-list li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.country-list a { color: var(--emerald-dark); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mint); text-underline-offset: 3px; }
+.country-list span { color: var(--charcoal-soft); font-size: 0.85rem; margin-left: 6px; }

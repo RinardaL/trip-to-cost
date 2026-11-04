@@ -901,6 +901,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://triptocost.com/scottish-highlands</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://triptocost.com/val-gardena-ski</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://triptocost.com/about</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>

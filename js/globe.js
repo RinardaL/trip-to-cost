@@ -133,6 +133,8 @@ const DESTINATIONS = [
   { name: "Bardenas Reales, Spain", lat: 42.17, lon: -1.48, href: "bardenas-reales" },
   { name: "Formentera, Spain", lat: 38.7, lon: 1.45, href: "formentera" },
   { name: "Setenil de las Bodegas, Spain", lat: 36.86, lon: -5.18, href: "setenil" },
+  { name: "Scottish Highlands, Scotland", lat: 57.2, lon: -4.8, href: "scottish-highlands" },
+  { name: "Val Gardena, Italy", lat: 46.56, lon: 11.67, href: "val-gardena-ski" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

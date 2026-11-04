@@ -132,6 +132,8 @@ const TRIP_CATALOG = {
   "bardenas-reales": { title: "4 Days in Bardenas Reales: Desert Badlands, Olite & Ujué", place: "Bardenas Reales, Spain", tag: "Road Trips & National Parks", duration: "4 Days", cost: "$430-640/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Castildetierra_-_Summer_morning.jpg/500px-Castildetierra_-_Summer_morning.jpg", alt: "Castildetierra, a tall earth pinnacle in the Bardenas Reales, under a blue sky streaked with thin cloud", country: "Spain", continent: "Europe", lat: 42.17, lon: -1.48, season: "Apr – May, Sep – Oct" },
   "formentera": { title: "4 Days in Formentera: Ses Illetes, Cala Saona & Cap de Barbaria", place: "Formentera, Spain", tag: "Beach & Coastal", duration: "4 Days", cost: "$430-650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Formentera_-_Platja_De_Ses_Illetes_-_panoramio_%281%29.jpg/500px-Formentera_-_Platja_De_Ses_Illetes_-_panoramio_%281%29.jpg", alt: "The narrow white sand spit of Ses Illetes on Formentera, with turquoise sea on both sides and a few sunbathers on the sand", country: "Spain", continent: "Europe", lat: 38.7, lon: 1.45, season: "May – Jun, Sep – Oct" },
   "setenil": { title: "4 Days in Setenil de las Bodegas & the White Villages of Andalusia", place: "Setenil de las Bodegas, Spain", tag: "Historic Old Towns", duration: "4 Days", cost: "$360-580/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Setenil_de_las_Bodegas_2019-10-23_03.jpg/500px-Setenil_de_las_Bodegas_2019-10-23_03.jpg", alt: "A whitewashed street in Setenil de las Bodegas running beneath an overhanging rock", country: "Spain", continent: "Europe", lat: 36.86, lon: -5.18, season: "Mar – May, Sep – Nov" },
+  "scottish-highlands": { title: "4 Days in the Scottish Highlands: A Self-Drive Road Trip", place: "Scottish Highlands, Scotland", tag: "Road Trips & National Parks", duration: "4 Days", cost: "$450-680/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lagangarbh_cottage_with_Buachaille_Etive_M%C3%B2r.jpg/500px-Lagangarbh_cottage_with_Buachaille_Etive_M%C3%B2r.jpg", alt: "Buachaille Etive Mòr rising above a white cottage and green moorland at the head of Glen Coe", country: "Scotland", continent: "Europe", lat: 57.2, lon: -4.8, season: "Apr – Jun, Sep – Oct" },
+  "val-gardena-ski": { title: "4 Days Skiing in Val Gardena: Sella Ronda, Seceda & Alpe di Siusi", place: "Val Gardena, Italy", tag: "Mountain Escapes", duration: "4 Days", cost: "$900-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Val_Gardena_-_Gr%C3%B6den_winter.jpg/500px-Val_Gardena_-_Gr%C3%B6den_winter.jpg", alt: "A snowfield with ski tracks in Val Gardena, with the Sassolungo massif rising in the distance under a pale blue sky", country: "Italy", continent: "Europe", lat: 46.56, lon: 11.67, season: "Dec – Mar" },
 };
 
 /* ---------- Day-level search index: lets search surface a specific landmark buried
@@ -708,6 +710,14 @@ const DAY_INDEX = [
   { page: "setenil", day: 2, title: "Ronda's Bullring & Setenil's Cave Streets", text: "Ronda's Bullring & Setenil's Cave Streets · The Plaza de Toros of Ronda · Calle Cuevas del Sol & Cuevas de la Sombra, Setenil · The Torreón & dinner under the rock", place: "Setenil de las Bodegas, Spain" },
   { page: "setenil", day: 3, title: "Grazalema, the Mountain Pass & Zahara", text: "Grazalema, the Mountain Pass & Zahara · Grazalema & the Pinsapar permit · The Puerto de las Palomas pass · Zahara de la Sierra & its castle tower", place: "Setenil de las Bodegas, Spain" },
   { page: "setenil", day: 4, title: "Olvera, Arcos & Departure via Seville", text: "Olvera, Arcos & Departure via Seville · Olvera castle & church · Arcos de la Frontera (optional) · Seville airport", place: "Setenil de las Bodegas, Spain" },
+  { page: "scottish-highlands", day: 1, title: "Arrival, Culloden & the River Ness", text: "Arrival, Culloden & the River Ness · Inverness Airport & collecting the car · Culloden Battlefield · The River Ness & Ness Islands", place: "Scottish Highlands, Scotland" },
+  { page: "scottish-highlands", day: 2, title: "Loch Ness, Urquhart Castle & the Great Glen", text: "Loch Ness, Urquhart Castle & the Great Glen · Urquhart Castle · Fort Augustus & the Caledonian Canal locks · Fort William & Neptune's Staircase", place: "Scottish Highlands, Scotland" },
+  { page: "scottish-highlands", day: 3, title: "Glenfinnan, Glen Coe & Glen Nevis", text: "Glenfinnan, Glen Coe & Glen Nevis · Glenfinnan Viaduct & Monument · Glen Coe & the Three Sisters · Glen Nevis & Steall Falls", place: "Scottish Highlands, Scotland" },
+  { page: "scottish-highlands", day: 4, title: "Eilean Donan, Glen Shiel & the Road Back to Inverness", text: "Eilean Donan, Glen Shiel & the Road Back to Inverness · Eilean Donan Castle · Glen Shiel, Invermoriston & the A82 home · Refuelling, car return & departure", place: "Scottish Highlands, Scotland" },
+  { page: "val-gardena-ski", day: 1, title: "Arrival, Bolzano Bus & Ortisei", text: "Arrival, Bolzano Bus & Ortisei · Arrival at Bolzano Airport & bus 350 to the valley · Ski rental & the Resciesa plateau above Ortisei · Dusk in Ortisei & a South Tyrolean dinner", place: "Val Gardena, Italy" },
+  { page: "val-gardena-ski", day: 2, title: "The Sella Ronda: Four Passes in One Day", text: "The Sella Ronda: Four Passes in One Day · Selva to Passo Gardena, Colfosco & Corvara · Passo Campolongo, Arabba & Passo Pordoi · Canazei, Passo Sella & back to Selva", place: "Val Gardena, Italy" },
+  { page: "val-gardena-ski", day: 3, title: "Seceda & the La Longia Run", text: "Seceda & the La Longia Run · The Ortisei to Seceda cable car · La Longia, 10 km back to Ortisei · Après-ski, ice skating or a swim in Ortisei", place: "Val Gardena, Italy" },
+  { page: "val-gardena-ski", day: 4, title: "Alpe di Siusi & the Journey Home", text: "Alpe di Siusi & the Journey Home · The Ortisei to Alpe di Siusi gondola · Skiing, sledging or snowshoeing on the plateau · Bus 350 to Bolzano & the journey home", place: "Val Gardena, Italy" },
 ];
 
 /* ---------- Seasonal picks (home page tiles link to browse?season=...) ---------- */
@@ -715,7 +725,7 @@ const SEASON_PICKS = {
   autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","prague","budapest"] },
   christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city","lapland","megeve","tromso"] },
   "summer-in-winter": { title: "Summer in Winter", ids: ["thailand","bangkok-phuket","canary-islands","tenerife","singapore","egypt","luang-prabang","waitomo","dubai","sharm-el-sheikh","curacao","san-juan","gran-canaria","malaga","alicante"] },
-  winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","berlin","vienna","livigno","schladming"] },
+  winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","berlin","vienna","livigno","schladming","val-gardena-ski"] },
 };
 
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
@@ -2027,6 +2037,49 @@ function initWanderList() {
     if (queryParam) searchInput.value = queryParam;
     if (styleParam) styleDropdown.selectValue(styleParam);
     applyFilters();
+  }
+
+  /* ---------- Itinerary pages, phones: price bar that appears once the meta bar has scrolled away ---------- */
+  const metaBarEl = document.querySelector(".itinerary-meta-bar");
+  const saveBtnEl = document.getElementById("saveBtn");
+  if (metaBarEl && saveBtnEl) {
+    const bar = document.createElement("div");
+    bar.className = "price-bar";
+    bar.id = "priceBar";
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", "Trip price and save");
+    bar.innerHTML = '<span class="price-bar-info"><strong class="price-bar-cost"></strong><span class="price-bar-days"></span></span><button type="button" class="price-bar-save"></button>';
+    document.body.appendChild(bar);
+    document.body.classList.add("has-price-bar");
+    const costEl = bar.querySelector(".price-bar-cost");
+    const daysEl = bar.querySelector(".price-bar-days");
+    const saveEl = bar.querySelector(".price-bar-save");
+    const metaValue = (label) => {
+      const item = Array.from(metaBarEl.querySelectorAll(".meta-item")).find((m) => {
+        const l = m.querySelector(".label");
+        return l && l.textContent.trim().toLowerCase() === label;
+      });
+      const v = item && item.querySelector(".value");
+      return v ? v.textContent.trim() : "";
+    };
+    const syncBar = () => {
+      costEl.textContent = metaValue("est. budget");
+      daysEl.textContent = metaValue("duration");
+      saveEl.textContent = saveBtnEl.textContent.trim() || "♥ Save Trip";
+      saveEl.classList.toggle("is-saved", saveBtnEl.classList.contains("is-saved"));
+    };
+    syncBar();
+    new MutationObserver(syncBar).observe(metaBarEl, { childList: true, subtree: true, characterData: true });
+    new MutationObserver(syncBar).observe(saveBtnEl, { childList: true, characterData: true, attributes: true });
+    saveEl.addEventListener("click", () => saveBtnEl.click());
+    const setVisible = (on) => bar.classList.toggle("is-visible", on);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => setVisible(!e.isIntersecting && e.boundingClientRect.bottom < 0));
+      }).observe(metaBarEl);
+    } else {
+      window.addEventListener("scroll", () => setVisible(metaBarEl.getBoundingClientRect().bottom < 0), { passive: true });
+    }
   }
 
   /* ---------- "What’s new!" notification: jumps to the seasonal category ---------- */

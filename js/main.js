@@ -722,7 +722,7 @@ const DAY_INDEX = [
 
 /* ---------- Seasonal picks (home page tiles link to browse?season=...) ---------- */
 const SEASON_PICKS = {
-  autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","prague","budapest"] },
+  autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie"] },
   christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city","lapland","megeve","tromso"] },
   "summer-in-winter": { title: "Summer in Winter", ids: ["thailand","bangkok-phuket","canary-islands","tenerife","singapore","egypt","luang-prabang","waitomo","dubai","sharm-el-sheikh","curacao","san-juan","gran-canaria","malaga","alicante","socotra"] },
   winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","livigno","schladming","val-gardena-ski"] },

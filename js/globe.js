@@ -128,6 +128,11 @@ const DESTINATIONS = [
   { name: "Luxembourg City, Luxembourg", lat: 49.61, lon: 6.13, href: "luxembourg" },
   { name: "Dhërmi & Palasë, Albania", lat: 40.15, lon: 19.63, href: "dhermi" },
   { name: "Mostar, Bosnia and Herzegovina", lat: 43.34, lon: 17.81, href: "mostar" },
+  { name: "Livigno, Italy", lat: 46.54, lon: 10.14, href: "livigno" },
+  { name: "Schladming, Austria", lat: 47.39, lon: 13.69, href: "schladming" },
+  { name: "Bardenas Reales, Spain", lat: 42.17, lon: -1.48, href: "bardenas-reales" },
+  { name: "Formentera, Spain", lat: 38.7, lon: 1.45, href: "formentera" },
+  { name: "Setenil de las Bodegas, Spain", lat: 36.86, lon: -5.18, href: "setenil" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

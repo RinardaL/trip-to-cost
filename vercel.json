@@ -8,17 +8,7 @@
       "permanent": true
     },
     {
-      "source": "/itinerary.html",
-      "destination": "/tokyo-kyoto",
-      "permanent": true
-    },
-    {
       "source": "/rainbow-mountain",
-      "destination": "/cusco",
-      "permanent": true
-    },
-    {
-      "source": "/rainbow-mountain.html",
       "destination": "/cusco",
       "permanent": true
     }

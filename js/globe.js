@@ -5,7 +5,7 @@
 // ===========================================================
 
 const DESTINATIONS = [
-  { name: "Tokyo & Kyoto, Japan", lat: 35.68, lon: 139.65, href: "itinerary" },
+  { name: "Tokyo & Kyoto, Japan", lat: 35.68, lon: 139.65, href: "tokyo-kyoto" },
   { name: "Amalfi Coast, Italy", lat: 40.63, lon: 14.6, href: "amalfi-coast" },
   { name: "Utah, USA", lat: 38.57, lon: -109.55, href: "utah-national-parks" },
   { name: "Lisbon, Portugal", lat: 38.72, lon: -9.14, href: "lisbon" },
@@ -85,7 +85,7 @@ const DESTINATIONS = [
   { name: "Madagascar", lat: -18.88, lon: 47.51, href: "madagascar" },
   { name: "Marble Caves, Chile", lat: -46.60, lon: -72.68, href: "marble-caves" },
   { name: "Rio de Janeiro, Brazil", lat: -22.91, lon: -43.17, href: "rio-de-janeiro" },
-  { name: "Cusco, Peru", lat: -13.53, lon: -71.97, href: "rainbow-mountain" },
+  { name: "Cusco, Peru", lat: -13.53, lon: -71.97, href: "cusco" },
   { name: "Page, Arizona, USA", lat: 36.91, lon: -111.46, href: "antelope-canyon" },
   { name: "Yoshino, Japan", lat: 34.36, lon: 135.87, href: "yoshino" },
   { name: "Chiang Mai, Thailand", lat: 18.79, lon: 98.99, href: "chiang-mai" },

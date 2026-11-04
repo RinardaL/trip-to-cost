@@ -52,7 +52,7 @@
 - [7 Days in Nice & the French Riviera](https://triptocost.com/nice): 7 Days in Nice, France, est. $1,250-1,950/person
 - [7 Days in Thailand: Bangkok to the Andaman Coast](https://triptocost.com/thailand): 7 Days in Bangkok & Andaman Coast, Thailand, est. $800-1,100/person
 - [7 Days in the Canary Islands: Tenerife's Volcanoes to Lanzarote's Lava Fields](https://triptocost.com/canary-islands): 7 Days in Canary Islands, Spain, est. $1,200-1,600/person
-- [A Week of Wellness & Solo Discovery in Bali](https://triptocost.com/bali): 7 Days in Bali, Indonesia, est. $700-1,000/person
+- [7 Days in Bali: A Wellness & Solo Travel Itinerary](https://triptocost.com/bali): 7 Days in Bali, Indonesia, est. $700-1,000/person
 
 ### Historic Old Towns
 
@@ -94,9 +94,9 @@
 - [5 Days in Marrakech: Medina Souks, Palaces & the High Atlas](https://triptocost.com/marrakech): 5 Days in Marrakech, Morocco, est. $440-700/person
 - [7 Days in Athens: Ancient Ruins & Island Escapes](https://triptocost.com/athens): 7 Days in Athens, Greece, est. $880-1,300/person
 - [7 Days in Egypt: Cairo & a Nile Cruise from Luxor to Aswan](https://triptocost.com/egypt): 7 Days in Cairo, Egypt, est. $850-1,300/person
-- [7 Days of Lisbon Local Highlights](https://triptocost.com/lisbon): 7 Days in Lisbon, Portugal, est. $750-1,150/person
-- [A Perfect Long Weekend in Paris](https://triptocost.com/paris): 3 Days in Paris, France, est. $550-750/person
-- [A Week of Hidden Gems in Tokyo & Kyoto](https://triptocost.com/itinerary): 7 Days in Tokyo & Kyoto, Japan, est. $1,400-1,900/person
+- [7 Days in Lisbon: A Local Highlights Itinerary](https://triptocost.com/lisbon): 7 Days in Lisbon, Portugal, est. $750-1,150/person
+- [3 Days in Paris: A Long Weekend Itinerary](https://triptocost.com/paris): 3 Days in Paris, France, est. $550-750/person
+- [7 Days in Tokyo & Kyoto: A Hidden Gems Itinerary](https://triptocost.com/itinerary): 7 Days in Tokyo & Kyoto, Japan, est. $1,400-1,900/person
 
 ### Lakes & Nature
 
@@ -133,7 +133,7 @@
 - [4 Days in Milan: Duomo, Navigli & Brera](https://triptocost.com/milano): 4 Days in Milan, Italy, est. $650-850/person
 - [4 Days in Oslo: Opera House, Vigeland & Viking Heritage](https://triptocost.com/oslo): 4 Days in Oslo, Norway, est. $720-1,040/person
 - [4 Days in Singapore: Gardens by the Bay, Marina Bay & Hawker Culture](https://triptocost.com/singapore): 4 Days in Singapore, est. $600-950/person
-- [48 Hours in New York City](https://triptocost.com/new-york-city): 2 Days in New York City, USA, est. $650-850/person
+- [2 Days in New York City: A 48-Hour Itinerary](https://triptocost.com/new-york-city): 2 Days in New York City, USA, est. $650-850/person
 - [5 Days in London: Royals, the River & the West End](https://triptocost.com/london): 5 Days in London, England, est. $1,000-1,400/person
 - [5 Days in Seoul: Palaces, Markets & Neon Nights](https://triptocost.com/seoul): 5 Days in Seoul, South Korea, est. $480-740/person
 - [5 Days in Shanghai: The Bund, Yu Garden & Zhujiajiao](https://triptocost.com/shanghai): 5 Days in Shanghai, China, est. $460-720/person
@@ -159,7 +159,7 @@
 - [5 Days in the Austrian Alps: Innsbruck, Tyrol & Mountain Villages](https://triptocost.com/austrian-alps): 5 Days in Austrian Alps, Austria, est. $850-1,300/person
 - [6 Days in Nepal: Kathmandu, Pokhara & the Poon Hill Trek](https://triptocost.com/nepal): 6 Days in Nepal, est. $750-1,050/person
 - [6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes](https://triptocost.com/dolomites): 6 Days in Val Gardena, Italy, est. $1,300-1,750/person
-- [A Luxury Week in Banff & Lake Louise](https://triptocost.com/banff): 7 Days in Banff, Canada, est. $2,050-2,750/person
+- [7 Days in Banff & Lake Louise: A Luxury Itinerary](https://triptocost.com/banff): 7 Days in Banff, Canada, est. $2,050-2,750/person
 
 ### Road Trips & National Parks
 
@@ -174,7 +174,7 @@
 - [6 Days in Puglia: A Self-Drive Road Trip Through Italy's Heel](https://triptocost.com/puglia): 6 Days in Puglia, Italy, est. $1,000-1,350/person
 - [6 Days in Tuscany: A Self-Drive Road Trip](https://triptocost.com/toscana): 6 Days in Tuscany, Italy, est. $1,100-1,500/person
 - [6 Days of Hidden Gems in Albania: Krujë, Valbona-Theth & the Blue Eye](https://triptocost.com/albania): 6 Days in Krujë, the Blue Eye & the Albanian Alps, est. $550-750/person
-- [Ultimate Road Trip Through Utah's National Parks](https://triptocost.com/utah-national-parks): 7 Days in Utah, USA, est. $950-1,500/person
+- [7 Days in Utah's National Parks: A Road Trip Itinerary](https://triptocost.com/utah-national-parks): 7 Days in Utah, USA, est. $950-1,500/person
 
 ## Site
 

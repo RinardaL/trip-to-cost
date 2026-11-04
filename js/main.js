@@ -2,6 +2,35 @@
 // TripToCost — shared interactivity
 // ===========================================================
 
+/* ---------- Idle timeout: refreshing a page after a long break goes back to the home page ----------
+   Only a reload counts. Opening a link from Google, Pinterest or a bookmark always lands where the link points. */
+(function idleTimeout() {
+  const KEY = "wanderlist_last_active";
+  const IDLE_MS = 30 * 60 * 1000; // 30 minutes without any activity in any tab
+  const read = () => { try { return parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) { return 0; } };
+  const write = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} };
+  let navType = "";
+  try { const entry = performance.getEntriesByType("navigation")[0]; navType = entry ? entry.type : ""; } catch (e) {}
+  const last = read();
+  const onHome = location.pathname === "/" || location.pathname === "/index" || location.pathname === "/index.html";
+  if (navType === "reload" && last && Date.now() - last > IDLE_MS && !onHome) {
+    write();
+    location.replace("/");
+    return;
+  }
+  write();
+  // Activity is recorded 2 seconds after it happens and at most every 15 seconds. The delay matters: a refresh
+  // (F5, Ctrl+R, pull to refresh) starts with a key press or a touch, and its page unload cancels the pending write,
+  // so the refresh still sees the time of the last real activity. Nothing is written on unload for the same reason.
+  let pending = 0, lastWrite = Date.now();
+  const bump = (e) => {
+    if (e && e.type === "keydown" && (e.key === "F5" || ((e.ctrlKey || e.metaKey) && String(e.key).toLowerCase() === "r"))) return;
+    if (pending || Date.now() - lastWrite < 15000) return;
+    pending = setTimeout(() => { pending = 0; lastWrite = Date.now(); write(); }, 2000);
+  };
+  ["pointerdown", "keydown", "scroll", "touchstart", "mousemove"].forEach((ev) => window.addEventListener(ev, bump, { passive: true }));
+})();
+
 /* ---------- Trip catalog (used to render Saved Trips from localStorage) ---------- */
 const TRIP_CATALOG = {
   "itinerary": { title: "7 Days in Tokyo & Kyoto: A Hidden Gems Itinerary", place: "Tokyo & Kyoto, Japan", tag: "Historic Old Towns", duration: "7 Days", cost: "$1,400-1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg", alt: "Kyoto cityscape, Japan", country: "Japan", continent: "Asia", lat: 35.68, lon: 139.65, season: "Mar – May" },

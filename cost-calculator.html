@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="X4GWS5iE--DLwaYHzNXzGBdWv-Tt3TFaV7IUSdcICDA" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230b6b4f'/%3E%3Cstop offset='100%25' stop-color='%2317b893'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Ctext x='50' y='71' font-family='Arial, sans-serif' font-size='60' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#064E3B">
+<title>Trip Cost Calculator: Estimate Your Trip Budget | TripToCost</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://upload.wikimedia.org">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=20261109g">
+<meta name="description" content="Estimate what a short trip costs: pick one of 136 destinations, the number of days, travellers and budget level, and get a total from our itinerary prices.">
+<link rel="canonical" href="https://triptocost.com/cost-calculator">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TripToCost">
+<meta property="og:title" content="Trip Cost Calculator: Estimate Your Trip Budget | TripToCost">
+<meta property="og:description" content="Estimate what a short trip costs: pick one of 136 destinations, the number of days, travellers and budget level, and get a total from our itinerary prices.">
+<meta property="og:url" content="https://triptocost.com/cost-calculator">
+<meta property="og:image" content="https://triptocost.com/img/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trip Cost Calculator: Estimate Your Trip Budget | TripToCost">
+<meta name="twitter:description" content="Estimate what a short trip costs: pick one of 136 destinations, the number of days, travellers and budget level, and get a total from our itinerary prices.">
+<meta name="twitter:image" content="https://triptocost.com/img/og/home.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://triptocost.com/"},{"@type":"ListItem","position":2,"name":"Cost Calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"TripToCost Trip Cost Calculator","url":"https://triptocost.com/cost-calculator","applicationCategory":"TravelApplication","operatingSystem":"Any","description":"Estimate what a short trip costs: pick one of 136 destinations, the number of days, travellers and budget level, and get a total from our itinerary prices.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the trip cost calculator work?","acceptedAnswer":{"@type":"Answer","text":"It uses the cost range printed on each itinerary: a low figure for a careful budget and a high figure for a comfortable version, for every trip length from 1 day up to the full itinerary. Budget uses the low figure, Middle uses the midpoint and Comfortable uses the high figure. The total is that per-person figure multiplied by the number of travellers."}},{"@type":"Question","name":"What does the estimate include?","acceptedAnswer":{"@type":"Answer","text":"Lodging, mid-range meals, local transport and activities per person. International flights are not included, because they depend on where you start."}},{"@type":"Question","name":"Why is the price per day higher on short trips?","acceptedAnswer":{"@type":"Answer","text":"Getting there and the first night cost the same whether you stay one day or seven, so shorter trips cost less in total but more per day."}},{"@type":"Question","name":"Does the total change for two people sharing a room?","acceptedAnswer":{"@type":"Answer","text":"A shared room usually lowers the lodging cost per person, but our figures do not split lodging out, so the calculator simply multiplies the per-person estimate. For two or more travellers, treat the total as a cautious upper estimate."}}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="logo">
+      <span class="logo-mark" role="img" aria-label="TripToCost logo"></span> TripToCost
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/browse">Browse Destinations</a>
+      <a href="/browse" class="nav-surprise mobile-cta surprise-me-btn">Surprise Me</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="filter-dropdown nav-dropdown" id="currencySelect" data-value="USD">
+        <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Currency" title="Currency">
+          <span class="filter-dropdown-label">USD $</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <ul class="filter-dropdown-list" role="listbox" hidden>
+          <li role="option" data-value="USD" aria-selected="true">USD $</li>
+          <li role="option" data-value="EUR">EUR €</li>
+          <li role="option" data-value="GBP">GBP £</li>
+          <li role="option" data-value="JPY">JPY ¥</li>
+          <li role="option" data-value="CAD">CAD CA$</li>
+          <li role="option" data-value="AUD">AUD AU$</li>
+        </ul>
+      </div>
+      <a href="/saved-trips" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="/browse" class="nav-surprise surprise-me-btn">Surprise Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="/">Home</a> / How It Works
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="info-hero">
+  <div class="container">
+    <p class="eyebrow reveal">Plan your budget</p>
+    <h1 class="reveal">Trip Cost Calculator</h1>
+    <p class="info-lead reveal">Pick a destination, the number of days, how many people travel and how you like to spend. The total comes from the same prices as our 136 itineraries.</p>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="calc">
+  <div class="container">
+    <div class="calc-grid">
+      <form class="calc-form" id="calcForm" autocomplete="off">
+        <div class="calc-field"><label for="calcTrip">Destination</label><select id="calcTrip"><optgroup label="Albania"><option value="dhermi">Dhërmi &amp; Palasë, Albania</option><option value="albania">Krujë, the Blue Eye &amp; the Albanian Alps</option><option value="saranda">Sarandë, Albania</option></optgroup><optgroup label="Argentina"><option value="iguazu-falls">Iguazu Falls, Argentina &amp; Brazil</option></optgroup><optgroup label="Austria"><option value="austrian-alps">Austrian Alps, Austria</option><option value="hallstatt">Hallstatt, Austria</option><option value="salzburg">Salzburg, Austria</option><option value="schladming">Schladming, Austria</option><option value="vienna">Vienna, Austria</option></optgroup><optgroup label="Belgium"><option value="bruges">Bruges, Belgium</option><option value="brussels">Brussels, Belgium</option></optgroup><optgroup label="Bolivia"><option value="salar-de-uyuni">Salar de Uyuni, Bolivia</option></optgroup><optgroup label="Bosnia and Herzegovina"><option value="mostar">Mostar, Bosnia and Herzegovina</option><option value="jahorina">Sarajevo &amp; Jahorina, Bosnia and Herzegovina</option></optgroup><optgroup label="Brazil"><option value="lencois-maranhenses">Lençóis Maranhenses, Brazil</option><option value="rio-de-janeiro">Rio de Janeiro, Brazil</option></optgroup><optgroup label="Bulgaria"><option value="bansko">Bansko, Bulgaria</option><option value="borovets">Borovets, Bulgaria</option><option value="sofia">Sofia, Bulgaria</option></optgroup><optgroup label="Canada"><option value="banff">Banff, Canada</option><option value="quebec-city">Quebec City, Canada</option><option value="whistler">Whistler, Canada</option></optgroup><optgroup label="Chile"><option value="marble-caves">Marble Caves, Chile</option></optgroup><optgroup label="China"><option value="beijing">Beijing, China</option><option value="chongqing">Chongqing, China</option><option value="shanghai">Shanghai, China</option><option value="zhangjiajie">Zhangjiajie, China</option><option value="zhangye">Zhangye, China</option></optgroup><optgroup label="Croatia"><option value="plitvice-lakes">Plitvice Lakes, Croatia</option></optgroup><optgroup label="Curaçao"><option value="curacao">Curaçao, Caribbean</option></optgroup><optgroup label="Czech Republic"><option value="prague">Prague, Czech Republic</option></optgroup><optgroup label="Denmark"><option value="copenhagen">Copenhagen, Denmark</option></optgroup><optgroup label="Egypt"><option value="egypt">Cairo, Egypt</option><option value="sharm-el-sheikh">Sharm el-Sheikh, Egypt</option></optgroup><optgroup label="England"><option value="london">London, England</option></optgroup><optgroup label="Estonia"><option value="tallinn">Tallinn, Estonia</option></optgroup><optgroup label="Finland"><option value="lapland">Finnish Lapland</option></optgroup><optgroup label="France"><option value="annecy">Annecy, France</option><option value="bordeaux">Bordeaux, France</option><option value="chamonix">Chamonix, France</option><option value="colmar">Colmar, France</option><option value="megeve">Megève, France</option><option value="mont-saint-michel">Mont Saint-Michel, France</option><option value="nice">Nice, France</option><option value="paris">Paris, France</option><option value="strasbourg">Strasbourg, France</option><option value="valensole">Valensole, France</option></optgroup><optgroup label="Georgia"><option value="gudauri">Tbilisi &amp; Gudauri, Georgia</option></optgroup><optgroup label="Germany"><option value="bavaria">Bavaria, Germany</option><option value="berlin">Berlin, Germany</option><option value="dresden">Dresden, Germany</option><option value="nuremberg">Nuremberg, Germany</option></optgroup><optgroup label="Greece"><option value="athens">Athens, Greece</option><option value="crete">Crete, Greece</option><option value="milos">Milos, Greece</option><option value="mykonos">Mykonos, Greece</option></optgroup><optgroup label="Hungary"><option value="budapest">Budapest, Hungary</option></optgroup><optgroup label="Iceland"><option value="iceland">Iceland</option><option value="vatnajokull">Vatnajökull, Iceland</option></optgroup><optgroup label="Indonesia"><option value="bali">Bali, Indonesia</option></optgroup><optgroup label="Ireland"><option value="dublin">Dublin, Ireland</option></optgroup><optgroup label="Italy"><option value="amalfi-coast">Amalfi Coast, Italy</option><option value="cortina-dampezzo">Cortina d'Ampezzo, Italy</option><option value="livigno">Livigno, Italy</option><option value="milano">Milan, Italy</option><option value="puglia">Puglia, Italy</option><option value="rome">Rome, Italy</option><option value="toscana">Tuscany, Italy</option><option value="dolomites">Val Gardena, Italy</option><option value="val-gardena-ski">Val Gardena, Italy</option></optgroup><optgroup label="Japan"><option value="mount-fuji">Fuji Five Lakes, Japan</option><option value="hakone">Hakone, Japan</option><option value="niseko">Niseko, Japan</option><option value="tokyo-kyoto">Tokyo &amp; Kyoto, Japan</option><option value="yoshino">Yoshino, Japan</option></optgroup><optgroup label="Laos"><option value="luang-prabang">Luang Prabang, Laos</option></optgroup><optgroup label="Latvia"><option value="riga">Riga, Latvia</option></optgroup><optgroup label="Luxembourg"><option value="luxembourg">Luxembourg City, Luxembourg</option></optgroup><optgroup label="Madagascar"><option value="madagascar">Madagascar</option></optgroup><optgroup label="Malta"><option value="valletta">Valletta, Malta</option></optgroup><optgroup label="Mauritius"><option value="mauritius">Mauritius</option></optgroup><optgroup label="Montenegro"><option value="budva">Budva, Montenegro</option><option value="kotor">Kotor, Montenegro</option></optgroup><optgroup label="Morocco"><option value="morocco">Fes, Chefchaouen &amp; the Sahara, Morocco</option><option value="marrakech">Marrakech, Morocco</option></optgroup><optgroup label="Nepal"><option value="nepal">Nepal</option></optgroup><optgroup label="New Zealand"><option value="waitomo">Waitomo, New Zealand</option></optgroup><optgroup label="Norway"><option value="bergen">Bergen, Norway</option><option value="lofoten">Lofoten Islands, Norway</option><option value="oslo">Oslo, Norway</option><option value="tromso">Tromsø, Norway</option></optgroup><optgroup label="Peru"><option value="cusco">Cusco, Peru</option><option value="machu-picchu">Machu Picchu, Peru</option></optgroup><optgroup label="Poland"><option value="krakow">Krakow, Poland</option><option value="zakopane">Zakopane, Poland</option></optgroup><optgroup label="Portugal"><option value="algarve">Algarve, Portugal</option><option value="lisbon" selected>Lisbon, Portugal</option><option value="madeira">Madeira, Portugal</option></optgroup><optgroup label="Puerto Rico"><option value="san-juan">San Juan, Puerto Rico</option></optgroup><optgroup label="Scotland"><option value="edinburgh">Edinburgh, Scotland</option><option value="scottish-highlands">Scottish Highlands, Scotland</option></optgroup><optgroup label="Serbia"><option value="kopaonik">Kopaonik, Serbia</option></optgroup><optgroup label="Singapore"><option value="singapore">Singapore</option></optgroup><optgroup label="Slovenia"><option value="ljubljana">Ljubljana, Slovenia</option></optgroup><optgroup label="South Korea"><option value="seoul">Seoul, South Korea</option></optgroup><optgroup label="Spain"><option value="alicante">Alicante, Spain</option><option value="barcelona">Barcelona, Spain</option><option value="bardenas-reales">Bardenas Reales, Spain</option><option value="canary-islands">Canary Islands, Spain</option><option value="formentera">Formentera, Spain</option><option value="gran-canaria">Gran Canaria, Spain</option><option value="malaga">Málaga, Spain</option><option value="setenil">Setenil de las Bodegas, Spain</option><option value="seville">Seville, Spain</option><option value="tenerife">Tenerife, Spain</option></optgroup><optgroup label="Sweden"><option value="abisko">Abisko, Sweden</option><option value="stockholm">Stockholm, Sweden</option></optgroup><optgroup label="Switzerland"><option value="grindelwald">Grindelwald, Switzerland</option><option value="interlaken">Interlaken, Switzerland</option><option value="lauterbrunnen">Lauterbrunnen, Switzerland</option><option value="st-moritz">St. Moritz, Switzerland</option><option value="zermatt">Zermatt, Switzerland</option></optgroup><optgroup label="Tanzania"><option value="serengeti">Tanzania</option></optgroup><optgroup label="Thailand"><option value="thailand">Bangkok &amp; Andaman Coast, Thailand</option><option value="bangkok-phuket">Bangkok &amp; Phuket, Thailand</option><option value="chiang-mai">Chiang Mai, Thailand</option></optgroup><optgroup label="Turkey"><option value="cappadocia">Cappadocia, Turkey</option><option value="istanbul">Istanbul, Turkey</option><option value="mardin">Mardin, Turkey</option><option value="uludag">Uludağ &amp; Bursa, Turkey</option></optgroup><optgroup label="United Arab Emirates"><option value="dubai">Dubai, United Arab Emirates</option></optgroup><optgroup label="USA"><option value="new-york-city">New York City, USA</option><option value="antelope-canyon">Page, Arizona, USA</option><option value="sedona">Sedona, USA</option><option value="utah-national-parks">Utah, USA</option></optgroup><optgroup label="Yemen"><option value="socotra">Socotra Island, Yemen</option></optgroup></select></div>
+        <div class="calc-field"><label for="calcDays">Days</label><select id="calcDays"><option value="1">1 day</option><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option><option value="5">5 days</option><option value="6">6 days</option><option value="7" selected>7 days</option></select></div>
+        <div class="calc-field"><label for="calcTravellers">Travellers</label><select id="calcTravellers"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
+        <fieldset class="calc-field calc-style">
+          <legend>Budget level</legend>
+          <label><input type="radio" name="calcStyle" value="budget"><span>Budget</span></label>
+          <label><input type="radio" name="calcStyle" value="middle" checked><span>Middle</span></label>
+          <label><input type="radio" name="calcStyle" value="comfortable"><span>Comfortable</span></label>
+        </fieldset>
+        <div class="calc-field"><label for="calcFrom">Departure city (optional)</label><input id="calcFrom" type="text" placeholder="For a flight search link, e.g. Tirana"></div>
+      </form>
+      <div class="calc-result" id="calcResult" aria-live="polite">
+        <p class="calc-total-label">Estimated total for <span id="rTravellers">1 traveller</span>, <span id="rDays">7 days</span> in <span id="rPlace">Lisbon, Portugal</span></p>
+        <p class="calc-total" id="rTotal">$950</p>
+        <p class="calc-range" id="rRange">Range: $750 to $1,150 (Budget to Comfortable)</p>
+        <dl class="calc-breakdown">
+          <div><dt>Per person</dt><dd id="rPerPerson">$950</dd></div>
+          <div><dt>Per person, per day</dt><dd id="rPerDay">$135</dd></div>
+          <div data-style="budget"><dt>Budget total</dt><dd id="rBudget">$750</dd></div>
+          <div data-style="middle" class="is-selected"><dt>Middle total</dt><dd id="rMiddle">$950</dd></div>
+          <div data-style="comfortable"><dt>Comfortable total</dt><dd id="rComfortable">$1,150</dd></div>
+        </dl>
+        <p class="calc-note" id="rNote">Lodging, meals, local transport and activities per person. Flights are not included.</p>
+        <p class="calc-flights" id="rFlights">Enter your departure city to open a flight search for this trip.</p>
+        <p><a class="btn btn-primary" id="rLink" href="/lisbon">Open the 7-day itinerary</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT IS CALCULATED ============ -->
+<section class="calc-how">
+  <div class="container">
+    <div class="info-narrow">
+      <h2>How the estimate is calculated</h2>
+      <p>Every itinerary on TripToCost has a cost range per person for each trip length, from 1 day to the full trip. <strong>Budget</strong> uses the low end of that range, <strong>Comfortable</strong> the high end and <strong>Middle</strong> the midpoint. The total multiplies the per-person figure by the number of travellers. The estimate covers lodging, meals, local transport and activities, and leaves out international flights. Read more on <a href="/how-it-works#costs">how we estimate costs</a>.</p>
+      <details class="calc-all">
+        <summary>Cost per day for all 136 destinations</summary>
+        <div class="table-scroll">
+          <table class="hub-table">
+            <thead><tr><th scope="col">Destination</th><th scope="col">Trip</th><th scope="col">Per person</th><th scope="col">Per day</th></tr></thead>
+            <tbody>
+          <tr><th scope="row"><a href="/mostar">Mostar, Bosnia and Herzegovina</a></th><td>4 days</td><td class="num">$220-420</td><td class="num">$80</td></tr>
+          <tr><th scope="row"><a href="/zhangye">Zhangye, China</a></th><td>4 days</td><td class="num">$260-420</td><td class="num">$85</td></tr>
+          <tr><th scope="row"><a href="/luang-prabang">Luang Prabang, Laos</a></th><td>4 days</td><td class="num">$270-410</td><td class="num">$85</td></tr>
+          <tr><th scope="row"><a href="/zhangjiajie">Zhangjiajie, China</a></th><td>5 days</td><td class="num">$380-570</td><td class="num">$95</td></tr>
+          <tr><th scope="row"><a href="/chongqing">Chongqing, China</a></th><td>4 days</td><td class="num">$300-460</td><td class="num">$95</td></tr>
+          <tr><th scope="row"><a href="/alicante">Alicante, Spain</a></th><td>4 days</td><td class="num">$270-480</td><td class="num">$95</td></tr>
+          <tr><th scope="row"><a href="/dhermi">Dhërmi &amp; Palasë, Albania</a></th><td>4 days</td><td class="num">$280-480</td><td class="num">$95</td></tr>
+          <tr><th scope="row"><a href="/sharm-el-sheikh">Sharm el-Sheikh, Egypt</a></th><td>4 days</td><td class="num">$300-500</td><td class="num">$100</td></tr>
+          <tr><th scope="row"><a href="/saranda">Sarandë, Albania</a></th><td>4 days</td><td class="num">$300-500</td><td class="num">$100</td></tr>
+          <tr><th scope="row"><a href="/gran-canaria">Gran Canaria, Spain</a></th><td>4 days</td><td class="num">$300-500</td><td class="num">$100</td></tr>
+          <tr><th scope="row"><a href="/mardin">Mardin, Turkey</a></th><td>4 days</td><td class="num">$350-500</td><td class="num">$105</td></tr>
+          <tr><th scope="row"><a href="/beijing">Beijing, China</a></th><td>4 days</td><td class="num">$300-520</td><td class="num">$105</td></tr>
+          <tr><th scope="row"><a href="/malaga">Málaga, Spain</a></th><td>4 days</td><td class="num">$300-520</td><td class="num">$105</td></tr>
+          <tr><th scope="row"><a href="/budva">Budva, Montenegro</a></th><td>4 days</td><td class="num">$300-520</td><td class="num">$105</td></tr>
+          <tr><th scope="row"><a href="/gudauri">Tbilisi &amp; Gudauri, Georgia</a></th><td>4 days</td><td class="num">$300-520</td><td class="num">$105</td></tr>
+          <tr><th scope="row"><a href="/riga">Riga, Latvia</a></th><td>4 days</td><td class="num">$350-540</td><td class="num">$110</td></tr>
+          <tr><th scope="row"><a href="/albania">Krujë, the Blue Eye &amp; the Albanian Alps</a></th><td>6 days</td><td class="num">$550-750</td><td class="num">$110</td></tr>
+          <tr><th scope="row"><a href="/uludag">Uludağ &amp; Bursa, Turkey</a></th><td>4 days</td><td class="num">$330-550</td><td class="num">$110</td></tr>
+          <tr><th scope="row"><a href="/sofia">Sofia, Bulgaria</a></th><td>4 days</td><td class="num">$360-560</td><td class="num">$115</td></tr>
+          <tr><th scope="row"><a href="/marrakech">Marrakech, Morocco</a></th><td>5 days</td><td class="num">$440-700</td><td class="num">$115</td></tr>
+          <tr><th scope="row"><a href="/cusco">Cusco, Peru</a></th><td>4 days</td><td class="num">$350-550</td><td class="num">$115</td></tr>
+          <tr><th scope="row"><a href="/morocco">Fes, Chefchaouen &amp; the Sahara, Morocco</a></th><td>6 days</td><td class="num">$540-840</td><td class="num">$115</td></tr>
+          <tr><th scope="row"><a href="/jahorina">Sarajevo &amp; Jahorina, Bosnia and Herzegovina</a></th><td>4 days</td><td class="num">$350-560</td><td class="num">$115</td></tr>
+          <tr><th scope="row"><a href="/bali">Bali, Indonesia</a></th><td>7 days</td><td class="num">$700-1,000</td><td class="num">$120</td></tr>
+          <tr><th scope="row"><a href="/shanghai">Shanghai, China</a></th><td>5 days</td><td class="num">$460-720</td><td class="num">$120</td></tr>
+          <tr><th scope="row"><a href="/bansko">Bansko, Bulgaria</a></th><td>4 days</td><td class="num">$370-590</td><td class="num">$120</td></tr>
+          <tr><th scope="row"><a href="/seoul">Seoul, South Korea</a></th><td>5 days</td><td class="num">$480-740</td><td class="num">$120</td></tr>
+          <tr><th scope="row"><a href="/setenil">Setenil de las Bodegas, Spain</a></th><td>4 days</td><td class="num">$360-580</td><td class="num">$120</td></tr>
+          <tr><th scope="row"><a href="/lencois-maranhenses">Lençóis Maranhenses, Brazil</a></th><td>4 days</td><td class="num">$380-600</td><td class="num">$125</td></tr>
+          <tr><th scope="row"><a href="/kopaonik">Kopaonik, Serbia</a></th><td>4 days</td><td class="num">$380-620</td><td class="num">$125</td></tr>
+          <tr><th scope="row"><a href="/lisbon">Lisbon, Portugal</a></th><td>7 days</td><td class="num">$750-1,150</td><td class="num">$135</td></tr>
+          <tr><th scope="row"><a href="/thailand">Bangkok &amp; Andaman Coast, Thailand</a></th><td>7 days</td><td class="num">$800-1,100</td><td class="num">$135</td></tr>
+          <tr><th scope="row"><a href="/bardenas-reales">Bardenas Reales, Spain</a></th><td>4 days</td><td class="num">$430-640</td><td class="num">$135</td></tr>
+          <tr><th scope="row"><a href="/formentera">Formentera, Spain</a></th><td>4 days</td><td class="num">$430-650</td><td class="num">$135</td></tr>
+          <tr><th scope="row"><a href="/budapest">Budapest, Hungary</a></th><td>5 days</td><td class="num">$600-800</td><td class="num">$140</td></tr>
+          <tr><th scope="row"><a href="/tallinn">Tallinn, Estonia</a></th><td>4 days</td><td class="num">$440-670</td><td class="num">$140</td></tr>
+          <tr><th scope="row"><a href="/scottish-highlands">Scottish Highlands, Scotland</a></th><td>4 days</td><td class="num">$450-680</td><td class="num">$140</td></tr>
+          <tr><th scope="row"><a href="/kotor">Kotor, Montenegro</a></th><td>4 days</td><td class="num">$450-720</td><td class="num">$145</td></tr>
+          <tr><th scope="row"><a href="/plitvice-lakes">Plitvice Lakes, Croatia</a></th><td>3 days</td><td class="num">$340-540</td><td class="num">$145</td></tr>
+          <tr><th scope="row"><a href="/krakow">Krakow, Poland</a></th><td>4 days</td><td class="num">$450-700</td><td class="num">$145</td></tr>
+          <tr><th scope="row"><a href="/curacao">Curaçao, Caribbean</a></th><td>4 days</td><td class="num">$450-700</td><td class="num">$145</td></tr>
+          <tr><th scope="row"><a href="/dubai">Dubai, United Arab Emirates</a></th><td>4 days</td><td class="num">$450-700</td><td class="num">$145</td></tr>
+          <tr><th scope="row"><a href="/prague">Prague, Czech Republic</a></th><td>4 days</td><td class="num">$460-730</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/zakopane">Zakopane, Poland</a></th><td>4 days</td><td class="num">$500-700</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/bangkok-phuket">Bangkok &amp; Phuket, Thailand</a></th><td>6 days</td><td class="num">$750-1,050</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/mount-fuji">Fuji Five Lakes, Japan</a></th><td>4 days</td><td class="num">$480-720</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/salar-de-uyuni">Salar de Uyuni, Bolivia</a></th><td>4 days</td><td class="num">$460-720</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/yoshino">Yoshino, Japan</a></th><td>3 days</td><td class="num">$350-540</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/chiang-mai">Chiang Mai, Thailand</a></th><td>4 days</td><td class="num">$480-720</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/nepal">Nepal</a></th><td>6 days</td><td class="num">$750-1,050</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/dresden">Dresden, Germany</a></th><td>4 days</td><td class="num">$460-720</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/borovets">Borovets, Bulgaria</a></th><td>4 days</td><td class="num">$480-700</td><td class="num">$150</td></tr>
+          <tr><th scope="row"><a href="/athens">Athens, Greece</a></th><td>7 days</td><td class="num">$880-1,300</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/ljubljana">Ljubljana, Slovenia</a></th><td>4 days</td><td class="num">$480-740</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/rio-de-janeiro">Rio de Janeiro, Brazil</a></th><td>5 days</td><td class="num">$600-940</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/egypt">Cairo, Egypt</a></th><td>7 days</td><td class="num">$850-1,300</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/iguazu-falls">Iguazu Falls, Argentina &amp; Brazil</a></th><td>4 days</td><td class="num">$480-750</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/nuremberg">Nuremberg, Germany</a></th><td>4 days</td><td class="num">$480-740</td><td class="num">$155</td></tr>
+          <tr><th scope="row"><a href="/seville">Seville, Spain</a></th><td>4 days</td><td class="num">$500-800</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/valletta">Valletta, Malta</a></th><td>3 days</td><td class="num">$380-600</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/crete">Crete, Greece</a></th><td>6 days</td><td class="num">$850-1,150</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/istanbul">Istanbul, Turkey</a></th><td>4 days</td><td class="num">$520-780</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/berlin">Berlin, Germany</a></th><td>4 days</td><td class="num">$520-800</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/livigno">Livigno, Italy</a></th><td>4 days</td><td class="num">$540-780</td><td class="num">$165</td></tr>
+          <tr><th scope="row"><a href="/amalfi-coast">Amalfi Coast, Italy</a></th><td>7 days</td><td class="num">$950-1,450</td><td class="num">$170</td></tr>
+          <tr><th scope="row"><a href="/machu-picchu">Machu Picchu, Peru</a></th><td>5 days</td><td class="num">$700-1,000</td><td class="num">$170</td></tr>
+          <tr><th scope="row"><a href="/utah-national-parks">Utah, USA</a></th><td>7 days</td><td class="num">$950-1,500</td><td class="num">$175</td></tr>
+          <tr><th scope="row"><a href="/quebec-city">Quebec City, Canada</a></th><td>4 days</td><td class="num">$560-850</td><td class="num">$175</td></tr>
+          <tr><th scope="row"><a href="/cappadocia">Cappadocia, Turkey</a></th><td>4 days</td><td class="num">$600-850</td><td class="num">$180</td></tr>
+          <tr><th scope="row"><a href="/mauritius">Mauritius</a></th><td>5 days</td><td class="num">$720-1,060</td><td class="num">$180</td></tr>
+          <tr><th scope="row"><a href="/luxembourg">Luxembourg City, Luxembourg</a></th><td>4 days</td><td class="num">$600-850</td><td class="num">$180</td></tr>
+          <tr><th scope="row"><a href="/niseko">Niseko, Japan</a></th><td>4 days</td><td class="num">$620-820</td><td class="num">$180</td></tr>
+          <tr><th scope="row"><a href="/schladming">Schladming, Austria</a></th><td>4 days</td><td class="num">$620-850</td><td class="num">$185</td></tr>
+          <tr><th scope="row"><a href="/milano">Milan, Italy</a></th><td>4 days</td><td class="num">$650-850</td><td class="num">$190</td></tr>
+          <tr><th scope="row"><a href="/madeira">Madeira, Portugal</a></th><td>5 days</td><td class="num">$800-1,100</td><td class="num">$190</td></tr>
+          <tr><th scope="row"><a href="/strasbourg">Strasbourg, France</a></th><td>4 days</td><td class="num">$650-850</td><td class="num">$190</td></tr>
+          <tr><th scope="row"><a href="/tenerife">Tenerife, Spain</a></th><td>5 days</td><td class="num">$740-1,150</td><td class="num">$190</td></tr>
+          <tr><th scope="row"><a href="/vienna">Vienna, Austria</a></th><td>4 days</td><td class="num">$600-930</td><td class="num">$190</td></tr>
+          <tr><th scope="row"><a href="/bordeaux">Bordeaux, France</a></th><td>4 days</td><td class="num">$600-940</td><td class="num">$195</td></tr>
+          <tr><th scope="row"><a href="/puglia">Puglia, Italy</a></th><td>6 days</td><td class="num">$1,000-1,350</td><td class="num">$195</td></tr>
+          <tr><th scope="row"><a href="/salzburg">Salzburg, Austria</a></th><td>4 days</td><td class="num">$620-920</td><td class="num">$195</td></tr>
+          <tr><th scope="row"><a href="/singapore">Singapore</a></th><td>4 days</td><td class="num">$600-950</td><td class="num">$195</td></tr>
+          <tr><th scope="row"><a href="/rome">Rome, Italy</a></th><td>4 days</td><td class="num">$650-900</td><td class="num">$195</td></tr>
+          <tr><th scope="row"><a href="/barcelona">Barcelona, Spain</a></th><td>3 days</td><td class="num">$500-700</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/canary-islands">Canary Islands, Spain</a></th><td>7 days</td><td class="num">$1,200-1,600</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/edinburgh">Edinburgh, Scotland</a></th><td>4 days</td><td class="num">$700-900</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/bruges">Bruges, Belgium</a></th><td>3 days</td><td class="num">$500-700</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/hakone">Hakone, Japan</a></th><td>3 days</td><td class="num">$460-740</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/bavaria">Bavaria, Germany</a></th><td>6 days</td><td class="num">$1,000-1,400</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/san-juan">San Juan, Puerto Rico</a></th><td>4 days</td><td class="num">$630-980</td><td class="num">$200</td></tr>
+          <tr><th scope="row"><a href="/hallstatt">Hallstatt, Austria</a></th><td>3 days</td><td class="num">$480-750</td><td class="num">$205</td></tr>
+          <tr><th scope="row"><a href="/annecy">Annecy, France</a></th><td>4 days</td><td class="num">$700-950</td><td class="num">$205</td></tr>
+          <tr><th scope="row"><a href="/algarve">Algarve, Portugal</a></th><td>4 days</td><td class="num">$700-950</td><td class="num">$205</td></tr>
+          <tr><th scope="row"><a href="/mont-saint-michel">Mont Saint-Michel, France</a></th><td>3 days</td><td class="num">$480-750</td><td class="num">$205</td></tr>
+          <tr><th scope="row"><a href="/paris">Paris, France</a></th><td>3 days</td><td class="num">$550-750</td><td class="num">$215</td></tr>
+          <tr><th scope="row"><a href="/toscana">Tuscany, Italy</a></th><td>6 days</td><td class="num">$1,100-1,500</td><td class="num">$215</td></tr>
+          <tr><th scope="row"><a href="/austrian-alps">Austrian Alps, Austria</a></th><td>5 days</td><td class="num">$850-1,300</td><td class="num">$215</td></tr>
+          <tr><th scope="row"><a href="/colmar">Colmar, France</a></th><td>4 days</td><td class="num">$750-1,000</td><td class="num">$220</td></tr>
+          <tr><th scope="row"><a href="/oslo">Oslo, Norway</a></th><td>4 days</td><td class="num">$720-1,040</td><td class="num">$220</td></tr>
+          <tr><th scope="row"><a href="/whistler">Whistler, Canada</a></th><td>4 days</td><td class="num">$750-1,000</td><td class="num">$220</td></tr>
+          <tr><th scope="row"><a href="/valensole">Valensole, France</a></th><td>4 days</td><td class="num">$720-1,080</td><td class="num">$225</td></tr>
+          <tr><th scope="row"><a href="/nice">Nice, France</a></th><td>7 days</td><td class="num">$1,250-1,950</td><td class="num">$230</td></tr>
+          <tr><th scope="row"><a href="/tokyo-kyoto">Tokyo &amp; Kyoto, Japan</a></th><td>7 days</td><td class="num">$1,400-1,900</td><td class="num">$235</td></tr>
+          <tr><th scope="row"><a href="/stockholm">Stockholm, Sweden</a></th><td>5 days</td><td class="num">$1,000-1,400</td><td class="num">$240</td></tr>
+          <tr><th scope="row"><a href="/london">London, England</a></th><td>5 days</td><td class="num">$1,000-1,400</td><td class="num">$240</td></tr>
+          <tr><th scope="row"><a href="/bergen">Bergen, Norway</a></th><td>4 days</td><td class="num">$760-1,150</td><td class="num">$240</td></tr>
+          <tr><th scope="row"><a href="/marble-caves">Marble Caves, Chile</a></th><td>4 days</td><td class="num">$800-1,100</td><td class="num">$240</td></tr>
+          <tr><th scope="row"><a href="/sedona">Sedona, USA</a></th><td>4 days</td><td class="num">$800-1,100</td><td class="num">$240</td></tr>
+          <tr><th scope="row"><a href="/socotra">Socotra Island, Yemen</a></th><td>5 days</td><td class="num">$1,000-1,450</td><td class="num">$245</td></tr>
+          <tr><th scope="row"><a href="/dublin">Dublin, Ireland</a></th><td>4 days</td><td class="num">$850-1,150</td><td class="num">$250</td></tr>
+          <tr><th scope="row"><a href="/dolomites">Val Gardena, Italy</a></th><td>6 days</td><td class="num">$1,300-1,750</td><td class="num">$255</td></tr>
+          <tr><th scope="row"><a href="/val-gardena-ski">Val Gardena, Italy</a></th><td>4 days</td><td class="num">$900-1,150</td><td class="num">$255</td></tr>
+          <tr><th scope="row"><a href="/waitomo">Waitomo, New Zealand</a></th><td>3 days</td><td class="num">$650-900</td><td class="num">$260</td></tr>
+          <tr><th scope="row"><a href="/mykonos">Mykonos, Greece</a></th><td>5 days</td><td class="num">$1,100-1,500</td><td class="num">$260</td></tr>
+          <tr><th scope="row"><a href="/brussels">Brussels, Belgium</a></th><td>3 days</td><td class="num">$650-900</td><td class="num">$260</td></tr>
+          <tr><th scope="row"><a href="/copenhagen">Copenhagen, Denmark</a></th><td>4 days</td><td class="num">$830-1,300</td><td class="num">$265</td></tr>
+          <tr><th scope="row"><a href="/milos">Milos, Greece</a></th><td>4 days</td><td class="num">$900-1,200</td><td class="num">$265</td></tr>
+          <tr><th scope="row"><a href="/chamonix">Chamonix, France</a></th><td>5 days</td><td class="num">$1,050-1,650</td><td class="num">$270</td></tr>
+          <tr><th scope="row"><a href="/cortina-dampezzo">Cortina d'Ampezzo, Italy</a></th><td>4 days</td><td class="num">$850-1,350</td><td class="num">$275</td></tr>
+          <tr><th scope="row"><a href="/antelope-canyon">Page, Arizona, USA</a></th><td>3 days</td><td class="num">$700-1,070</td><td class="num">$295</td></tr>
+          <tr><th scope="row"><a href="/madagascar">Madagascar</a></th><td>6 days</td><td class="num">$1,550-2,050</td><td class="num">$300</td></tr>
+          <tr><th scope="row"><a href="/iceland">Iceland</a></th><td>5 days</td><td class="num">$1,350-2,050</td><td class="num">$340</td></tr>
+          <tr><th scope="row"><a href="/banff">Banff, Canada</a></th><td>7 days</td><td class="num">$2,050-2,750</td><td class="num">$345</td></tr>
+          <tr><th scope="row"><a href="/lauterbrunnen">Lauterbrunnen, Switzerland</a></th><td>3 days</td><td class="num">$850-1,300</td><td class="num">$360</td></tr>
+          <tr><th scope="row"><a href="/new-york-city">New York City, USA</a></th><td>2 days</td><td class="num">$650-850</td><td class="num">$375</td></tr>
+          <tr><th scope="row"><a href="/grindelwald">Grindelwald, Switzerland</a></th><td>4 days</td><td class="num">$1,200-1,850</td><td class="num">$380</td></tr>
+          <tr><th scope="row"><a href="/lofoten">Lofoten Islands, Norway</a></th><td>5 days</td><td class="num">$1,600-2,200</td><td class="num">$380</td></tr>
+          <tr><th scope="row"><a href="/zermatt">Zermatt, Switzerland</a></th><td>4 days</td><td class="num">$1,250-1,950</td><td class="num">$400</td></tr>
+          <tr><th scope="row"><a href="/megeve">Megève, France</a></th><td>4 days</td><td class="num">$1,250-1,950</td><td class="num">$400</td></tr>
+          <tr><th scope="row"><a href="/tromso">Tromsø, Norway</a></th><td>4 days</td><td class="num">$1,300-1,980</td><td class="num">$410</td></tr>
+          <tr><th scope="row"><a href="/abisko">Abisko, Sweden</a></th><td>4 days</td><td class="num">$1,400-1,900</td><td class="num">$415</td></tr>
+          <tr><th scope="row"><a href="/vatnajokull">Vatnajökull, Iceland</a></th><td>4 days</td><td class="num">$1,350-1,950</td><td class="num">$415</td></tr>
+          <tr><th scope="row"><a href="/lapland">Finnish Lapland</a></th><td>5 days</td><td class="num">$1,800-2,400</td><td class="num">$420</td></tr>
+          <tr><th scope="row"><a href="/interlaken">Interlaken, Switzerland</a></th><td>4 days</td><td class="num">$1,500-2,000</td><td class="num">$440</td></tr>
+          <tr><th scope="row"><a href="/serengeti">Tanzania</a></th><td>5 days</td><td class="num">$1,800-2,700</td><td class="num">$450</td></tr>
+          <tr><th scope="row"><a href="/st-moritz">St. Moritz, Switzerland</a></th><td>4 days</td><td class="num">$1,900-2,600</td><td class="num">$565</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="calc-note">Per person for the full itinerary, flights excluded, in US dollars. Per day is the midpoint divided by the trip length. Sorted from the lowest cost per day.</p>
+      </details>
+      <h2 class="faq-title">Cost calculator FAQ</h2>
+      <div class="hub-faq">
+        <details>
+          <summary><h3>How does the trip cost calculator work?</h3></summary>
+          <p>It uses the cost range printed on each itinerary: a low figure for a careful budget and a high figure for a comfortable version, for every trip length from 1 day up to the full itinerary. Budget uses the low figure, Middle uses the midpoint and Comfortable uses the high figure. The total is that per-person figure multiplied by the number of travellers.</p>
+        </details>
+        <details>
+          <summary><h3>What does the estimate include?</h3></summary>
+          <p>Lodging, mid-range meals, local transport and activities per person. International flights are not included, because they depend on where you start.</p>
+        </details>
+        <details>
+          <summary><h3>Why is the price per day higher on short trips?</h3></summary>
+          <p>Getting there and the first night cost the same whether you stay one day or seven, so shorter trips cost less in total but more per day.</p>
+        </details>
+        <details>
+          <summary><h3>Does the total change for two people sharing a room?</h3></summary>
+          <p>A shared room usually lowers the lodging cost per person, but our figures do not split lodging out, so the calculator simply multiplies the per-person estimate. For two or more travellers, treat the total as a cautious upper estimate.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mark" role="img" aria-label="TripToCost logo"></span> TripToCost</a>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="/browse">Browse Destinations</a></li>
+          <li><a href="/christmas-markets">Christmas Markets</a></li>
+          <li><a href="/winter-sun-destinations">Winter Sun</a></li>
+          <li><a href="/winter-trips">Winter Trips</a></li>
+          <li><a href="/autumn-trips">Autumn Trips</a></li>
+          <li><a href="/#browse">Featured Itineraries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/cost-calculator">Cost Calculator</a></li>
+          <li><a href="/how-it-works#costs">How We Estimate Costs</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TripToCost. All rights reserved.</span>
+      <span class="footer-note">✈ Every itinerary starts from your airport arrival.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js?v=20261109f"></script>
+<script src="/js/cost-data.js?v=20261109g"></script>
+<script src="/js/cost-calc.js?v=20261109g"></script>
+</body>
+</html>

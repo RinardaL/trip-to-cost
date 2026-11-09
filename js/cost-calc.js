@@ -13,7 +13,6 @@
     trip: document.getElementById("calcTrip"),
     days: document.getElementById("calcDays"),
     trav: document.getElementById("calcTravellers"),
-    from: document.getElementById("calcFrom"),
     place: document.getElementById("rPlace"),
     rDays: document.getElementById("rDays"),
     rTrav: document.getElementById("rTravellers"),
@@ -25,7 +24,6 @@
     middle: document.getElementById("rMiddle"),
     comfortable: document.getElementById("rComfortable"),
     note: document.getElementById("rNote"),
-    flights: document.getElementById("rFlights"),
     link: document.getElementById("rLink"),
     breakdown: document.querySelector(".calc-breakdown")
   };
@@ -51,8 +49,6 @@
     els.days.innerHTML = html;
   }
 
-  function city(place) { return place.split(",")[0].replace(/\s*&.*$/, "").trim(); }
-
   function render() {
     var trip = byId[els.trip.value] || byId.lisbon;
     var days = Math.min(parseInt(els.days.value, 10) || trip.n, trip.n);
@@ -75,22 +71,9 @@
       d.classList.toggle("is-selected", d.getAttribute("data-style") === style());
     });
     els.note.textContent = travellers > 1
-      ? "Per-person estimate multiplied by " + travellers + ". Shared rooms can lower the lodging cost, so treat this as a cautious upper estimate. Flights are not included."
-      : "Lodging, meals, local transport and activities per person. Flights are not included.";
+      ? "Per-person estimate multiplied by " + travellers + ". Shared rooms can lower the lodging cost, so treat this as a cautious upper estimate. Flights are not included in this estimate."
+      : "Lodging, meals, local transport and activities per person. Flights are not included in this estimate.";
 
-    var origin = els.from.value.trim();
-    if (origin) {
-      var q = "Flights from " + origin + " to " + city(trip.place);
-      els.flights.innerHTML = "";
-      var a = document.createElement("a");
-      a.href = "https://www.google.com/travel/flights?q=" + encodeURIComponent(q);
-      a.target = "_blank"; a.rel = "noopener noreferrer";
-      a.textContent = "Search flights from " + origin + " to " + city(trip.place);
-      els.flights.appendChild(a);
-      els.flights.appendChild(document.createTextNode(" (opens Google Flights; flights are not in the estimate)"));
-    } else {
-      els.flights.textContent = "Enter your departure city to open a flight search for this trip.";
-    }
     els.link.href = "/" + trip.id;
     els.link.textContent = "Open the " + trip.n + "-day itinerary";
     try {

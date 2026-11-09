@@ -97,7 +97,6 @@
           <label><input type="radio" name="calcStyle" value="middle" checked><span>Middle</span></label>
           <label><input type="radio" name="calcStyle" value="comfortable"><span>Comfortable</span></label>
         </fieldset>
-        <div class="calc-field"><label for="calcFrom">Departure city (optional)</label><input id="calcFrom" type="text" placeholder="For a flight search link, e.g. Tirana"></div>
       </form>
       <div class="calc-result" id="calcResult" aria-live="polite">
         <p class="calc-total-label">Estimated total for <span id="rTravellers">1 traveller</span>, <span id="rDays">7 days</span> in <span id="rPlace">Lisbon, Portugal</span></p>
@@ -110,8 +109,7 @@
           <div data-style="middle" class="is-selected"><dt>Middle total</dt><dd id="rMiddle">$950</dd></div>
           <div data-style="comfortable"><dt>Comfortable total</dt><dd id="rComfortable">$1,150</dd></div>
         </dl>
-        <p class="calc-note" id="rNote">Lodging, meals, local transport and activities per person. Flights are not included.</p>
-        <p class="calc-flights" id="rFlights">Enter your departure city to open a flight search for this trip.</p>
+        <p class="calc-note" id="rNote">Lodging, meals, local transport and activities per person. Flights are not included in this estimate.</p>
         <p><a class="btn btn-primary" id="rLink" href="/lisbon">Open the 7-day itinerary</a></p>
       </div>
     </div>
@@ -338,7 +336,7 @@
 </footer>
 
 <script src="/js/main.js?v=20261109f"></script>
-<script src="/js/cost-data.js?v=20261109g"></script>
-<script src="/js/cost-calc.js?v=20261109g"></script>
+<script src="/js/cost-data.js?v=20261109h"></script>
+<script src="/js/cost-calc.js?v=20261109h"></script>
 </body>
 </html>

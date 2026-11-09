@@ -74,7 +74,7 @@ const TRIP_CATALOG = {
   "cortina-dampezzo": { title: "4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury", place: "Cortina d'Ampezzo, Italy", tag: "Mountain Escapes", duration: "4 Days", cost: "$850-1,350/person", img: "https://images.unsplash.com/photo-1508409941519-8b2340520012?w=500&q=80&fm=jpg&fit=crop", alt: "The Dolomites' enrosadira alpenglow, a mountain peak glowing pink-orange at sunset above a forested ridge", country: "Italy", continent: "Europe", lat: 46.54, lon: 12.14, season: "Jun – Sep" },
   "bordeaux": { title: "4 Days in Bordeaux: Old Town, La Cité du Vin & Saint-Émilion", place: "Bordeaux, France", tag: "Historic Old Towns", duration: "4 Days", cost: "$600-940/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Bordeaux_place_de_la_bourse_with_tram.JPG/500px-Bordeaux_place_de_la_bourse_with_tram.JPG", alt: "Place de la Bourse and a tram, Bordeaux", country: "France", continent: "Europe", lat: 44.84, lon: -0.58, season: "May – Jun, Sep" },
   "st-moritz": { title: "4 Days in St. Moritz: Ski Slopes, the Cresta Run & Frozen-Lake Glamour", place: "St. Moritz, Switzerland", tag: "Mountain Escapes", duration: "4 Days", cost: "$1,900-2,600/person", img: "https://images.unsplash.com/photo-1547980562-3c008cd4b769?w=500&q=80&fm=jpg&fit=crop", alt: "Snow-covered chalets in the Engadin valley near St. Moritz, Switzerland, under a clear winter sky", country: "Switzerland", continent: "Europe", lat: 46.50, lon: 9.84, season: "Dec – Mar" },
-  "dolomites": { title: "6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes", place: "Val Gardena, Italy", tag: "Mountain Escapes", duration: "6 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg/1280px-Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg", alt: "The jagged Geisler-Odle peaks seen from the green Seceda ridge in summer, Val Gardena, Dolomites", country: "Italy", continent: "Europe", lat: 46.57, lon: 11.68, season: "Jun – Sep" },
+  "dolomites": { title: "6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes", place: "Val Gardena, Italy", label: "Val Gardena, Italy (Summer hiking)", tag: "Mountain Escapes", duration: "6 Days", cost: "$1,300-1,750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg/1280px-Odles_da_Sec%C3%ABda_Gherd%C3%ABina.jpg", alt: "The jagged Geisler-Odle peaks seen from the green Seceda ridge in summer, Val Gardena, Dolomites", country: "Italy", continent: "Europe", lat: 46.57, lon: 11.68, season: "Jun – Sep" },
   "marrakech": { title: "5 Days in Marrakech: Medina Souks, Palaces & the High Atlas", place: "Marrakech, Morocco", tag: "Historic Old Towns", duration: "5 Days", cost: "$440-700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Jemaa_el-Fnaa_%287346166250%29.jpg/500px-Jemaa_el-Fnaa_%287346166250%29.jpg", alt: "Jemaa el-Fnaa square and the Marrakech souks seen from above, Morocco", country: "Morocco", continent: "Africa", lat: 31.63, lon: -7.99, season: "Mar – May, Oct – Nov" },
   "tromso": { title: "4 Days in Tromsø: Polar Night Christmas, Aurora & Whale Watching", place: "Tromsø, Norway", tag: "Lakes & Nature", duration: "4 Days", cost: "$1,300-1,980/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Morketidettermiddag.JPG/500px-Morketidettermiddag.JPG", alt: "Tromsø at early afternoon in the polar night, with the lit Tromsø Bridge, the glowing Arctic Cathedral and the city lights under a purple twilight sky and snowy mountains", country: "Norway", continent: "Europe", lat: 69.65, lon: 18.96, season: "Nov – Mar (Christmas & New Year peak)" },
   "stockholm": { title: "5 Days in Stockholm: Gamla Stan, the Vasa Museum & the Archipelago", place: "Stockholm, Sweden", tag: "Modern Cities", duration: "5 Days", cost: "$1,000-1,400/person", img: "https://images.unsplash.com/photo-1754408402234-eebbb9f77351?w=500&q=80&fm=jpg&fit=crop", alt: "Colorful waterfront buildings and church spires across the Stockholm skyline in summer", country: "Sweden", continent: "Europe", lat: 59.33, lon: 18.07, season: "May – Sep" },
@@ -162,7 +162,13 @@ const TRIP_CATALOG = {
   "formentera": { title: "4 Days in Formentera: Ses Illetes, Cala Saona & Cap de Barbaria", place: "Formentera, Spain", tag: "Beach & Coastal", duration: "4 Days", cost: "$430-650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Formentera_-_Platja_De_Ses_Illetes_-_panoramio_%281%29.jpg/500px-Formentera_-_Platja_De_Ses_Illetes_-_panoramio_%281%29.jpg", alt: "The narrow white sand spit of Ses Illetes on Formentera, with turquoise sea on both sides and a few sunbathers on the sand", country: "Spain", continent: "Europe", lat: 38.7, lon: 1.45, season: "May – Jun, Sep – Oct" },
   "setenil": { title: "4 Days in Setenil de las Bodegas & the White Villages of Andalusia", place: "Setenil de las Bodegas, Spain", tag: "Historic Old Towns", duration: "4 Days", cost: "$360-580/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Setenil_de_las_Bodegas_2019-10-23_03.jpg/500px-Setenil_de_las_Bodegas_2019-10-23_03.jpg", alt: "A whitewashed street in Setenil de las Bodegas running beneath an overhanging rock", country: "Spain", continent: "Europe", lat: 36.86, lon: -5.18, season: "Mar – May, Sep – Nov" },
   "scottish-highlands": { title: "4 Days in the Scottish Highlands: A Self-Drive Road Trip", place: "Scottish Highlands, Scotland", tag: "Road Trips & National Parks", duration: "4 Days", cost: "$450-680/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Lagangarbh_cottage_with_Buachaille_Etive_M%C3%B2r.jpg/500px-Lagangarbh_cottage_with_Buachaille_Etive_M%C3%B2r.jpg", alt: "Buachaille Etive Mòr rising above a white cottage and green moorland at the head of Glen Coe", country: "Scotland", continent: "Europe", lat: 57.2, lon: -4.8, season: "Apr – Jun, Sep – Oct" },
-  "val-gardena-ski": { title: "4 Days Skiing in Val Gardena: Sella Ronda, Seceda & Alpe di Siusi", place: "Val Gardena, Italy", tag: "Mountain Escapes", duration: "4 Days", cost: "$900-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Val_Gardena_-_Gr%C3%B6den_winter.jpg/500px-Val_Gardena_-_Gr%C3%B6den_winter.jpg", alt: "A snowfield with ski tracks in Val Gardena, with the Sassolungo massif rising in the distance under a pale blue sky", country: "Italy", continent: "Europe", lat: 46.56, lon: 11.67, season: "Dec – Mar" },
+  "val-gardena-ski": { title: "4 Days Skiing in Val Gardena: Sella Ronda, Seceda & Alpe di Siusi", place: "Val Gardena, Italy", label: "Val Gardena, Italy (Winter ski)", tag: "Mountain Escapes", duration: "4 Days", cost: "$900-1,150/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Val_Gardena_-_Gr%C3%B6den_winter.jpg/500px-Val_Gardena_-_Gr%C3%B6den_winter.jpg", alt: "A snowfield with ski tracks in Val Gardena, with the Sassolungo massif rising in the distance under a pale blue sky", country: "Italy", continent: "Europe", lat: 46.56, lon: 11.67, season: "Dec – Mar" },
+  "whistler": { title: "4 Days in Whistler: Skiing, Peak 2 Peak & Budget Tips", place: "Whistler, Canada", tag: "Mountain Escapes", duration: "4 Days", cost: "$750-1,000/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/2010-4_Whistler-Blackcomb_day_trip_%2816127495416%29.jpg/500px-2010-4_Whistler-Blackcomb_day_trip_%2816127495416%29.jpg", alt: "A snow-covered peak at Whistler Blackcomb with chairlifts crossing the slope under a blue sky", country: "Canada", continent: "North America", lat: 50.12, lon: -122.95, season: "Dec – Apr" },
+  "kopaonik": { title: "4 Days in Kopaonik: A Budget Ski Trip in Serbia", place: "Kopaonik, Serbia", tag: "Mountain Escapes", duration: "4 Days", cost: "$380-620/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Kopaonik_ski_staza_-_panoramio.jpg/500px-Kopaonik_ski_staza_-_panoramio.jpg", alt: "Skiers on a wide groomed run at Kopaonik with spruce forest and the snow-capped ridge of Pančićev vrh behind", country: "Serbia", continent: "Europe", lat: 43.29, lon: 20.81, season: "Dec – Mar" },
+  "jahorina": { title: "4 Days in Sarajevo & Jahorina: Old Town, Olympic Sites & Skiing", place: "Sarajevo & Jahorina, Bosnia and Herzegovina", tag: "Mountain Escapes", duration: "4 Days", cost: "$350-560/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Jahorina_mountain_2018.jpg/500px-Jahorina_mountain_2018.jpg", alt: "A ski chairlift pylon on Jahorina in the Bosnian mountains at sunset, with soft snow in the foreground", country: "Bosnia and Herzegovina", continent: "Europe", lat: 43.73, lon: 18.57, season: "Dec – Mar" },
+  "gudauri": { title: "4 Days in Tbilisi & Gudauri: Baths, Mountain Road & Skiing", place: "Tbilisi & Gudauri, Georgia", tag: "Mountain Escapes", duration: "4 Days", cost: "$300-520/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Snow_on_a_mountain_in_Gudauri_%28Unsplash%29.jpg/500px-Snow_on_a_mountain_in_Gudauri_%28Unsplash%29.jpg", alt: "Steep snow-covered mountain faces and ridges above the Gudauri ski area in the Greater Caucasus", country: "Georgia", continent: "Asia", lat: 42.48, lon: 44.48, season: "Dec – Mar" },
+  "niseko": { title: "4 Days in Niseko: Powder Skiing, Onsen & Ramen on a Budget", place: "Niseko, Japan", tag: "Mountain Escapes", duration: "4 Days", cost: "$620-820/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mount_Y%C5%8Dtei_and_Mount_Niseko-Annupuri.jpg/500px-Mount_Y%C5%8Dtei_and_Mount_Niseko-Annupuri.jpg", alt: "Mount Yotei and the snow-covered slopes of Mount Niseko-Annupuri under a clear blue winter sky", country: "Japan", continent: "Asia", lat: 42.86, lon: 140.7, season: "Dec – Mar" },
+  "uludag": { title: "4 Days in Uludağ & Bursa: Skiing, Mosques & Thermal Baths", place: "Uludağ & Bursa, Turkey", tag: "Mountain Escapes", duration: "4 Days", cost: "$330-550/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Uluda%C4%9F_zirve.jpg/500px-Uluda%C4%9F_zirve.jpg", alt: "The snowy summit plateau of Uludağ with fir trees, a few skiers and a low sun behind streaks of cloud", country: "Turkey", continent: "Asia", lat: 40.07, lon: 29.13, season: "Dec – Mar" },
 };
 
 /* ---------- Day-level search index: lets search surface a specific landmark buried
@@ -747,6 +753,30 @@ const DAY_INDEX = [
   { page: "val-gardena-ski", day: 2, title: "The Sella Ronda: Four Passes in One Day", text: "The Sella Ronda: Four Passes in One Day · Selva to Passo Gardena, Colfosco & Corvara · Passo Campolongo, Arabba & Passo Pordoi · Canazei, Passo Sella & back to Selva", place: "Val Gardena, Italy" },
   { page: "val-gardena-ski", day: 3, title: "Seceda & the La Longia Run", text: "Seceda & the La Longia Run · The Ortisei to Seceda cable car · La Longia, 10 km back to Ortisei · Après-ski, ice skating or a swim in Ortisei", place: "Val Gardena, Italy" },
   { page: "val-gardena-ski", day: 4, title: "Alpe di Siusi & the Journey Home", text: "Alpe di Siusi & the Journey Home · The Ortisei to Alpe di Siusi gondola · Skiing, sledging or snowshoeing on the plateau · Bus 350 to Bolzano & the journey home", place: "Val Gardena, Italy" },
+  { page: "whistler", day: 1, title: "Arrival, the Sea to Sky Route & Whistler Village", text: "Arrival, the Sea to Sky Route & Whistler Village · Arrival at YVR & the Sea to Sky bus · Check-in, Whistler Village & a grocery shop · Olympic Plaza & a cheap first dinner", place: "Whistler, Canada" },
+  { page: "whistler", day: 2, title: "Whistler Mountain: Rentals, Roundhouse & Creekside", text: "Whistler Mountain: Rentals, Roundhouse & Creekside · Rentals & the Whistler Village Gondola · Roundhouse Lodge & the alpine · Creekside, après & the bus back", place: "Whistler, Canada" },
+  { page: "whistler", day: 3, title: "Blackcomb & the Peak 2 Peak Gondola", text: "Blackcomb & the Peak 2 Peak Gondola · Blackcomb Mountain from the Upper Village · The Peak 2 Peak Gondola · Après-ski & the Village at night", place: "Whistler, Canada" },
+  { page: "whistler", day: 4, title: "Lost Lake, a Last Village Walk & Departure", text: "Lost Lake, a Last Village Walk & Departure · Lost Lake snowshoe & Nordic trails · Last lunch, souvenirs & bag storage · Bus to YVR & departure", place: "Whistler, Canada" },
+  { page: "kopaonik", day: 1, title: "Arrival at Belgrade, the Road to Kopaonik & Centar", text: "Arrival at Belgrade, the Road to Kopaonik & Centar · Arrival at Belgrade & the A1 minibus · The road to Kopaonik: coach, minibus or hire car · Check in at Centar & a first pljeskavica", place: "Kopaonik, Serbia" },
+  { page: "kopaonik", day: 2, title: "Ski Pass, Rental & the Easy Blue Runs", text: "Ski Pass, Rental & the Easy Blue Runs · Ski pass, rental & the ski kindergarten · Easy blues: Sunčana Dolina, Malo Jezero & Karaman Greben · Après-ski, night skiing & hot rakija", place: "Kopaonik, Serbia" },
+  { page: "kopaonik", day: 3, title: "Pančićev Vrh, Suvo Rudište & the Red Runs", text: "Pančićev Vrh, Suvo Rudište & the Red Runs · Pančićev Vrh: the summit chairlift · Suvo Rudište & the Brzeće gondola · Serbian dinner: pljeskavica, kajmak & rakija", place: "Kopaonik, Serbia" },
+  { page: "kopaonik", day: 4, title: "Studenica or Sopoćani, then Departure", text: "Studenica or Sopoćani, then Departure · Raška & Studenica Monastery (optional) · Sopoćani, or lunch in Raška · Back to Belgrade & the airport", place: "Kopaonik, Serbia" },
+  { page: "jahorina", day: 1, title: "Arrival, Baščaršija & the Vijećnica", text: "Arrival, Baščaršija & the Vijećnica · Arrival at Sarajevo Airport & the bus to Baščaršija · Baščaršija & the Sebilj · The Vijećnica, the Latin Bridge & a first ćevapi", place: "Sarajevo & Jahorina, Bosnia and Herzegovina" },
+  { page: "jahorina", day: 2, title: "The 1984 Olympic Sites & the Move Up to Jahorina", text: "The 1984 Olympic Sites & the Move Up to Jahorina · Trebević cable car & the Olympic bobsled track · The Zetra Olympic Hall · Transfer to Jahorina", place: "Sarajevo & Jahorina, Bosnia and Herzegovina" },
+  { page: "jahorina", day: 3, title: "A Ski Day on Jahorina", text: "A Ski Day on Jahorina · Lift pass, rental & the Poljice slopes · Ogorjelica & the medium runs · Dinner in the village", place: "Sarajevo & Jahorina, Bosnia and Herzegovina" },
+  { page: "jahorina", day: 4, title: "Last Runs, Pale & Departure", text: "Last Runs, Pale & Departure · Last runs on Jahorina · The road down through Pale · Transfer to Sarajevo Airport", place: "Sarajevo & Jahorina, Bosnia and Herzegovina" },
+  { page: "gudauri", day: 1, title: "Arrival in Tbilisi, the Sulphur Baths & Khachapuri", text: "Arrival in Tbilisi, the Sulphur Baths & Khachapuri · Tbilisi Airport (TBS) & into the city · Old Tbilisi & the sulphur baths · Khachapuri, khinkali & Georgian wine", place: "Tbilisi & Gudauri, Georgia" },
+  { page: "gudauri", day: 2, title: "Ananuri, the Georgian Military Road & First Turns in Gudauri", text: "Ananuri, the Georgian Military Road & First Turns in Gudauri · Didube to Ananuri Fortress · The Jvari Pass road, ski rental & the Pirveli slope · Dinner in the village & budget stays", place: "Tbilisi & Gudauri, Georgia" },
+  { page: "gudauri", day: 3, title: "A Full Ski Day: Beginner Runs & the Upper Mountain", text: "A Full Ski Day: Beginner Runs & the Upper Mountain · Beginner runs & a first lesson · Upper runs & the Kobi gondola · Après-ski & a budget dinner", place: "Tbilisi & Gudauri, Georgia" },
+  { page: "gudauri", day: 4, title: "Kazbegi if the Road Is Open, then Departure", text: "Kazbegi if the Road Is Open, then Departure · Over the Jvari Pass to Stepantsminda · Gergeti Trinity Church · Back to Tbilisi & the airport", place: "Tbilisi & Gudauri, Georgia" },
+  { page: "niseko", day: 1, title: "Arrival, the Resort Liner & Hirafu", text: "Arrival, the Resort Liner & Hirafu · New Chitose Airport & the Hokkaido Resort Liner · Hirafu village: lift pass, rental & supplies · Ramen & izakaya in Hirafu", place: "Niseko, Japan" },
+  { page: "niseko", day: 2, title: "Grand Hirafu & the All Mountain Pass", text: "Grand Hirafu & the All Mountain Pass · Grand Hirafu first lifts · Niseko Village & Annupuri · An onsen soak: Goshiki, Kira no Yu or Iroha", place: "Niseko, Japan" },
+  { page: "niseko", day: 3, title: "Annupuri, Hanazono & a Kutchan Night", text: "Annupuri, Hanazono & a Kutchan Night · Annupuri: quiet runs & a lesson option · Hanazono powder & the free shuttle · Night skiing & dinner in Kutchan", place: "Niseko, Japan" },
+  { page: "niseko", day: 4, title: "Last Runs & Departure", text: "Last Runs & Departure · Last runs or a cheap morning in Hirafu · Resort Liner back to New Chitose · Ramen at the airport before your flight", place: "Niseko, Japan" },
+  { page: "uludag", day: 1, title: "Arrival, the Grand Mosque & İskender Kebap", text: "Arrival, the Grand Mosque & İskender Kebap · Arrival at Istanbul Airport & the coach to Bursa · The Grand Mosque & Koza Han · İskender kebap in the city centre", place: "Uludağ & Bursa, Turkey" },
+  { page: "uludag", day: 2, title: "Green Bursa & the TeleferiK to Uludağ", text: "Green Bursa & the TeleferiK to Uludağ · The Green Mosque & the Green Tomb · The TeleferiK cable car to the hotel zone · Check-in, gear hire & a first night on Uludağ", place: "Uludağ & Bursa, Turkey" },
+  { page: "uludag", day: 3, title: "A Full Ski Day on Uludağ", text: "A Full Ski Day on Uludağ · Lift pass & the beginner slopes · Mid-mountain runs & lunch · After-ski in the hotel zone", place: "Uludağ & Bursa, Turkey" },
+  { page: "uludag", day: 4, title: "Last Runs, Çekirge Baths & Departure", text: "Last Runs, Çekirge Baths & Departure · Final ski morning & the ride down · Çekirge thermal baths · Coach back to Istanbul Airport", place: "Uludağ & Bursa, Turkey" },
 ];
 
 /* ---------- Seasonal picks (home page tiles link to browse?season=...) ---------- */
@@ -754,7 +784,7 @@ const SEASON_PICKS = {
   autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","nepal","beijing"] },
   christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city"] },
   "summer-in-winter": { title: "Summer in Winter", ids: ["thailand","bangkok-phuket","canary-islands","tenerife","singapore","egypt","luang-prabang","waitomo","dubai","sharm-el-sheikh","curacao","san-juan","gran-canaria","malaga","alicante","socotra"] },
-  winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","livigno","schladming","val-gardena-ski","lapland","tromso","megeve"] },
+  winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","livigno","schladming","val-gardena-ski","lapland","tromso","megeve","uludag","niseko","whistler","kopaonik","jahorina","gudauri"] },
 };
 
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
@@ -1112,10 +1142,16 @@ function convertUsd(usdAmount, code) {
    when the user submits. Selecting a day match navigates straight to
    that day on its destination page. Pass onSelect to react to a
    destination pick, e.g. to re-run a live filter. */
+// Lower-cases and strips accents, so "uludag", "tromso" and "malaga" find Uludağ, Tromsø and Málaga.
+function foldText(t) {
+  return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i").replace(/ø/g, "o").replace(/ł/g, "l").replace(/đ/g, "d").replace(/ß/g, "ss");
+}
+
 function attachTripAutocomplete(input, onSelect) {
   if (!input) return;
 
-  const entries = Object.entries(TRIP_CATALOG).sort((a, b) => a[1].place.localeCompare(b[1].place));
+  const labelOf = (trip) => trip.label || trip.place;
+  const entries = Object.entries(TRIP_CATALOG).sort((a, b) => labelOf(a[1]).localeCompare(labelOf(b[1])));
   const dayEntries = typeof DAY_INDEX !== "undefined" ? DAY_INDEX : [];
   const MAX_DAY_MATCHES = 6;
   const panel = document.createElement("div");
@@ -1137,7 +1173,7 @@ function attachTripAutocomplete(input, onSelect) {
   }
 
   function selectDest(id, trip) {
-    input.value = trip.place;
+    input.value = labelOf(trip);
     close();
     if (onSelect) onSelect(id, trip);
   }
@@ -1148,9 +1184,9 @@ function attachTripAutocomplete(input, onSelect) {
   }
 
   function open(query) {
-    const q = query.trim().toLowerCase();
-    const destMatches = q ? entries.filter(([, trip]) => trip.place.toLowerCase().includes(q) || trip.title.toLowerCase().includes(q)) : entries;
-    const dayMatches = q ? dayEntries.filter((d) => d.text.toLowerCase().includes(q)).slice(0, MAX_DAY_MATCHES) : [];
+    const q = foldText(query.trim());
+    const destMatches = q ? entries.filter(([, trip]) => foldText(labelOf(trip)).includes(q) || foldText(trip.place).includes(q) || foldText(trip.title).includes(q)) : entries;
+    const dayMatches = q ? dayEntries.filter((d) => foldText(d.text).includes(q)).slice(0, MAX_DAY_MATCHES) : [];
     currentMatches = [
       ...destMatches.map(([id, trip]) => ({ kind: "dest", id, trip })),
       ...dayMatches.map((dayEntry) => ({ kind: "day", dayEntry })),
@@ -1175,7 +1211,7 @@ function attachTripAutocomplete(input, onSelect) {
       const item = document.createElement("div");
       item.className = "search-autocomplete-item";
       item.setAttribute("role", "option");
-      item.textContent = trip.place;
+      item.textContent = labelOf(trip);
       item.addEventListener("mousedown", (e) => {
         e.preventDefault(); // fires before input blur, so the click always registers
         selectDest(id, trip);
@@ -1943,13 +1979,13 @@ function initWanderList() {
       items[clamped].focus();
     }
 
-    function selectValue(value) {
+    function selectValue(value, silent) {
       const item = items.find((li) => li.dataset.value === value);
       if (!item) return;
       container.dataset.value = value;
       items.forEach((li) => li.setAttribute("aria-selected", String(li === item)));
       label.textContent = item.textContent;
-      if (onChange) onChange();
+      if (onChange && !silent) onChange();
     }
 
     btn.addEventListener("click", (e) => {
@@ -2020,7 +2056,9 @@ function initWanderList() {
     const cards = Array.from(browseGrid.querySelectorAll(".trip-card"));
     const seasonKey = new URLSearchParams(window.location.search).get("season");
     const seasonPick = SEASON_PICKS[seasonKey] || null;
-    const seasonIds = seasonPick ? new Set(seasonPick.ids) : null;
+    let seasonIds = seasonPick ? new Set(seasonPick.ids) : null;
+    // Card links are root-relative ("/egypt"), while TRIP_CATALOG and the season lists use bare ids ("egypt").
+    const cardId = (card) => (card.querySelector(".trip-meta a")?.getAttribute("href") || "").replace(/^\/+/, "").replace(/\.html$/, "");
     if (seasonPick) {
       const note = document.createElement("p");
       note.className = "season-note";
@@ -2033,19 +2071,20 @@ function initWanderList() {
     function applyFilters() {
       const activeStyle = styleFilterEl.dataset.value;
       const activeContinent = continentFilterEl.dataset.value;
-      const query = searchInput.value.trim().toLowerCase();
+      const query = foldText(searchInput.value.trim());
       let visibleCount = 0;
 
       cards.forEach((card) => {
         const styles = (card.dataset.style || "").split(" ");
-        const name = (card.dataset.name || "").toLowerCase();
-        const href = card.querySelector(".trip-meta a")?.getAttribute("href") || "";
-        const place = (TRIP_CATALOG[href]?.place || "").toLowerCase();
+        const name = foldText(card.dataset.name || "");
+        const href = cardId(card);
+        const place = foldText(TRIP_CATALOG[href]?.place || "");
+        const label = foldText(TRIP_CATALOG[href]?.label || "");
         const continent = TRIP_CATALOG[href]?.continent || "";
 
         const matchesStyle = activeStyle === "all" || styles.includes(activeStyle);
         const matchesContinent = activeContinent === "all" || continent === activeContinent;
-        const matchesSearch = !query || name.includes(query) || place.includes(query);
+        const matchesSearch = !query || name.includes(query) || (label ? label.includes(query) || (place.includes(query) && !query.includes("(")) : place.includes(query));
         const matchesSeason = !seasonIds || seasonIds.has(href);
         const isMatch = matchesStyle && matchesContinent && matchesSearch && matchesSeason;
 
@@ -2061,7 +2100,7 @@ function initWanderList() {
       applyFilters();
       if (styleFilterEl.dataset.value !== "all") recordTaste("style", styleFilterEl.dataset.value);
     });
-    initCustomDropdown(continentFilterEl, () => {
+    const continentDropdown = initCustomDropdown(continentFilterEl, () => {
       applyFilters();
       if (continentFilterEl.dataset.value !== "all") recordTaste("continent", continentFilterEl.dataset.value);
     });
@@ -2072,7 +2111,21 @@ function initWanderList() {
       clearTimeout(searchMemoTimer);
       searchMemoTimer = setTimeout(() => { if (searchInput.value.trim().length >= 3) recordTaste("query", searchInput.value.trim()); }, 900);
     });
-    attachTripAutocomplete(searchInput, () => {
+    attachTripAutocomplete(searchInput, (id, trip) => {
+      // Picking a destination from the dropdown must always show it: if the selected
+      // style, continent or season list would hide it, switch to the trip's own values.
+      const card = cards.find((c) => cardId(c) === id);
+      const cardStyles = card ? (card.dataset.style || "").split(" ").filter(Boolean) : [];
+      const activeStyle = styleFilterEl.dataset.value;
+      if (activeStyle !== "all" && cardStyles.length && !cardStyles.includes(activeStyle)) styleDropdown.selectValue(cardStyles[0], true);
+      const activeContinent = continentFilterEl.dataset.value;
+      if (activeContinent !== "all" && trip && trip.continent && trip.continent !== activeContinent) continentDropdown.selectValue(trip.continent, true);
+      if (seasonIds && !seasonIds.has(id)) {
+        seasonIds = null;
+        const note = document.querySelector(".season-note");
+        if (note) note.remove();
+        document.title = "Browse Travel Itineraries: TripToCost";
+      }
       applyFilters();
       recordTaste("query", searchInput.value.trim());
     });

@@ -1,29 +1,30 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 130 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 136 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Seasonal guides
 - [Christmas Markets](https://triptocost.com/christmas-markets): 11 itineraries, prices per person
 - [Winter Sun](https://triptocost.com/winter-sun-destinations): 16 itineraries, prices per person
-- [Winter Trips](https://triptocost.com/winter-trips): 14 itineraries, prices per person
+- [Winter Trips](https://triptocost.com/winter-trips): 20 itineraries, prices per person
 - [Autumn Trips](https://triptocost.com/autumn-trips): 8 itineraries, prices per person
 
 ## Country guides
 - [France itineraries](https://triptocost.com/france-itineraries): 10 trips, $480-$1,950 per person
 - [Spain itineraries](https://triptocost.com/spain-itineraries): 10 trips, $270-$1,600 per person
 - [Italy itineraries](https://triptocost.com/italy-itineraries): 9 trips, $540-$1,750 per person
+- [Japan itineraries](https://triptocost.com/japan-itineraries): 5 trips, $350-$1,900 per person
 - [Switzerland itineraries](https://triptocost.com/switzerland-itineraries): 5 trips, $850-$2,600 per person
 - [China itineraries](https://triptocost.com/china-itineraries): 5 trips, $260-$720 per person
 - [Austria itineraries](https://triptocost.com/austria-itineraries): 5 trips, $480-$1,300 per person
-- [Japan itineraries](https://triptocost.com/japan-itineraries): 4 trips, $350-$1,900 per person
 - [USA itineraries](https://triptocost.com/usa-itineraries): 4 trips, $650-$1,500 per person
 - [Greece itineraries](https://triptocost.com/greece-itineraries): 4 trips, $850-$1,500 per person
 - [Norway itineraries](https://triptocost.com/norway-itineraries): 4 trips, $720-$2,200 per person
 - [Germany itineraries](https://triptocost.com/germany-itineraries): 4 trips, $460-$1,400 per person
+- [Turkey itineraries](https://triptocost.com/turkey-itineraries): 4 trips, $330-$850 per person
 - [Portugal itineraries](https://triptocost.com/portugal-itineraries): 3 trips, $700-$1,150 per person
+- [Canada itineraries](https://triptocost.com/canada-itineraries): 3 trips, $560-$2,750 per person
 - [Thailand itineraries](https://triptocost.com/thailand-itineraries): 3 trips, $480-$1,100 per person
 - [Bulgaria itineraries](https://triptocost.com/bulgaria-itineraries): 3 trips, $360-$700 per person
-- [Turkey itineraries](https://triptocost.com/turkey-itineraries): 3 trips, $350-$850 per person
 - [Albania itineraries](https://triptocost.com/albania-itineraries): 3 trips, $280-$750 per person
 
 ## Destinations
@@ -147,11 +148,17 @@
 - [4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury](https://triptocost.com/cortina-dampezzo): 4 Days in Cortina d'Ampezzo, Italy, est. $850-1,350/person
 - [4 Days in Grindelwald: Eiger, Jungfraujoch & Alpine Trails](https://triptocost.com/grindelwald): 4 Days in Grindelwald, Switzerland, est. $1,200-1,850/person
 - [4 Days in Interlaken: Paragliding, Harder Kulm & Two Alpine Lakes](https://triptocost.com/interlaken): 4 Days in Interlaken, Switzerland, est. $1,500-2,000/person
+- [4 Days in Kopaonik: A Budget Ski Trip in Serbia](https://triptocost.com/kopaonik): 4 Days in Kopaonik, Serbia, est. $380-620/person
 - [4 Days in Livigno: Budget Skiing, Duty Free & Snowshoes](https://triptocost.com/livigno): 4 Days in Livigno, Italy, est. $540-780/person
 - [4 Days in Megève: Christmas Lights, Sleigh Rides & Gourmet Dining](https://triptocost.com/megeve): 4 Days in Megève, France, est. $1,250-1,950/person
+- [4 Days in Niseko: Powder Skiing, Onsen & Ramen on a Budget](https://triptocost.com/niseko): 4 Days in Niseko, Japan, est. $620-820/person
+- [4 Days in Sarajevo & Jahorina: Old Town, Olympic Sites & Skiing](https://triptocost.com/jahorina): 4 Days in Sarajevo & Jahorina, Bosnia and Herzegovina, est. $350-560/person
 - [4 Days in Schladming: Skiing, the Dachstein Glacier & Ramsau](https://triptocost.com/schladming): 4 Days in Schladming, Austria, est. $620-850/person
 - [4 Days in Sedona: Red Rocks, Vortexes & Art Galleries](https://triptocost.com/sedona): 4 Days in Sedona, USA, est. $800-1,100/person
 - [4 Days in St. Moritz: Ski Slopes, the Cresta Run & Frozen-Lake Glamour](https://triptocost.com/st-moritz): 4 Days in St. Moritz, Switzerland, est. $1,900-2,600/person
+- [4 Days in Tbilisi & Gudauri: Baths, Mountain Road & Skiing](https://triptocost.com/gudauri): 4 Days in Tbilisi & Gudauri, Georgia, est. $300-520/person
+- [4 Days in Uludağ & Bursa: Skiing, Mosques & Thermal Baths](https://triptocost.com/uludag): 4 Days in Uludağ & Bursa, Turkey, est. $330-550/person
+- [4 Days in Whistler: Skiing, Peak 2 Peak & Budget Tips](https://triptocost.com/whistler): 4 Days in Whistler, Canada, est. $750-1,000/person
 - [4 Days in Zakopane: Tatra Peaks & Highland Culture](https://triptocost.com/zakopane): 4 Days in Zakopane, Poland, est. $500-700/person
 - [4 Days in Zermatt: Matterhorn Views & Alpine Trails](https://triptocost.com/zermatt): 4 Days in Zermatt, Switzerland, est. $1,250-1,950/person
 - [4 Days Skiing in Val Gardena: Sella Ronda, Seceda & Alpe di Siusi](https://triptocost.com/val-gardena-ski): 4 Days in Val Gardena, Italy, est. $900-1,150/person

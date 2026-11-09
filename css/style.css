@@ -2724,3 +2724,22 @@ strong, b { font-weight: 600; }
   .hub-grid .trip-card .trip-meta { flex-direction: column; align-items: flex-start; }
   .hub-grid .trip-card .trip-meta .cost { font-size: 0.8rem; white-space: nowrap; }
 }
+
+/* ---------- Christmas market cards: red accent ---------- */
+:root { --christmas-red: #9B1C1F; }
+.trip-card.is-christmas { border-top: 3px solid var(--christmas-red); }
+.trip-card.is-christmas .trip-meta .cost { color: var(--christmas-red); }
+.trip-card.is-christmas .tag.terracotta { color: var(--christmas-red); border-color: var(--christmas-red); }
+.trip-card.is-christmas .photo::before {
+  content: "Christmas market";
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  padding: 3px 9px; border-radius: 999px;
+  background: var(--christmas-red); color: #fff;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.03em; line-height: 1.4;
+}
+.trip-card.is-christmas.no-chip .photo::before { display: none; }
+
+/* Hub dates table: use the full page width, like the intro text */
+.hub-dates .info-narrow { max-width: 1040px; }
+.hub-dates .hub-table { font-size: 1rem; }
+.hub-dates .hub-table th, .hub-dates .hub-table td { padding: 13px 18px; }

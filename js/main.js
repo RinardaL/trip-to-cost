@@ -2233,6 +2233,18 @@ function initWanderList() {
   const viewedId = currentPageId().replace(/\.html$/, "");
   if (TRIP_CATALOG[viewedId]) recordTaste("view", viewedId);
 
+  /* ---------- Christmas market trips get a red accent on their cards ---------- */
+  (function markChristmasCards() {
+    const ids = new Set(SEASON_PICKS.christmas.ids);
+    const onHub = /christmas-markets/.test(window.location.pathname);
+    document.querySelectorAll(".trip-card").forEach((card) => {
+      const id = (card.querySelector(".trip-meta a")?.getAttribute("href") || "").replace(/^\/+/, "").replace(/\.html$/, "");
+      if (!ids.has(id)) return;
+      card.classList.add("is-christmas");
+      if (onHub) card.classList.add("no-chip");
+    });
+  })();
+
   /* ---------- Card titles are clamped to 2 lines; keep the full title on hover ---------- */
   document.querySelectorAll(".trip-card h3").forEach((h) => { h.title = h.textContent.trim(); });
 

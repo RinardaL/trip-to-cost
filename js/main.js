@@ -2236,6 +2236,7 @@ function initWanderList() {
   /* ---------- Christmas market trips get a red accent on their cards ---------- */
   (function markChristmasCards() {
     const ids = new Set(SEASON_PICKS.christmas.ids);
+    if (ids.has(currentPageId().replace(/.html$/, ""))) document.body.classList.add("is-christmas-page");
     const onHub = /christmas-markets/.test(window.location.pathname);
     document.querySelectorAll(".trip-card").forEach((card) => {
       const id = (card.querySelector(".trip-meta a")?.getAttribute("href") || "").replace(/^\/+/, "").replace(/\.html$/, "");

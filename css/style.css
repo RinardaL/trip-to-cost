@@ -2743,3 +2743,6 @@ strong, b { font-weight: 600; }
 .hub-dates .info-narrow { max-width: 1040px; }
 .hub-dates .hub-table { font-size: 1rem; }
 .hub-dates .hub-table th, .hub-dates .hub-table td { padding: 13px 18px; }
+
+/* Christmas itineraries: day titles in the same dark red */
+.is-christmas-page .day-header-text h3 { color: var(--christmas-red); }

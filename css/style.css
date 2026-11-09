@@ -2562,6 +2562,7 @@ strong, b { font-weight: 600; }
 
 /* Seasonal hub pages */
 .hub-intro { padding: 8px 0 28px; }
+.hub-intro .info-narrow { max-width: 1040px; }
 .hub-intro .info-narrow p { color: var(--charcoal-soft); font-size: 1.02rem; line-height: 1.65; margin-bottom: 14px; }
 .hub-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; padding: 14px 18px; background: #fff; border: 1px solid var(--line); color: var(--charcoal-soft); font-size: 0.95rem; }
 .hub-facts strong { color: var(--emerald-dark); font-family: var(--font-display); font-weight: 600; }

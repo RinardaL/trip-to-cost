@@ -1,9 +1,9 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 136 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 137 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Seasonal guides
-- [Christmas Markets](https://triptocost.com/christmas-markets): 11 itineraries, prices per person
+- [Christmas Markets](https://triptocost.com/christmas-markets): 12 itineraries, prices per person
 - [Winter Sun](https://triptocost.com/winter-sun-destinations): 16 itineraries, prices per person
 - [Winter Trips](https://triptocost.com/winter-trips): 20 itineraries, prices per person
 - [Autumn Trips](https://triptocost.com/autumn-trips): 8 itineraries, prices per person
@@ -16,10 +16,10 @@
 - [Switzerland itineraries](https://triptocost.com/switzerland-itineraries): 5 trips, $850-$2,600 per person
 - [China itineraries](https://triptocost.com/china-itineraries): 5 trips, $260-$720 per person
 - [Austria itineraries](https://triptocost.com/austria-itineraries): 5 trips, $480-$1,300 per person
+- [Germany itineraries](https://triptocost.com/germany-itineraries): 5 trips, $460-$1,400 per person
 - [USA itineraries](https://triptocost.com/usa-itineraries): 4 trips, $650-$1,500 per person
 - [Greece itineraries](https://triptocost.com/greece-itineraries): 4 trips, $850-$1,500 per person
 - [Norway itineraries](https://triptocost.com/norway-itineraries): 4 trips, $720-$2,200 per person
-- [Germany itineraries](https://triptocost.com/germany-itineraries): 4 trips, $460-$1,400 per person
 - [Turkey itineraries](https://triptocost.com/turkey-itineraries): 4 trips, $330-$850 per person
 - [Portugal itineraries](https://triptocost.com/portugal-itineraries): 3 trips, $700-$1,150 per person
 - [Canada itineraries](https://triptocost.com/canada-itineraries): 3 trips, $560-$2,750 per person
@@ -60,6 +60,7 @@
 - [3 Days in Barcelona](https://triptocost.com/barcelona): 3 Days in Barcelona, Spain, est. $500-700/person
 - [3 Days in Bruges: Canals, Belfry & Medieval Streets](https://triptocost.com/bruges): 3 Days in Bruges, Belgium, est. $500-700/person
 - [3 Days in Mont Saint-Michel: Abbey, Tides & the Normandy Coast](https://triptocost.com/mont-saint-michel): 3 Days in Mont Saint-Michel, France, est. $480-750/person
+- [3 Days in Paris: A Long Weekend Itinerary](https://triptocost.com/paris): 3 Days in Paris, France, est. $550-750/person
 - [3 Days in Valletta, Malta: Fortifications, Harbours & Baroque Streets](https://triptocost.com/valletta): 3 Days in Valletta, Malta, est. $380-600/person
 - [4 Days in Beijing: The Forbidden City, the Great Wall & the Hutongs](https://triptocost.com/beijing): 4 Days in Beijing, China, est. $300-520/person
 - [4 Days in Bergen: Bryggen, Fjords & the Fløibanen Funicular](https://triptocost.com/bergen): 4 Days in Bergen, Norway, est. $760-1,150/person
@@ -77,6 +78,7 @@
 - [4 Days in Luxembourg City: Christmas Markets & the Old Quarter](https://triptocost.com/luxembourg): 4 Days in Luxembourg City, Luxembourg, est. $600-850/person
 - [4 Days in Mardin: Stone Old Town, Monasteries & the Plain](https://triptocost.com/mardin): 4 Days in Mardin, Turkey, est. $350-500/person
 - [4 Days in Mostar: The Old Bridge, Kravica & Blagaj](https://triptocost.com/mostar): 4 Days in Mostar, Bosnia and Herzegovina, est. $220-420/person
+- [4 Days in Munich: Christmas Markets & the Harry Potter Market](https://triptocost.com/munich): 4 Days in Munich, Germany, est. $500-720/person
 - [4 Days in Nuremberg: Christmas Market, Castle & Franconia](https://triptocost.com/nuremberg): 4 Days in Nuremberg, Germany, est. $480-740/person
 - [4 Days in Prague: Christmas Markets, Castle & Charles Bridge](https://triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $460-730/person
 - [4 Days in Quebec City: German Christmas Market, Château Frontenac & Montmorency Falls](https://triptocost.com/quebec-city): 4 Days in Quebec City, Canada, est. $560-850/person
@@ -96,7 +98,6 @@
 - [7 Days in Athens: Ancient Ruins & Island Escapes](https://triptocost.com/athens): 7 Days in Athens, Greece, est. $880-1,300/person
 - [7 Days in Egypt: Cairo & a Nile Cruise from Luxor to Aswan](https://triptocost.com/egypt): 7 Days in Cairo, Egypt, est. $850-1,300/person
 - [7 Days in Lisbon: A Local Highlights Itinerary](https://triptocost.com/lisbon): 7 Days in Lisbon, Portugal, est. $750-1,150/person
-- [3 Days in Paris: A Long Weekend Itinerary](https://triptocost.com/paris): 3 Days in Paris, France, est. $550-750/person
 - [7 Days in Tokyo & Kyoto: A Hidden Gems Itinerary](https://triptocost.com/tokyo-kyoto): 7 Days in Tokyo & Kyoto, Japan, est. $1,400-1,900/person
 
 ### Lakes & Nature

@@ -169,6 +169,7 @@ const TRIP_CATALOG = {
   "gudauri": { title: "4 Days in Tbilisi & Gudauri: Baths, Mountain Road & Skiing", place: "Tbilisi & Gudauri, Georgia", tag: "Mountain Escapes", duration: "4 Days", cost: "$300-520/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Snow_on_a_mountain_in_Gudauri_%28Unsplash%29.jpg/500px-Snow_on_a_mountain_in_Gudauri_%28Unsplash%29.jpg", alt: "Steep snow-covered mountain faces and ridges above the Gudauri ski area in the Greater Caucasus", country: "Georgia", continent: "Asia", lat: 42.48, lon: 44.48, season: "Dec – Mar" },
   "niseko": { title: "4 Days in Niseko: Powder Skiing, Onsen & Ramen on a Budget", place: "Niseko, Japan", tag: "Mountain Escapes", duration: "4 Days", cost: "$620-820/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mount_Y%C5%8Dtei_and_Mount_Niseko-Annupuri.jpg/500px-Mount_Y%C5%8Dtei_and_Mount_Niseko-Annupuri.jpg", alt: "Mount Yotei and the snow-covered slopes of Mount Niseko-Annupuri under a clear blue winter sky", country: "Japan", continent: "Asia", lat: 42.86, lon: 140.7, season: "Dec – Mar" },
   "uludag": { title: "4 Days in Uludağ & Bursa: Skiing, Mosques & Thermal Baths", place: "Uludağ & Bursa, Turkey", tag: "Mountain Escapes", duration: "4 Days", cost: "$330-550/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ULUDAG_GOLLER_BOLGESI.jpg/500px-ULUDAG_GOLLER_BOLGESI.jpg", alt: "Snow-covered ridges and peaks of the Uludağ mountain range under a blue sky with thin cloud", country: "Turkey", continent: "Asia", lat: 40.07, lon: 29.13, season: "Dec – Mar" },
+  "munich": { title: "4 Days in Munich: Christmas Markets & the Harry Potter Market", place: "Munich, Germany", tag: "Historic Old Towns", duration: "4 Days", cost: "$500-720/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Marienplatz_Christkindlmarkt%2C_2013.jpg/500px-Marienplatz_Christkindlmarkt%2C_2013.jpg", alt: "Aerial view of the Christmas market on Marienplatz in Munich at dusk, with the Neues Rathaus tower and the twin domes of the Frauenkirche", country: "Germany", continent: "Europe", lat: 48.14, lon: 11.58, season: "Late Nov – Dec 24 (Christmas Markets)" },
 };
 
 /* ---------- Day-level search index: lets search surface a specific landmark buried
@@ -777,12 +778,16 @@ const DAY_INDEX = [
   { page: "uludag", day: 2, title: "Green Bursa & the TeleferiK to Uludağ", text: "Green Bursa & the TeleferiK to Uludağ · The Green Mosque & the Green Tomb · The TeleferiK cable car to the hotel zone · Check-in, gear hire & a first night on Uludağ", place: "Uludağ & Bursa, Turkey" },
   { page: "uludag", day: 3, title: "A Full Ski Day on Uludağ", text: "A Full Ski Day on Uludağ · Lift pass & the beginner slopes · Mid-mountain runs & lunch · After-ski in the hotel zone", place: "Uludağ & Bursa, Turkey" },
   { page: "uludag", day: 4, title: "Last Runs, Çekirge Baths & Departure", text: "Last Runs, Çekirge Baths & Departure · Final ski morning & the ride down · Çekirge thermal baths · Coach back to Istanbul Airport", place: "Uludağ & Bursa, Turkey" },
+  { page: "munich", day: 1, title: "Arrival, Marienplatz & the Christkindlmarkt", text: "Arrival, Marienplatz & the Christkindlmarkt · Arrival at Munich Airport & the S-Bahn into town · Marienplatz & the Christkindlmarkt · Kripperlmarkt, Lebkuchen & a beer hall dinner", place: "Munich, Germany" },
+  { page: "munich", day: 2, title: "Frauenkirche, Viktualienmarkt, the Residenz & Tollwood", text: "Frauenkirche, Viktualienmarkt, the Residenz & Tollwood · The Frauenkirche & the Viktualienmarkt · Residenz Weihnachtsdorf & the medieval market · Tollwood Winter Festival on the Theresienwiese", place: "Munich, Germany" },
+  { page: "munich", day: 3, title: "Englischer Garten, Deutsches Museum & the Harry Potter Market", text: "Englischer Garten, Deutsches Museum & the Harry Potter Market · The Englischer Garten & the Chinese Tower market · The Deutsches Museum on the Isar · The Harry Potter Christmas Market on the Praterinsel", place: "Munich, Germany" },
+  { page: "munich", day: 4, title: "Nymphenburg, Sendlinger Tor & Departure", text: "Nymphenburg, Sendlinger Tor & Departure · Schloss Nymphenburg & its park · Sendlinger Tor market & last gifts · Transfer to Munich Airport", place: "Munich, Germany" },
 ];
 
 /* ---------- Seasonal picks (home page tiles link to browse?season=...) ---------- */
 const SEASON_PICKS = {
   autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","nepal","beijing"] },
-  christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city"] },
+  christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city","munich"] },
   "summer-in-winter": { title: "Summer in Winter", ids: ["thailand","bangkok-phuket","canary-islands","tenerife","singapore","egypt","luang-prabang","waitomo","dubai","sharm-el-sheikh","curacao","san-juan","gran-canaria","malaga","alicante","socotra"] },
   winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","livigno","schladming","val-gardena-ski","lapland","tromso","megeve","uludag","niseko","whistler","kopaonik","jahorina","gudauri"] },
 };
@@ -2184,11 +2189,11 @@ function initWanderList() {
     }
   }
 
-  /* ---------- "What’s new!" notification: jumps to the seasonal category ---------- */
+  /* ---------- "What’s new!" notification: links to the newest itinerary (a "#" link scrolls to that section instead) ---------- */
   const whatsNew = document.getElementById("whatsNew");
   const seasonSection = document.getElementById("season");
   if (whatsNew && seasonSection) {
-    const WN_KEY = "wanderlist_whatsnew_dismissed";
+    const WN_KEY = "wanderlist_whatsnew_munich";
     let dismissed = false;
     try { dismissed = sessionStorage.getItem(WN_KEY) === "1"; } catch (e) {}
     const hideWhatsNew = (remember) => {
@@ -2198,11 +2203,13 @@ function initWanderList() {
     if (dismissed) whatsNew.classList.add("is-hidden");
 
     whatsNew.querySelector(".whats-new-link").addEventListener("click", (e) => {
+      const href = e.currentTarget.getAttribute("href") || "";
+      hideWhatsNew(true);
+      if (href.charAt(0) !== "#") return; // a normal link: let the browser open the page
       e.preventDefault();
       seasonSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
       seasonSection.focus({ preventScroll: true });
       try { history.replaceState(null, "", "#season"); } catch (err) {}
-      hideWhatsNew(true);
     });
     whatsNew.querySelector(".whats-new-close").addEventListener("click", () => hideWhatsNew(true));
     whatsNew.addEventListener("keydown", (e) => { if (e.key === "Escape") hideWhatsNew(true); });

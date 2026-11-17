@@ -141,6 +141,7 @@ const DESTINATIONS = [
   { name: "Tbilisi & Gudauri, Georgia", lat: 42.48, lon: 44.48, href: "gudauri" },
   { name: "Niseko, Japan", lat: 42.86, lon: 140.7, href: "niseko" },
   { name: "Uludağ & Bursa, Turkey", lat: 40.07, lon: 29.13, href: "uludag" },
+  { name: "Munich, Germany", lat: 48.14, lon: 11.58, href: "munich" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

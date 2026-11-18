@@ -2189,6 +2189,18 @@ function initWanderList() {
     }
   }
 
+  /* ---------- Scrolling Christmas and winter strip: pause and play ---------- */
+  const xmStrip = document.querySelector(".xm-strip");
+  if (xmStrip) {
+    const xmBtn = xmStrip.querySelector(".xm-toggle");
+    if (xmBtn) xmBtn.addEventListener("click", () => {
+      const paused = xmStrip.classList.toggle("is-paused");
+      xmBtn.setAttribute("aria-pressed", String(paused));
+      xmBtn.textContent = paused ? "Play" : "Pause";
+      xmBtn.setAttribute("aria-label", paused ? "Play the scrolling strip" : "Pause the scrolling strip");
+    });
+  }
+
   /* ---------- "What’s new!" notification: links to the newest itinerary (a "#" link scrolls to that section instead) ---------- */
   const whatsNew = document.getElementById("whatsNew");
   const seasonSection = document.getElementById("season");

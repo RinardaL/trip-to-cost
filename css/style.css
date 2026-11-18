@@ -2826,3 +2826,27 @@ strong, b { font-weight: 600; }
 @media (max-width: 860px) { .xm-strip { flex-direction: column; align-items: stretch; } .xm-head { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 10px 16px 4px; border-right: 0; } .xm-toggle { margin: 0 0 0 auto; } }
 @media (prefers-reduced-motion: reduce) { .xm-track { animation: none; } .xm-view { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .xm-seq[aria-hidden="true"] { display: none; } .xm-toggle { display: none; } }
 @media print { .xm-strip { display: none; } }
+
+/* ---------- Self-drive pages: route table and car cost ---------- */
+.route-table-wrap { margin: 18px 0 8px; overflow-x: auto; }
+.route-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); font-size: 0.92rem; }
+.route-table th, .route-table td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); line-height: 1.45; }
+.route-table thead th { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal-soft); background: var(--cream, #faf7f2); }
+.route-table tbody td:first-child { font-weight: 700; color: var(--emerald-dark); width: 3.2em; }
+.route-note { margin: 8px 0 22px; font-size: 0.86rem; color: var(--charcoal-soft); }
+.car-cost-list { margin: 14px 0 18px; padding: 0; list-style: none; background: #fff; border: 1px solid var(--line); }
+.car-cost-list li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 14px; border-bottom: 1px solid var(--line); line-height: 1.4; }
+.car-cost-list li:last-child { border-bottom: 0; background: var(--cream, #faf7f2); font-weight: 700; }
+.car-cost-list span { color: var(--charcoal); }
+.car-cost-list strong { flex: none; text-align: right; color: var(--emerald-dark); }
+@media (max-width: 640px) {
+  .route-table, .route-table tbody, .route-table tr, .route-table td { display: block; width: 100%; }
+  .route-table thead { position: absolute; left: -9999px; }
+  .route-table tr { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .route-table td { padding: 2px 0; border: 0; }
+  .route-table tbody td:first-child { width: auto; font-size: 1rem; }
+  .route-table td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--charcoal-soft); }
+  .route-table td:first-child::before { content: "Day "; }
+  .car-cost-list li { flex-direction: column; gap: 2px; }
+  .car-cost-list strong { text-align: left; }
+}

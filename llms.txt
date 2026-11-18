@@ -1,6 +1,6 @@
 # TripToCost
 
-> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 137 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 142 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
 
 ## Seasonal guides
 - [Christmas Markets](https://triptocost.com/christmas-markets): 12 itineraries, prices per person
@@ -12,12 +12,12 @@
 - [France itineraries](https://triptocost.com/france-itineraries): 10 trips, $480-$1,950 per person
 - [Spain itineraries](https://triptocost.com/spain-itineraries): 10 trips, $270-$1,600 per person
 - [Italy itineraries](https://triptocost.com/italy-itineraries): 9 trips, $540-$1,750 per person
+- [USA itineraries](https://triptocost.com/usa-itineraries): 6 trips, $650-$1,810 per person
 - [Japan itineraries](https://triptocost.com/japan-itineraries): 5 trips, $350-$1,900 per person
 - [Switzerland itineraries](https://triptocost.com/switzerland-itineraries): 5 trips, $850-$2,600 per person
 - [China itineraries](https://triptocost.com/china-itineraries): 5 trips, $260-$720 per person
 - [Austria itineraries](https://triptocost.com/austria-itineraries): 5 trips, $480-$1,300 per person
 - [Germany itineraries](https://triptocost.com/germany-itineraries): 5 trips, $460-$1,400 per person
-- [USA itineraries](https://triptocost.com/usa-itineraries): 4 trips, $650-$1,500 per person
 - [Greece itineraries](https://triptocost.com/greece-itineraries): 4 trips, $850-$1,500 per person
 - [Norway itineraries](https://triptocost.com/norway-itineraries): 4 trips, $720-$2,200 per person
 - [Turkey itineraries](https://triptocost.com/turkey-itineraries): 4 trips, $330-$850 per person
@@ -25,11 +25,13 @@
 - [Canada itineraries](https://triptocost.com/canada-itineraries): 3 trips, $560-$2,750 per person
 - [Thailand itineraries](https://triptocost.com/thailand-itineraries): 3 trips, $480-$1,100 per person
 - [Bulgaria itineraries](https://triptocost.com/bulgaria-itineraries): 3 trips, $360-$700 per person
+- [Scotland itineraries](https://triptocost.com/scotland-itineraries): 3 trips, $450-$1,185 per person
+- [Iceland itineraries](https://triptocost.com/iceland-itineraries): 3 trips, $1,075-$2,050 per person
 - [Albania itineraries](https://triptocost.com/albania-itineraries): 3 trips, $280-$750 per person
 - [Central & Eastern Europe itineraries](https://triptocost.com/central-eastern-europe-itineraries): 7 trips, $350-$800 per person
 - [Balkans itineraries](https://triptocost.com/balkans-itineraries): 12 trips, $220-$750 per person
 - [Nordic Countries itineraries](https://triptocost.com/nordic-itineraries): 10 trips, $720-$2,400 per person
-- [Britain & Ireland itineraries](https://triptocost.com/britain-ireland-itineraries): 4 trips, $450-$1,400 per person
+- [Britain & Ireland itineraries](https://triptocost.com/britain-ireland-itineraries): 6 trips, $450-$1,410 per person
 - [Belgium & Luxembourg itineraries](https://triptocost.com/belgium-luxembourg-itineraries): 3 trips, $500-$900 per person
 - [Mediterranean Islands itineraries](https://triptocost.com/mediterranean-islands-itineraries): 5 trips, $380-$1,500 per person
 - [South & Southeast Asia itineraries](https://triptocost.com/south-southeast-asia-itineraries): 7 trips, $270-$1,100 per person
@@ -194,7 +196,12 @@
 - [6 Days in Puglia: A Self-Drive Road Trip Through Italy's Heel](https://triptocost.com/puglia): 6 Days in Puglia, Italy, est. $1,000-1,350/person
 - [6 Days in Tuscany: A Self-Drive Road Trip](https://triptocost.com/toscana): 6 Days in Tuscany, Italy, est. $1,100-1,500/person
 - [6 Days of Hidden Gems in Albania: Krujë, Valbona-Theth & the Blue Eye](https://triptocost.com/albania): 6 Days in Krujë, the Blue Eye & the Albanian Alps, est. $550-750/person
+- [6 Days on the North Coast 500: Mountain Passes, Sea Lochs & the Far North](https://triptocost.com/north-coast-500): 6-day self-drive road trip in North Coast 500, Scotland, est. $845-1,185/person
 - [7 Days in Utah's National Parks: A Road Trip Itinerary](https://triptocost.com/utah-national-parks): 7 Days in Utah, USA, est. $950-1,500/person
+- [7 Days on Route 66: Neon Motels, Painted Desert & the Santa Monica Pier](https://triptocost.com/route-66): 7-day self-drive road trip in Route 66, USA (Albuquerque to Santa Monica), est. $840-1,345/person
+- [7 Days on the Iceland Ring Road: Waterfalls, Glaciers & Hot Springs](https://triptocost.com/iceland-ring-road): 7-day self-drive road trip in Iceland Ring Road, Iceland, est. $1,075-1,580/person
+- [7 Days on the Pacific Coast Highway: Big Sur, Hearst Castle & Malibu](https://triptocost.com/pacific-coast-highway): 7-day self-drive road trip in Pacific Coast Highway, California, est. $1,325-1,810/person
+- [7 Days on the Wild Atlantic Way: Kerry, Dingle & the Cliffs of Moher](https://triptocost.com/wild-atlantic-way): 7-day self-drive road trip in Wild Atlantic Way, Ireland, est. $965-1,410/person
 
 ## Site
 

@@ -142,6 +142,11 @@ const DESTINATIONS = [
   { name: "Niseko, Japan", lat: 42.86, lon: 140.7, href: "niseko" },
   { name: "Uludağ & Bursa, Turkey", lat: 40.07, lon: 29.13, href: "uludag" },
   { name: "Munich, Germany", lat: 48.14, lon: 11.58, href: "munich" },
+  { name: "Wild Atlantic Way, Ireland", lat: 52.4, lon: -9.9, href: "wild-atlantic-way" },
+  { name: "Pacific Coast Highway, California", lat: 36.2, lon: -121.8, href: "pacific-coast-highway" },
+  { name: "North Coast 500, Scotland", lat: 58.1, lon: -4.9, href: "north-coast-500" },
+  { name: "Route 66, USA", lat: 35.2, lon: -112, href: "route-66" },
+  { name: "Iceland Ring Road, Iceland", lat: 64.9, lon: -18.2, href: "iceland-ring-road" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

@@ -2784,3 +2784,8 @@ strong, b { font-weight: 600; }
 
 /* What’s new notification: longer text wraps on phones */
 @media (max-width: 860px) { .whats-new { max-width: calc(100vw - 28px); } .whats-new-text { white-space: normal; font-size: 0.92rem; line-height: 1.25; max-width: 230px; } }
+
+/* Footer: contact email */
+.footer-contact { margin-top: 10px; font-size: 0.92rem; }
+.footer-contact a { color: inherit; text-decoration: underline; text-underline-offset: 3px; opacity: 0.9; }
+.footer-contact a:hover { opacity: 1; }

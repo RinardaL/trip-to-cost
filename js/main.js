@@ -828,6 +828,7 @@ const SEASON_PICKS = {
   autumn: { title: "Autumn Escapes", ids: ["seoul","toscana","utah-national-parks","new-york-city","sedona","zhangjiajie","nepal","beijing"] },
   christmas: { title: "Christmas Magic", ids: ["colmar","vienna","berlin","luxembourg","nuremberg","dresden","strasbourg","copenhagen","prague","budapest","quebec-city","munich"] },
   "summer-in-winter": { title: "Summer in Winter", ids: ["thailand","bangkok-phuket","canary-islands","tenerife","singapore","egypt","luang-prabang","waitomo","dubai","sharm-el-sheikh","curacao","san-juan","gran-canaria","malaga","alicante","socotra"] },
+  "self-drive": { title: "Self-Drive Road Trips", ids: ["iceland-ring-road","pacific-coast-highway","north-coast-500","wild-atlantic-way","route-66","iceland","scottish-highlands","toscana","puglia","algarve","utah-national-parks","bavaria","valensole","bardenas-reales","albania","lofoten"] },
   winter: { title: "Winter Retreats", ids: ["st-moritz","abisko","iceland","hakone","mount-fuji","vatnajokull","borovets","mardin","livigno","schladming","val-gardena-ski","lapland","tromso","megeve","uludag","niseko","whistler","kopaonik","jahorina","gudauri"] },
 };
 
@@ -2098,6 +2099,8 @@ function initWanderList() {
     const browseCount = document.getElementById("browseCount");
     const browseEmpty = document.getElementById("browseEmpty");
     const cards = Array.from(browseGrid.querySelectorAll(".trip-card"));
+    const driveToggle = document.getElementById("driveToggle");
+    const driveIds = new Set(SEASON_PICKS["self-drive"].ids);
     const seasonKey = new URLSearchParams(window.location.search).get("season");
     const seasonPick = SEASON_PICKS[seasonKey] || null;
     let seasonIds = seasonPick ? new Set(seasonPick.ids) : null;
@@ -2130,7 +2133,8 @@ function initWanderList() {
         const matchesContinent = activeContinent === "all" || continent === activeContinent;
         const matchesSearch = !query || name.includes(query) || (label ? label.includes(query) || (place.includes(query) && !query.includes("(")) : place.includes(query));
         const matchesSeason = !seasonIds || seasonIds.has(href);
-        const isMatch = matchesStyle && matchesContinent && matchesSearch && matchesSeason;
+        const matchesDrive = !driveToggle || driveToggle.getAttribute("aria-pressed") !== "true" || driveIds.has(href);
+        const isMatch = matchesStyle && matchesContinent && matchesSearch && matchesSeason && matchesDrive;
 
         card.classList.toggle("is-hidden", !isMatch);
         if (isMatch) visibleCount++;
@@ -2170,6 +2174,7 @@ function initWanderList() {
         if (note) note.remove();
         document.title = "Browse Travel Itineraries: TripToCost";
       }
+      if (driveToggle && driveToggle.getAttribute("aria-pressed") === "true" && !driveIds.has(id)) { driveToggle.setAttribute("aria-pressed", "false"); driveToggle.classList.remove("active"); }
       applyFilters();
       recordTaste("query", searchInput.value.trim());
     });
@@ -2180,6 +2185,15 @@ function initWanderList() {
     const styleParam = params.get("style");
     const queryParam = params.get("q");
 
+    if (driveToggle) {
+      driveToggle.addEventListener("click", () => {
+        const on = driveToggle.getAttribute("aria-pressed") !== "true";
+        driveToggle.setAttribute("aria-pressed", String(on));
+        driveToggle.classList.toggle("active", on);
+        applyFilters();
+      });
+      if (params.get("drive") === "1") { driveToggle.setAttribute("aria-pressed", "true"); driveToggle.classList.add("active"); }
+    }
     if (queryParam) searchInput.value = queryParam;
     if (styleParam) styleDropdown.selectValue(styleParam);
     applyFilters();
@@ -2301,6 +2315,23 @@ function initWanderList() {
       if (!ids.has(id)) return;
       card.classList.add("is-christmas");
       if (onHub) card.classList.add("no-chip");
+    });
+  })();
+
+  /* ---------- Self-drive trips get a badge on their cards ---------- */
+  (function markSelfDriveCards() {
+    const ids = new Set(SEASON_PICKS["self-drive"].ids);
+    document.querySelectorAll(".trip-card").forEach((card) => {
+      const id = (card.querySelector(".trip-meta a")?.getAttribute("href") || "").replace(/^\/+/, "").replace(/\.html$/, "");
+      if (!ids.has(id)) return;
+      card.classList.add("is-selfdrive");
+      const tags = card.querySelector(".trip-tags");
+      if (tags && !tags.querySelector(".tag-drive")) {
+        const t = document.createElement("span");
+        t.className = "tag tag-drive";
+        t.textContent = "Self-drive";
+        tags.appendChild(t);
+      }
     });
   })();
 

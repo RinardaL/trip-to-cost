@@ -2850,3 +2850,13 @@ strong, b { font-weight: 600; }
   .car-cost-list li { flex-direction: column; gap: 2px; }
   .car-cost-list strong { text-align: left; }
 }
+
+/* ---------- Self-drive badge and Browse toggle ---------- */
+.tag.tag-drive { background: #e9f1ec; color: var(--emerald-dark); border: 1px solid #c9ddd1; }
+.tag.tag-drive::before { content: "\1F697"; margin-right: 4px; font-size: 0.8em; }
+.drive-toggle { white-space: nowrap; }
+.drive-toggle.active, .drive-toggle[aria-pressed="true"] { background: var(--emerald-dark); color: #fff; border-color: var(--emerald-dark); }
+.calc-check { display: flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+.calc-check input { width: 18px; height: 18px; accent-color: var(--emerald-dark); }
+.calc-car-note { margin: 6px 0 0; font-size: 0.82rem; color: var(--charcoal-soft); }
+.calc-car[hidden] { display: none; }

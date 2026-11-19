@@ -7,6 +7,7 @@
 - [Winter Sun](https://triptocost.com/winter-sun-destinations): 16 itineraries, prices per person
 - [Winter Trips](https://triptocost.com/winter-trips): 20 itineraries, prices per person
 - [Autumn Trips](https://triptocost.com/autumn-trips): 8 itineraries, prices per person
+- [Self-Drive Road Trips](https://triptocost.com/self-drive-trips): 16 itineraries by hire car, route and car costs, prices per person
 
 ## Country and region guides
 - [France itineraries](https://triptocost.com/france-itineraries): 10 trips, $480-$1,950 per person

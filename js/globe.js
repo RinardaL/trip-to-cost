@@ -147,6 +147,8 @@ const DESTINATIONS = [
   { name: "North Coast 500, Scotland", lat: 58.1, lon: -4.9, href: "north-coast-500" },
   { name: "Route 66, USA", lat: 35.2, lon: -112, href: "route-66" },
   { name: "Iceland Ring Road, Iceland", lat: 64.9, lon: -18.2, href: "iceland-ring-road" },
+  { name: "San Francisco, USA", lat: 37.77, lon: -122.42, href: "san-francisco" },
+  { name: "Los Angeles, USA", lat: 34.05, lon: -118.24, href: "los-angeles" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
